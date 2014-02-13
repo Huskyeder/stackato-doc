@@ -47,7 +47,7 @@ variable. To access this in a node application::
 Likewise, the host IP address is exposed by ``VCAP_APP_HOST``::
 
   process.env.VCAP_APP_HOST
-    
+  
 To make the application usable in both local and Stackato deployments,
 use structures such as::
 
@@ -63,9 +63,25 @@ STACKATO_SERVICES, DATABASE_URL, or a database-specific environment
 variable (see also :ref:`Using Configured Database Services
 <database-accessing>`).
 
-``VCAP_SERVICES`` is a JSON object containing information about all the
-data service bound to the application. A typical ``VCAP_SERVICES``
-variable containing a single MongoDB service might look like this::
+If the database module you use supports URL-formatted connection
+strings, using the :ref:`DATABASE_URL <database-database-url>` or
+:ref:`database-specific URL variable <database-specific-url>`
+(REDIS_URL, MONGODB_URL, etc.) is often the simplest option.
+
+Use the variable in your code to connect your application to the
+database. For example::
+
+  console.log("attempting to connect to mongodb");
+  if(process.env.MONGODB_URL){
+    mongoose.connect(process.env.MONGODB_URL);
+  } else {
+    mongoose.connect("127.0.0.1", "myappdb", 27017);
+  }
+
+Alternatively, ``VCAP_SERVICES`` is a JSON object containing information
+about all the data service bound to the application. A typical
+``VCAP_SERVICES`` variable containing a single MongoDB service might
+look like this::
 
   {
     "mongodb": [
@@ -110,8 +126,3 @@ application::
 
 This is the typical pattern used for all databases exposed by VCAP_SERVICES.
 
-If the database module you are use supports URL-formatted connection
-strings, using the :ref:`DATABASE_URL <database-database-url>` or
-:ref:`database-specific URL variable <database-specific-url>`
-(REDIS_URL, MONGODB_URL, etc.) is often a simpler and more concise
-option.
