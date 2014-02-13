@@ -9,4 +9,4 @@
   * creating a symlink from a directory in your $PATH, or
   * creating a shell alias for the executable.
 
-4. Confirm that the client is installed correctly by running ``stackato -v`` or ``stackato help``.
+4. Confirm that the client is installed correctly by running ``stackato help``.

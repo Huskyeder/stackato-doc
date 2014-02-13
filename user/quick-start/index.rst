@@ -105,6 +105,14 @@ To set the Space you want to deploy applications to::
   Organization: test-org
   Space:        dev
 
+.. note::
+
+  If your account is not a member of a Space, you will need an
+  Organization Manager to add you as a Developer. If you are an
+  Organization manager (or Admin), you can create create new Spaces in
+  the :ref:`Management Console <user-console-space>` or with the
+  :ref:`stackato create-space <command-create-space>` command. 
+
 
 .. _quickstart-deploying-apps:
 
