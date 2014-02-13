@@ -197,6 +197,9 @@ services. To do so, run the following commands::
 
     $ sudo /etc/init.d/networking restart
 
+You will see a deprecation warning about the ``restart`` option, which
+can safely be ignored in this context.
+
 .. note::
 
   If you are setting a new static IP *after* having configured the VM as
