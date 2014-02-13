@@ -62,24 +62,16 @@ a raw image of Stackato to OpenStack and makes it publicly available:
     --file stackato-img-kvm-|version|.0.img
 
 The unzipped KVM image is quite large (around 10GB) and will take a long
-time to upload on some networks. You can use one of the following steps
-to make it smaller first:
+time to upload on some networks. You can convert the image to compressed
+qcow2 format to make it smaller:
 
-* Copy the image to create a 'sparse' file:
-  
-  .. parsed-literal::
+.. parsed-literal::
 
-    $ cp --sparse=always stackato-img-kvm-|version|.0.img stackato-sparse.img 
+  $ qemu-img convert -c -O qcow2 stackato-img-kvm-|version|.0.img stackato-|version|.0.qcow2
 
-* Convert the image to compressed qcow2 format:
-
-  .. parsed-literal::
-
-    $ qemu-img convert -c -O qcow2 stackato-img-kvm-|version|.0.img stackato-qcow.img
-
-Using either of the resultant images will significantly speed up the
-``glance image-create`` step. Specify ``--disk-format=qcow2`` when using
-a qcow2 source image.
+Using the resultant image will significantly speed up the ``glance
+image-create`` step. Specify ``--disk-format=qcow2`` when using a qcow2
+source image.
 
 
 Adding a keypair
