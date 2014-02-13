@@ -151,7 +151,6 @@ In order to leave as much memory as possible available for user
 applications, the micro cloud starts with a number of services
 disabled by default:
 
-* Filesystem
 * Memcached
 * Redis
 * RabbitMQ
