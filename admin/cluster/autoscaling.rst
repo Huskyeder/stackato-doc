@@ -104,11 +104,6 @@ The options in */s/etc/autoscaling/autoscaling.yaml* are:
     Specifies how long the scaler will wait for the plugin to complete
     a scale up operation (Default: 300, Unit: seconds).
 
-``cooldown_period``
-    After a scaling event, ignore subsequent scaling requests until this
-    period expires. Prevents duplicate scaling events. (Default: 120,
-    Unit: seconds)
-
 ``vm_name_prefix``
     Gives the new Stackato VM instance a name with this prefix to easily
     identify autoscaled instances.
