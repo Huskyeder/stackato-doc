@@ -399,6 +399,25 @@ Example::
 
   instances: 2
 	
+.. _stackato_yml-scaling:
+
+scaling:
+^^^^^^^^
+
+The optional ``scaling`` block enables :ref:`application auto-scaling
+<app-autoscaling>`. It must contain an ``instances`` and
+``cpu-threshold`` key, each with ``min`` and ``max`` values.
+
+Example::
+
+  scaling:
+    instances:
+      min: 4
+      max: 10
+    cpu-threshold:
+      min: 30
+      max: 85
+
 
 .. _stackato_yml-url:
 
