@@ -437,9 +437,21 @@ List of URLs mapped to the application. For example::
     - blog.example.org
     - exampleblog.com
 
-With this key specified, Stackato will not assign a default
-"appname.paasname.com" URL to the application. If you would like this URL
-assigned as well, add ``${name}.${target-base}`` to the list of URLs. 
+
+With the ``url`` key set, Stackato assigns the specified URLs to the
+application being pushed. The mapped URL must use a :ref:`domain name
+that has been assigned to the current Space <orgs-spaces-domains>`.
+
+If the key is not set, and only one domain is assigned to the Space
+Stackato will construct a default URL (e.g. "appname.domain.com"). To
+enable this behavior explicitly (e.g. if you are setting several URLS),
+use the following special variables::
+
+  url:
+    - ${name}.${target-base}
+
+If the key is explicitly set to empty (``url: []``), Stackato will
+deploy the application without a URL as a worker.
 
 See :ref:`Mapping App URLs <deploy-map-url>` for more information.
 
