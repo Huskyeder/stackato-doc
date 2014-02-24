@@ -1914,12 +1914,19 @@ Applications
 		Defaults to a framework-specific value if required
 		and not specified by stackato.yml.
 	    
+        --description
+          
+		The description associated with the application.
+		This is a Stackato 3.2 specific option.
+	    
         --disk
           
 		The application's per-instance disk allocation.
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
 	    
+        --distribution-zone
+          Alias of --placement-zone.
         --env
           
 		Environment variable overrides. These are always applied
@@ -1962,11 +1969,39 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
+        --max-cpu-threshold
+          
+		Auto-scaling support.
+		Scale up when the average CPU usage exceeds this threshold
+		for the previous minute and --max-instances has not been
+		reached yet.
+		This is a Stackato 3.2 specific option.
+	    
+        --max-instances
+          
+		Auto-scaling support.
+		The maximal number of instances for the application.
+		This is a Stackato 3.2 specific option.
+	    
         --mem
           
 		The application's per-instance memory allocation.
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
+	    
+        --min-cpu-threshold
+          
+		Auto-scaling support.
+		Scale down when the average CPU usage dropped below this
+		threshold for the previous minute and --min-instances has
+		not been reached yet.
+		This is a Stackato 3.2 specific option.
+	    
+        --min-instances
+          
+		Auto-scaling support.
+		The minimal number of instances for the application.
+		This is a Stackato 3.2 specific option.
 	    
         --no-framework
           
@@ -1978,6 +2013,8 @@ Applications
           
 	    Disable interactive queries.
 	
+        --no-sso-enabled
+          Complementary alias of --sso-enabled.
         --no-tail
           Complementary alias of --tail.
         --no-trace
@@ -1996,6 +2033,11 @@ Applications
 	    Path of the directory holding the application files to push.
 	    Defaults to the current working directory.
 	
+        --placement-zone
+          
+		The placement zone associated with the application.
+		This is a Stackato 3.2 specific option.
+	    
         --reset
           
 		Analogue of --env-mode, for the regular settings.
@@ -2019,6 +2061,12 @@ Applications
 	    by guid. This is a Stackato 3 option.
 	    Cannot be used together with --space.
 	
+        --sso-enabled
+          
+		A boolean flag associated with the application
+		determining whether it requests single-sign-on or not.
+		This is a Stackato 3.2 specific option.
+	    
         --stack
           
 		The OS foundation the application will run on.
@@ -2058,6 +2106,8 @@ Applications
 		The urls to map the application to.
 		I.e. can be specified muliple times.
 	    
+        --zone
+          Alias of --placement-zone.
         -d
           
 		Set up debugging through an application-specific
@@ -2841,12 +2891,19 @@ Applications
 		Links pointing outside of the application directory
 		are copied into the application.
 	    
+        --description
+          
+		The description associated with the application.
+		This is a Stackato 3.2 specific option.
+	    
         --disk
           
 		The application's per-instance disk allocation.
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
 	    
+        --distribution-zone
+          Alias of --placement-zone.
         --env
           
 		Environment variable overrides. These are always applied
@@ -2889,11 +2946,39 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
+        --max-cpu-threshold
+          
+		Auto-scaling support.
+		Scale up when the average CPU usage exceeds this threshold
+		for the previous minute and --max-instances has not been
+		reached yet.
+		This is a Stackato 3.2 specific option.
+	    
+        --max-instances
+          
+		Auto-scaling support.
+		The maximal number of instances for the application.
+		This is a Stackato 3.2 specific option.
+	    
         --mem
           
 		The application's per-instance memory allocation.
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
+	    
+        --min-cpu-threshold
+          
+		Auto-scaling support.
+		Scale down when the average CPU usage dropped below this
+		threshold for the previous minute and --min-instances has
+		not been reached yet.
+		This is a Stackato 3.2 specific option.
+	    
+        --min-instances
+          
+		Auto-scaling support.
+		The minimal number of instances for the application.
+		This is a Stackato 3.2 specific option.
 	    
         --no-framework
           
@@ -2909,6 +2994,8 @@ Applications
           
 		Do not optimize upload by checking for existing file resources.
 	    
+        --no-sso-enabled
+          Complementary alias of --sso-enabled.
         --no-start
           
 		Push, but do not start the application.
@@ -2935,6 +3022,11 @@ Applications
 	    Path of the directory holding the application files to push.
 	    Defaults to the current working directory.
 	
+        --placement-zone
+          
+		The placement zone associated with the application.
+		This is a Stackato 3.2 specific option.
+	    
         --reset
           
 		Analogue of --env-mode, for the regular settings.
@@ -2958,6 +3050,12 @@ Applications
 	    by guid. This is a Stackato 3 option.
 	    Cannot be used together with --space.
 	
+        --sso-enabled
+          
+		A boolean flag associated with the application
+		determining whether it requests single-sign-on or not.
+		This is a Stackato 3.2 specific option.
+	    
         --stack
           
 		The OS foundation the application will run on.
@@ -3011,6 +3109,8 @@ Applications
 		The urls to map the application to.
 		I.e. can be specified muliple times.
 	    
+        --zone
+          Alias of --placement-zone.
         -d
           
 		Set up debugging through an application-specific
@@ -3361,9 +3461,37 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
+        --max-cpu-threshold
+          
+		Auto-scaling support.
+		Scale up when the average CPU usage exceeds this threshold
+		for the previous minute and --max-instances has not been
+		reached yet.
+		This is a Stackato 3.2 specific option.
+	    
+        --max-instances
+          
+		Auto-scaling support.
+		The maximal number of instances for the application.
+		This is a Stackato 3.2 specific option.
+	    
         --mem
           
 		The new memory reservation to use.
+	    
+        --min-cpu-threshold
+          
+		Auto-scaling support.
+		Scale down when the average CPU usage dropped below this
+		threshold for the previous minute and --min-instances has
+		not been reached yet.
+		This is a Stackato 3.2 specific option.
+	    
+        --min-instances
+          
+		Auto-scaling support.
+		The minimal number of instances for the application.
+		This is a Stackato 3.2 specific option.
 	    
         --no-prompt
           
@@ -3454,7 +3582,7 @@ Applications
 .. _command-scp:
 
       stackato scp  *<paths>*       
-        Copy source files and directories to the destination.
+        Copy files and directories to and from application containers. The colon ":" character preceding a specified source or destination indicates a remote file or path. Sources and destinations can be file names, directory names, or full paths.
 
         .. raw:: html
 
@@ -4049,6 +4177,315 @@ Applications
 
       stackato unset-env  *<application>*  *<varname>*       
         Remove the specified environment variable from the named application.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --group
+          
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+        --manifest
+          
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+        --no-prompt
+          
+	    Disable interactive queries.
+	
+        --no-tail
+          Complementary alias of --tail.
+        --no-trace
+          Complementary alias of --trace.
+        --non-interactive
+          Alias of --no-prompt.
+        --noprompt
+          Alias of --no-prompt.
+        --organization
+          
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+        --path
+          
+	    Path of the directory holding the application files to push.
+	    Defaults to the current working directory.
+	
+        --space
+          
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+        --space-guid
+          
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+        --tail
+          
+	    Request target to stream the log.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --timeout
+          
+	    The time the client waits for an application to
+	    start before giving up and returning, in seconds.
+	    Note that this is measured from the last entry
+	    seen in the log stream. While there is activity
+	    in the log the timeout is reset.
+
+	    The default is 2 minutes.
+
+	    Use the suffixes 'm', 'h', and 'd' for the convenient
+	    specification of minutes, hours, and days. The optional
+	    suffix 's' stands for seconds.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        --trace
+          
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
+        -n
+          Alias of --no-prompt.
+        -o
+          Alias of --organization.
+        -t
+          Alias of --trace.
+
+
+    
+.. _command-Applications-Placement:
+    
+  **Placement**
+      
+.. _command-placement-zones:
+
+      stackato placement-zones       
+        Show the available placement zones. This is a Stackato 3.2+ specific command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --json
+          
+	    Print raw json as output, not human-formatted data.
+	
+        --no-prompt
+          
+	    Disable interactive queries.
+	
+        --no-trace
+          Complementary alias of --trace.
+        --non-interactive
+          Alias of --no-prompt.
+        --noprompt
+          Alias of --no-prompt.
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        --trace
+          
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
+        -n
+          Alias of --no-prompt.
+        -t
+          Alias of --trace.
+
+
+.. _command-placement-zone:
+
+      stackato placement-zone  *<zone>*       
+        Show the list of DEAs associated with the specified placement zone. This is a Stackato 3.2+ specific command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --json
+          
+	    Print raw json as output, not human-formatted data.
+	
+        --no-prompt
+          
+	    Disable interactive queries.
+	
+        --no-trace
+          Complementary alias of --trace.
+        --non-interactive
+          Alias of --no-prompt.
+        --noprompt
+          Alias of --no-prompt.
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        --trace
+          
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
+        -n
+          Alias of --no-prompt.
+        -t
+          Alias of --trace.
+
+
+.. _command-set-placement-zone:
+
+      stackato set-placement-zone  *<application>*  *<zone>*       
+        Associate the application with a specific placement zone. This is a Stackato 3.2+ specific command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --group
+          
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+        --manifest
+          
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+        --no-prompt
+          
+	    Disable interactive queries.
+	
+        --no-tail
+          Complementary alias of --tail.
+        --no-trace
+          Complementary alias of --trace.
+        --non-interactive
+          Alias of --no-prompt.
+        --noprompt
+          Alias of --no-prompt.
+        --organization
+          
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+        --path
+          
+	    Path of the directory holding the application files to push.
+	    Defaults to the current working directory.
+	
+        --space
+          
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+        --space-guid
+          
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+        --tail
+          
+	    Request target to stream the log.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --timeout
+          
+	    The time the client waits for an application to
+	    start before giving up and returning, in seconds.
+	    Note that this is measured from the last entry
+	    seen in the log stream. While there is activity
+	    in the log the timeout is reset.
+
+	    The default is 2 minutes.
+
+	    Use the suffixes 'm', 'h', and 'd' for the convenient
+	    specification of minutes, hours, and days. The optional
+	    suffix 's' stands for seconds.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        --trace
+          
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
+        -n
+          Alias of --no-prompt.
+        -o
+          Alias of --organization.
+        -t
+          Alias of --trace.
+
+
+.. _command-unset-placement-zone:
+
+      stackato unset-placement-zone  *<application>*       
+        Remove the association between application and its current placement zone. This is a Stackato 3.2+ specific command.
 
         .. raw:: html
 
@@ -6823,6 +7260,126 @@ Domains
 ^^^^^^^^^^^^^^^^^^^^^
 
     
+.. _command-create-domain:
+  
+  stackato create-domain  *<name>* 
+    Create a new domain. This is a Stackato 3.2+ specific command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --no-trace
+      Complementary alias of --trace.
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --organization
+      
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+    --shared
+      
+		Mark the new domain as shared by all organizations.
+		If not present the new domain will be owned by and
+		private to the current or specified organization.
+	    
+    --space
+      
+	    The name of the space to use as context.
+
+	    Defaults to the current space.
+
+	    A current space is automatically set if there is none,
+	    either by taking the one space the user has, or
+	    asking the user to choose among the possibilities.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    --trace
+      
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
+    -n
+      Alias of --no-prompt.
+    -o
+      Alias of --organization.
+    -t
+      Alias of --trace.
+    
+.. _command-delete-domain:
+  
+  stackato delete-domain  *<name>* 
+    Delete the named domain. This is a Stackato 3.2+ specific command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --no-trace
+      Complementary alias of --trace.
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    --trace
+      
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
+    -n
+      Alias of --no-prompt.
+    -t
+      Alias of --trace.
+    
 .. _command-domains:
   
   stackato domains 
@@ -6901,7 +7458,7 @@ Domains
 .. _command-map-domain:
   
   stackato map-domain  *<name>* 
-    Add the named domain to an organization or space. This is a Stackato 3 specific command.
+    Add the named domain to an organization or space. This is a Stackato 3 specific command. This command is not supported by Stackato 3.2 or higher.
 
     .. raw:: html
     
@@ -6969,7 +7526,7 @@ Domains
 .. _command-unmap-domain:
   
   stackato unmap-domain  *<name>* 
-    Remove the named domain from an organization or space. This is a Stackato 3 specific command.
+    Remove the named domain from an organization or space. This is a Stackato 3 specific command. This command is not supported by Stackato 3.2 or higher.
 
     .. raw:: html
     
@@ -7179,7 +7736,7 @@ Administration
 .. _command-admin report:
   
   stackato admin report  *<destination>* 
-    Retrieve a report containing the logs of the current or specified target.
+    Retrieve a report containing the logs of the current or specified target. This is a stackato-specific command.
 
     .. raw:: html
     
@@ -7908,6 +8465,11 @@ Administration
       
 		Applications can use non-free services.
 	    
+    --routes
+      
+		Limit for the number of routes in the quota.
+		This is a Stackato 3.2+ specific setting.
+	    
     --services
       
 		Limit for the number of services in the quota.
@@ -7979,6 +8541,11 @@ Administration
     --paid-services-allowed
       
 		Applications can use non-free services.
+	    
+    --routes
+      
+		Limit for the number of routes in the quota.
+		This is a Stackato 3.2+ specific setting.
 	    
     --services
       
@@ -9191,78 +9758,6 @@ Miscellaneous
 ^^^^^^^^^^^^^^^^^^^^^
 
     
-.. _command-admin exit:
-  
-  stackato admin exit 
-    Exit the shell. No-op if not in a shell.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
-    
-.. _command-admin help:
-  
-  stackato admin help  *<cmdname>* 
-    Retrieve help for a command or command set. Without arguments help for all commands is given. The default format is --full.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --by-category
-      
-		Activate by-category form of the help.
-	    
-    --full
-      
-		Activate full form of the help.
-	    
-    --json
-      
-		Activate json form of the help.
-	    
-    --list
-      
-		Activate list form of the help.
-	    
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    --short
-      
-		Activate short form of the help.
-	    
-    --width
-      
-	    The line width to format the help for.
-	    Defaults to the terminal width, or 80 when
-	    no terminal is available.
-	
-    -n
-      Alias of --no-prompt.
-    -w
-      Alias of --width.
-    
 .. _command-curl:
   
   stackato curl  *<operation>*  *<path>*  *<header>* 
@@ -9335,172 +9830,6 @@ Miscellaneous
     -n
       Alias of --no-prompt.
     
-.. _command-drain exit:
-  
-  stackato drain exit 
-    Exit the shell. No-op if not in a shell.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
-    
-.. _command-drain help:
-  
-  stackato drain help  *<cmdname>* 
-    Retrieve help for a command or command set. Without arguments help for all commands is given. The default format is --full.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --by-category
-      
-		Activate by-category form of the help.
-	    
-    --full
-      
-		Activate full form of the help.
-	    
-    --json
-      
-		Activate json form of the help.
-	    
-    --list
-      
-		Activate list form of the help.
-	    
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    --short
-      
-		Activate short form of the help.
-	    
-    --width
-      
-	    The line width to format the help for.
-	    Defaults to the terminal width, or 80 when
-	    no terminal is available.
-	
-    -n
-      Alias of --no-prompt.
-    -w
-      Alias of --width.
-    
-.. _command-exit:
-  
-  stackato exit 
-    Exit the shell. No-op if not in a shell.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
-    
-.. _command-groups exit:
-  
-  stackato groups exit 
-    Exit the shell. No-op if not in a shell.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
-    
-.. _command-groups help:
-  
-  stackato groups help  *<cmdname>* 
-    Retrieve help for a command or command set. Without arguments help for all commands is given. The default format is --full.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --by-category
-      
-		Activate by-category form of the help.
-	    
-    --full
-      
-		Activate full form of the help.
-	    
-    --json
-      
-		Activate json form of the help.
-	    
-    --list
-      
-		Activate list form of the help.
-	    
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    --short
-      
-		Activate short form of the help.
-	    
-    --width
-      
-	    The line width to format the help for.
-	    Defaults to the terminal width, or 80 when
-	    no terminal is available.
-	
-    -n
-      Alias of --no-prompt.
-    -w
-      Alias of --width.
-    
 .. _command-guid:
   
   stackato guid  *<type>*  *<name>* 
@@ -9527,56 +9856,6 @@ Miscellaneous
     -n
       Alias of --no-prompt.
     
-.. _command-help:
-  
-  stackato help  *<cmdname>* 
-    Retrieve help for a command or command set. Without arguments help for all commands is given. The default format is --full.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --by-category
-      
-		Activate by-category form of the help.
-	    
-    --full
-      
-		Activate full form of the help.
-	    
-    --json
-      
-		Activate json form of the help.
-	    
-    --list
-      
-		Activate list form of the help.
-	    
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    --short
-      
-		Activate short form of the help.
-	    
-    --width
-      
-	    The line width to format the help for.
-	    Defaults to the terminal width, or 80 when
-	    no terminal is available.
-	
-    -n
-      Alias of --no-prompt.
-    -w
-      Alias of --width.
-    
 .. _command-named-entities:
   
   stackato named-entities 
@@ -9602,78 +9881,6 @@ Miscellaneous
       Alias of --no-prompt.
     -n
       Alias of --no-prompt.
-    
-.. _command-quota exit:
-  
-  stackato quota exit 
-    Exit the shell. No-op if not in a shell.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
-    
-.. _command-quota help:
-  
-  stackato quota help  *<cmdname>* 
-    Retrieve help for a command or command set. Without arguments help for all commands is given. The default format is --full.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --by-category
-      
-		Activate by-category form of the help.
-	    
-    --full
-      
-		Activate full form of the help.
-	    
-    --json
-      
-		Activate json form of the help.
-	    
-    --list
-      
-		Activate list form of the help.
-	    
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    --short
-      
-		Activate short form of the help.
-	    
-    --width
-      
-	    The line width to format the help for.
-	    Defaults to the terminal width, or 80 when
-	    no terminal is available.
-	
-    -n
-      Alias of --no-prompt.
-    -w
-      Alias of --width.
     
 .. _command-trace:
   

@@ -142,8 +142,13 @@ Tabs:
 
 * Timeline: An application-specific subset of the Timeline for the Space.
 
-* Instances: List of application instances showing the status and host
-  DEA IP address of each.
+* Instances:
+
+  * Application Autoscaling Settings: CPU Threshold and Instances
+    sliders for configuring :ref:`Application Autoscaling
+    <app-autoscaling>`.
+  * Instance Status: A list of application instances showing the status
+    and host DEA IP address of each.
 
 * Logs: A real time stream of your applications logs.
 

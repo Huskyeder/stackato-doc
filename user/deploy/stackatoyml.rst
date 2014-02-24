@@ -398,15 +398,20 @@ to 1. Can be specified on the command line (eg. ``stackato push --instances 2``)
 Example::
 
   instances: 2
-	
+
+.. note::
+  If set, values in the ``scaling`` section will override the top-level
+  ``instances`` setting. The number specified here becomes the initial
+  number of instances started in the pool.
+  
 .. _stackato_yml-scaling:
 
 scaling:
 ^^^^^^^^
 
 The optional ``scaling`` block enables :ref:`application auto-scaling
-<app-autoscaling>`. It must contain an ``instances`` and
-``cpu-threshold`` key, each with ``min`` and ``max`` values.
+<app-autoscaling>`. It must contain ``instances`` and ``cpu-threshold``
+keys, each with ``min`` and ``max`` values.
 
 Example::
 
