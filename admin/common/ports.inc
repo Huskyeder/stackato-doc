@@ -85,3 +85,17 @@ Comments:
 * The optional Harbor port service has a configurable port range
   (default 41000 - 61000) which can be exposed externally if required.
   
+Service Nodes
+^^^^^^^^^^^^^
+
+In addition to the ports listed above for service nodes and gateways,
+several service nodes assign a port for each individual user-requested
+service instance. These ranges should be kept open between DEA nodes and
+their respective service nodes. The default ranges are:
+
+* harbor: 35000 - 40000
+* memcached: 11000 - 11050
+* mongodb: 25001 - 45000
+* rabbit: 20001 - 25000
+* rabbit3: 15001 - 20000
+* redis: 5000 - 25000
