@@ -884,7 +884,7 @@ using the ${*key*} syntax. For example::
   env:
     MY_NAME: ${name}
 
-This defines a "MY_NAME" environment variable with the value
+This defines a "$MY_NAME" environment variable with the value
 "example-app".
 
 A small number of keys are predefined for your use within *stackato.yml*:
@@ -901,6 +901,20 @@ A small number of keys are predefined for your use within *stackato.yml*:
      - The hostname of the targetted Stackato system, for example **stackato-xxxx.local**
    * - ${target-url}
      - The URL of the targetted API endpoint, for example **https://api.stackato-xxxx.local**
+   * - ${ask QUESTION TEXT}
+     - Interactively prompt for user input
+
+The special ${ask} variable instructs the ``stackato`` client to prompt
+the user for a value when the application is pushed, displaying optional
+query text. For example::
+
+  env:
+    USER_TOKEN: ${ask Enter user token}
+
+This will prompt the user with "Enter user token" during push and
+populate a $USER_TOKEN environment variable in the container with the
+user's response. Everything after the first space up to the closing
+brace is displayed to the user.
 
 .. note::
     See the :ref:`services <stackato_yml-services>` section for an
