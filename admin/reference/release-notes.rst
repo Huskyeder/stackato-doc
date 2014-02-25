@@ -26,6 +26,8 @@ Release Notes
 
   * [102706] - ???
 
+  * [102771] - app log stream now includes crash events
+
 
 v3.0.1 (December 18, 2013)
 --------------------------
