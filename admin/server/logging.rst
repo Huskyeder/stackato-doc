@@ -393,7 +393,7 @@ Drain Timeouts
   * once every 5 seconds for 1 to 2 minutes
   * once every 30 seconds for 5 minutes
   * once every 1 minute for 10 minutes
-  * once every 5 minutes until connect or destroyed
+  * once every 5 minutes until connected or destroyed
 
   This ensures that once connectivity is restored, the drains will
   re-establish their connections within (at most) 5 minutes.
@@ -410,15 +410,17 @@ Drain Timeouts
     appdrain.: 24h
     tmp.: 25m
     
-  To set a timout (minimum 21m), use :ref:`kato config set
-  <kato-command-ref-config>`. For example, to set the timeout limit to 10
-  hours on all drains named with the prefix "papertrail"::
+  To set a timout (in minutes with "m", or hours with "h"), use
+  :ref:`kato config set <kato-command-ref-config>` . For example, to set
+  the timeout limit to 10 hours on all drains named with the prefix
+  "papertrail"::
   
     $ kato config set logyard retrylimits/papertrail 10h
   
-  These limits will take effect on new drains, deleted/re-created drains,
-  or for all matching drains after ``kato process restart logyard`` has
-  been run on all nodes.
+  Timeouts should not be set shorter than 21 minutes. The limits will
+  take effect on new drains, deleted/re-created drains, or for all
+  matching drains after ``kato process restart logyard`` has been run on
+  all nodes. 
 
 
 .. _logging-user-limits:
