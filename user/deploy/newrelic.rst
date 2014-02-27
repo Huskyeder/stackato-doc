@@ -9,13 +9,13 @@ New Relic Monitoring
     These instructions are for use with Stackato. For further details, please see the
     `New Relic site <http://newrelic.com/docs/python/new-relic-for-python>`_.
 
-New Relic can be used to track your application analytics running in Stackato as 
-well as for server monitoring. The languages it can currently be used with are:
+New Relic can be used to track your application analytics running in
+Stackato as well as for server monitoring. The languages it can
+currently be used with on Stackato are:
 
 #. :ref:`Ruby <newrelic-ruby>`
 #. :ref:`Python <newrelic-python>`
 #. :ref:`Java <newrelic-java>`
-#. :ref:`PHP <newrelic-php>`
 
 In order to use New Relic, you need a `New Relic account <http://newrelic.com>`_.
 
@@ -87,15 +87,15 @@ The minimal steps requried to integrate New Relic to your Python WSGI applicatio
 
 #. In *wsgi.py*, wrap your ``application`` WSGI entry point, eg::
 
-        application = newrelic.agent.wsgi_application()(application)
+    application = newrelic.agent.wsgi_application()(application)
 
 #. Add required newrelic environment variables to *stackato.yml*::
 
-        env:
-              NEW_RELIC_LOG: stderr
-              NEW_RELIC_LOG_LEVEL: DEBUG  # <- this is optional
-              NEW_RELIC_APP_NAME: <your application name>
-              NEW_RELIC_LICENSE_KEY: <your license key>
+    env:
+      NEW_RELIC_LOG: stderr
+      NEW_RELIC_LOG_LEVEL: DEBUG  # <- this is optional
+      NEW_RELIC_APP_NAME: <your application name>
+      NEW_RELIC_LICENSE_KEY: <your license key>
 
 An alternative to modifying your python is to wrap ``$PROCESSES_WEB`` in *stackato.yml* 
 with `newrelic-admin <https://newrelic.com/docs/python/python-agent-admin-script>`_.
@@ -133,50 +133,6 @@ Pet Catalog Example
 
 `Pet Catalog (Java EE) with New Relic on GitHub <https://github.com/Stackato-Apps/pet-catalog/tree/newrelic>`_.
 
-.. _newrelic-php:
-
-New Relic for PHP
------------------
-
-The New Relic agent PHP libraries are pre-installed on Stackato. To add
-monitoring, you need to add an agent configuration file to the root
-directory of the application and make some modifications to *stackato.yml*.
-
-* Add a ``newrelic.ini`` file in :term:`HOME` directory containing the following::
-
-    extension=newrelic.so
-
-    newrelic.daemon.logfile="/home/stackato/logs/newrelic-daemon.log"
-    newrelic.daemon.loglevel="warning"
-
-    newrelic.logfile="/home/stackato/logs/php_agent.log"
-    newrelic.loglevel="warning"
-
-    newrelic.license="XXXXXXX-your-new-relic-key-XXXXXXXXXXX"
-    newrelic.appname="YourAppName"
-
-  The ``license_key`` can be found in your 'Account settings' page on New
-  Relic.
-  
-  Set ``newrelic.appname`` to the actual name of your application as you
-  would like it to appear in your New Relic dashboard. 
-  
-  The above settings are described in detail in the 
-  `New Relic PHP Agent Settings documentation
-  <http://newrelic.com/docs/php/php-agent-phpini-settings>`_.
-
-* Add the following section to a "hooks" section in *stackato.yml*::
-
-    hooks:
-        pre-running:
-        - mv -f newrelic.ini $STACKATO_APP_ROOT/apache/php/newrelic.ini
-
-
-
-WordPress Example
-^^^^^^^^^^^^^^^^^
-
-`WordPress with New Relic on GitHub <https://github.com/Stackato-Apps/wordpress/tree/newrelic>`_.
 
 Results
 -------
