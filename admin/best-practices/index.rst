@@ -263,6 +263,11 @@ Stackato VM as per the `New Relic Server Monitor installation (Ubuntu)
 <http://docs.newrelic.com/docs/server/server-monitor-installation-ubuntu-and-debian>`_
 instructions.
 
+If you would like to use nrsysmond to monitor application containers,
+install the ``newrelic-sysmond`` package in the Docker image by
+scripting the installation steps above in the Dockerfile of a :ref:`new
+container image <docker-modify-container>`. 
+
 .. _bestpractices-nagios:
 
 System Monitoring with Nagios
