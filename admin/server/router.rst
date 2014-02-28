@@ -96,3 +96,12 @@ so long as the connection consumers (the application server and browser)
 support it.
 
 
+Router SSL/TLS
+--------------
+
+See the :ref:`HTTPS & SSL <server-config-https>` section for information on:
+
+* :ref:`Using your own SSL certificate <server-config-ssl-cert-own-use>`
+* :ref:`Customizing the Cipher Suites <server-config-ssl-cipher-suites>`
+* :ref:`Adding Custom SSL Certs (SNI) <server-config-sni-support>`
+* :ref:`CA Certificate Chaining <server-config-ssl-cert-chain>`

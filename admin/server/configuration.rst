@@ -621,11 +621,35 @@ Using your own SSL certificate
 
 On all router nodes, upload your *.key* file to the */etc/ssl/private/*
 directory and your *.crt* file to */etc/ssl/certs/*. Change the following
-settings in */s/code/stackato-router/config/local.json* to point to
-the new files::
+settings with ``kato config`` to point to the new files::
 
   "sslKeyFile": "/etc/ssl/private/example.key",
   "sslCertFile": "/etc/ssl/certs/example.crt",
+
+  $ kato config set router2g ssl/key_file_path '/etc/ssl/private/example.key'
+  $ kato config set router2g ssl/cert_file_path '/etc/ssl/certs/example.crt'
+  
+
+.. _server-config-ssl-cipher-suites:
+
+.. index:: Router Cipher Suites
+
+Customizing the Cipher Suites
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The router's `TLS cipher suite
+<http://en.wikipedia.org/wiki/Cipher_suite>`_ can be modified using
+``kato config``. For example::
+
+  kato config set router2g ssl/cipher_suite 'ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:RC4+RSA:+HIGH:+MED'
+
+The setting above is the default for the Stackato router. See OpenSSL's
+`Cipher List Format
+<https://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT>`_
+and `Cipher Strings
+<https://www.openssl.org/docs/apps/ciphers.html#CIPHER_STRINGS>`
+documentation for valid values.
+
 
 .. _server-config-sni-support:
 
