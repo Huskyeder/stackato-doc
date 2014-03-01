@@ -69,7 +69,15 @@ With these set, the client will recognize these settings and route
 appropriately. On Windows the client queries the Internet Settings
 values so this step should not be necessary.
 
-
+.. note::
+  If you are using Windows on a network with an HTTP proxy, and have
+  modified the *%SystemRoot%\system32\drivers\etc\hosts* file to resolve
+  a local micro cloud VM, the stackato client may attempt to use this
+  when connecting to your local VM and fail because the entry in *hosts*
+  is not reflected in the proxy. To work around this problem, enable
+  ``\*.local`` in the ``ProxyOverride`` registry key
+  ``HCU/Software/Microsoft/Windows/CurrentVersion/Internet Settings``.
+  
 .. _client-uninstall:
 
 .. index:: Uninstall Client 

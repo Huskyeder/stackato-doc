@@ -481,22 +481,13 @@ TCP/UDP Port Configuration
 
 HTTP Proxy
 ^^^^^^^^^^
-
-.. note::
-	If your network has an HTTP proxy, the stackato client may
-	attempt to use this when connecting to api.stackato-xxxx.local
-	and fail because the changes in ``/etc/hosts`` file are not
-	reflected in the proxy.
-	To work around this problem in Windows, enable
-	``\*.local`` in the ``ProxyOverride`` registry key
-	``HCU/Software/Microsoft/Windows/CurrentVersion/Internet Settings``.
 	
 In some cases, it may be a requirement that any HTTP request is first
 handled through an upstream or parent proxy (HTTP requests may not be
 directly routable otherwise).
 
-In this case it is necessary to tell :term:`Polipo` about the proxy so
-it knows how to handle this correctly.
+In this case it is necessary to tell the :term:`Polipo` staging cache
+about the proxy so it knows how to handle this correctly.
 
 Open the Polipo config file ``/etc/polipo/config`` and add the lines::
 
