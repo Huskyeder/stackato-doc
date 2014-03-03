@@ -403,10 +403,11 @@ Example::
   instances: 2
 
 .. note::
-  If set and enabled, values in the ``autoscale`` section override the
-  top-level ``instances`` setting. The number specified here becomes the
-  initial number of instances started in the pool.
-  
+
+  If ``autoscale`` is enabled (see below) Stackato will initially create
+  the requested number of instances, but can override this number based
+  on the current workload.
+
 .. _stackato_yml-autoscale:
 
 autoscale:
