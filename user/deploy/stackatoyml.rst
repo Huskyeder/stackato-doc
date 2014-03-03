@@ -389,20 +389,23 @@ Example::
 	
   mem: 3.5GB
   
+.. _stackato_yml-instances:
+
 instances:
 ^^^^^^^^^^
 
-The number of instances to allocate for the application.  If not specified, defaults 
-to 1. Can be specified on the command line (eg. ``stackato push --instances 2``).
+The number of instances to allocate for the application. If not
+specified, defaults to 1. Can be specified on the command line (eg.
+``stackato push --instances 2``).
 	
 Example::
 
   instances: 2
 
 .. note::
-  If set, values in the ``scaling`` section will override the top-level
-  ``instances`` setting. The number specified here becomes the initial
-  number of instances started in the pool.
+  If set and enabled, values in the ``autoscale`` section override the
+  top-level ``instances`` setting. The number specified here becomes the
+  initial number of instances started in the pool.
   
 .. _stackato_yml-autoscale:
 
@@ -410,12 +413,13 @@ autoscale:
 ^^^^^^^^^^
 
 The optional ``autoscale`` block enables :ref:`application auto-scaling
-<app-autoscaling>`. It must contain ``instances`` and ``cpu-threshold``
-keys, each with ``min`` and ``max`` values.
+<app-autoscaling>`. It must contain ``instances`` and ``cpu`` keys, each
+with ``min`` and ``max`` values.
 
 Example::
 
   autoscale:
+    enabled: true
     instances:
       min: 4
       max: 10
@@ -423,6 +427,10 @@ Example::
       min: 30
       max: 85
 
+Set the ``enabled`` key to ``true`` to enable autoscaling. If it is set
+to ``false``, the other autoscaling parameters will be ignored and the
+top-level :ref:`instances <stackato_yml-instances>` value will be used
+to set a specific (static) number of instances.
 
 .. _stackato_yml-url:
 
