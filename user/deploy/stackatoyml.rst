@@ -419,7 +419,7 @@ Example::
     instances:
       min: 4
       max: 10
-    cpu-threshold:
+    cpu:
       min: 30
       max: 85
 
