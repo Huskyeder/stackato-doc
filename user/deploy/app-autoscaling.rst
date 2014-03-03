@@ -11,7 +11,7 @@ instances.
 
 The auto-scaling behavior can be configured in the :ref:`Management
 Console <user-console-app>`, in the :ref:`stackato.yml config file
-<stackato_yml-scaling>`, or using the :ref:`stackato client
+<stackato_yml-autoscale>`, or using the :ref:`stackato client
 <command-scale>` by setting CPU thresholds for scaling events, and
 a minimum and maximum number of application instances.
 

@@ -404,18 +404,18 @@ Example::
   ``instances`` setting. The number specified here becomes the initial
   number of instances started in the pool.
   
-.. _stackato_yml-scaling:
+.. _stackato_yml-autoscale:
 
-scaling:
-^^^^^^^^
+autoscale:
+^^^^^^^^^^
 
-The optional ``scaling`` block enables :ref:`application auto-scaling
+The optional ``autoscale`` block enables :ref:`application auto-scaling
 <app-autoscaling>`. It must contain ``instances`` and ``cpu-threshold``
 keys, each with ``min`` and ``max`` values.
 
 Example::
 
-  scaling:
+  autoscale:
     instances:
       min: 4
       max: 10
