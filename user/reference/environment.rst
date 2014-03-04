@@ -163,6 +163,13 @@ You can set your own environment variables:
     command is ignored until the variable is explicitly unset. If empty,
     the client sets the group to 'none'. Can be overridden with the
     ``--group`` option.
+  
+  STACKATO_LOG_FILES
+    A colon-separated list of log files to be included in the the
+    application log stream. You can add up to five additional files to
+    the default list by modifying this variable. See :ref:`Adding Files
+    to the Stream <application_logs-adding>`.
+    
 
   STACKATO_SERVICES
     Contains connection details and credentials for services bound to
