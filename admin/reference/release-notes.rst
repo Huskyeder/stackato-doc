@@ -15,8 +15,8 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-  dev (UNRELEASED)
-  ----------------
+  v3.2.? (UNRELEASED)
+  -------------------
 
   * Upgraded Docker to 0.7.???
 
@@ -26,7 +26,19 @@ Release Notes
 
   * [102706] - ???
 
-  * [102771] - app log stream now includes crash events
+  * [102771] - New app events (eg: cras) added to the app log stream
+
+  * [fence:d9fd576ac] max_container_processes bumped to 256
+
+  * [100412] cleanup leftover tmp volumes created for appstore containers
+
+  * App stack renamed to stackato/stack-alsek (from stackato/stack/alsek) by new convention
+
+  * [100671] pass configued http(s) proxy to app store deployments
+
+  * [102406] `kato node reset` now resets services data
+
+  * [102661] fix an issue with `kato node reset` failing to remove docker containers/images
 
 
 v3.0.1 (December 18, 2013)
