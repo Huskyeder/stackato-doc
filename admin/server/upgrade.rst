@@ -105,11 +105,9 @@ Each node goes through the following process during an upgrade.
 
 #. self-update
 #. Stackato version check
-#. pre-upgrade validation
 #. retire (DEA nodes only)
 #. backup state
 #. upgrade
-#. post-upgrade validation
 #. node restart
 
 Before any upgrade actions are performed, ``kato node upgrade`` performs
@@ -123,28 +121,11 @@ upgrade process begins.
   Using the ``--force`` option is not recommended unless you have been
   directed to do so by ActiveState Stackato Support.
 
-A pre-upgrade validation check is performed on the node to check that it
-is in working order before any upgrade actions are performed. If this
-validation fails then the upgrade process is stopped. These validation
-steps can be displayed to the user as errors while still continuing the
-upgrade process by using the ``--ignore-inspect-failures`` option.
-
-.. warning::
-  Use this option is only if you get failures running ``kato node
-  inspect`` that are known to be caused by systems outside of the
-  control of Stackato, or if directed by ActiveState Stackato Support.
-
 Next, the upgrade packages are downloaded and a validation check is
 performed on the files to make sure everything required for an upgrade
 is available. If the node is a DEA it is then :ref:`retired
 <kato-command-ref-node-retire>` to make sure any applications running on
 the node are evacuated before the upgrade takes place.
-
-After the components have been upgraded, the node is restarted and then
-post-upgrade validation takes place. If any failures occur, the upgrade
-process is stopped and you will be given given the option to roll back
-the upgrade. As with the pre-upgrade validation, this can be skipped
-using the ``--ignore-inspect-failures`` option (see warning above). 
 
 When ``kato node upgrade`` completes successfully, the node is restarted
 running the latest version of Stackato.
