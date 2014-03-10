@@ -1903,6 +1903,13 @@ Applications
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
+        --autoscale
+          
+		Autoscaling support.
+		Declare (non)usage of auto-scaling.
+		Defaults to off.
+		This is a Stackato 3.2 specific option.
+	    
         --buildpack
           
 		Url of a custom buildpack.
@@ -1969,9 +1976,9 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --max-cpu-threshold
+        --max-cpu
           
-		Auto-scaling support.
+		Auto-scale support.
 		Scale up when the average CPU usage exceeds this threshold
 		for the previous minute and --max-instances has not been
 		reached yet.
@@ -1979,7 +1986,7 @@ Applications
 	    
         --max-instances
           
-		Auto-scaling support.
+		Auto-scale support.
 		The maximal number of instances for the application.
 		This is a Stackato 3.2 specific option.
 	    
@@ -1989,9 +1996,9 @@ Applications
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
 	    
-        --min-cpu-threshold
+        --min-cpu
           
-		Auto-scaling support.
+		Auto-scale support.
 		Scale down when the average CPU usage dropped below this
 		threshold for the previous minute and --min-instances has
 		not been reached yet.
@@ -1999,10 +2006,12 @@ Applications
 	    
         --min-instances
           
-		Auto-scaling support.
+		Auto-scale support.
 		The minimal number of instances for the application.
 		This is a Stackato 3.2 specific option.
 	    
+        --no-autoscale
+          Complementary alias of --autoscale.
         --no-framework
           
 		Create application without any framework.
@@ -2875,6 +2884,13 @@ Applications
 		The name of the application to push/update the selected application as.
 		Possible only if a single application is pushed or updated.
 	    
+        --autoscale
+          
+		Autoscaling support.
+		Declare (non)usage of auto-scaling.
+		Defaults to off.
+		This is a Stackato 3.2 specific option.
+	    
         --buildpack
           
 		Url of a custom buildpack.
@@ -2946,9 +2962,9 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --max-cpu-threshold
+        --max-cpu
           
-		Auto-scaling support.
+		Auto-scale support.
 		Scale up when the average CPU usage exceeds this threshold
 		for the previous minute and --max-instances has not been
 		reached yet.
@@ -2956,7 +2972,7 @@ Applications
 	    
         --max-instances
           
-		Auto-scaling support.
+		Auto-scale support.
 		The maximal number of instances for the application.
 		This is a Stackato 3.2 specific option.
 	    
@@ -2966,9 +2982,9 @@ Applications
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
 	    
-        --min-cpu-threshold
+        --min-cpu
           
-		Auto-scaling support.
+		Auto-scale support.
 		Scale down when the average CPU usage dropped below this
 		threshold for the previous minute and --min-instances has
 		not been reached yet.
@@ -2976,10 +2992,12 @@ Applications
 	    
         --min-instances
           
-		Auto-scaling support.
+		Auto-scale support.
 		The minimal number of instances for the application.
 		This is a Stackato 3.2 specific option.
 	    
+        --no-autoscale
+          Complementary alias of --autoscale.
         --no-framework
           
 		Create application without any framework.
@@ -3434,7 +3452,7 @@ Applications
 .. _command-scale:
 
       stackato scale  *<application>*       
-        Update the number of instances, memory and/or disk reservation for a deployed application.
+        Update the number of instances, memory, disk reservation and/or autoscaling settings for a deployed application.
 
         .. raw:: html
 
@@ -3442,6 +3460,13 @@ Applications
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
+        --autoscale
+          
+		Autoscaling support.
+		Declare (non)usage of auto-scaling. The default is determined
+		from the (use of the) other autoscaling options and --instances.
+		This is a Stackato 3.2 specific option.
+	    
         --disk
           
 		The new disk reservation to use.
@@ -3461,9 +3486,9 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --max-cpu-threshold
+        --max-cpu
           
-		Auto-scaling support.
+		Auto-scale support.
 		Scale up when the average CPU usage exceeds this threshold
 		for the previous minute and --max-instances has not been
 		reached yet.
@@ -3471,7 +3496,7 @@ Applications
 	    
         --max-instances
           
-		Auto-scaling support.
+		Auto-scale support.
 		The maximal number of instances for the application.
 		This is a Stackato 3.2 specific option.
 	    
@@ -3479,9 +3504,9 @@ Applications
           
 		The new memory reservation to use.
 	    
-        --min-cpu-threshold
+        --min-cpu
           
-		Auto-scaling support.
+		Auto-scale support.
 		Scale down when the average CPU usage dropped below this
 		threshold for the previous minute and --min-instances has
 		not been reached yet.
@@ -3489,10 +3514,12 @@ Applications
 	    
         --min-instances
           
-		Auto-scaling support.
+		Auto-scale support.
 		The minimal number of instances for the application.
 		This is a Stackato 3.2 specific option.
 	    
+        --no-autoscale
+          Complementary alias of --autoscale.
         --no-prompt
           
 	    Disable interactive queries.
@@ -6149,6 +6176,11 @@ Organizations
 		Add yourself to the new organization, as developer.
 		Done by default.
 	    
+    --default
+      
+		Make the organization the default for users without explicit organization.
+		The previous default organization is automatically reset.
+	    
     --no-activate
       Complementary alias of --activate.
     --no-add-self
@@ -6594,6 +6626,67 @@ Organizations
       Alias of --no-prompt.
     -t
       Alias of --trace.
+    
+.. _command-update-org:
+  
+  stackato update-org  *<name>* 
+    Change one or more attributes of an organization in a single call.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --default
+      
+		Make the organization the default for users without explicit organization.
+		The previous default organization is automatically reset.
+	    
+    --newname
+      
+		A new name to give to the organization.
+	    
+    --no-default
+      Complementary alias of --default.
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --no-trace
+      Complementary alias of --trace.
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --quota
+      
+		Name of the quota definition to use in the organization.
+	    
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    --trace
+      
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
+    -n
+      Alias of --no-prompt.
+    -t
+      Alias of --trace.
 
       </div></div>
 
@@ -6622,6 +6715,12 @@ Spaces
       
 		Add yourself to the new space, as auditor.
 		By request.
+	    
+    --default
+      
+		Make the space the default for users without explicit space.
+		The previous default space is automatically reset.
+		The spaces' organization is implicitly made the default as well.
 	    
     --developer
       
@@ -7081,6 +7180,76 @@ Spaces
        Affect the developer role 
     --manager
        Affect the manager role 
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --no-trace
+      Complementary alias of --trace.
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --organization
+      
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    --trace
+      
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
+    -n
+      Alias of --no-prompt.
+    -o
+      Alias of --organization.
+    -t
+      Alias of --trace.
+    
+.. _command-update-space:
+  
+  stackato update-space  *<name>* 
+    Change one or more attributes of a space in a single call.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --default
+      
+		Make the space the default for users without explicit space.
+		The previous default space is automatically reset.
+		The spaces' organization is implicitly made the default as well.
+	    
+    --newname
+      
+		A new name to give to the space.
+	    
+    --no-default
+      Complementary alias of --default.
     --no-prompt
       
 	    Disable interactive queries.
@@ -9224,6 +9393,16 @@ Administration
 		The email of the user to create.
 		This is a Stackato 3 specific option.
 	    
+        --family
+          
+		The family name of the user. Left empty if not specified.
+		This is a Stackato 3 specific option.
+	    
+        --given
+          
+		The given name of the user. Left empty if not specified.
+		This is a Stackato 3 specific option.
+	    
         --group
           
 		The group to put the new user into.
@@ -9475,6 +9654,16 @@ Administration
         --email
           
 		The email of the user to create.
+		This is a Stackato 3 specific option.
+	    
+        --family
+          
+		The family name of the user. Left empty if not specified.
+		This is a Stackato 3 specific option.
+	    
+        --given
+          
+		The given name of the user. Left empty if not specified.
 		This is a Stackato 3 specific option.
 	    
         --group
