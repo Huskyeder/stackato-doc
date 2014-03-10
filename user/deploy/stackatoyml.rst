@@ -449,7 +449,7 @@ List of URLs mapped to the application. For example::
 
 With the ``url`` key set, Stackato assigns the specified URLs to the
 application being pushed. The mapped URL must use a :ref:`domain name
-that has been assigned to the current Space <orgs-spaces-domains>`.
+that has been assigned to the current Space <domains-routes-domains>`.
 
 If the key is not set, and only one domain is assigned to the Space
 Stackato will construct a default URL (e.g. "appname.domain.com"). To

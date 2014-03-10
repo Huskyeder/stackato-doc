@@ -39,6 +39,8 @@ Deploying Applications
   :maxdepth: 1
 
   deploy/index
+  deploy/orgs-spaces
+  deploy/domains-routes
   deploy/stackatoyml
   deploy/manifestyml
   deploy/app-autoscaling
@@ -49,7 +51,6 @@ Deploying Applications
   .. toctree::
     :maxdepth: 1
      
-    deploy/orgs-spaces
     deploy/buildpack
     deploy/other-frameworks
     deploy/languages/clojure

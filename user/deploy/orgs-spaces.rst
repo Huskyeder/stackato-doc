@@ -24,7 +24,7 @@ Organizations
 -------------
 
 An organization is a top-level group of users, spaces, and domains. Only
-Stackato admins (accounts with global superuser privileges) can manage
+Stackato admins (accounts with global superuser privileges) can create
 Organizations.
 
 Each organization is assigned a :ref:`Quota Definition
@@ -32,54 +32,39 @@ Each organization is assigned a :ref:`Quota Definition
 applications, and service instances which is share between all members
 of the organization.
 
+Once an organization user has been assigned the :ref:`Manager role
+<orgs-spaces-roles>`, that Manager can take over adding further users,
+assigning roles, and :ref:`adding domains <domains-routes-domains>`.
+
 
 .. _orgs-spaces-spaces:
 
 Spaces
 ------
 
-An organization can contain multiple spaces (e.g. **development**,
-**test**, and **production**). A domain can be mapped to multiple spaces
-but a route can be mapped to only one space.
+Spaces are sub-groups of organizations. An organization can contain
+multiple spaces (e.g. **dev**, **test**, and **production**). 
 
-.. _orgs-spaces-domains:
+Members of an organization can be given access to one or more of its
+spaces. Space members with the Developer or Manager role can view apps,
+deploy apps, and provision service instances to the space.
 
-Domains
--------
-
-A domain in Stackato is a fully-qualified, second-level or lower domain
-name (e.g. "example.com" or "stackato.example.com").
-
-Organizations and spaces can have custom domains, but are often able to
-use a system domain by default as well (e.g. "myorg.net" and
-"stackato.example.com"). Domains belong to an organization. They are
-associated with one or more spaces within that organization, but are not
-directly bound to apps. Apps are assigned a "hostname + domain"
-combination called a Route. 
-
-
-.. _orgs-spaces-routes:
-
-Routes
-------
-
-A route is a virtual hostname followed by a domain name or
-fully-qualified sub-domain (e.g. "myapp.myorg.example.com"). 
 
 Management
 ----------
 
-You can manage spaces and organizations with the :ref:`stackato client
-<client>` or the :ref:`Management Console <user-console-organizations>`.
+Managers and Stackato admins can manage spaces and organizations with
+the :ref:`stackato client <client>` or the :ref:`Management Console
+<user-console-organizations>`.
 
 .. _orgs-spaces-roles:
   
 Users & Roles
 -------------
 
-Stackato users can take on different roles within Orgs and Spaces. These
-roles can be assigned by a Manager of the relevant scope or a Stackato
-Admin: 
+Stackato users can take on different roles within organizations and
+spaces. These roles can be assigned by a Manager of the relevant scope
+or a Stackato Admin: 
 
 Org Roles
 ^^^^^^^^^

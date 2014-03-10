@@ -129,9 +129,9 @@ Application View
   uses, when it was created, and when it was last modified.
 
 * Routes: Essentially, the URLs mapped to the application.
-  These :ref:`Routes <orgs-spaces-routes>` are made up of the name of
+  These :ref:`Routes <domains-routes-routes>` are made up of the name of
   the application name (a virtual hostname) followed by a dot and a
-  :ref:`Domain <orgs-spaces-domains>` (assigned to the Org and Space).
+  :ref:`Domain <domains-routes-domains>` (assigned to the Org and Space).
 
 * Services: Data (and other) service instances deployed in the Space.
   May be attached to one or more applications in the Space.
