@@ -477,39 +477,6 @@ TCP/UDP Port Configuration
 
 .. _server-config-http-proxy:
 
-.. index:: Polipo
-
-HTTP Proxy
-^^^^^^^^^^
-	
-In some cases, it may be a requirement that any HTTP request is first
-handled through an upstream or parent proxy (HTTP requests may not be
-directly routable otherwise).
-
-In this case it is necessary to tell the :term:`Polipo` staging cache
-about the proxy so it knows how to handle this correctly.
-
-Open the Polipo config file ``/etc/polipo/config`` and add the lines::
-
-	parentProxy = <IP>:<PORT>
-	parentAuthCredentials = "myuser:mypassw"
-
-Then restart Polipo::
-
-	$ sudo /etc/init.d/polipo restart
-
-If you are using a SOCKS proxy, edit the file in the same way but with the lines::
-
-	socksParentProxy=<IP>:<PORT>
-	socksProxyType=socks4a | OR | socks5;
-
-Then restart Polipo::
-
-	$ sudo /etc/init.d/polipo restart
-
-For log info, any errors reported by Polipo are available on the Stackato server
-in ``/var/log/polipo/polipo.log``.
-	
 .. _server-config-http-proxy-cache:
 
 .. index:: HTTP Proxy Cache
@@ -528,6 +495,10 @@ op upstream_proxy ...`` command on all DEA nodes::
 
 	$ kato op upstream_proxy set 192.168.0.99:3128
 	
+Then restart Polipo::
+
+	$ sudo /etc/init.d/polipo restart
+  
 To remove the proxy setting::
 
 	$ kato op upstream_proxy delete <proxy_addr>
@@ -540,6 +511,11 @@ To set an HTTP proxy exclusively for apps, add an
 
 Adding this configuration sets the 'http_proxy' environment variable
 within all subsequently created application containers.
+
+.. note::
+  Do not set proxy environment variables in the ``/etc/environment``
+  file directly. If needed for CLI operations and an admin, set them in
+  the ``.bashrc`` file for the ``stackato`` user instead.
 
 .. _server-config-filesystem:
 
