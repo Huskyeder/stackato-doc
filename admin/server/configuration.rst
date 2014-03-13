@@ -530,7 +530,7 @@ containers by adding ``environment/app_http_proxy`` and
 Adding this configuration sets the 'http_proxy' and 'https_proxy'
 environment variables within all subsequently created application
 containers, allowing them to connect to external HTTP(S) resources on
-networks which dissalow direct connections.
+networks which disallow direct connections.
 
 
 .. _server-config-filesystem:
