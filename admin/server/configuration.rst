@@ -486,8 +486,8 @@ TCP/UDP Port Configuration
 
 .. index:: HTTP Proxy Cache
 
-Staging Cache & App HTTP Proxy
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Staging Cache Proxy Settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Stackato caches all application dependencies that are downloaded by
 module managers that support the :term:`HTTP_PROXY` environment variable
@@ -508,19 +508,30 @@ To remove the proxy setting::
 
 	$ kato op upstream_proxy delete <proxy_addr>
 	
-To set an HTTP proxy exclusively for apps, add an
-``environment/app_http_proxy`` setting in the dea_ng config using
-:ref:`kato config set <kato-command-ref-config>`. For example::
-
-  $ kato config set dea_ng environment/app_http_proxy 10.0.0.47:3000
-
-Adding this configuration sets the 'http_proxy' environment variable
-within all subsequently created application containers.
-
 .. note::
   Do not set proxy environment variables in the ``/etc/environment``
-  file directly. If needed for CLI operations and an admin, set them in
-  the ``.bashrc`` file for the ``stackato`` user instead.
+  file directly. If these settings are needed for administrative CLI
+  operations, set them in the ``.bashrc`` file for the ``stackato`` user
+  instead.
+  
+.. _server-config-application-proxy:
+
+HTTP & HTTPS Proxies for Applications
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
+You can set HTTP and HTTPS proxies specifically for application
+containers by adding ``environment/app_http_proxy`` and
+``environment/app_https_proxy`` settings in the dea_ng config using
+:ref:`kato config set <kato-command-ref-config>`. For example::
+
+  $ kato config set dea_ng environment/app_http_proxy 10.0.0.47:8080
+  $ kato config set dea_ng environment/app_https_proxy 10.0.0.47:8080
+
+Adding this configuration sets the 'http_proxy' and 'https_proxy'
+environment variables within all subsequently created application
+containers, allowing them to connect to external HTTP(S) resources on
+networks which dissalow direct connections.
+
 
 .. _server-config-filesystem:
 
