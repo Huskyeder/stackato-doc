@@ -8,7 +8,9 @@ Using a *manifest.yml* file is an alternative to *stackato.yml* which
 allows for specific customizations such as pushing more than one app
 with dependencies. It is the standard configuration file format for all
 Cloud Foundry systems, allowing for portability from those systems to
-Stackato without configuration changes.
+Stackato without configuration changes. See `Application Manifests
+<http://docs.cloudfoundry.com/docs/using/deploying-apps/manifest.html>`_
+for the canonical documentation.
 
 As with *stackato.yml*, the client uses the keys to determine values
 that are otherwise passed by the user as arguments or as answers
@@ -61,10 +63,27 @@ directory along with the *manifest.yml* file::
   applications:
     .:
       name: singleapp
-      framework:
-        name: spring
+      buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack.git
       instances: 1
       mem: 512
+
+.. _manifest_yml-buildpack:
+
+buildpack:
+~~~~~~~~~~
+
+You can manually specify the Git repository URL for the :ref:`buildpack
+<buildpacks>` used to deploy the application, as seen in the example
+above. 
+  
+You can use a specific branch by specifying it at the end of the URL
+using the following format::
+
+  buildpack: https://github.com/cloudfoundry/heroku-buildpack-nodejs.git#profile
+
+If unset, Stackato will check to see if the application triggers the
+``detect`` scripts in any of its :ref:`built-in buildpacks
+<buildpacks-built-in>`.
 
 depends-on:
 ^^^^^^^^^^^

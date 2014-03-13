@@ -62,6 +62,11 @@ used to deploy the application. For example::
   name: java-app
   mem: 512M
   buildpack: https://github.com/heroku/heroku-buildpack-java.git
+  
+You can use a specific branch by specifying it at the end of the URL
+using the following format::
+
+  buildpack: https://github.com/heroku/heroku-buildpack-java.git#branchname
 
 If unset, Stackato will check to see if the application triggers the
 ``detect`` scripts in any of its :ref:`built-in buildpacks
