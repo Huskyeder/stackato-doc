@@ -245,10 +245,9 @@ Here is an example of pushing an app using PyPy.
 First, clone the `https://github.com/Stackato-Apps/werkzeug-debugger <https://github.com/Stackato-Apps/werkzeug-debugger>`_
 repository.
 
-Then add the following ``BUILDPACK_URL`` to the *stackato.yml* file::
+Then add a ``buildpack:`` entry to the *stackato.yml* file::
 
-  env:
-    BUILDPACK_URL: git://github.com/ActiveState/heroku-buildpack-pypy.git
+  buildpack: git://github.com/ActiveState/heroku-buildpack-pypy.git
 
 Finally, push the app to Stackato::
 
