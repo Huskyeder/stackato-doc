@@ -101,6 +101,11 @@ containers. In a Stackato cluster, there will typically be a number of
 nodes running the DEA role, which in turn each host multiple user
 application instances.
 
+The Cloud Controller allocates instances of an application accross
+available DEA nodes, prioritizing eligible nodes that are running the
+fewest instances of that app already. This maintains an even
+distribution of instances of an app across the pool.
+
 The DEA role is comprised of a number of processes:
 
  * dea_ng: Master process for staging and starting application
@@ -111,11 +116,8 @@ The DEA role is comprised of a number of processes:
    Docker.
  * apptail: Streams application logs via Logyard to various log drains.
 
-In previous versions of Stackato, staging and running were handled by
-separate components (Stager and DEA respectively), but these roles have
-been combined in version 3.0 and later.
-
-The Docker image used for the containers can be customized by admins.
+The Docker image used for the containers can be :ref:`customized by
+admins <docker-modify-container>`.
 
 .. _architecture-services:
 
