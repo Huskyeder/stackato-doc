@@ -19,6 +19,11 @@ General
   <kato-command-ref-process-ready>` option is useful in this
   scenario).
   
+.. warning::
+  All ``kato`` commands should be run as the 'stackato' system user,
+  **not as root**. kato will prompt for the 'stackato' user password if
+  sudo permissions are required for a specific operation.
+  
 .. _server-config-password:
 
 Changing the Password

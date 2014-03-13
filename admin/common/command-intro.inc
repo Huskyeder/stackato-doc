@@ -19,8 +19,9 @@ Command access to the Stackato server is available in several ways:
 
 * The :ref:`Stackato Client <command-ref-client>` command, which in addition to specialized functions can provide remote shell access to the server::
 
-	$ stackato target stackato@stackato-xxxx.local
-	$ stackato ssh api
+	$ stackato target api.stackato-xxxx.local
+	$ stackato login *admin-user*
+	$ stackato ssh -a api
 
 * The familiar ``ssh`` command::
 
@@ -34,3 +35,8 @@ On the server, the control command for Stackato is called ``kato``.
 It is used for configuration and node management procedures
 such as start, stop, role specialization, and status checks.
 For a complete list of options, see :ref:`kato-command-ref`.
+
+.. warning::
+  All ``kato`` commands should be run as the 'stackato' system user,
+  **not as root**. kato will prompt for the 'stackato' user password if
+  sudo permissions are required for a specific operation.
