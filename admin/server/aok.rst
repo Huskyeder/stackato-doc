@@ -207,10 +207,27 @@ Once the first user has been created:
   
 * If you created a temporary admin user, delete it at this point.
 
-Regular LDAP User Setup
------------------------
 
-New users logging in to the Management Console for the first time using
-LDAP authentication will not be a member of any organization (and won't
-be able to do anything). An admin will have to add each user to an
-organization after their initial login.
+Default Organization & Space
+----------------------------
+
+When using LDAP authentication, new users logging in to the Management
+Console will be automatically added to a default organization and space
+if those defaults have been configured by the admin.
+
+On the Organization and Space views in the Management Console, admins
+will see "Set as Default Organization" or "Set as Default Space"
+respectively. To set this using the ``stackato`` client::
+
+  $ stackato update-org --default [org-name]
+  $ stackato update-space --default [space-name]
+  
+The ``--default`` option is also available with the :ref:`create-org
+<command-create-org>` and :ref:`create-space <command-create-space>`
+commands, for use when creating new default organizations and spaces.
+
+Without a default organization and space set, new users logging in via
+LDAP will be added as users to Stackato, but will not be a member of any
+organization or space.
+
+
