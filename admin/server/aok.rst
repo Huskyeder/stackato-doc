@@ -106,6 +106,9 @@ config set <kato-command-ref-config>`:
        * email
        * userPrincipalName
        
+    * use_email_for_username: (optional) Use the email address as a
+      username in Stackato (Stackato 2.x behavior). Set to 'true' if
+      importing data from Stackato 2.x.
     * bind_dn: (optional) credentials for user lookup (e.g.
       'cn=Administrator,cn=Users,dc=example,dc=com'). LDAP servers that
       allow anonymous bind will not require this setting.
