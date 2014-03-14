@@ -44,6 +44,7 @@ Deploying Applications
   deploy/stackatoyml
   deploy/manifestyml
   deploy/app-autoscaling
+  deploy/app-sso
   deploy/app-debug
 
 * :ref:`Languages & Frameworks <language-specific-deploy>`

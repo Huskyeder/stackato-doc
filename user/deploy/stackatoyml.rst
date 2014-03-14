@@ -675,6 +675,13 @@ Example::
     - PLUGH=xyzzy
     - "*/1 * * * * env > $HOME/env"
 
+.. _stackato_yml-sso:
+
+sso-enabled:
+^^^^^^^^^^^^
+
+Enables or disables :ref:`Application Single Sign-On <app-sso>` (boolean). 
+
 
 .. _stackato_yml-ignores:
 
