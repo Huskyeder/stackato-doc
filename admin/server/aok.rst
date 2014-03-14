@@ -206,7 +206,7 @@ options must be set in AOK's ``strategy/ldap`` settings:
   Stackato (requires ``group_attribute`` and ``group_query`` settings).
   For example::
   
-    $ kato config push aok strategy/ldap/allowed_groups '[dev, engineering]'
+    $ kato config push aok strategy/ldap/allowed_groups '["dev", "engineering"]'
   
   This would allow only members of the 'dev' or 'engineering' groups to
   access Stackato. 
@@ -224,7 +224,7 @@ Stackato. This requires the following settings:
 * **admin_groups**: A list of LDAP groups that get admin privileges. For
   example::
   
-    $ kato config push aok strategy/ldap/admin_groups '[admins, bosses]'
+    $ kato config push aok strategy/ldap/admin_groups '["admins", "bosses"]'
 
   This would give automatic Stackato admin privileges to members of the
   'admins' and 'bosses' LDAP groups.
