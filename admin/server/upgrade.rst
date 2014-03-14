@@ -95,8 +95,10 @@ Nodes are matched to this ordering by the roles they have enabled. Any
 nodes that don't match (e.g. data service nodes) are added to the end to
 be upgraded last.
 
-The order can be overridden with the :ref:`--role-order
-<kato-command-ref-node-upgrade>` option. 
+.. note::
+  The order can be overridden with the :ref:`--role-order
+  <kato-command-ref-node-upgrade>` option, but ``kato`` will ensure that
+  the Core node (i.e. running the primary role) is always updated last. 
 
 Node Upgrade Process
 ^^^^^^^^^^^^^^^^^^^^
