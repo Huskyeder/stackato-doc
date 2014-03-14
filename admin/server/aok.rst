@@ -113,6 +113,19 @@ config set <kato-command-ref-config>`:
     * try_sasl: (optional) when set to true attempts a SASL connection
       to the LDAP server
     * sasl_mechanims: (optional) 'DIGEST-MD5' or 'GSS-SPNEGO'
+    * :ref:`group_query <aok-groups-authorization>`: (optional) causes
+      AOK to perform an additional search on the LDAP server after a
+      user has successfully authenticated in order to fetch their group
+      membership (nil or false to disable).
+    * :ref:`group_attribute <aok-groups-authorization>`: (optional) the
+      LDAP attribute to extract from the entries returned by
+      group_query (nil or false to disable).
+    * :ref:`allowed_groups <aok-groups-authorization>`: (optional)
+      comma-separated list of LDAP groups allowed to log in to Stackato.
+    * :ref:`admin_groups <aok-groups-authorization>`: (optional)
+      comma-separated list of LDAP groups which get Stackato admin
+      permissions. Must be an array of Strings.
+
 
 .. only:: not public
 
@@ -154,6 +167,72 @@ To set the entire array in one step, use the ``--json`` option::
   kato config set --json aok strategy/ldap/email '["mail","ADMailAcct", "email"]'
 
 
+LDAP Groups
+-----------
+
+With the LDAP strategy enabled, Stackato can query LDAP groups to:
+
+* define which LDAP groups are authorized to use Stackato
+* define which LDAP groups get Stackato admin privileges
+
+
+.. _aok-groups-authorization:
+
+Groups for Authorization
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To limit which LDAP groups get access to Stackato, the following three
+options must be set in AOK's ``strategy/ldap`` settings:
+
+* **group_query**: The query to run to determine which groups a user
+  belongs to (set in conjunction with ``group_attribute``). For example::
+  
+    $ kato config set --json aok strategy/ldap/group_query '(&(objectClass=posixGroup)(memberUid=%{username}))'
+  
+  This queries for posixGroups that the user belongs to.
+  
+    * %{username} is replaced with the value of the field specified by uid
+    * %{dn} is replaced by the dn of the authenticated user.
+  
+* **group_attribute**: The LDAP attribute to extract from the query
+  above (requires a valid ``group_query`` setting). For example::
+  
+    $ kato config set --json aok strategy/ldap/group_attribute 'cn'
+    
+  This extracts the name of the group(s) returned by the ``group_query``
+  above if the group's 'cn' (common name) attribute contains it's name.
+  
+* **allowed_groups**: A list of LDAP groups that are allowed to access
+  Stackato (requires ``group_attribute`` and ``group_query`` settings).
+  For example::
+  
+    $ kato config push aok strategy/ldap/allowed_groups '[dev, engineering]'
+  
+  This would allow only members of the 'dev' or 'engineering' groups to
+  access Stackato. 
+
+.. _aok-admin-groups:
+  
+Admin Groups
+^^^^^^^^^^^^
+
+Stackato can give members of certain LDAP groups admin accounts on
+Stackato. This requires the following settings:
+
+* **group_query** (as above)
+* **group_attribute** (as above)
+* **admin_groups**: A list of LDAP groups that get admin privileges. For
+  example::
+  
+    $ kato config push aok strategy/ldap/admin_groups '[admins, bosses]'
+
+  This would give automatic Stackato admin privileges to members of the
+  'admins' and 'bosses' LDAP groups.
+
+This can be used with or without ``allowed_groups`` limiting regular
+user-level access to Stackato.
+
+
 User Management
 ---------------
 
@@ -177,6 +256,7 @@ aware of the following caveats:
   again via AOK. If an admin wishes to prevent a user from using Stackato, the
   user's login credentials should be revoked in the external authentication 
   system.
+
 
 First Admin User Setup
 ----------------------
