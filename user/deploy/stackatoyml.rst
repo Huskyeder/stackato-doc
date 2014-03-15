@@ -680,7 +680,7 @@ Example::
 sso-enabled:
 ^^^^^^^^^^^^
 
-Enables or disables :ref:`Application Single Sign-On <app-sso>` (boolean). 
+Enables or disables :ref:`Application Single Sign-On <application-sso>` (boolean). 
 
 
 .. _stackato_yml-ignores:

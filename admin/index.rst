@@ -73,6 +73,7 @@ Cluster Configuration
   
   cluster/index
   cluster/autoscaling
+  cluster/zones
   cluster/cloud-init
   cluster/external-db
   cluster/harbor

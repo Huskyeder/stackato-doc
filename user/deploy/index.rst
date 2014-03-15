@@ -226,6 +226,58 @@ URLs, application names, and service names:
   possiblility of naming conflicts with services created in other orgs
   and spaces.
 
+.. index:: Deployment Zones
+
+.. _deploy-zones:
+
+Availability & Placement Zones
+------------------------------
+
+Stackato has two mechanisms for allocating application instances on
+particular Droplet Execution Agent (DEA) nodes or groups of nodes:
+
+.. _deploy-zones-availability:
+
+Availability Zones
+^^^^^^^^^^^^^^^^^^
+
+Availability zones are Stackato cluster configuration options that help
+distribute instances of an application across different physical
+locations, network segments, or racks. This is done to provide high
+availability in the event of server or network problems.
+
+These zones are configured by Stackato administrators and take effect
+automatically when multiple app instances are requested. There are no
+user-facing options.
+
+.. _deploy-zones-placement:
+
+Placement Zones
+^^^^^^^^^^^^^^^
+
+Placement zones are groups of DEA nodes which allow for segregation of
+application instances into different parts of a Stackato cluster,
+possibly with different physical hardware characteristics or network
+policies.
+
+DEA nodes are tagged by a Stackato administrator with a placement zone
+name. Users pushing applications to Stackato can specify which placement
+zone the application instances are run on by using the
+``--placement-zone`` option for the :ref:`stackato push <command-push>`
+command, or by changing the Placement Zone in the application's Settings
+view in the Management Console.
+
+The other relevant ``stackato`` client commands are:
+
+* :ref:`placement-zones <command-placement-zones>`: Show the available
+  placement zones. 
+* :ref:`placement-zone [name] <command-placement-zone>`: Show the list
+  of DEAs associated with the specified placement zone.
+* :ref:`set-placement-zone <command-set-placement-zone>`: Associate
+  the application with a specific placement zone.
+* :ref:`unset-placement-zone <command-unset-placement-zone>`: Remove
+  the association between application and its current placement zone.
+
 
 .. index:: Crontab Support
 

@@ -44,11 +44,15 @@ Commands
 
   * :ref:`node attach <kato-command-ref-node-attach>`
 
+  * :ref:`node availabilityzone <kato-command-ref-node-availabilityzone>`
+
   * :ref:`node detach <kato-command-ref-node-detach>`
 
   * :ref:`node list <kato-command-ref-node-list>`
 
   * :ref:`node migrate <kato-command-ref-node-migrate>`
+
+  * :ref:`node placementzones <kato-command-ref-node-placementzones-add>`
 
   * :ref:`node remove <kato-command-ref-node-remove>`
 
@@ -59,6 +63,8 @@ Commands
   * :ref:`node retire <kato-command-ref-node-retire>`
 
   * :ref:`node setup <kato-command-ref-node-setup-core>`
+
+  * :ref:`node update <kato-command-ref-node-update>`
 
   * :ref:`node upgrade <kato-command-ref-node-upgrade>`
 
@@ -709,6 +715,23 @@ Command Usage Details
 ----
 
 
+.. _kato-command-ref-node-availabilityzone:
+
+**node** **availabilityzone** [**options**] [*<zone>*]
+
+  Gets/sets the availability zone on a node.
+
+  **-h** **--help**                       Show help information
+
+  **-n** **--node** *<node-id>*           Sets the availability zone on the specified DEA node, local node is
+
+                                          used if not specified
+
+
+
+----
+
+
 .. _kato-command-ref-node-detach:
 
 **node** **detach** [**options**]
@@ -758,13 +781,68 @@ Command Usage Details
 ----
 
 
-.. _kato-command-ref-node-remove:
+.. _kato-command-ref-node-placementzones-add:
 
-**node** **remove** *<node-IP>*
+**node** **placementzones** **add** [**options**] *<zone>*
 
-  Remove the node from the cluster
+  Adds a DEA zone to the current node.
 
   **-h** **--help**                       Show help information
+
+  **-n** **--node** *<node-id>*           Add a zone on the specified DEA node, local node is
+
+                                          used if not specified
+
+
+
+----
+
+
+.. _kato-command-ref-node-placementzones-list:
+
+**node** **placementzones** **list** [**options**]
+
+  Lists the DEA zones on the current node.
+
+  **-h** **--help**                       Show help information
+
+  **-n** **--node** *<node-id>*           Add a zone on the specified DEA node, local node is
+
+                                          used if not specified
+
+
+
+----
+
+
+.. _kato-command-ref-node-placementzones-remove:
+
+**node** **placementzones** **remove** [**options**] *<zone>*
+
+  Removes a DEA zone from the current node.
+
+  **-h** **--help**                       Show help information
+
+  **-n** **--node** *<node-id>*           Remove a zone on the specified DEA node, local node is
+
+                                          used if not specified
+
+
+
+----
+
+
+.. _kato-command-ref-node-remove:
+
+**node** **remove** [**--skip-detach**] *<node-IP>...*
+
+  Remove the node(s) from the cluster
+
+  **-h** **--help**                       Show help information
+
+  **-s** **--skip-detach**                Skips updating the removed nodes config via detaching the node, only use this if the node has
+
+                                          already been destroyed.
 
 
 
@@ -798,6 +876,8 @@ Command Usage Details
 
 **node** **reset** **factory**
 
+**node** **reset** **docker**
+
 **node** **reset** **--help**
 
   Reset the Stackato VM to its default configuration.
@@ -805,6 +885,9 @@ Command Usage Details
   * soft: clears all data and resets the VM to its state
     immediately after first boot.
   * factory: returns the VM to its state prior to first boot.
+  * docker: removes all docker containers, and deletes all but the Stackato
+    release images; not meant for general use, and implicity run along with
+    soft|factory.
 
   **-h** **--help**                       Show help information
 
@@ -874,6 +957,12 @@ Command Usage Details
 
                                           Will be the provided email if not given.
 
+  **-s** **--space** *<space>*            First user's initial space.
+
+                                          If not specified, user will not initially be in a
+
+                                          space.
+
 
 
 ----
@@ -915,19 +1004,35 @@ Command Usage Details
 ----
 
 
+.. _kato-command-ref-node-update:
+
+**node** **update** [**options**]
+
+  Update IP references in config.
+
+  **-h** **--help**                       Show help information.
+
+
+
+----
+
+
 .. _kato-command-ref-node-upgrade:
 
 **node** **upgrade** [**options**]
 
-  Upgrades Stackato
+  Upgrade the Stackato install to the latest available version, preserving
+  deployed applications, config, services, and other state.
+  
+  Will operate on current node by default; upgrade can be done for the
+  entire cluster at once (with --cluster) or for a specific node (with
+  --node).
 
   **-h** **--help**                       Show help information
 
   **-n** **--node** *<node>*              Targets the provided node.
 
   **-v** **--version** *<version>*        The version of Stackato to upgrade to. The latest version is used if this isn't supplied.
-
-  **--rollback**                          Rolls Stackato back to the previous version.
 
   **--skip-confirmation**                 Skips initial confirmation of upgrade.
 
@@ -946,8 +1051,6 @@ Command Usage Details
   **-u** **--update-kato**                Updates kato node upgrade to the latest codebase.
 
   **--role-order** *<role-order>*         Comma separated list of roles defining the order that roles should be upgraded in a cluster.
-
-  **--ignore-inspect-failures**           Display pre/post upgrade 'kato inspect' tests as warnings instead of upgrade failures.
 
 
 
@@ -977,11 +1080,13 @@ Command Usage Details
 
 **op** **dhcp**
 
-**op** **defer** *<command>* [**--run-as-root**] [**--reset**]
+**op** **defer** *<command>* [**--run-as-root**] [**--reset**] [**--post-start**]
 
-**op** **import_from_yaml_files** [**--upgrade**]
+**op** **import_from_yaml_files** [**--upgrade**] [**--new-key-file=<new-key-file>**]
 
 **op** **max_client_upload** *<max-size>*
+
+**op** **regenerate** **ssh_keys**
 
 **op** **regenerate** **ssl_cert**
 
@@ -993,15 +1098,17 @@ Command Usage Details
 
 **op** **regenerate** **cloud-controller-client-auth**
 
+**op** **regenerate** **stackato-router-auth**
+
 **op** **regenerate** **token-signing-secret**
 
 **op** **remap_hosts** *<old-hostname>* *<new-hostname>*
 
-**op** **run_deferred**
+**op** **run_deferred** [**--post-start**]
 
 **op** **set_timezone** [**--timezone** *<TZ>*]
 
-**op** **static_ip** [**--no-restart**]
+**op** **static_ip** [**--interface=<if>**] [**--ip=<ip>**] [**--netmask=<netmask>**] [**--gateway=<gateway>**] [**--dns-nameservers=<dnsname>**] [**--dns-search-domains=<dnssearch>**] [**--restart-network**] [**--no-restart**]
 
 **op** **upstream_proxy** **set** *<proxy-address>* [**-u** *<user>*] [**-p** *<pass>*]
 
@@ -1061,15 +1168,23 @@ Command Usage Details
 
 .. _kato-command-ref-patch:
 
-**patch** **status** [**--all**]
+**patch** **status** [**options**]
 
-**patch** **install** [**--only-this-node**] [**--no-restart**] *<patchname>*
+**patch** **install** [**--node** *<nodeip>*] [**options**]
 
-**patch** **reset**
+**patch** **install** [**--node** *<nodeip>*] [**options**] *<patchname>*
+
+**patch** **reset** [**--node** *<nodeip>*] [**options**]
 
 **patch** **update**
 
-**patch** **reinstall** [**--only-this-node**] [**--no-restart**] *<patchname>*
+**patch** **mark** [**--node** *<nodeip>*] [**options**] *<patchname>*
+
+**patch** **reinstall** [**--node** *<nodeip>*] [**options**] *<patchname>*
+
+**patch** **revert** [**--node** *<nodeip>*] [**options**]
+
+**patch** **revert** [**--node** *<nodeip>*] [**options**] *<patchname>*
 
   Update a Stackato cluster with post-release fixes.
 
@@ -1077,9 +1192,23 @@ Command Usage Details
 
   **-a** **--all**                        Show status for all patches 
 
-  **-n** **--only-this-node**             Only patch this node (otherwise entire cluster will be patched)
+  **-l** **--local**                      Only affect this node (otherwise operates on entire cluster)
+
+  **-n** **--node** *<nodeip>*            Only affect specified node
 
   **-r** **--no-restart**                 Don't restart any roles during patching
+
+  **-q** **--quiet**                      Be quieter
+
+  **-i** **--installed**                  Manually mark patch as installed
+
+  **-d** **--notinstalled**               Manually mark patch as not installed
+
+  **-m** **--manifest** *<manifest>*      Specify a custom manifest file
+
+  **-u** **--force-update**               Force a new manifest to be downloaded
+
+  **-s** **--single**                     Remotely install single patch (internal use only)
 
 
 
@@ -1213,8 +1342,6 @@ Command Usage Details
 **restart** **--help**
 
   Restart Stackato or individual roles.
-
-  **-a** **--all**                        Also restart core processes
 
   **-n** **--node** *<node-IP>*           Restart a specific cluster node
 
