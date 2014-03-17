@@ -59,10 +59,12 @@ The ``--json`` flag can be used to return each log line as a JSON object.
 
 .. note::
     ``stackato logs`` buffers only 400 lines of the log stream history
-    (i.e. lines generated prior to it being run). If you need earlier
-    log lines, use the :ref:`stackato files <command-files>` command to
-    fetch the relevant log file from the *logs/* directory or create a
-    log :ref:`drain <application_logs-drain>` preemptively (where
+    and may sometimes miss log lines if the output is higher than the
+    system's application log rate limit (set by a Stackato
+    administrator). If you need earlier log lines, or find that lines
+    are missing, use the :ref:`stackato files <command-files>` command
+    to fetch the relevant log file from the *logs/* directory or create
+    a log :ref:`drain <application_logs-drain>` preemptively (where
     possible).
 
 

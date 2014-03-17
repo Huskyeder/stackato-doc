@@ -469,6 +469,11 @@ Apptail Limits
 
     $ kato config set apptail rate_limit 300
 
+.. note::
+  The rate limit may cause log streams to lose arbitrary lines if the
+  output is very verbose. Adjust the ``rate_limit`` upwards if this is a
+  persistent problem for users.
+  
 
 .. index:: logyard-cli
 
