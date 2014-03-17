@@ -2258,6 +2258,8 @@ Applications
           
 	    Disable interactive queries.
 	
+        --no-routes
+          Complementary alias of --routes.
         --no-tail
           Complementary alias of --tail.
         --no-trace
@@ -2276,6 +2278,11 @@ Applications
 	    Path of the directory holding the application files to push.
 	    Defaults to the current working directory.
 	
+        --routes
+          
+		Delete exclusive routes with the application.
+		Done by default.
+	    
         --space
           
 	    The once-off space to use for the current operation, specified
@@ -9993,32 +10000,6 @@ Miscellaneous
     -t
       Alias of --trace.
     
-.. _command-debug-packages:
-  
-  stackato debug-packages 
-    Show the packages used the client, and their versions.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --json
-      
-	    Print raw json as output, not human-formatted data.
-	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
-    
 .. _command-guid:
   
   stackato guid  *<type>*  *<name>* 
@@ -10038,12 +10019,26 @@ Miscellaneous
       
 	    Disable interactive queries.
 	
+    --no-trace
+      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
       Alias of --no-prompt.
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --trace
+      
+	    Activate tracing of the issued REST requests and responses.
+	    This option is a no-op now. Tracing is always active. See
+	    the 'trace' command to print the saved trace to stdout.
+	
     -n
       Alias of --no-prompt.
+    -t
+      Alias of --trace.
     
 .. _command-named-entities:
   
