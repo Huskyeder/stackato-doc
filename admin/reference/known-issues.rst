@@ -3,6 +3,20 @@
 Known Issues
 ============
 
+.. _known-issues-logs-missing-from-cloud-events:
+
+router2g or stackato_rest logs missing from Cloud Events
+--------------------------------------------------------
+
+The ``router2g`` (Stackato router) and ``stackato_rest``
+(Stackato-specific web service) processes use non-standard logging
+formats and are therefore not included in the Cloud Events log stream
+(e.g. in the Cloud Events view of the Management Console).
+
+These log files can be inspected at */s/logs/router2g.log* (Router
+nodes) and */s/logs/stackato_rest.log* (Controller nodes).
+
+
 .. _known-issues-config_vars:
 
 Buildpack config_vars Deprecated
