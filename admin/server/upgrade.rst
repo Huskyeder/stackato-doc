@@ -133,12 +133,73 @@ When ``kato node upgrade`` completes successfully, the node is restarted
 running the latest version of Stackato.
 
 
+Upgrade Problems
+----------------
+
+Network connectivity errors during the upgrade process can cause it to
+fail. In such cases, it's possible to resume the upgrade once
+connectivity to the upstream resources is restored.
+
+
+Errors and Latch Files
+^^^^^^^^^^^^^^^^^^^^^^
+
+As each module upgrade is completed, a 'latch' file is written to record
+that the module was successfully upgraded. Once a module has been
+upgraded it will be skipped on any subsequent upgrades. 
+
+The latch files are stored in */var/stackato/upgrade/tmp/module-latches*
+and can be manually deleted if required, forcing the corresponding
+module to be re-installed.
+
+If something fails, ``kato`` will create a file to specify that the
+update has failed. The next time ``kato node upgrade`` is run, ``kato``
+will be more tolerant of an inconsistent state (e.g. services missing)
+and will allow the upgrade to continue.
+
+If a module fails to upgrade, the upgrade process will halt with an
+error. This can happen if required components can't be downloaded (or
+are not available in the cluster cache). At this point the cluster or
+node upgrade can be run again. Modules that have already been upgraded
+successfully will be skipped, and the module that failed will be
+retried, starting with the removal of the partly-installed copy.
+
+Once the node has been fully upgraded, the upgrade is recorded as
+successfully completed, and all latch files are automatically removed.
+
+
+Recovering kato
+^^^^^^^^^^^^^^^
+
+During the upgrade process, the old version of ``kato`` is removed and a
+new version is installed. If the upgrade fails at this point, it is
+possible for the system to be left without a working ``kato`` utility,
+making it impossible to continue the upgrade.
+
+If you see one of the following errors when trying to resume an upgrade,
+it indicates that ``kato`` is missing::
+
+  $ kato node upgrade
+  -bash: /home/stackato/bin/kato: No such file or directory
+
+  $ kato node upgrade
+  -bash: kato: command not found
+
+To recover from this, run the following command::
+
+  $ /var/stackato/upgrade/fix-kato.sh
+
+This installs the new version of ``kato``, allowing the upgrade to
+continue.
+
+
 Clearing Browser Cache
 ----------------------
 
-After a Stackato system has been upgraded, certain web console
-JavaScript and CSS files may persist in the browser. For example,
-Firefox users may see the following error in the Applications view::
+After a Stackato system has been upgraded, certain :ref:`Management
+Console <management-console>` JavaScript and CSS files may persist in the browser.
+For example, Firefox users may see the following error in the
+Applications view::
 
   sconsole.cf_api.settings is undefined
 
