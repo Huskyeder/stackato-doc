@@ -131,3 +131,18 @@ the node are evacuated before the upgrade takes place.
 
 When ``kato node upgrade`` completes successfully, the node is restarted
 running the latest version of Stackato.
+
+
+Clearing Browser Cache
+----------------------
+
+After a Stackato system has been upgraded, certain web console
+JavaScript and CSS files may persist in the browser. For example,
+Firefox users may see the following error in the Applications view::
+
+  sconsole.cf_api.settings is undefined
+
+If you are scheduling an upgrade, notify the system users that it may be
+necessary to clear their browser cache for the web console (e.g.
+"Ctrl+Shift+F5" rather than "F5").
+
