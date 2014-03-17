@@ -197,6 +197,20 @@ kato will verify the IP addresses given are within legal ranges,
 automatically calculate the network / broadcast addresses for you, and
 prompt for the 'sudo' password to write the changes.
 
+The command can be run non-interactively with the following arguments:
+
+* --interface
+* --ip
+* --netmask
+* --gateway
+* --dns-nameservers (set empty "" to skip)
+* --dns-search-domains (set empty "" to skip)
+* --restart-network
+
+If the IP address provided differs from the previous one, and the node
+isn't configured as a micro cloud, :ref:`kato node migrate
+<kato-command-ref-node-migrate>` is run automatically.
+
 As a precaution, the command does not automatically restart networking
 services. To do so, run the following commands::
 
