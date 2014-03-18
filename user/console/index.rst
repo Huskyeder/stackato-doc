@@ -32,7 +32,7 @@ most used resources and views:
 
 * Deploy from the App Store: Link to the :ref:`App Store <user-console-app-store>`.
 
-* Organizations Membership: Link to the end user view of the :ref:`Organizations <user-console-welcome>` page.
+* Organizations Membership: Link to the end user view of the :ref:`Organizations <user-console-organizations>` page.
 
 * Account Details: Shows the account details of the current user. Also
   accessible from the drop down list at the top left.
@@ -57,7 +57,7 @@ The list shows:
 The list can be sorted by name or state, and filtered by:
 
 * State
-* Application Acess
+* Application Access
 * Restart Required
 
 The list includes applications deployed to all Spaces in the current
@@ -121,8 +121,8 @@ Organizations List
 ------------------
 
 The Organizations list is accessible from the top menu. It shows all
-Organizations which the current user is a member of, and is searchable
-by name.
+:ref:`Organizations <orgs-spaces-organizations>` which the current user
+is a member of. The list is searchable by name.
 
 Clicking on any Organization name opens the Organization view.
 

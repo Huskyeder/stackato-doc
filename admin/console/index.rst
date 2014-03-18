@@ -54,11 +54,49 @@ System Information
 * **API Endpoint**: The URL for stackato clients to target. Normally
   also the URL for the Management Console.
 
+.. _console-applications:
+
+Applications
+------------
+
+The Applications section displays a list of all apps on the server.
+Click anywhere on the line for an app to view its details. Admins have
+the same permissions in the :ref:`Application View <user-console-app>`
+as a Developer of the space it was deployed to.
+
+.. _console-organizations:
+
+Organizations
+-------------
+
+The top level Organizations page allows Admins to add and delete
+:ref:`Organizations <orgs-spaces>`. Clicking on an organization name
+opens its details. This view is the same as a regular :ref:`user's
+Organizations view <user-console-organizations>`, but admin users can
+edit quotas, and add/remove domains, spaces, and users.
+
+.. _console-support:
+
+Support
+-------
+
+The Support menu includes the same options as the regular user with the
+addition of a **Generate Stackato Report** link, which exposes the same
+functionality as :ref:`kato report <kato-command-ref-report>`.
+
+
+.. _console-admin:
+
+Admin
+-----
+
+Several views that are only available to Stackato administrators are
+in the Admin menu.
 
 .. _console-cluster-nodes:
 
-Cluster Nodes
--------------
+Cluster Management
+^^^^^^^^^^^^^^^^^^
 
 Displays a list of nodes in the current cluster, and what services are
 running on each node. In a micro cloud configuration, only the current
@@ -74,23 +112,28 @@ info <kato-command-ref-info>` command documentation for the CLI
 equivalents, and the :ref:`Cluster Setup <cluster-setup>` section for
 information on adding nodes to the cluster.
 
+Applications & Organizations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _console-organizations:
+Links to the :ref:`Applications <user-console-apps-list>` and
+:ref:`Organizations <user-console-organizations-lists>` lists. 
 
-Organizations
--------------
+Domains
+^^^^^^^
 
-The top level Organizations page allows Admins to add and delete
-:ref:`Organizations <orgs-spaces>`. Clicking on an organization name
-opens its details. This view is the same as a regular :ref:`user's
-Organizations view <user-console-organizations>`, but admin users can
-edit quotas, and add/remove domains, spaces, and users.
+A filterable list of all domains configured on the system, showing
+whether they are :ref:`Shared or Owned domains <domains-routes-domains>`.
 
+Services
+^^^^^^^^
+
+A filterable list of service instances on the system, and a list of
+available service types (with their version).
 
 .. _console-users:
 
 Users
------
+^^^^^
 
 The Users section displays a list of users and admins. 
 
@@ -99,47 +142,72 @@ The Users section displays a list of users and admins.
 * Click on the user name or email address to view account details or
   change the password.
 
-
-.. _console-applications:
-
-Applications
-------------
-
-The Applications section displays a list of all apps on the server.
-Click anywhere on the line for an app to view its details. Admins have
-the same permissions in the :ref:`Application View <user-console-app>`
-as a Developer of the space it was deployed to.
-
-.. _console-cloud-events:
-
-Cloud Events
-------------
-
-The Cloud Events section displays a list of events (including errors and
-warnings) on the Stackato server. The events can be filtered by Severity
-or Type, or by using a substring match in the Search field.
-
-
 .. _console-dashboard:
 
-Dashboard
----------
+Dashboards
+^^^^^^^^^^
 
-Router
-^^^^^^
+.. index:: Cluster Usage
+
+.. index:: DEA Usage
+
+.. _console-cluster-usage:
+
+Memory Summary
+~~~~~~~~~~~~~~
+
+Stackato tracks the amount of memory used by applications across all DEA
+nodes and shows various reports. Available memory is calculated based on
+the system memory of the DEA nodes multiplied by the :ref:`Max Memory
+Percentage <console-settings-dea>`. **Memory Summary** shows how much
+memory:
+
+* has been assigned to Organizations via :ref:`Quota Definitions <console-settings-quota-definitions>
+* is available on DEA nodes 
+* remains unallocated
+* has been allocated
+* is currently in use
+  
+  
+DEA Usage
+~~~~~~~~~
+
+Memory usage statistics and a usage bar graph for each DEA node in the pool.
+
+Placement Zone Usage
+~~~~~~~~~~~~~~~~~~~~
+
+Memory usage statistics and a usage bar graph for all configured
+:ref:`Placement Zones <dea-zones-placement>` 
+
+Availability Zone Usage
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Memory usage statistics and a usage bar graph for all configured
+:ref:`Availability Zones <dea-zones-availability>` 
+
+Router Stats
+~~~~~~~~~~~~
 
 Shows realtime results for incoming requests (connections per second),
 routing errors (errors per second), and an overview of the cumulative
 requests to the system.
 
-
 Primary Node Status Graphs
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Displays graphs for server statistics: CPU, Load, Memory, Disk
 Operations, Disk Space, Processes, and Swap (primary node or micro cloud
 only).
 
+.. _console-cloud-events:
+
+Cloud Events
+^^^^^^^^^^^^
+
+The Cloud Events section displays a list of events (including errors and
+warnings) on the Stackato server. The events can be filtered by Severity
+or Type, or by using a substring match in the Search field.
 
 .. _console-settings:
 
@@ -147,6 +215,17 @@ Settings
 --------
 
 The Settings menu gives access to the following Console and system settings:
+
+.. _console-settings-applications:
+
+Applications
+^^^^^^^^^^^^
+
+* **Reserved URIs**: Virtual hostnames and URIs reserved for use by the
+  Stackato system which cannot be used for end user applications. This
+  prevents users from deploying applications on URIs which the system
+  requires (e.g. 'api'), or for cases where a particular DNS sub-domain
+  record is not being resolved to the Stackato system.
 
 Console
 ^^^^^^^
@@ -224,13 +303,6 @@ Cloud Controller
   containers. End users can install additional packages (e.g. with
   ``apt-get`` or ``aptitude``) only from these repositories.
 
-
-.. _console-settings-applications:
-
-Applications
-^^^^^^^^^^^^
-
-* **Reserved URIs**: URIs which cannot be used for end user applications.
 
 .. _console-settings-dea:
 
