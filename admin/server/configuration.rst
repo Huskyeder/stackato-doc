@@ -189,11 +189,11 @@ This command will prompt for the following inputs:
 
 * network gateway (e.g. 10.0.0.254)
 
-* (optional) comma-separated list of DNS names servers (e.g. 10.0.0.252, 10.0.0.253)
+* (optional) space-separated list of DNS names servers (e.g. 10.0.0.252 10.0.0.253)
 
-* (optional) comma-separated list of DNS search domains (e.g. example.com, example.org)
+* (optional) space-separated list of DNS search domains (e.g. example.com example.org)
 
-kato will verify the IP addresses given are within legal ranges,
+``kato`` will verify the IP addresses given are within legal ranges,
 automatically calculate the network / broadcast addresses for you, and
 prompt for the 'sudo' password to write the changes.
 
