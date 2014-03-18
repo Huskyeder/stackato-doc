@@ -42,10 +42,13 @@ install ActivePython 2.7:
  
 Once ActivePython is installed, run the following commands:
  
+```
    $ pypm install sphinx
    $ cd doc
    $ make publicdocs
    $ open _build/public-docs/index.html
+```
+
 
 Public vs. Internal
 -------------------
@@ -81,7 +84,9 @@ Troubleshooting
 
 If you get an error:
 
+```
   "make: sphinx-build: Command not found"
+```
   
 ...it may mean you haven't added '~/.local/bin' to your PATH.
 
