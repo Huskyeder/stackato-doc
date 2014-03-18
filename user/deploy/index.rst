@@ -320,33 +320,35 @@ Mapping App URLs
 ----------------
 
 Stackato automatically assigns to each application a URL made up of the
-application's name and the base URL for the system. An application named
-"myblog" deployed to a Stackato system at "api.stacka.to" would be given
+application's name and the base URL for the system or the current
+:ref:`Organization <orgs-spaces-organizations>`. An application named
+"myblog" deployed to a Stackato system at "api.stacka.to" might be given
 the URL "myblog.stacka.to".
 
-In addition to this default URL, additional URLs can be set for an
-application using the :ref:`stackato map <command-map>` command. The
-application will respond to requests on the mapped URL, provided a DNS
-record has been set up resolving to Stackato's external IP or hostname.
+In addition to this default URL, additional URLs which are assigned to
+the Organization can be set for an application using the :ref:`stackato
+map <command-map>` command. The application will respond to requests on
+the mapped URL, provided a DNS record has been set up resolving to
+Stackato's external IP or hostname.
 
 For example, to map a URL to an existing application on Stackato::
 
-	$ stackato apps
-	
-	+--------------+---+--------+----------------------------------+------------+
-	| Application  | # | Health | URLS                             | Services   |
-	+--------------+---+--------+----------------------------------+------------+
-	| myapp        | 1 | 100%   | myapp.stacka.to                  |            |
-	+--------------+---+--------+----------------------------------+------------+
+  $ stackato apps
+  
+  +--------------+---+-----+-------------+-----------------------+------------+--------+
+  | Application  | # | Mem | Health      | URLS                  | Services   | Drains |
+  +--------------+---+-----+-------------+-----------------------+------------+--------+
+  | myapp        | 1 | 128 | RUNNING (-) | myapp.stacka.to       |            |        |
+  +--------------+---+-----+-------------+-----------------------+------------+--------+
 
-	$ stackato map myapp mydomain.com
-	
-	+--------------+---+--------+----------------------------------+------------+
-	| Application  | # | Health | URLS                             | Services   |
-	+--------------+---+--------+----------------------------------+------------+
-	| myapp        | 1 | 100%   | myapp.stacka.to                  |            |
-	|              |   |        | mydomain.com                     |            |
-	+--------------+---+--------+----------------------------------+------------+	
+  $ stackato map myapp mydomain.com
+  
+  +--------------+---+-----+-------------+-----------------------+------------+--------+
+  | Application  | # | Mem | Health      | URLS                  | Services   | Drains |
+  +--------------+---+-----+-------------+-----------------------+------------+--------+
+  | myapp        | 1 | 128 | RUNNING (-) | myapp.stacka.to       |            |        |
+  |              |   |     |             | mydomain.com          |            |        |
+  +--------------+---+-----+-------------+-----------------------+------------+--------+
 
 If DNS is configured correctly, requests to "mydomain.com" will resolve
 transparently to "myapp.stacka.to".
