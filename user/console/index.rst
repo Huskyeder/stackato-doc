@@ -37,18 +37,121 @@ most used resources and views:
 * Account Details: Shows the account details of the current user. Also
   accessible from the drop down list at the top left.
 
+.. _user-console-apps-list:
+
+Applications List
+-----------------
+
+The Applications list is accessible from the top menu. It shows all
+applications deployed under the current user's Organizations.
+
+The list shows:
+
+* the application name
+* the Organization it belongs to
+* the Space it was deployed to
+* the Description field
+* its current state (e.g. STARTED or STOPPED)
+* Application Access (i.e. if :ref:`Application SSO <application-sso>` is enabled)
+
+The list can be sorted by name or state, and filtered by:
+
+* State
+* Application Acess
+* Restart Required
+
+The list includes applications deployed to all Spaces in the current
+user's Organizations, even those for which the user may not have access.
+Applications in such Spaces are viewable, but no changes can be made to
+them.
+
+Clicking on the application name opens its Application View.
+
+.. _user-console-app:
+
+Application View
+^^^^^^^^^^^^^^^^
+
+The top navigation of the Application view gives the name and status of
+the application followed by its organization / space. The view includes
+the following tabs: 
+
+* Summary: General information about the app including its description,
+  which buildpack it uses, when it was created, and when it was last
+  modified.
+
+* Timeline: A realtime stream of events and discussions relevant to the
+  Application. Events in the application's history appear here as
+  notifications which can be commented on by members of the Space.
+
+* Environment Variables: Environment variables that have been explicitly
+  set in the application container (via application config, client
+  commands, or this interface). Default variables, those set by the
+  application framework, or those added by the system for data services
+  are excluded from this view.
+
+* Files: A browsable list of directories and files in each application
+  instance.
+  
+* Instances:
+
+  * Application Autoscaling Settings: CPU Threshold and Instances
+    sliders for configuring :ref:`Application Autoscaling
+    <app-autoscaling>`.
+  * Instance Status: A list of application instances showing the status
+    and host DEA IP address of each.
+
+* Logs Stream: A real time :ref:`stream of the application logs
+  <application_logs>`.
+
+* Routes: The URLs mapped to the application. These :ref:`Routes
+  <domains-routes-routes>` are made up of the name of the application
+  name (a virtual hostname) followed by a dot and a :ref:`Domain
+  <domains-routes-domains>` (assigned to the Org and Space).
+
+* Services: Data (and other) service instances bound to the Application.
+
+* Settings: The number of application instances, disk space, and memory
+  allotment used by the application. This usage counts against the
+  organizations's quota.
+
+.. _user-console-organizations-list:
+
+Organizations List
+------------------
+
+The Organizations list is accessible from the top menu. It shows all
+Organizations which the current user is a member of, and is searchable
+by name.
+
+Clicking on any Organization name opens the Organization view.
+
 .. _user-console-organizations:
 
 Organization View
------------------
+^^^^^^^^^^^^^^^^^
 
 The Organizations page shows a list of all :ref:`Organizations
 <orgs-spaces>` that the current user is a member of. Depending on how
 the Stackato PaaS has been set up, you may only be a member of a single
 Organization.
 
-Clicking on the Organization name opens a view of that organization, including:
+Clicking on the Organization name opens a view of that organization,
+including the following tabs:
 
+* Spaces: A list of Spaces that belong to the Organization.
+  Clicking on a Space in the list opens a :ref:`view of that Space
+  <user-console-space>`.
+  
+* Users: A list of Users who are members of the Organization, showing
+  the Email address and Organization :ref:`Roles <orgs-spaces-roles>` of
+  each.
+  
+  * Users: can view organization quotas, domains, spaces and users.
+  
+  * Manager: can add domains and spaces to the organization, but not
+    users.
+  
 * Quota Usage:
 
   * Memory: The amount of RAM (in GB) available to the Organization, and
@@ -63,52 +166,25 @@ Clicking on the Organization name opens a view of that organization, including:
   with the address "api.example.org" might have the domain
   "\*.acme.example.org".
   
-Tabs:
-
-* Spaces: A list of Spaces that belong to the Organization, showing the
-  current number of applications and services deployed to that space.
-  Clicking on a Space in the list opens a :ref:`view of that Space
-  <user-console-space>`.
-
-* Users: A list of Users who are members of the Organization, showing
-  the Email address and Organization :ref:`Roles <orgs-spaces-roles>` of
-  each.
-  
-  * Users: can view organization quotas, domains, spaces and users.
-  
-  * Manager: can add domains and spaces to the organization, but not
-    users.
-  
-.. note::
-  There is currently no interface in the Management Console for
-  Managers, Auditors, or Billing Managers to view or adjust
-  billing/payment info and spending limits.
-  
   
 .. _user-console-space:
 
 Space View
-----------
+^^^^^^^^^^
 
-* Apps: A filterable list of applications in the Space. Clicking an app
-  name opens an :ref:`administrative view of that application
-  <user-console-app>`.
+* Apps: A sortable, filterable list of applications in the Space.
+  Clicking an app name opens an :ref:`administrative view of that
+  application <user-console-app>`.
 
-* Services: A list of services bound to applications in the Space.
-  Clicking a service name opens a ref:`administrative view of that
-  service <user-console-service>`.
-
-* Domains: A filterable list of Domains attached to the space. Domains
-  can be added and removed by Space or Organization Managers, but must
-  first be mapped to the parent Organization (by a Stackato Admin).
-
-Tabs:
-  
 * Timeline: A realtime stream of events and discussions relevant to
   the Space. The creation, update, and deletion of apps and services appear
   here as notifications which can be commented on by members of the
   Space. Discussions can be started by any member, tagged, and assigned
   to an application (which makes the item visible in the Application view).
+
+* Services: A list of services bound to applications in the Space.
+  Clicking a service name opens a ref:`administrative view of that
+  service <user-console-service>`.
 
 * Managers: Managers can invite/manage users, enable features for a
   given space.
@@ -120,65 +196,21 @@ Tabs:
   settings, reports, logs.
 
 
-.. _user-console-app:
-
-Application View
-----------------
-
-* About: General information about the app including which buildpack it
-  uses, when it was created, and when it was last modified.
-
-* Routes: Essentially, the URLs mapped to the application.
-  These :ref:`Routes <domains-routes-routes>` are made up of the name of
-  the application name (a virtual hostname) followed by a dot and a
-  :ref:`Domain <domains-routes-domains>` (assigned to the Org and Space).
-
-* Services: Data (and other) service instances deployed in the Space.
-  May be attached to one or more applications in the Space.
-
-* Memory Usage: Total RAM consumption (in MB) of all apps in the Space.
-
-Tabs:
-
-* Timeline: An application-specific subset of the Timeline for the Space.
-
-* Instances:
-
-  * Application Autoscaling Settings: CPU Threshold and Instances
-    sliders for configuring :ref:`Application Autoscaling
-    <app-autoscaling>`.
-  * Instance Status: A list of application instances showing the status
-    and host DEA IP address of each.
-
-* Logs: A real time stream of your applications logs.
-
-* Files: A browsable list of directories and files in each application
-  instance.
-
-* Environment Variables: Environment variables that have been explicitly
-  set in the application container (via application config, client
-  commands, or this interface). Default variables, those set by the
-  application framework, or those added by the system for data services
-  are excluded from this view.
-
-* Settings: The number of application instances, disk space, and memory
-  allotment used by the application. This usage counts against the
-  organizations's quota.
-
 .. _user-console-service:
 
 Service Instance View
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Clicking a service instance name anywhere in the interface brings up a
 view of that service instance showing:
 
+* a description of the service type
 * when it was created
 * when it was last modified
 * which host it is running on
 * which port it is exposed on
 * the service instance name (not the canonical database name)
-* it's current state
+* current state
 
 For more information on a service instance (i.e. its credentials), use
 the :ref:`stackato service <command-service>` command.
