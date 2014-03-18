@@ -15,36 +15,36 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-  v3.2.x (UNRELEASED)
-  -------------------
+v3.2.1 (March 2014)
+-------------------
 
-  * New Features
-  
-    * :ref:`Placement Zones <dea-zones-placement>`
-    * :ref:`Availability Zones <dea-zones-availability>`
-    * :ref:`Application auto-scaling <app-autoscaling>`
-    * :ref:`Application Single Sign-On <application-sso>`
-    * New Cluster Usage view in the Management Console. 
-  
-  * Enhancements & Upgrades
-  
-    * Several UX improvements in the Managment Console
-    * Improved :ref:`application distribution <architecture-dea>`
-    * Upgraded Docker to 0.7.6
-    * Upgraded Go to 1.2 (for logyard, appstore, appmdns)
-    * Improved ``kato node upgrade`` to handle interruptions
-  
-  * Bug Fixes
+* New Features
 
-    * [102472] Fixed dir_server on isolated VMs
-    * [102706] Fixed adding files to log stream with STACKATO_LOG_FILES
-    * [102771] New app events (eg: crash) added to the application log stream
-    * Raised default container process limit (``max_container_processes``) from 50 to 256
-    * [100412] Cleanup leftover tmp volumes created for appstore containers
-    * New Docker image (stack) naming convention: ``stackato/stack/alsek`` becomes ``stackato/stack-alsek``  
-    * [100671] Pass configued http(s) proxy to app store deployments
-    * [102406] ``kato node reset`` now resets services data
-    * [102661] Fixed an issue with ``kato node reset`` failing to remove Docker containers/images
+  * :ref:`Placement Zones <dea-zones-placement>`
+  * :ref:`Availability Zones <dea-zones-availability>`
+  * :ref:`Application auto-scaling <app-autoscaling>`
+  * :ref:`Application Single Sign-On <application-sso>`
+  * New Cluster Usage view in the Management Console. 
+
+* Enhancements & Upgrades
+
+  * Several UX improvements in the Managment Console
+  * Improved :ref:`application distribution <architecture-dea>`
+  * Upgraded Docker to 0.7.6
+  * Upgraded Go to 1.2 (for logyard, appstore, appmdns)
+  * Improved ``kato node upgrade`` to handle interruptions
+
+* Bug Fixes
+
+  * [102472] Fixed dir_server on isolated VMs
+  * [102706] Fixed adding files to log stream with STACKATO_LOG_FILES
+  * [102771] New app events (eg: crash) added to the application log stream
+  * Raised default container process limit (``max_container_processes``) from 50 to 256
+  * [100412] Cleanup leftover tmp volumes created for appstore containers
+  * New Docker image (stack) naming convention: ``stackato/stack/alsek`` becomes ``stackato/stack-alsek``  
+  * [100671] Pass configued http(s) proxy to app store deployments
+  * [102406] ``kato node reset`` now resets services data
+  * [102661] Fixed an issue with ``kato node reset`` failing to remove Docker containers/images
 
 
 v3.0.1 (December 18, 2013)
