@@ -116,7 +116,7 @@ Applications & Organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Links to the :ref:`Applications <user-console-apps-list>` and
-:ref:`Organizations <user-console-organizations-lists>` lists. 
+:ref:`Organizations <user-console-organizations-list>` lists. 
 
 Domains
 ^^^^^^^
@@ -162,7 +162,7 @@ the system memory of the DEA nodes multiplied by the :ref:`Max Memory
 Percentage <console-settings-dea>`. **Memory Summary** shows how much
 memory:
 
-* has been assigned to Organizations via :ref:`Quota Definitions <console-settings-quota-definitions>
+* has been assigned to Organizations via :ref:`Quota Definitions <console-settings-quota-definitions>`
 * is available on DEA nodes 
 * remains unallocated
 * has been allocated
