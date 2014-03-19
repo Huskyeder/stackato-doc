@@ -66,10 +66,43 @@ The Router is configured using :ref:`kato config
 
     $ kato config set router2g x_frame_options SAMEORIGIN
 
-.. note::
-  Alternatively, end user applications can employ `framekiller
-  <http://en.wikipedia.org/wiki/Framekiller>`_ JavaScript snippets to
-  help prevent frame based clickjacking. 
+  .. note::
+    Alternatively, end user applications can employ `framekiller
+    <http://en.wikipedia.org/wiki/Framekiller>`_ JavaScript snippets to
+    help prevent frame based clickjacking.
+
+.. index:: Endpoint Aliases  
+  
+.. _router-cluster-endpoint-aliases:  
+
+* **cluster_endpoint_aliases**: Add aliases for the API Endpoint. For
+  example to set up the endpoint "api.mydomain.com" on a system that is
+  configured by default as "api.example.com"::
+  
+    $ kato config push router2g cluster_endpoint_aliases mydomain.com
+    
+  To remove the alias::
+  
+    $ kato config pop router2g cluster_endpoint_aliases mydomain.com
+    
+  When used in conjunction with the ``appOnlyRouter`` setting on
+  other router nodes, this can be used to create an API Endpoint
+  which is only resolvable/accessible on an internal network.
+
+.. index:: appOnlyRouter
+
+.. _router-app-only-router:
+
+* **appOnlyRouter** (file setting - not in ``kato``): This setting can
+  be configured on router nodes in the
+  */s/code/stackato-router/config/local.json* file. Set
+  ``appOnlyRouter`` to ``true`` and restart the router to enable. This
+  configures the router to **not** serve the API Endpoint, only
+  user-deployed applications. At least one router node in every cluster
+  must expose the API Endpoint, but it does not need to be internet
+  accessible if the developers pushing applications are within the same
+  internal network as Stackato.
+  
 
 .. index:: WebSockets
 
