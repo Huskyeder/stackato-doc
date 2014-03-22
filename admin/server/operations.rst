@@ -81,7 +81,7 @@ Resetting the VM
 
 If you would like to return a Stackato VM to its original
 "out-of-the-box" configuration, use the :ref:`kato node reset
-<kato-command-ref-node-attach>` command. This command has two options:
+<kato-command-ref-node-reset>` command. This command has two options:
 
 * ``kato node reset factory``: Resets everything. The host will behave as it
   did on first boot (creating a new randomized hostname and starting as
@@ -89,15 +89,9 @@ If you would like to return a Stackato VM to its original
   this command. The primary use for this command is to prepare a running
   VM to be cloned by removing stale data/configuration.
 
-* ``kato node reset soft``: Resets only configuration and data, but leaves
-  first boot (naming) or other state info. You would normally run this
-  together with the :ref:`kato node setup <kato-command-ref-node-attach>` command.
-  For example:
-  
-  .. parsed-literal::
-    
-    kato node reset soft
-    kato node setup micro
+* ``kato node reset docker``: Removes all docker containers, and deletes all but
+  the Stackato release images. Not meant for general use, but implicity run
+  along with ``reset factory``.
 
 .. index:: Monitoring, Server Monitoring
 
