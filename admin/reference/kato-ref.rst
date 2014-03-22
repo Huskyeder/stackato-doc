@@ -872,8 +872,6 @@ Command Usage Details
 
 .. _kato-command-ref-node-reset:
 
-**node** **reset** **soft**
-
 **node** **reset** **factory**
 
 **node** **reset** **docker**
@@ -882,8 +880,6 @@ Command Usage Details
 
   Reset the Stackato VM to its default configuration.
   
-  * soft: clears all data and resets the VM to its state
-    immediately after first boot.
   * factory: returns the VM to its state prior to first boot.
   * docker: removes all docker containers, and deletes all but the Stackato
     release images; not meant for general use, and implicity run along with
@@ -1030,27 +1026,29 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
+  **-j** **--json**                       Shows the status in json format.
+
   **-n** **--node** *<node>*              Targets the provided node.
+
+  **-u** **--update-kato**                Updates kato node upgrade to the latest codebase.
 
   **-v** **--version** *<version>*        The version of Stackato to upgrade to. The latest version is used if this isn't supplied.
 
-  **--skip-confirmation**                 Skips initial confirmation of upgrade.
+  **--cluster**                           Performs an upgrade of all nodes in the cluster.
+
+  **--force**                             Forces an upgrade to run.
+
+  **--prepare**                           Prepare the core node for an upgrade.
 
   **--resume**                            Resumes an upgrade process, used internally by Kato and should only be called manually when
 
                                           requested.
 
-  **--cluster**                           Performs an upgrade of all nodes in the cluster.
+  **--role-order** *<role-order>*         Comma separated list of roles defining the order that roles should be upgraded in a cluster.
+
+  **--skip-confirmation**                 Skips initial confirmation of upgrade.
 
   **--status**                            Shows the status of upgrades on a node.
-
-  **--force**                             Forces an upgrade to run.
-
-  **-j** **--json**                       Shows the status in json format.
-
-  **-u** **--update-kato**                Updates kato node upgrade to the latest codebase.
-
-  **--role-order** *<role-order>*         Comma separated list of roles defining the order that roles should be upgraded in a cluster.
 
 
 
