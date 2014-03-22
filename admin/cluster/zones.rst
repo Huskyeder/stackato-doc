@@ -15,8 +15,8 @@ particular Droplet Execution Agent (DEA) nodes or groups of nodes:
 * **Placement Zones**: for restricting application instances to
   particular sets of servers.
   
-Both are set in the ``placement_properties`` configuration on each DEA
-node, and have .
+Both zone types are set in the ``placement_properties`` configuration on each
+DEA node, which can be set with ``kato node`` sub-commands.
 
 See also :ref:`Availability & Placement Zones <deploy-zones>` in the User Guide.
   
@@ -26,13 +26,13 @@ See also :ref:`Availability & Placement Zones <deploy-zones>` in the User Guide.
 Availability Zones
 ------------------
 
-Setting availability zones allows a cluster administrator to configure
-Stackato to respect the physical/logical distribution of servers,
+Setting availability zones allows a cluster administrator to configure Stackato
+to respect the physical/logical distribution of servers. In this sense, they
 similar to availability zones or regions in EC2. 
 
-If there are multiple availability zones configured, application
-instances are evenly distributed among them as much as possible. For
-example, if there are 3 instances of an application and 3 availability
+If there are multiple availability zones configured in a Stackato system,
+application instances are evenly distributed among zones as much as possible.
+For example, if there are 3 instances of an application and 3 availability
 zones, 1 instance will be deployed in each zone.
 
 This significantly improves HA and quick disaster recovery. If an entire
