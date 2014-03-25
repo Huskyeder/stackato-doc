@@ -15,8 +15,8 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-v3.2.1 (March 2014)
--------------------
+v3.2.1 (March 25, 2014)
+-----------------------
 
 * New Features
 
