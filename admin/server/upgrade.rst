@@ -40,18 +40,44 @@ Management Console becomes "read only" with the exception of this toggle
 (to bring it back online). Remember to disable maintenance mode once the
 upgrade completes.
 
+.. _upgrade-proxy-settings:
 
 Proxy settings
 ^^^^^^^^^^^^^^
 
 The systems being upgraded will need to be able to access the following
-public URIs:
+public hosts:
 
-* https://upgrade.stackato.com
-* https://pkg.stackato.com
+* upgrade.stackato.com
+* pkg.stackato.com
+* docker.stackato.com
 
-This may require setting the HTTPS_PROXY environment variable on each
-node if a proxy is in use on your network.
+This may require setting the HTTP_PROXY and http_proxy environment
+variables on each node if a proxy is in use on your network.
+
+
+Stackato Caching Proxy
+^^^^^^^^^^^^^^^^^^^^^^
+
+Stackato uses a built in caching proxy to minimize the number of
+downloads required to complete a cluster upgrade. This is configured
+automatically when running ``kato node upgrade --cluster`` (see below).
+
+If you plan on upgrading cluster nodes one at a time, run ``kato node
+upgrade --prepare`` **on the Core node** (the VM running the primary
+role) before upgrading the nodes individually.
+
+Setup of the caching proxy will be skipped if:
+
+* HTTP_PROXY and http_proxy are already set in the system default
+  profile (see :ref:`Proxy settings <upgrade-proxy-settings>` above)
+* STACKATO_UPGRADE_SKIP_PROXY_CACHE is set. Use this if you explcitly
+  want to skip the caching proxy.
+
+Disabling Stackato's caching proxy will result in a slower upgrade,
+since the updated packages and Docker images will be downloaded by each
+node in the cluster. 
+
 
 RSA keys
 ^^^^^^^^
@@ -63,17 +89,10 @@ between the Core node and all other cluster nodes. Without this, you
 will be prompted for the 'stackato' system user password multiple times
 for each node. 
 
+
 Executing the upgrade
 ---------------------
 
-Upgrading an individual node
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To upgrade an individual node, log into the node and run::
-
-  $ kato node upgrade
-  
-This will start the ‘Node Upgrade Process' described below.
 
 Upgrading a cluster
 ^^^^^^^^^^^^^^^^^^^
@@ -84,7 +103,8 @@ To upgrade a cluster, log into the Core node in the cluster and run::
   
 This will automatically arrange the nodes in the cluster into a
 preferred upgrade order (see below) before upgrading the nodes one at a
-time.
+time using the :ref:`Node Upgrade Process
+<upgrade-node-upgrade-process>` described below.
 
 Node upgrade ordering
 ^^^^^^^^^^^^^^^^^^^^^
@@ -109,6 +129,28 @@ be upgraded last.
   The order can be overridden with the :ref:`--role-order
   <kato-command-ref-node-upgrade>` option, but ``kato`` will ensure that
   the Core node (i.e. running the primary role) is always updated last. 
+
+Upgrading an individual node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Automated cluster upgrade (above) is the recommended method for
+upgrading a Stackato installation. However, it is possible to upgrade
+nodes one at a time if you have specific reasons for doing so, or have
+been directed to do so by ActiveState Stackato Support.
+
+.. note::
+  Before upgrading any individual nodes, run ``kato node upgrade
+  --prepare`` on the Core node.
+
+To upgrade an individual node, log into the node and run::
+
+  $ kato node upgrade
+  
+This will start the :ref:`Node Upgrade Process
+<upgrade-node-upgrade-process>` described below.
+
+
+.. _upgrade-node-upgrade-process:
 
 Node Upgrade Process
 ^^^^^^^^^^^^^^^^^^^^
