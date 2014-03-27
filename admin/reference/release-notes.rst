@@ -15,7 +15,7 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-v3.2.1 (March 25, 2014)
+v3.2.1 (March 31, 2014)
 -----------------------
 
 * New Features
@@ -33,6 +33,15 @@ v3.2.1 (March 25, 2014)
   * Upgraded Docker to 0.7.6
   * Upgraded Go to 1.2 (for logyard, appstore, appmdns)
   * Improved ``kato node upgrade`` to handle interruptions
+
+* Application stack changes
+
+  * [102193] Added logrotate
+  * [102755] Removed build-time apt sources
+  * [103301] Upgraded ActivePython to 2.7.6.9 and 3.3.4.1
+  * [102483] Purged popularity-contest package
+  * Upgraded Go to 1.2
+  * Improved sshd logging
 
 * Bug Fixes
 
