@@ -208,6 +208,7 @@ following command on the data services node:
   TCP and UDP ports for user applications. See the :ref:`Harbor
   Requirements & Setup <harbor-setup>` documentation for details. 
 
+.. _server-cluster-dea:
 
 DEA Nodes
 ^^^^^^^^^

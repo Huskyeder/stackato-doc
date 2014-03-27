@@ -90,6 +90,18 @@ will be prompted for the 'stackato' system user password multiple times
 for each node. 
 
 
+Extra DEA Nodes
+^^^^^^^^^^^^^^^
+
+While the upgrade is in progress, DEAs will be :ref:`retired
+<kato-command-ref-node-retire>` one at a time and the hosted
+applications will be moved to other DEAs. If the system is operating at
+or close to capacity (i.e. all DEAs are fully populated) it will be
+necessary to :ref:`add at least one DEA node <server-cluster-dea>` to
+the cluster before proceeding. Customers are permitted to exceed their
+node/memory license allocation during the upgrade.
+
+
 Executing the upgrade
 ---------------------
 
