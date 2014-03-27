@@ -16,6 +16,16 @@ process works.
 Before an upgrade
 -----------------
 
+Patching Stackato
+^^^^^^^^^^^^^^^^^
+
+Some updates available via :ref:`kato patch <kato-command-ref-patch>`
+may be necessary before :ref:`kato node upgrade
+<kato-command-ref-node-upgrade>` can be run.
+
+Make sure to :ref:`apply all outstanding patches <bestpractices-patch>`
+before proceeding with an upgrade.
+
 Maintenance Mode
 ^^^^^^^^^^^^^^^^
 

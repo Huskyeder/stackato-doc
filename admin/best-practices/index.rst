@@ -10,8 +10,8 @@ Best Practices
 
 .. _bestpractices-patch:
 
-Applying Updates
-----------------
+Applying Updates (kato patch)
+-----------------------------
 
 Major version upgrades of Stackato can be done using :ref:`kato node upgrade
 <upgrade>` or a :ref:`migration to a new VM or cluster
