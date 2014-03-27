@@ -15,6 +15,16 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
+  v3.4.x (JUKEBOX)
+  ----------------
+
+  * Application stack changes
+
+    * [103301] Upgraded ActivePython to 2.7.6.9 and 3.3.4.1
+    * Improved sshd logging
+
+
+
 v3.2.1 (March 31, 2014)
 -----------------------
 
@@ -38,10 +48,8 @@ v3.2.1 (March 31, 2014)
 
   * [102193] Added logrotate
   * [102755] Removed build-time apt sources
-  * [103301] Upgraded ActivePython to 2.7.6.9 and 3.3.4.1
   * [102483] Purged popularity-contest package
   * Upgraded Go to 1.2
-  * Improved sshd logging
 
 * Bug Fixes
 
