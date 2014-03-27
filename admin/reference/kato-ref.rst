@@ -876,14 +876,16 @@ Command Usage Details
 
 **node** **reset** **docker**
 
+**node** **reset** **services**
+
 **node** **reset** **--help**
 
   Reset the Stackato VM to its default configuration.
   
   * factory: returns the VM to its state prior to first boot.
   * docker: removes all docker containers, and deletes all but the Stackato
-    release images; not meant for general use, and implicity run along with
-    soft|factory.
+    release images; not meant for general use.
+  * services: removes all service data; not meant for general use.
 
   **-h** **--help**                       Show help information
 
