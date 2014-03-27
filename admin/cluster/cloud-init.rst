@@ -39,35 +39,29 @@ would add a new DEA node to the cluster::
 Securing the new node
 ---------------------
 
-To lock down and secure this new node, you could use standard
-cloud-config directives for adding any SSH keys, randomizing passwords,
-and/or disabling password based authentication entirely. An example that
-creates a data services node, enables passwordless sudo for the admin
-group, and disables password based authentication::
+To lock down and secure this new node, you can use standard cloud-config
+directives for:
 
+* `adding SSH keys <http://cloudinit.readthedocs.org/en/latest/topics/examples.html#configure-instances-ssh-keys>`__
+* setting a password for the ``stackato`` user::
+    
     #cloud-config
 
-    stackato:
-      nats:
-        ip: 10.2.3.4
-      roles: ['data-services']
+    chpasswd:
+     list: |
+       stackato:Amhyljoc6
+     expire: false  
+    
+* setting a random password for the ``stackato`` user::
+
+    #cloud-config
 
     chpasswd:
      list: |
        stackato:RANDOM
-       root:RANDOM
-       ubuntu:RANDOM
      expire: false
-    ssh_pwauth: false
 
-    bootcmd:
-    - - cloud-init-per
-      - once
-      - sudo_admin_group_nopasswd
-      - sed
-      - -ri
-      - s|^%admin .*|%admin ALL=\(ALL\) NOPASSWD:ALL|
-      - /etc/sudoers
+* `configuring trusted CA certificates <http://cloudinit.readthedocs.org/en/latest/topics/examples.html#configure-an-instances-trusted-ca-certificates>`__
 
 Elastic DNS (EC2)
 -----------------
@@ -103,5 +97,7 @@ cloud-init can be used for a variety of system setup tasks:
 * set passwords
 * configure ssh keys
 
-For more information on cloud-init, refer to the `official
-CloudInit documentation <https://help.ubuntu.com/community/CloudInit>`_.
+For more information on cloud-init, refer to the `official CloudInit
+documentation <https://help.ubuntu.com/community/CloudInit>`_ and the
+`Cloud config examples
+<http://cloudinit.readthedocs.org/en/latest/topics/examples.html>`_.
