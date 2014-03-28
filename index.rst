@@ -25,7 +25,7 @@ audiences:
   charge of setting up, configuring, and maintaining the PaaS
 
 .. note::
-  Stackato 3.0 is based on Cloud Foundry v2 and there are a number of
+  Stackato |version| is based on Cloud Foundry v2 and there are a number of
   important differences to be aware of if you are moving from Stackato
   2.x:
   
