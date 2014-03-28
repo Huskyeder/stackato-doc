@@ -82,12 +82,35 @@ node in the cluster.
 RSA keys
 ^^^^^^^^
 
-For cluster upgrades, you should `set up SSH keys for password-less
+For cluster upgrades, you should `set up SSH keys for passwordless
 authentication
 <https://help.ubuntu.com/community/SSH/OpenSSH/Configuring#disable-password-authentication>`__
 between the Core node and all other cluster nodes. Without this, you
-will be prompted for the 'stackato' system user password multiple times
-for each node. 
+will be prompted for the 'stackato' system user password each time
+``kato`` makes a remote connection to the other nodes in the cluster. 
+
+
+Passwordless sudo
+^^^^^^^^^^^^^^^^^
+
+For a completely unattended upgrade, you can configure passwordless sudo
+for the stackato user in addition to configuring SSH keys as described
+above. For example, you could run the following commands on all nodes in
+the cluster::
+
+  $ echo 'stackato ALL = (root) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/nopasswd
+  $ sudo chmod 0440 /etc/sudoers.d/nopasswd
+
+With passwordless sudo in effect on all nodes, ``kato node upgrade``
+should run without intervention.
+
+This change has security implications, and is left to the discretion of
+the admin. You may wish to enable it only for the duration of the
+upgrade.
+
+Without passwordless sudo, ``kato`` will prompt for the sudo password
+(i.e. the 'stackato' user password) during the upgrade of each node,
+even if SSH key authentication is enabled.
 
 
 Extra DEA Nodes
