@@ -34,7 +34,7 @@ v3.2.1 (March 31, 2014)
   * :ref:`Availability Zones <dea-zones-availability>`
   * :ref:`Application auto-scaling <app-autoscaling>`
   * :ref:`Application Single Sign-On <application-sso>`
-  * New Cluster Usage view in the Management Console. 
+  * :ref:`Cluster Usage view <console-dashboard>`  
 
 * Enhancements & Upgrades
 
@@ -43,9 +43,15 @@ v3.2.1 (March 31, 2014)
   * Upgraded Docker to 0.7.6
   * Upgraded Go to 1.2 (for logyard, appstore, appmdns)
   * Improved ``kato node upgrade`` to handle interruptions
+  * [102771] New app events (eg: crash) added to the application log stream
+  * [102406] ``kato node reset`` now resets services data
+  * [102336] ``kato op regenerate ssh-keys``
+  * [102916] Specify a 'default' org and space for new logins
+  * [102511] Merge with latest upstream dea_ng/cloud_controller_ng
 
-* Application stack changes
+* Application Stack Changes
 
+  * New Docker image (stack) naming convention: ``stackato/stack/alsek`` becomes ``stackato/stack-alsek``  
   * [102193] Added logrotate
   * [102755] Removed build-time apt sources
   * [102483] Purged popularity-contest package
@@ -53,15 +59,123 @@ v3.2.1 (March 31, 2014)
 
 * Bug Fixes
 
-  * [102472] Fixed dir_server on isolated VMs
-  * [102706] Fixed adding files to log stream with STACKATO_LOG_FILES
-  * [102771] New app events (eg: crash) added to the application log stream
-  * Raised default container process limit (``max_container_processes``) from 50 to 256
-  * [100412] Cleanup leftover tmp volumes created for appstore containers
-  * New Docker image (stack) naming convention: ``stackato/stack/alsek`` becomes ``stackato/stack-alsek``  
-  * [100671] Pass configued http(s) proxy to app store deployments
-  * [102406] ``kato node reset`` now resets services data
-  * [102661] Fixed an issue with ``kato node reset`` failing to remove Docker containers/images
+  * Management Console
+  
+    * [102352] Search box broken on Admin -> Services 
+    * [102482] Load balancer role should only be enabled via ``kato``
+    * [103454] Web UI displays dashboard improperly when default zones are deleted
+    * [102714] Sortable list views
+    * [103171] Dead click space in green buttons on welcome page
+    * [102795] Web UI does not handle unauthorized LDAP group error
+    * [102551] Broken links under timeline
+    * [102624] User icon no longer a (broken) link for non-admin users
+    * [102280] Individual Application page doesn't say what type of service the service is
+    * [103212] Showing apps as started while they are still staging
+    * [103205] Deleting apps from console with services throws errors
+    * [102440] Timeline events leaking between orgs
+    * [102189] Non-manager users prompted to create space
+    * [102575] Disabled services have check marks under app store
+    * [103078] Help text for Space creation on first user setup screen
+    * [101989] Add "cd node-env" to "Clone Repo" commands
+    * [102518] Hide navbar on smaller screens when user is an admin
+    * [102095] Entering an invalid value twice on app settings makes input box disappear
+    * [102291] Set window title to default product name/company on first setup
+    * [102625] Remove the delete button from the currently logged in user
+  
+  * kato
+  
+    * [102661] ``kato node reset`` failing to remove Docker containers/images
+    * [102826] ``kato patch`` now respects proxy settings
+    * [102983] ``kato op remap_hosts`` fails after import
+    * [102406] ``kato node reset`` doesn't delete services
+    * [102661] ``kato node reset soft`` ends with bash syntax error
+    * [102568] After configuring LDAP, ``kato node reset`` does not change the setting to default
+    * [102502] ``kato role add rabbit`` fails to associate with CC (403)
+    * [102494] ``kato node remove`` hangs for 2-3 minutes if node is unreachable
+    * [102584] kato config per-node
+    * [102859] ``kato patch update`` now updates on all nodes by default(``--local`` and ``--node`` to override) 
+    * [102226] ``kato status`` crashes when an external node initially becomes unavailable
+    * [102353] ``kato op upstream_proxy set`` should prompt to restart DEA, not Stager
+    * [102140] Make ``kato node`` remove a batch operation
+    * [102167] Better error handling for invalid ``kato`` sub-commands
+    * [102297] ``kato attach`` crashes if a unreachable IP address is given
+    * [102593] ``kato export`` prompts for password when exporting PostgreSQL service
+    * [102591] No error message for adding already existing data-services
+    * [102136] Handle node attach error when unable to connect to redis
+    * [102676] Staggered ``kato patch`` cluster install
+  
+  * Logyard:
+  
+    * [102706] Adding files to log stream with STACKATO_LOG_FILES
+    * [103060] Document STACKATO_LOG_FILES in the comprehensive env var list
+
+  * Security:
+  
+    * [102844] Remove express.bodyParser and use Connect.json instead
+    * [103173] XSS vulnerabilities with org names
+    * [102483] Remove popularity-contest package from image
+  
+  
+  * Misc:
+
+    * Raised default container process limit (``max_container_processes``) from 50 to 256
+    * [102472] dir_server process FATAL on isolated VMs
+    * [102660] kato relocate droplets/containers leads to apptail error during push - ERROR -- No valid log files detected for tailing
+    * [100412] Cleanup leftover tmp volumes created for appstore containers
+    * [100671] Pass configued http(s) proxy to app store deployments
+    * [102672] Memory leak in cloud controller
+    * [102659] Failure to start DEA node in a cluster 
+    * [102670] Breakage in unsupported-runtime-detection patch
+    * [102914] Duplicate user creation during import when using LDAP 
+    * [102542] v3 reduced fault tolerance in router
+    * [102525] Can't map URLs with a subdomain of less than three characters
+    * [102243] Builtin Ruby buildpack continues to use Ruby 1.9.3p327
+    * [102521] stackato_rest added drain uses loopback IP in cluster setup
+    * [102224] Controller crash during repeated client pushes
+    * [102572] Random segfaults when pushing ruby app with legacy buildpack
+    * [102770] crashed apps are not reported by ``stackato crashes``
+    * [102269] maintenance_mode fixed
+    * [102334] Java-buildpack doesn't work behind proxy server
+    * [102552] Error with LDAP strategy and no email address in LDAP
+    * [102365] Legacy Buildpack: PHP apps are not getting a bound url
+    * [102340] Incorrect DSN URI / database name field for mongodb
+    * [102472] dir_server doesn't work on fully isolated VM
+    * [102994] Mapping App URLs section describes 2.10 behavior
+    * [102971] ``stackato scp`` docs missing some helpful content
+    * [102902] Router appears to not drop downed routes
+    * [102556] Add stackato user to docker group  
+
+
+* Stackato CLI client updated to 3.0.6
+
+  * [102244] Set quota when creating an org
+  * [102537] Missing some service broker functions
+  * [102760] Add support for application description to CLI (including stackato.yml) 
+  * [103160] Client generates bad manifest sometimes
+  * [102496] ``stackato apps --all`` doesn't work
+  * [101956] ``stackato scp`` should behave more like real scp
+  * [102429] Better error messages for entities that do not exist
+  * [102519] ``stackato scp appname`` internal error
+  * [102752] ``stackato help admin`` too verbose at top level
+  * [102412] Renamed client shows "stackato" prompt in shell mode
+  * [103098] ``--token-file`` does not create empty token file
+  * [102203] ``stackato open`` tries to open "http:///" when the app has no URL
+  * [102295] ``stackato open`` command help clarification
+  * [102535] ``stackato delete`` logs debug data
+  * [102298] Switch to cmdr v1
+  * [102190] Stackato v2 commands should have deprecation/"v2" notice
+  * [102596] Client error message should be clearer
+  * [102459] ``stackato link-user-org`` should not have ``--developer``
+  * [102239] ``stackato info`` must show that (v2) is the API version
+  * [102529] User spaces being displayed properly
+  * [102319] Fixed handling of ``-group`` for Stackato 2.x targets
+  * [102585] Default alias delete-service-broker -> remove-service-broker
+  * [102954] Cannot access target / Error: can't read "mymap(r1558)": no such element in array
+  * [103054] Better scaling of user validation to large number of users
+  * [102933] YML file generated by stackato client doesn't create services with proper syntax
+  * [102266] Org/space exists error message is not very friendly
+  
+  
 
 
 v3.0.1 (December 18, 2013)
