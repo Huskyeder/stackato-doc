@@ -45,7 +45,7 @@ v3.2.1 (March 31, 2014)
   * Improved ``kato node upgrade`` to handle interruptions
   * [102771] New app events (eg: crash) added to the application log stream
   * [102406] ``kato node reset`` now resets services data
-  * [102336] ``kato op regenerate ssh-keys``
+  * [102336] Added ``kato op regenerate ssh-keys``
   * [102916] Specify a 'default' org and space for new logins
   * [102511] Merge with latest upstream dea_ng/cloud_controller_ng
 
