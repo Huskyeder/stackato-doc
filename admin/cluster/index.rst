@@ -392,9 +392,13 @@ Multiple Controllers
 
 A Stackato cluster can have multiple controller nodes running on
 separate VMs to improve redundancy. The key element in designing this
-redundancy is to have all controller nodes share a
-``/home/stackato/stackato/data`` directory stored on a
-high-availability filesystem server. For example:
+redundancy is to have all controller nodes share the following two
+important data directories on a high-availability filesystem server:
+
+* **/home/stackato/stackato/data**
+* **/var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads** 
+
+For example, to share */home/stackato/stackato/data*:
 
 * Create a shared filesystem on a Network Attached Storage device. [1]_
 
@@ -409,8 +413,10 @@ high-availability filesystem server. For example:
 
     $ sudo mkdir /mnt/controller
 
-  * Mount the shared filesystem on the mount point. [1]_
+  * Mount the shared filesystem on the mount point. [1]_ For example::
 
+    $ sshfs -o idmap=user -o reconnect -o allow_other -o ServerAliveInterval=15 stackato@10.0.0.3:/mnt/add-volume/stackato-shared/ /mnt/controller
+  
   * Set aside the original ``/home/stackato/stackato/data``::
 
     $ mv /home/stackato/stackato/data /home/stackato/stackato/data.old
@@ -429,7 +435,12 @@ high-availability filesystem server. For example:
  	$ kato node attach -e controller *CORE_IP*
 
 .. [1]	The type of filesystem, storage server, and network mount method are
-	left to the discretion of the Stackato administrator.
+  left to the discretion of the administrator. When using ``sshfs``
+  (recommended) be sure to set the following options:
+  
+  * idmap=user
+  * reconnect
+  * allow_other
 	
 .. _cluster-load-balancer:
 	
