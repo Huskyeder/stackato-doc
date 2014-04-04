@@ -20,6 +20,7 @@ Release Notes
 
   * Application stack changes
 
+    * [103517] Upgraded to latest git
     * [103301] Upgraded ActivePython to 2.7.6.9 and 3.3.4.1
     * Improved sshd logging
 
