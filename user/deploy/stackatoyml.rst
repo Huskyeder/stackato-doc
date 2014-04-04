@@ -51,6 +51,23 @@ Example::
     `hostname label <http://en.wikipedia.org/wiki/Hostname#Restrictions_on_valid_host_names>`_ 
     (i.e. containing only alphanumeric characters and hyphens).
     
+.. _stackato_yml-description:
+
+description:
+^^^^^^^^^^^^
+
+An optional description for the application being pushed, which will
+appear in the Management Console application views and in the ``stackato
+app [appname]`` output. For example::
+
+  description: Python application for converting between various currencies
+
+Use quoted strings if you have a long description that spans multiple lines::
+
+  description: "This demo installs Drupal to Stackato by using \'drush\'
+    in post-staging hooks. Very little code is pushed by the client,
+    just the scripts used to configure Drupal on Stackato."
+
 .. _stackato_yml-buildpack:
 
 buildpack:
