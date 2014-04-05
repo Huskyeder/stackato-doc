@@ -68,3 +68,10 @@ Release & Support
 * :ref:`genindex`
 * :ref:`search`
 
+Internal API documentation
+--------------------------
+
+.. toctree::
+  :maxdepth: 1
+
+  internals/cloud_controller/index

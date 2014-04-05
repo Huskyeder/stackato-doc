@@ -231,6 +231,16 @@ publicdocs-live:
 publicdocs:
 	$(SPHINXBUILD) -b html -t public $(ALLSPHINXOPTS) ../$(PUBLICDIR)
 
+internals: internals/cloud_controller/index.rst
+
+internals/cloud_controller/index.rst: doc_to_rst.rb internals/cloud_controller/index.json
+	ruby $<
+
+internals/cloud_controller/index.json: cc-api-doc.tbz
+	-mkdir -p internals/cloud_controller
+	tar -C internals/cloud_controller --strip-components=1 -xf $<
+
+
 localserver: html
 	cd ./web-server && npm install
 	STACKATO_DOCS_DIR=$(CURDIR)/_build/html $(LOCALSERVER)
