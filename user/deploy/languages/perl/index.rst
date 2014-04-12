@@ -272,7 +272,7 @@ and ``--mirror-only`` options in PERL_CPANM_OPT::
 Runtime
 -------
 
-Stackato deploys Perl applications with `ActivePerl 5.14 <http://docs.activestate.com/activeperl/5.14/>`_.
+Stackato deploys Perl applications with `ActivePerl 5.16 <http://docs.activestate.com/activeperl/5.16/>`_.
 
 Troubleshooting
 ---------------
