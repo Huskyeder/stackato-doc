@@ -34,7 +34,7 @@ audiences:
   * Groups have been replaced with :ref:`Organizations and Spaces <orgs-spaces>`
   * the Stackato v3 API is not yet fully documented, but is compatible
     with the `Cloud Foundry v2 API
-    <http://docs.cloudfoundry.com/docs/reference/cc-api.html>`__ 
+    <https://s3-us-west-1.amazonaws.com/cc-travis-api-doc/api_docs/17360087/index.html>`__
 
 
 Admin Guide

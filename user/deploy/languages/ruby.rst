@@ -127,5 +127,5 @@ References
 
 * `Auto-Reconfiguration Part II <http://blog.cloudfoundry.com/2012/03/15/using-cloud-foundry-services-with-ruby-part-2-run-time-support-for-ruby-applications>`_: Cloud Foundry Blog.
 
-* `Working with Ruby, Rails and Sinatra: Things to know <http://docs.cloudfoundry.com/frameworks/ruby/ruby-rails-sinatra.html>`_: Cloud Foundry Documentation.
+* `Tips for Ruby Developers <http://docs.cloudfoundry.org/devguide/deploy-apps/ruby-tips.html>`_: Cloud Foundry Documentation.
 

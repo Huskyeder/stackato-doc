@@ -6,12 +6,6 @@
 Organizations & Spaces
 ======================
 
-.. only:: not public
-
-    This documentation is derived from `Organizations and Spaces
-    <http://docs.cloudfoundry.com/docs/using/managing-apps/orgs-and-spaces.html>`__
-    in the Cloud Foundry documentation.
-
 Organizations and Spaces are the main organizational units in Stackato.
 
 * Organizations have Users, Spaces, and Domains

@@ -9,7 +9,7 @@ allows for specific customizations such as pushing more than one app
 with dependencies. It is the standard configuration file format for all
 Cloud Foundry systems, allowing for portability from those systems to
 Stackato without configuration changes. See `Application Manifests
-<http://docs.cloudfoundry.com/docs/using/deploying-apps/manifest.html>`_
+<http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html>`_
 for the canonical documentation.
 
 As with *stackato.yml*, the client uses the keys to determine values
