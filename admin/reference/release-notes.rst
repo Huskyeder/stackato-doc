@@ -15,8 +15,12 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-  v3.4.x (JUKEBOX)
-  ----------------
+  v3.4.0 RC1 (June 19, 2014)
+  --------------------------
+
+  * [103069] Docker 0.10.x
+  * AppStore and redis processes running in Docker
+    https://docs.google.com/a/activestate.com/document/d/1rkhA3p1WWZhwJJNGQvHpJCHbnKCARpAPMWJzD7fBSlQ/edit?usp=sharing
 
   * Application stack changes
 
