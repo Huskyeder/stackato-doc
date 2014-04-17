@@ -1,7 +1,7 @@
 .. _ruby-index:
-
 .. index:: Ruby
 .. index:: Rails Applications
+.. highlight:: ruby
 
 Ruby
 ====

@@ -1,6 +1,6 @@
 .. index:: Django
-
 .. _django:
+.. highlight:: django
 
 Deploying Django applications
 =============================

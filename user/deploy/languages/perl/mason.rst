@@ -1,6 +1,6 @@
 .. _perl-mason:
-
 .. index:: Mason
+.. highlight:: perl
 
 Mason
 =====

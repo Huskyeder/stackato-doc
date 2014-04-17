@@ -1,6 +1,6 @@
 .. _stackato_yml:
-
 .. index:: stackato.yml
+.. highlight:: yaml
 
 Stackato.yml Options
 ====================

@@ -1,6 +1,6 @@
 .. _go-index:
-
 .. index:: Go
+.. highlight:: go
 
 Go
 ==

@@ -1,6 +1,6 @@
 .. _perl-index:
-
 .. index:: Perl, PSGI
+.. highlight:: perl
 
 Perl
 ====

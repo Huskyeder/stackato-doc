@@ -1,6 +1,6 @@
 .. _perl-dancer:
-
 .. index:: Dancer
+.. highlight:: perl
 
 Dancer
 ======

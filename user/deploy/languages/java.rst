@@ -1,6 +1,6 @@
 .. _java-index:
-
 .. index:: Java
+.. highlight:: java
 
 Java
 ====
