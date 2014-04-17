@@ -30,6 +30,10 @@ body {
     margin: 0;
 }
 
+.navbar-brand img {
+  vertical-align: initial;
+}
+
 .footer .container {
     padding: 0 15px;
     margin: 0;

@@ -2,6 +2,8 @@
 
 The Stackato :term:`micro cloud` runs with the following ports exposed:
 
+.. cssclass:: fields table-striped table-bordered table-condensed
+
   ========  ====  =======================
   Port      Type  Service
   ========  ====  =======================
@@ -33,6 +35,8 @@ If you wish to restrict ports between some nodes (e.g. if you do not
 have the option to use security groups), the following summary describes
 which ports are used by which components. **Source** nodes initiate the
 communication, **Destination** nodes need to listen on the specified port.
+
+.. cssclass:: fields table-striped table-bordered table-condensed
 
   =============  ====  ==============  ================  ===================
   Port Range     Type  Source          Destination       Required by

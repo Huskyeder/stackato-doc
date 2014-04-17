@@ -104,6 +104,8 @@ Single AWS Instance
 For a single micro cloud Stackato instance, only the following TCP ports
 are required:
 
+.. cssclass:: fields table-striped table-bordered table-condensed
+
   ========  ========  ===========================
   Port      Service   Source
   ========  ========  ===========================

@@ -110,6 +110,8 @@ html_theme_options = {
     'navbar_site_name': "Docs",
     'globaltoc_depth': -1,
     'navbar_class': "navbar navbar-inverse",
+    'navbar_pagenav': True,
+    'navbar_sidebarrel': False,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
