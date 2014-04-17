@@ -5,7 +5,24 @@ html {
 
 body {
     padding-top: 70px;
-    padding-bottom: 70px;
+    color: #3C4649;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+
+.container-fluid {
+    padding: 0 15px;
+}
+
+.navbar-inverse {
+    background-image: linear-gradient(to bottom, #003947 0px, #001014 100%);
+    background-repeat: repeat-x;
+}
+
+.navbar {
+  min-height: 50px;
+  z-index: 1000;
 }
 
 .navbar .container {
@@ -13,7 +30,26 @@ body {
     margin: 0;
 }
 
+.footer .container {
+    padding: 0 15px;
+    margin: 0;
+}
+
 .container {
   margin-left: 8.33333%;
+}
+
+.footer {
+    border-top: none;
+    padding-top: 5px;
+    padding-bottom: 0;
+    background-image: linear-gradient(to bottom, #003947 0px, #001014 100%);
+    background-repeat: repeat-x;
+    line-height: 34px;
+    font-size: smaller;
+    color: #b0bbbf;
+    margin: 0;
+    width: 100%;
+    position: static;
 }
 

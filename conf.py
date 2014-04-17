@@ -42,7 +42,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Stackato'
-copyright = u'2013, ActiveState'
+copyright = u'ActiveState Software 2014'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
