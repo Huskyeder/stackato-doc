@@ -72,6 +72,8 @@ if os.environ.get('READTHEDOCS', None) == 'True':
 exclude_patterns = ['_build']
 if tags.has('public'):
     exclude_patterns += ['internal/*']
+    exclude_patterns += ['internals/*']
+    exclude_patterns += ['generator/*']
 else:
     release += " (INTERNAL)"
 
