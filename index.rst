@@ -47,6 +47,11 @@ Releases & Reference
 --------------------
 
 .. toctree::
+   :maxdepth: 1
+   
+   admin/reference/release-notes
+  
+.. toctree::
    :maxdepth: 2
    
    ref

@@ -30,6 +30,7 @@ Stackato Client
 .. toctree::
    :maxdepth: 1
    
+   reference/client-ref
    reference/cloud_controller/index
   
 Deploying Applications
