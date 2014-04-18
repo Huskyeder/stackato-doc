@@ -42,14 +42,6 @@ User Guide
   
   user/index
 
-.. note::
-  Stackato |version| is based on Cloud Foundry v2 and there are a number of
-  important differences to be aware of if you are moving from Stackato
-  2.x:
-  
-  * app deployment is now primarily done using :ref:`buildpacks <buildpacks>`
-  * some keys in :ref:`stackato.yml <stackato_yml>` have changed
-  * Groups have been replaced with :ref:`Organizations and Spaces <orgs-spaces>`
 
 Releases & Reference
 --------------------
@@ -62,3 +54,12 @@ Releases & Reference
 * `FAQ <http://community.activestate.com/faq-list?tid=453>`__
 * :ref:`genindex`
 * :ref:`search`
+
+.. note::
+  Stackato |version| is based on Cloud Foundry v2 and there are a number of
+  important differences to be aware of if you are moving from Stackato
+  2.x:
+  
+  * app deployment is now primarily done using :ref:`buildpacks <buildpacks>`
+  * some keys in :ref:`stackato.yml <stackato_yml>` have changed
+  * Groups have been replaced with :ref:`Organizations and Spaces <orgs-spaces>`
