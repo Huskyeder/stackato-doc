@@ -34,34 +34,34 @@ CPBM Stackato Connector Usage
 
 8. Follow the Add Service Instance wizard, for example:
 
-  * **Service Instance Description**
-  
-    * Name: stackato-X
-    * Code: SX
-    * Description: Stackato PaaS X (optional)
+* **Service Instance Description**
 
-  * **Service Details**
-  
-    * Stackato Location: api.stackato.cpbm-jw.com
-    * Advanced:
-    
-      * Existing Stackato admin email: stackato@example.com
-      * Existing Stackato admin password: yourpass
+  * Name: stackato-X
+  * Code: SX
+  * Description: Stackato PaaS X (optional)
 
-  * **Default Product Selections**
+* **Service Details**
+
+  * Stackato Location: api.stackato.cpbm-jw.com
+  * Advanced:
   
-    * Check "Memory Limit"
-    * Under "Category, select "Infrastructure: Platform Hosting" (optional)
-    * Under "Required Product Units", select GB 
-   
-  * **Default Product Charges**
+    * Existing Stackato admin email: stackato@example.com
+    * Existing Stackato admin password: yourpass
+
+* **Default Product Selections**
+
+  * Check "Memory Limit"
+  * Under "Category, select "Infrastructure: Platform Hosting" (optional)
+  * Under "Required Product Units", select GB 
+ 
+* **Default Product Charges**
+
+  * Memory Limit: 10.00
+  * This setting is the default Product price. For example, a value of
+    '10.00' would charge $10 for each GB over the limit. This is
+    different from the product bundle, which is set up later.
   
-    * Memory Limit: 10.00
-    * This setting is the default Product price. For example, a value of
-      '10.00' would charge $10 for each GB over the limit. This is
-      different from the product bundle, which is set up later.
-    
-  * **Review and Confirm**
+* **Review and Confirm**
+
+  * Check that the settings are correct, then click **Add** 
   
-    * Check that the settings are correct, then click **Add** 
-    

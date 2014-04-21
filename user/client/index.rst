@@ -30,7 +30,7 @@ Getting Help
 
 To get a list of available commands or help on a particular command::
 
-    $ stackato help [COMMAND]
+  $ stackato help [COMMAND]
 
 See also the :ref:`Command Reference <command-ref-client>` for a full list of commands.
 

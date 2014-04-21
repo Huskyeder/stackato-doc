@@ -254,7 +254,7 @@ Systail keys are :ref:`configurable <logging-systail-manage>`.
 apptail
 ~~~~~~~
 
-  apptail.<app.id>
+* apptail.<app.id>
 
 
 event

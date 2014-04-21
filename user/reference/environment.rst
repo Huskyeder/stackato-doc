@@ -90,10 +90,10 @@ You can set your own environment variables:
   PROCESSES_WEB
     This variable contains the default start command that would be used when
     :ref:`stackato.yml <stackato_yml>` doesn't override it.
-    It is provided so that users can specify a wrapper around the default command, e.g.
-
-        processes:
-          web: newrelic_wrapper $PROCESSES_WEB
+    It is provided so that users can specify a wrapper around the default command, e.g.::
+      
+      processes:
+        web: newrelic_wrapper $PROCESSES_WEB
 
     Note that ``PROCESSES_WEB`` may be undefined when Stackato can't determine the
     default command (e.g. because the app uses a non-standard main application file).

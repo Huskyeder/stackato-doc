@@ -106,13 +106,13 @@ are required:
 
 .. cssclass:: fields table-striped table-bordered table-condensed
 
-  ========  ========  ===========================
-  Port      Service   Source
-  ========  ========  ===========================
-  22        ssh       0.0.0.0/0 (or specific IP)
-  80        http      0.0.0.0/0
-  443       https     0.0.0.0/0
-  ========  ========  ===========================
+========  ========  ===========================
+Port      Service   Source
+========  ========  ===========================
+22        ssh       0.0.0.0/0 (or specific IP)
+80        http      0.0.0.0/0
+443       https     0.0.0.0/0
+========  ========  ===========================
 
 This will allow administrative access via SSH and general user access
 via HTTP and HTTPS. In a micro cloud configuration, all Stackato
@@ -127,14 +127,16 @@ With a Stackato cluster, you must allow TCP access on all ports (0 -
 to specify the "Stackato" Security Group (or the name of your existing
 one) as the Source in this rule:
 
-  ==========  ========  ===========================
-  Port        Service   Source
-  ==========  ========  ===========================
-  0 - 65535   various   Stackato
-  22          ssh       0.0.0.0/0 (or specific IP)
-  80          http      0.0.0.0/0
-  443         https     0.0.0.0/0
-  ==========  ========  ===========================
+.. cssclass:: fields table-striped table-bordered table-condensed
+
+==========  ========  ===========================
+Port        Service   Source
+==========  ========  ===========================
+0 - 65535   various   Stackato
+22          ssh       0.0.0.0/0 (or specific IP)
+80          http      0.0.0.0/0
+443         https     0.0.0.0/0
+==========  ========  ===========================
 
 When adding "Stackato" to the Source field in AWS Management Console,
 the name is translated into the Security Group ID (e.g. "sg-0cdb4362
@@ -147,12 +149,14 @@ all TCP ports *only* to the Stackato and Stackato-Internal groups. This
 allows access on all TCP ports, but only for the Stackato and
 Stackato-Internal groups.
 
-  ==========  ========  ===========================
-  Port        Service   Source
-  ==========  ========  ===========================
-  0 - 65535   various   Stackato
-  0 - 65535   various   Stackato-Internal
-  ==========  ========  ===========================
+.. cssclass:: fields table-striped table-bordered table-condensed
+
+==========  ========  ===========================
+Port        Service   Source
+==========  ========  ===========================
+0 - 65535   various   Stackato
+0 - 65535   various   Stackato-Internal
+==========  ========  ===========================
 
 All DEA and Data Service nodes would use the "Stackato-Internal" group,
 while externally facing nodes (e.g. Router) would use the "Stackato"

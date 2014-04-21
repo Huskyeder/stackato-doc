@@ -5,8 +5,8 @@
 
 3. Add the the executable to your system/shell $PATH by:
 
-  * moving it to a directory in your $PATH,
-  * creating a symlink from a directory in your $PATH, or
-  * creating a shell alias for the executable.
+* moving it to a directory in your $PATH,
+* creating a symlink from a directory in your $PATH, or
+* creating a shell alias for the executable.
 
 4. Confirm that the client is installed correctly by running ``stackato help``.

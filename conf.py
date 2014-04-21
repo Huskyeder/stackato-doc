@@ -69,11 +69,9 @@ if os.environ.get('READTHEDOCS', None) == 'True':
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'internals/*', 'generator/*', 'web-server/']
 if tags.has('public'):
     exclude_patterns += ['internal/*']
-    exclude_patterns += ['internals/*']
-    exclude_patterns += ['generator/*']
 else:
     release += " (INTERNAL)"
 

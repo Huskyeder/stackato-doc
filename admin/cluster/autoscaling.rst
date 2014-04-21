@@ -22,9 +22,9 @@ Before enabling auto scaling, you will need to create a DEA template
 from the standard Stackato VM. Typically you would do this by running
 the following commands on a fresh Stackato VM:
 
-  .. parsed-literal::
+.. parsed-literal::
 
-    $ kato op defer "node attach -e dea *CORE_IP*" --run-as-root
+  $ kato op defer "node attach -e dea *CORE_IP*" --run-as-root
 
 This defers the ``attach`` command and enables the DEA role on the next
 boot. Shut down the VM once this is done.
@@ -39,9 +39,9 @@ boot. Shut down the VM once this is done.
 DEA Scaling configuration
 -------------------------
 
-The DEA auto scaling configuration file is:
+The DEA auto scaling configuration file is::
 
-    /s/etc/autoscaling/autoscaling.yaml
+  /s/etc/autoscaling/autoscaling.yaml
 
 This file must be modified on each node running the Controller role.
 
@@ -57,11 +57,10 @@ The ``enabled_plugins`` key must be set to one of the following:
 * CloudStack
 
 .. note::
-
-    It is possible to enable multiple plugins, but this is generally not
-    recommended. You could use this feature to implement a "ping" plugin
-    that doesn't provision a DEA, but instead sends a notification
-    email, or pings a remote API.
+  It is possible to enable multiple plugins, but this is generally not
+  recommended. You could use this feature to implement a "ping" plugin
+  that doesn't provision a DEA, but instead sends a notification
+  email, or pings a remote API.
 
 Each platform has specific tunable settings under the ``platform`` key
 in *autoscaling.yaml* for setting authorization credentials, DEA

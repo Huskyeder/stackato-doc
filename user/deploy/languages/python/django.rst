@@ -62,7 +62,7 @@ Configuring database
 			'PORT': '', # Set to empty string for default.
 			}
 
-  Please see :ref:`Using Configured Database Services <database-accessing>` for more information on connecting with database services.
+   See :ref:`Using Configured Database Services <database-accessing>` for more information on connecting with database services.
 	
 .. note::
     In future, this may be automatically written to

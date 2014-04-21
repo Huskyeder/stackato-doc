@@ -493,7 +493,7 @@ the following methods:
 	
     $ export STACKATO_TARGET='api.stackato-xxx2.local'
 
-  This target is used until the variable is unset or the terminal is closed. To unset it::
+   This target is used until the variable is unset or the terminal is closed. To unset it::
 	
     $ unset STACKATO_TARGET
 

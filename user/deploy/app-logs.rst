@@ -81,9 +81,9 @@ You can add up to five additonal files to the log stream by modifying the
 <stackato_yml-env>` or using :ref:`stackato set-env <command-set-env>`).
 
 The variable should contain a list of named files separated with ":" in
-the following format:
+the following format::
 
-    name=/path/to/file.log:name=/path/to/another.log
+  name=/path/to/file.log:name=/path/to/another.log
   
 The *name* used in the value or individual variable name becomes part of
 each log line, and can be used for filtering the stream.

@@ -190,10 +190,10 @@ central repository for your container tempates.
     
     $ sudo docker push api.paas.example.com:49156/exampleco/newimg
 
-  .. note::
-      The stackato/stack/alsek and stackato/base images (approximately
-      1.9GB) are pushed to the registry in addition to the new image.
-      Make sure you have sufficient disk space available on the VM.
+.. note::
+  The stackato/stack/alsek and stackato/base images (approximately
+  1.9GB) are pushed to the registry in addition to the new image.
+  Make sure you have sufficient disk space available on the VM.
 
 
 6. **On all DEA nodes**, pull the new image from the registry::

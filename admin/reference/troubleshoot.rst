@@ -74,39 +74,39 @@ that can be provided to the Stackato support team for analysis::
 The file is several megabytes in size and will take a few seconds to generate.  
 Send it, along with a detailed description of your problem, to ActiveState at:
 	
-	stackato-support@activestate.com
+stackato-support@activestate.com
 
 Specific Cases
 --------------
 
 **When pushing an app, the Stackato Client reports OK but app isn't running**
 	
-	The final output from pushing an app should look like::
-	
-		Staging Application: OK                                                         
-		Starting Application: OK 
-	
-	If the app is being pushed to multiple instances, the client waits until at least one instance is
-	running, and exits at that point (it does not wait until all instances are active).  If afterwards 
-	you run ``stackato apps`` and find the Health status at 0%, it is because the app crashed after 
-	starting successfully, not because the Stackato client reported incorrectly.
+The final output from pushing an app should look like::
+
+  Staging Application: OK                                                         
+  Starting Application: OK 
+
+If the app is being pushed to multiple instances, the client waits until at least one instance is
+running, and exits at that point (it does not wait until all instances are active).  If afterwards 
+you run ``stackato apps`` and find the Health status at 0%, it is because the app crashed after 
+starting successfully, not because the Stackato client reported incorrectly.
 	
 **DNS queries returning "connection refused"**
 
-	This error is reported when the Stackato server does not have an IP Address.
-	To investigate and resolve, try the following:
+This error is reported when the Stackato server does not have an IP Address.
+To investigate and resolve, try the following:
 
-	* Verify the ARP tables on the hypervisor host, and on the Stackato server through its :term:`tty console`::
+* Verify the ARP tables on the hypervisor host, and on the Stackato server through its :term:`tty console`::
 
-		$ arp -n
+  $ arp -n
 
-	* Check that the DHCP client is running::
+* Check that the DHCP client is running::
 
-		$ pgrep dhclient
-		$ grep dhclient /var/log/syslog
-	
-	* Connect to the DHCP server and verify that it is receiving client requests from the Stackato server.
+  $ pgrep dhclient
+  $ grep dhclient /var/log/syslog
 
-	* If your network is statically configured, assign an IP address on the Stackato server by editing the `interfaces <http://manpages.ubuntu.com/manpages/man5/interfaces.5.html>`_ file::
+* Connect to the DHCP server and verify that it is receiving client requests from the Stackato server.
 
-		/etc/network/interfaces
+* If your network is statically configured, assign an IP address on the Stackato server by editing the `interfaces <http://manpages.ubuntu.com/manpages/man5/interfaces.5.html>`_ file::
+
+  /etc/network/interfaces

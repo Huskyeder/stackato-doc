@@ -49,7 +49,7 @@ Import Stackato VM
 If you have not already done so, download the KVM image of the Stackato
 Micro Cloud VM.
 
-  http://www.activestate.com/stackato/download_vm
+http://www.activestate.com/stackato/download_vm
 
 Unzip the image in a convenient local directory, then use ``glance`` to
 create an image in OpenStack. For example, the following command imports
@@ -230,12 +230,12 @@ The data services may be colocated onto a single node for smaller
 production clusters, or separated on to individual nodes. You
 can provide settings that will refer to external high availability
 clusters for mysql and postgres (see
-http://docs.stackato.com/cluster/external-db.html for more info).
+http://docs.stackato.com/cluster/external-db.html for more info).::
 
   nova volume-create --display-name stackato-data 10 # GB
   nova volume-attach <ID of data server> <ID of volume created above> /dev/vdc
 
-SSH to the data services node and run:
+SSH to the data services node and run::
 
   sudo mkfs.ext4 /dev/vdc
   sudo mkdir -p /mnt/add-volume

@@ -11,6 +11,10 @@ body {
     line-height: 1.42857;
 }
 
+blockquote {
+    font-size: 14px;
+}
+
 .container-fluid {
     padding: 0 15px;
 }

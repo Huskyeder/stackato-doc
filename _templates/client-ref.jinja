@@ -24,7 +24,7 @@ In some cases the  ``--json`` option reveals additional details.
 {% for section in sections %}
   
 {{ section['name'] }}
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
   {% for command in section['commands'] %}
     
@@ -52,7 +52,8 @@ In some cases the  ``--json`` option reveals additional details.
     
 .. _command-{{ section['name'] }}-{{ subsection['name'] }}:
     
-  **{{ subsection['name'] }}**
+{{ subsection['name'] }}
+^^^^^^^^^^^^^^^^^^^^^^^^
       
     {% for command in subsection['commands'] %}
 .. _command-{{command|replace('stackato ','')}}:
