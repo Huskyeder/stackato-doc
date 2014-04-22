@@ -12,6 +12,7 @@
 # serve to show the default.
 
 import sys, os
+import sphinx_bootstrap_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -41,7 +42,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Stackato'
-copyright = u'2014, ActiveState'
+copyright = u'ActiveState Software 2014'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -62,9 +63,13 @@ release = '3.2.1'
 # Else, today_fmt is used as the format for a strftime call.
 #today_fmt = '%B %d, %Y'
 
+# Exclude internal docs from readthedocs.org builds
+if os.environ.get('READTHEDOCS', None) == 'True':
+    tags.add('public')
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'internals/*', 'generator/*', 'web-server/']
 if tags.has('public'):
     exclude_patterns += ['internal/*']
 else:
@@ -95,15 +100,22 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'cloud'
+html_theme = 'bootstrap'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
+html_theme_options = {
+    'navbar_title': "  ",
+    'navbar_site_name': "Docs",
+    'globaltoc_depth': -1,
+    'navbar_class': "navbar navbar-inverse",
+    'navbar_pagenav': True,
+    'navbar_sidebarrel': False,
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ['_theme']
+html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
