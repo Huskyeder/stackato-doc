@@ -19,8 +19,10 @@ Release Notes
   --------------------------
 
   * [103069] Docker 0.10.x
+    http://blog.docker.io/2014/04/docker-0-10-quality-and-ops-tooling/
   * AppStore and redis processes running in Docker
     https://docs.google.com/a/activestate.com/document/d/1rkhA3p1WWZhwJJNGQvHpJCHbnKCARpAPMWJzD7fBSlQ/edit?usp=sharing
+  * [103658] Logyard communication made faster; now uses Unix domain sockets instead of TCP loopback
 
   * Application stack changes
 
