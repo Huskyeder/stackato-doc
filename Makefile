@@ -100,7 +100,7 @@ clean:
 	-rm -rf $(UPDATE)
 
 html:
-	pip install sphinx_bootstrap_theme 
+	pip install --user sphinx_bootstrap_theme 
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
