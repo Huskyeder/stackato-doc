@@ -34,16 +34,10 @@ of build actions that can be run.
 Building
 --------
 
-You will need Python 2.7 and the 'sphinx' package to build HTML
-documentation from these sources. The easiest way to set this up is to
-install ActivePython 2.7:
-
- http://www.activestate.com/activepython/downloads
- 
-Once ActivePython is installed, run the following commands:
- 
+You will need Python 2.7 and a few modules to build HTML
+documentation from these sources:
 ```
-   $ pypm install sphinx
+   $ pip install --user -r requirements.txt 
    $ cd doc
    $ make publicdocs
    $ open _build/public-docs/index.html
@@ -71,7 +65,7 @@ you wish to expose.
 Release Notes
 -------------
 
-Release notes for Stackato are maintained in reference/release-notes.rst.
+Release notes for Stackato are maintained in admin/reference/release-notes.rst.
 
 Publishing
 ----------

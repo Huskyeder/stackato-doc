@@ -8,9 +8,14 @@ The Stackato documentation is built using Sphinx:
 This is the same system used for Python language documentation and
 several other projects.
 
-Documentation for the current release in HTML format is available at:
+Current documentation in HTML format for the latest release is available at:
 
  http://docs.stackato.com/
+
+Documentation for previous (or Beta) versions is available in numbered
+sub-directories corresponding to the version number. For example:
+
+ http://docs.stackato.com/2.10/
 
 Editing
 -------
@@ -29,18 +34,15 @@ of build actions that can be run.
 Building
 --------
 
-You will need Python 2.7 and the 'sphinx' package to build HTML
-documentation from these sources. The easiest way to set this up is to
-install ActivePython 2.7:
-
- http://www.activestate.com/activepython/downloads
- 
-Once ActivePython is installed, run the following commands:
- 
-   $ pypm install sphinx
+You will need Python 2.7 and a few modules to build HTML
+documentation from these sources:
+```
+   $ pip install --user -r requirements.txt 
    $ cd doc
    $ make publicdocs
    $ open _build/public-docs/index.html
+```
+
 
 Public vs. Internal
 -------------------
@@ -63,7 +65,7 @@ you wish to expose.
 Release Notes
 -------------
 
-Release notes for Stackato are maintained in reference/release-notes.rst.
+Release notes for Stackato are maintained in admin/reference/release-notes.rst.
 
 Publishing
 ----------
@@ -76,7 +78,9 @@ Troubleshooting
 
 If you get an error:
 
+```
   "make: sphinx-build: Command not found"
+```
   
 ...it may mean you haven't added '~/.local/bin' to your PATH.
 
@@ -91,9 +95,9 @@ to your ~/.profile.
 License & Copyright
 -------------------
 
-Stackato User Guide by ActiveState Software is licensed under a [Creative
+Stackato Documentation by ActiveState Software is licensed under a [Creative
 Commons Attribution 3.0 Unported License][1].
 
 [1]: http://creativecommons.org/licenses/by/3.0/
 
-Copyright (C) 2013 ActiveState Software Inc.
+Copyright (C) 2014 ActiveState Software Inc.
