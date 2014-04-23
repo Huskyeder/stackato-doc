@@ -48,7 +48,6 @@ blockquote {
 }
 
 .footer {
-    border-top: none;
     padding-top: 5px;
     padding-bottom: 0;
     background-image: linear-gradient(to bottom, #003947 0px, #001014 100%);
@@ -58,6 +57,7 @@ blockquote {
     color: #b0bbbf;
     margin: 0;
     width: 100%;
-    position: static;
+    position: fixed;
+    bottom: 0;
 }
 
