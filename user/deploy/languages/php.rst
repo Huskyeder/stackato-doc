@@ -1,6 +1,6 @@
 .. _php-index:
-
 .. index:: PHP
+.. highlight:: php
 
 PHP
 ===

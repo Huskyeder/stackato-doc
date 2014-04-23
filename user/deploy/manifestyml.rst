@@ -1,5 +1,6 @@
 .. index:: manifest.yml
 .. _manifest_yml:
+.. highlight:: yaml
 
 Manifest.yml Options
 ====================

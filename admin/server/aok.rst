@@ -102,10 +102,10 @@ config set <kato-command-ref-config>`:
       shown. The first non-null attribute will be used (AOK will not
       validate that this is an email address). The default attributes are:
       
-       * mail
-       * email
-       * userPrincipalName
-       
+      * mail
+      * email
+      * userPrincipalName
+      
     * use_email_for_username: (optional) Use the email address as a
       username in Stackato (Stackato 2.x behavior). Set to 'true' if
       importing data from Stackato 2.x.
@@ -192,11 +192,12 @@ options must be set in AOK's ``strategy/ldap`` settings:
   
     $ kato config set --json aok strategy/ldap/group_query '(&(objectClass=posixGroup)(memberUid=%{username}))'
   
-  This queries for posixGroups that the user belongs to.
+  This queries for posixGroups that the user belongs to:
   
-    * %{username} is replaced with the value of the field specified by uid
-    * %{dn} is replaced by the dn of the authenticated user.
-  
+  * ``%{username}`` is replaced with the value of the field specified by uid
+  * ``%{dn}`` is replaced by the dn of the authenticated user.
+   
+
 * **group_attribute**: The LDAP attribute to extract from the query
   above (requires a valid ``group_query`` setting). For example::
   

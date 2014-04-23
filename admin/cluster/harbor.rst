@@ -38,7 +38,7 @@ A Stackato VM can be configured as a Harbor node in the same way as
 other :ref:`data service roles <server-cluster-data-services>`. For
 example:
 
-  .. parsed-literal::
+.. parsed-literal::
 
  	$ kato node attach -e harbor *CORE_IP*
 

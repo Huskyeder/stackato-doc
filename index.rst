@@ -24,18 +24,6 @@ audiences:
 * :ref:`Stackato Admins <stackato-admin-guide>`: System operators in
   charge of setting up, configuring, and maintaining the PaaS
 
-.. note::
-  Stackato |version| is based on Cloud Foundry v2 and there are a number of
-  important differences to be aware of if you are moving from Stackato
-  2.x:
-  
-  * app deployment is now primarily done using :ref:`buildpacks <buildpacks>`
-  * some keys in :ref:`stackato.yml <stackato_yml>` have changed
-  * Groups have been replaced with :ref:`Organizations and Spaces <orgs-spaces>`
-  * the Stackato v3 API is not yet fully documented, but is compatible
-    with the `Cloud Foundry v2 API
-    <https://s3-us-west-1.amazonaws.com/cc-travis-api-doc/api_docs/17360087/index.html>`__
-
 
 Admin Guide
 -----------
@@ -55,16 +43,28 @@ User Guide
   user/index
 
 
-Release & Support
------------------
+Releases & Reference
+--------------------
 
 .. toctree::
    :maxdepth: 1
    
    admin/reference/release-notes
-   admin/reference/known-issues
   
+.. toctree::
+   :maxdepth: 2
+   
+   ref
+
 * `FAQ <http://community.activestate.com/faq-list?tid=453>`__
 * :ref:`genindex`
 * :ref:`search`
 
+.. note::
+  Stackato |version| is based on Cloud Foundry v2 and there are a number of
+  important differences to be aware of if you are moving from Stackato
+  2.x:
+  
+  * app deployment is now primarily done using :ref:`buildpacks <buildpacks>`
+  * some keys in :ref:`stackato.yml <stackato_yml>` have changed
+  * Groups have been replaced with :ref:`Organizations and Spaces <orgs-spaces>`

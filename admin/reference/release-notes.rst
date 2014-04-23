@@ -7,6 +7,8 @@
 .. notes. Changes not directly related to Stackato itself (eg: VM) should
 .. be listed in its own section.
 
+.. _release-notes:
+
 Release Notes
 =============
 

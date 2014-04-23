@@ -20,7 +20,7 @@ In some cases the  ``--json`` option reveals additional details.
 
   
 Getting Started
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-login:
@@ -201,7 +201,7 @@ Getting Started
 
   
 Applications
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-apps:
@@ -451,7 +451,8 @@ Applications
     
 .. _command-Applications-Information:
     
-  **Information**
+Information
+^^^^^^^^^^^^^^^^^^^^^^^^
       
 .. _command-crashes:
 
@@ -1890,7 +1891,8 @@ Applications
     
 .. _command-Applications-Management:
     
-  **Management**
+Management
+^^^^^^^^^^^^^^^^^^^^^^^^
       
 .. _command-create-app:
 
@@ -4311,7 +4313,8 @@ Applications
     
 .. _command-Applications-Placement:
     
-  **Placement**
+Placement
+^^^^^^^^^^^^^^^^^^^^^^^^
       
 .. _command-placement-zones:
 
@@ -4619,7 +4622,7 @@ Applications
 
   
 Services
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-service-plans:
@@ -4821,7 +4824,8 @@ Services
     
 .. _command-Services-Authentication Tokens:
     
-  **Authentication Tokens**
+Authentication Tokens
+^^^^^^^^^^^^^^^^^^^^^^^^
       
 .. _command-create-service-auth-token:
 
@@ -5122,7 +5126,8 @@ Services
     
 .. _command-Services-Brokers:
     
-  **Brokers**
+Brokers
+^^^^^^^^^^^^^^^^^^^^^^^^
       
 .. _command-add-service-broker:
 
@@ -5502,7 +5507,8 @@ Services
     
 .. _command-Services-Management:
     
-  **Management**
+Management
+^^^^^^^^^^^^^^^^^^^^^^^^
       
 .. _command-bind-service:
 
@@ -6159,7 +6165,7 @@ Services
 
   
 Organizations
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-create-org:
@@ -6699,7 +6705,7 @@ Organizations
 
   
 Spaces
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-create-space:
@@ -7308,7 +7314,7 @@ Spaces
 
   
 Routes
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-delete-route:
@@ -7433,7 +7439,7 @@ Routes
 
   
 Domains
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-create-domain:
@@ -7572,6 +7578,10 @@ Domains
 		Query information about all domains.
 		Cannot be used together with a space.
 	    
+    --json
+      
+	    Print raw json as output, not human-formatted data.
+	
     --no-prompt
       
 	    Disable interactive queries.
@@ -7771,7 +7781,7 @@ Domains
 
   
 Administration
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-admin grant:
@@ -9366,7 +9376,8 @@ Administration
     
 .. _command-Administration-User Management:
     
-  **User Management**
+User Management
+^^^^^^^^^^^^^^^^^^^^^^^^
       
 .. _command-add-user:
 
@@ -9836,6 +9847,11 @@ Administration
           
 	    Print raw json as output, not human-formatted data.
 	
+        --mode
+          
+		Select the details to show
+		("name" information (default), "related" entities, and "all").
+	    
         --no-prompt
           
 	    Disable interactive queries.
@@ -9874,7 +9890,7 @@ Administration
 
   
 Convenience
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-aliases:
@@ -9951,7 +9967,7 @@ Convenience
 
   
 Miscellaneous
-^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
     
 .. _command-curl:

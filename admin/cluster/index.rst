@@ -78,18 +78,17 @@ the correct address, which may not be the case if you have set a static
 IP and not yet rebooted or restarted networking. To check the IP
 address, run:
 
-    .. parsed-literal::
+.. parsed-literal::
 
 	$ ifconfig eth0
 
 If necessary, set the :ref:`static IP address <server-config-static-ip>`:
 
-    .. parsed-literal::
+.. parsed-literal::
 
 	$ kato op static_ip
 
 .. note::
-
   If the IP address of the Core node changes, the :ref:`kato node migrate
   <kato-command-ref-node-attach>` command must be run on all nodes in the
   cluster (starting with the Core node) to set the new CORE_IP.
@@ -104,7 +103,7 @@ is required so that Stackato's internal configuration matches the
 
 To set the hostname, run:
 
-    .. parsed-literal::
+.. parsed-literal::
 
 	$ kato node rename *hostname.example.com* --no-restart
 
@@ -132,7 +131,7 @@ Core Node
 
 On the Core node, execute the following command: 
 
-  .. parsed-literal::
+.. parsed-literal::
 
 	$ kato node setup core api.\ *hostname.example.com*
 
@@ -144,7 +143,7 @@ carry on to enable those roles you ultimately intend to run on the Core
 node.  For example, to set up a Core node with the **controller**, **primary**
 **router**, and **dea** roles:
 
-  .. parsed-literal::
+.. parsed-literal::
 
 	$ kato node setup core api.\ *hostname.example.com*
 	$ kato role add dea
@@ -178,7 +177,7 @@ Router Nodes
 In smaller clusters, the Router role can be run on the Core Node. To run
 its own on a separate node:
 
-  .. parsed-literal::
+.. parsed-literal::
 
  	$ kato node attach -e router *CORE_IP*
 
@@ -197,7 +196,7 @@ nodes (recommended for production clusters). To set up all available data
 services on a single node and attach it to the Core node, run the
 following command on the data services node:
 
-  .. parsed-literal::
+.. parsed-literal::
 
  	$ kato node attach -e data-services *CORE_IP*
   
@@ -219,7 +218,7 @@ running, you can begin to add some of these nodes with the :ref:`kato
 node attach <kato-command-ref-node-attach>` command. To turn a generic
 Stackato VM into a DEA and connect it to the Core node:
 
-  .. parsed-literal::
+.. parsed-literal::
 
 	$ kato node attach -e dea *CORE_IP*
 
@@ -231,7 +230,7 @@ Verification
 To verify that all the cluster nodes are configured as expected,
 run the following command on the Core node:
 
-  .. parsed-literal::
+.. parsed-literal::
 
 	$ kato status --all
 
@@ -243,9 +242,9 @@ Removing Nodes
 Use the :ref:`kato node remove <kato-command-ref-node-attach>` to remove a node from 
 the cluster. Run the following command on the core node.
 
-  .. parsed-literal::
+.. parsed-literal::
 
-        $ kato node remove *NODE_IP*
+  $ kato node remove *NODE_IP*
 
 Role Configuration using the Management Console
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -269,7 +268,7 @@ building a cluster later.
 All that is required here is to enable all roles except for **mdns**
 (not used in a clustered or cloud-hosted environment):
 
-  .. parsed-literal::
+.. parsed-literal::
 
 	$ kato node setup core api.\ *hostname.example.com*
 	$ kato role add --all-but mdns

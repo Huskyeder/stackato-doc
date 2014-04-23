@@ -31,6 +31,7 @@ Stackato Client
    :maxdepth: 1
    
    reference/client-ref
+   reference/cloud_controller/index
   
 Deploying Applications
 ----------------------
@@ -102,7 +103,7 @@ Reference
    reference/environment
    reference/glossary
    reference/troubleshoot
-   reference/api
+   reference/cloud_controller/index
 
 * `FAQ <http://community.activestate.com/faq-list?tid=453>`__
 * :ref:`genindex`

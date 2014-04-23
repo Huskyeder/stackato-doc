@@ -108,13 +108,13 @@ distribution of instances of an app across the pool.
 
 The DEA role is comprised of a number of processes:
 
- * dea_ng: Master process for staging and starting application
-   instances, reporting on their state via NATS to the Health Manager.
- * dir_server: Handles requests for directories/files, responding with
-   an HTTP URL.
- * fence: Responsible for the management of application containers using
-   Docker.
- * apptail: Streams application logs via Logyard to various log drains.
+* dea_ng: Master process for staging and starting application
+  instances, reporting on their state via NATS to the Health Manager.
+* dir_server: Handles requests for directories/files, responding with
+  an HTTP URL.
+* fence: Responsible for the management of application containers using
+  Docker.
+* apptail: Streams application logs via Logyard to various log drains.
 
 The Docker image used for the containers can be :ref:`customized by
 admins <docker-modify-container>`.

@@ -1,5 +1,6 @@
 .. index:: Python
 .. _python-index:
+.. highlight:: python
 
 Python
 ======

@@ -1,0 +1,106 @@
+
+Delete a Particular Domain
+--------------------------
+
+
+DELETE /v2/domains/:guid
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Fields
+~~~~~~
+
+.. cssclass:: fields table-striped table-bordered table-condensed
+
+
++--------------------------+--------------------------------------------------------------------------------+---------+--------------+-------------------+
+| Name                     | Description                                                                    | Default | Valid Values | Example Values    |
+|                          |                                                                                |         |              |                   |
++==========================+================================================================================+=========+==============+===================+
+| guid                     | The guid of the domain.                                                        |         |              |                   |
+|                          |                                                                                |         |              |                   |
++--------------------------+--------------------------------------------------------------------------------+---------+--------------+-------------------+
+| name                     | The name of the domain.                                                        |         |              | - example.com     |
+|                          |                                                                                |         |              | - foo.example.com |
+|                          |                                                                                |         |              |                   |
++--------------------------+--------------------------------------------------------------------------------+---------+--------------+-------------------+
+| wildcard                 | Allow routes with non-empty hosts                                              |         | - true       |                   |
+|                          |                                                                                |         | - false      |                   |
+|                          |                                                                                |         |              |                   |
++--------------------------+--------------------------------------------------------------------------------+---------+--------------+-------------------+
+| owning_organization_guid | The organization that owns the domain. If not specified, the domain is shared. |         |              |                   |
+|                          |                                                                                |         |              |                   |
++--------------------------+--------------------------------------------------------------------------------+---------+--------------+-------------------+
+
+
+Parameters
+~~~~~~~~~~
+
+.. cssclass:: fields table-striped table-bordered table-condensed
+
+
++-------+-----------------------------------------------------------------------+
+| Name  | Description                                                           |
+|       |                                                                       |
++=======+=======================================================================+
+| async | Will run the delete request in a background job. Recommended: 'true'. |
+|       |                                                                       |
++-------+-----------------------------------------------------------------------+
+
+
+Request
+~~~~~~~
+
+
+Headers
+^^^^^^^
+
+::
+
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTkiLCJlbWFpbCI6ImVtYWlsLTlAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.4Z11nUfUrcDIvAGLMTB7Pr7WaM9-EHMFfxbTiV0DqGM
+  Host: example.org
+  Content-Type: application/x-www-form-urlencoded
+  Cookie:
+
+
+Route
+^^^^^
+
+::
+
+  DELETE /v2/domains/bdd36aad-2271-4319-a2b2-49aea9ba7b94
+
+
+cURL
+^^^^
+
+::
+
+  curl "https://api.[your-domain.com]/v2/domains/bdd36aad-2271-4319-a2b2-49aea9ba7b94" -d '' -X DELETE \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTkiLCJlbWFpbCI6ImVtYWlsLTlAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.4Z11nUfUrcDIvAGLMTB7Pr7WaM9-EHMFfxbTiV0DqGM" \
+  	-H "Host: example.org" \
+  	-H "Content-Type: application/x-www-form-urlencoded" \
+  	-H "Cookie: "
+
+
+Response
+~~~~~~~~
+
+
+Headers
+^^^^^^^
+
+::
+
+  X-VCAP-Request-ID: b4612968-bb22-4381-a5ec-2498b93549fa
+  X-Cf-Warning: Endpoint deprecated
+  X-Content-Type-Options: nosniff
+
+
+Status
+^^^^^^
+
+::
+
+  204 No Content
+

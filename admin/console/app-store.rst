@@ -80,67 +80,67 @@ The YAML string requires two top-level keys: ``store`` and ``apps``.
 store
 ~~~~~
 
-  Contains entries that define the store.
+Contains entries that define the store.
 
-  **title**
+``title``
     Text used as a display name for the App Store in the Management Console.
-    
-  **contact**
+  
+``contact``
     A name and email address of the store maintainer.
 
-  **icon**
+``icon``
     An image used for the App Store icon. Specified as a full URL.
 
 
 apps
 ~~~~
 
-  This is an array of items (see YAML format above), one for each app in
-  the store. Each app is defined by the following fields:
+This is an array of items (see YAML format above), one for each app in
+the store. Each app is defined by the following fields:
 
-  **name**
+``name``
     The name of the app as displayed in the App Store list.
 
-  **desc**
+``desc``
     A short description of the app, displayed below the name.
 
-  **id**
+``id``
     A short, lowercase, unique string associated with the app. Apps are
     sorted alphabetically in the list based on this field.
 
-  **repo**
+``repo``
     URL of the git repository where the app code resides.
 
-  **commit** 
+``commit``
     Branch name, tag name, or exact commit hash to use. If unspecified,
     the HEAD commit of ``master`` branch is used.
 
-  **framework** 
+``framework``
     The framework, if the app is deploed using the :ref:`Legacy
-    Buildpack <buildpacks-legacy>` (e.g. ``perl``, ``python``,
-    ``node``, ``rails3``).
+    Buildpack <buildpacks-legacy>` (e.g. ``perl``, ``python``, ``node``,
+    ``rails3``).
 
-  **icon** 
-    An image used for the app icon specified either as a full URL, 
-    a file relative to the ``store`` key **icon-url** URL, 
-    ``default``, or other variable values.
+``icon``
+    An image used for the app icon specified either as a full URL, a
+    file relative to the ``store`` key **icon-url** URL, ``default``, or
+    other variable values.
 
-  **info**
+``info``
     A URL pointing to documentation for the app.
 
-  **license** 
+``license``
     Optional string indicating the software license of the app (e.g.
     ``MIT``, ``MPL``, ``BSD``).
 
-  **mem**
+``mem``
     Memory requirements of the app (integer, in MB).
 
-  **runtime** 
+``runtime``
     The runtime, if the app is deployed using the :ref:`Legacy Buildpack
     <buildpacks-legacy>` (e.g. ``java``, ``python32``, ``ruby19``,
     ``php``, ``perl518``).
 
-  **services**
+``services``
     Data services required by the app.
 
 

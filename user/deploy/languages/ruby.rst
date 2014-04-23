@@ -1,7 +1,7 @@
 .. _ruby-index:
-
 .. index:: Ruby
 .. index:: Rails Applications
+.. highlight:: ruby
 
 Ruby
 ====
@@ -39,7 +39,7 @@ Known Issues
     gem 'rake', '0.9.2.2'
     gem 'rails'
 
-* For Ruby 1.9 Cloud Foundry requires a tweak to the jquery-rails gem.
+* For Ruby 1.9 Cloud Foundry requires a tweak to the jquery-rails gem::
 
     gem 'cloudfoundry-jquery-rails'
 

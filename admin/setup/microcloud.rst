@@ -189,7 +189,7 @@ DNS resolution for addresses with the format: ``<IP address>.xip.io``
 To change the hostname of the Stackato VM, log in to the VM via SSH or
 the hypervisor console (username: 'stackato', default password:
 'stackato'), then run ``kato node rename ...`` with external IP
-address and the 'xip.io' domain appended. For example:
+address and the 'xip.io' domain appended. For example::
 
   $ kato node rename 10.9.8.7.xip.io
 

@@ -23,7 +23,7 @@ Echo service sample
 
 A simple Ruby echo service is available in this repository:
 
-  `<https://github.com/ActiveState/stackato-echoservice>`_
+`<https://github.com/ActiveState/stackato-echoservice>`_
   
 .. warning::
   The current echo service sample is a Stackato v2 / Cloud Foundry v1
@@ -155,9 +155,9 @@ sub-directory of the add-on.
 
 First, stop ``kato`` and ``supervisord``::
 
-    $ kato stop
-    ...
-    $ stop-supervisord
+  $ kato stop
+  ...
+  $ stop-supervisord
 
 Copy the supervisord config files::
 
@@ -170,10 +170,10 @@ Install to Kato
 The 'kato' administrative tool will also need configuration to recognize
 the new service. This can be done by appending the contents of
 *process-snippet.yml* and *roles-snippet.yml* to their respective
-``kato`` config files:
+``kato`` config files::
 
-    $ cat stackato-conf/processes-snippet.yml >> /s/etc/kato/processes.yml
-    $ cat stackato-conf/roles-snippet.yml >> /s/etc/kato/roles.yml
+  $ cat stackato-conf/processes-snippet.yml >> /s/etc/kato/processes.yml
+  $ cat stackato-conf/roles-snippet.yml >> /s/etc/kato/roles.yml
 
 .. note::
   Repeat this step on all cluster nodes.
@@ -188,7 +188,7 @@ Doozer is the centralized configuration management component in
 Stackato, which must include the service configuration we have just
 added. To load the settings from the YAML files in *oracledb/config/*:
 
-First, start supervisord:
+First, start supervisord::
 
   $ start-supervisord
 

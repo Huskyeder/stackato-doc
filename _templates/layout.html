@@ -1,0 +1,41 @@
+{# Import the theme's layout. #}
+{% extends "!layout.html" %}
+
+{# Custom CSS overrides #}
+{% set bootswatch_css_custom = ['_static/stackato.css'] %}
+
+
+{%- block footer %}
+<footer class="footer">
+  <div class="container-fluid">
+    <p class="pull-right">
+      {% if theme_source_link_position == "footer" %}
+        {% include "sourcelink.html" %}
+      {% endif %}
+        <a href="http://www.activestate.com" target="_new">
+          <img class="logo" src="{{ pathto('_static/' + "stackato_logo_footer.png", 1) }}" alt="ActiveState Software"/>
+        </a>
+    </p>
+    <p>
+    {%- if show_copyright %}
+      {%- if hasdoc('copyright') %}
+        {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}<br/>
+      {%- else %}
+        {% trans copyright=copyright|e %}&copy; {{ copyright }}.{% endtrans %}
+      {%- endif %}
+    {%- endif %}
+    {%- if last_updated %}
+      {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+    {%- endif %}
+    {%- if show_sphinx %}
+      {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}<br/>
+    {%- endif %}
+      <span style="padding-left: 40%">
+        <a href="#">Back to top</a>
+      </span>
+    </p>
+  </div>
+</footer>
+{%- endblock %}
+
+

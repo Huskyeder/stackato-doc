@@ -3,7 +3,7 @@
 Clojure
 =======
 
-.. highlight:: bash
+.. highlight:: clojure
 
 Stackato supports deploying Clojure applications using `leiningen
 <https://github.com/technomancy/leiningen>`_.

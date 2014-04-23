@@ -170,7 +170,7 @@ appliation shows how to host a `CraftBukkit
 <http://wiki.bukkit.org/Main_Page>`__ multi-player Minecraft server on Stackato
 using the Harbor port service:
 
-  https://github.com/Stackato-Apps/bukkit-server
+https://github.com/Stackato-Apps/bukkit-server
 
 .. _port-service-https:
 
@@ -192,16 +192,16 @@ provided by Harbor.
 
 Note that when using this approach:
 
-  * the hostname / IP address of the app will be the one provided by the
-    Harbor node
-  
-  * the client will connect using the Harbor-assigned port number, **not
-    443**.
+* the hostname / IP address of the app will be the one provided by the
+  Harbor node
+
+* the client will connect using the Harbor-assigned port number, **not
+  443**.
 
 For example, an application running through the port service might have
 a URL such as:
 
-  https://harbor-node.stackato.com:35048/
+https://harbor-node.stackato.com:35048/
 
 You can set up aliases to this URL using DNS, but the explicit port
 specification must always be added.

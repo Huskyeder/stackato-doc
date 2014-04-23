@@ -1,6 +1,6 @@
 .. _go-index:
-
 .. index:: Go
+.. highlight:: go
 
 Go
 ==
@@ -78,7 +78,7 @@ stackato.yml
 
 This file is optional, as the framework will automatically be detected by Stackato.  However, it
 can still be used to set the app name, configure settings, create services, etc.  
-See the :ref:`stackato.yml docs<stackato_yml>`.
+(see the :ref:`stackato.yml docs<stackato_yml>`)::
 
 	name:
 		hello-go

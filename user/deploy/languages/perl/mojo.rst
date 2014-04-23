@@ -1,6 +1,6 @@
 .. _perl-mojo:
-
 .. index:: Mojolicious
+.. highlight:: perl
 
 Mojolicious
 ===========

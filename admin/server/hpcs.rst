@@ -25,30 +25,27 @@ VM through their Partners and Solutions page for Stackato.
 1. `Log in to HP Cloud <https://account.hpcloud.com/login>`__
 
 2. Navigate to the `Partners and Solutions page for Stackato <https://marketplace.hpcloud.com/stackato>`_.
-
-      `https://marketplace.hpcloud.com/stackato <https://marketplace.hpcloud.com/stackato>`__
+  
+* `https://marketplace.hpcloud.com/stackato <https://marketplace.hpcloud.com/stackato>`__
   
 3. Step through the setup wizard:
 
-  * choose a region and availability zone
-  * set a server name
-  * choose an instance flavor (minimum standard.small)
-  * choose a `Key Pair <https://docs.hpcloud.com/mc/compute/key-pairs/>`_
-  * choose a Security Group (see :ref:`HPCS Security Groups <server-vm-hpcs-firewall>` below)
-  * Click the **Install** button
+* choose a region and availability zone
+* set a server name
+* choose an instance flavor (minimum standard.small)
+* choose a `Key Pair <https://docs.hpcloud.com/mc/compute/key-pairs/>`_
+* choose a Security Group (see :ref:`HPCS Security Groups <server-vm-hpcs-firewall>` below)
+* Click the **Install** button
 
-HP Cloud will create and boot a new Stackato instance for you. To finish setting up the VM:
+4. HP Cloud will create and boot a new Stackato instance for you. To finish setting up the VM:
 
 * Navigate to the instance in the HP Cloud Console (Dashboard > Computer > your chosen availability zone)
-
 * Click the settings icon
-
 * Select View Connection Info
-
 * Connect to the new VM and set up:
-
-  * :ref:`DNS <server-vm-hpcs-dns>` and
-  * :ref:`Configuring Stackato <server-vm-hpcs-config>`.
+  
+  * :ref:`DNS <server-vm-hpcs-dns>` 
+  * :ref:`Stackato <server-vm-hpcs-config>` itself.
 
 
 .. _server-vm-hpcs-firewall:
