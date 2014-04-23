@@ -229,6 +229,7 @@ publicdocs-live:
 	git checkout _theme/cloud/static/cloud.css_t
 
 publicdocs:
+	pip install -r requirements.txt 
 	$(SPHINXBUILD) -b html -t public $(ALLSPHINXOPTS) ../$(PUBLICDIR)
 
 localserver: html
