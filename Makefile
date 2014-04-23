@@ -100,7 +100,7 @@ clean:
 	-rm -rf $(UPDATE)
 
 html:
-	pip install -r requirements.txt 
+	pip install sphinx_bootstrap_theme 
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
@@ -230,7 +230,6 @@ publicdocs-live:
 	git checkout _theme/cloud/static/cloud.css_t
 
 publicdocs:
-	pip install -r requirements.txt 
 	$(SPHINXBUILD) -b html -t public $(ALLSPHINXOPTS) ../$(PUBLICDIR)
 
 localserver: html
