@@ -34,6 +34,7 @@ You can set your own environment variables:
 
 
 .. glossary::
+  :sorted:
 
   DATABASE_URL
     Contains an access URL for a database service. If more than one type
