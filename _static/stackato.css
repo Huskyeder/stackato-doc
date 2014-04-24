@@ -11,6 +11,19 @@ body {
     line-height: 1.42857;
 }
 
+a {
+    color: #026982;
+}
+
+h2 {
+    border-bottom: thin solid #C9E0DE;
+    padding: 7px 0 7px 0;
+}
+
+pre {
+    margin-left: 20px;
+}
+
 blockquote {
     font-size: 14px;
 }
@@ -45,6 +58,17 @@ blockquote {
 
 .container {
   margin-left: 8.33333%;
+  margin-bottom: 50px;
+}
+
+.alert {
+    margin-left: 20px;
+}
+
+.alert-info {
+    background-image: linear-gradient(to bottom, #EDFFFD 0px, #E0FAF8 100%);
+    background-repeat: repeat-x;
+    border-color: #C4EFEC;
 }
 
 .footer {
