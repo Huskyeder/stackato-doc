@@ -99,8 +99,7 @@ clean:
 	-rm -rf $(BUILDDIR)/*
 	-rm -rf $(UPDATE)
 
-html:
-	pip install --user sphinx_bootstrap_theme 
+html:	theme
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
@@ -229,9 +228,12 @@ publicdocs-live:
 	git checkout _theme/cloud/layout.html
 	git checkout _theme/cloud/static/cloud.css_t
 
-publicdocs:
+publicdocs:	theme
 	$(SPHINXBUILD) -b html -t public $(ALLSPHINXOPTS) ../$(PUBLICDIR)
 
 localserver: html
 	cd ./web-server && npm install
 	STACKATO_DOCS_DIR=$(CURDIR)/_build/html $(LOCALSERVER)
+
+theme:
+	pip install --user sphinx_bootstrap_theme 
