@@ -215,19 +215,6 @@ reupdate:
 	  ruby -e 'require "katoref/sphinx"; render_kato_ref(ARGV.shift)' admin/reference/kato-ref.rst.erb > admin/reference/kato-ref.rst ; \
 	)
 
-publicdocs-live:
-	@echo "================================================"
-	@echo "Inserts Google Search and Analytics"
-	@echo "(files in docs.stackato.com branch of stackato-doc-internal)"
-	@echo "================================================"
-	cp _templates/search* _theme/cloud/
-	cp _templates/layout.html _theme/cloud/layout.html
-	cp _templates/cloud.css_t _theme/cloud/static/cloud.css_t
-	$(SPHINXBUILD) -b html -t public $(ALLSPHINXOPTS) _build/public-docs
-	rm _theme/cloud/search*
-	git checkout _theme/cloud/layout.html
-	git checkout _theme/cloud/static/cloud.css_t
-
 publicdocs:	theme
 	$(SPHINXBUILD) -b html -t public $(ALLSPHINXOPTS) ../$(PUBLICDIR)
 
