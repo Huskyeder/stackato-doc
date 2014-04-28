@@ -17,16 +17,13 @@ to run applications. For a short introduction to writing buildpacks, see
   BUILDPACK_URL environment variable, set the buildpack's Git URL in
   a ``buildpack:`` key at the top level of *stackato.yml*.
 
-Deploy Using Buildpacks
------------------------
-
 Buildpacks are the recommended method for deploying applications to
 Stackato, replacing the built-in frameworks used in previous versions.
 
 .. _buildpacks-built-in:
 
 Built-In Buildpacks
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 For convenience a few buildpacks are bundled with Stackato:
 
@@ -36,12 +33,14 @@ For convenience a few buildpacks are bundled with Stackato:
 * `Ruby <https://github.com/ActiveState/stackato-buildpack-ruby>`__
 
 Stackato will cycle through the ``detect`` scripts of the built-in
-buildpacks prior to staging to match the code you are pushing.
+buildpacks prior to staging to match the code you are pushing. For most
+applications using the languages above, no Stackato-specific
+configuration is required.
 
 .. _buildpacks-legacy:
 
 Legacy Buildpack
-^^^^^^^^^^^^^^^^
+----------------
 
 The legacy buildpack is is special meta-buildpack for deploying
 applications configured for Stackato 2.x (Cloud Foundry v1 API) without
@@ -65,7 +64,7 @@ optionally set a specific ``runtime:`` as well. For example::
   <known-issues-legacy-env>`).
 
 Custom Buildpacks
-^^^^^^^^^^^^^^^^^
+-----------------
 
 To specify the exact buildpack to use for deploying your application,
 set a top-level ``buildpack:`` key in *stackato.yml* to the URL of the
@@ -112,10 +111,27 @@ The following buildpacks are known to work with Stackato:
   $HOME/.profile.d <https://devcenter.heroku.com/articles/profiled>`__
   instead.
   
-------------------
+Procfile
+--------
 
-Pet-Clinic (Java)
-^^^^^^^^^^^^^^^^^
+Buildpacks will usually contain a ``default_process_type`` setting with
+the command used to start the application process. If your application
+needs a custom command to start the process, create a `Procfile
+<https://devcenter.heroku.com/articles/procfile>`__ in the base
+directory of your application.
+
+The ``Procfile`` will should contain a single line with the ``web:``
+process for the application defined. For example::
+
+  web: bundle exec rails server -p $PORT
+
+Unlike Heroku, Stackato does not support multiple process types in the
+Procfile. To launch a ``worker`` process, create a separate app without
+a URL (i.e. with an empty ``url: []`` in *stackato.yml*).
+
+  
+Buildpack Example: Java
+-----------------------
 
 First, in ``stackato.yml`` you will need to define the the buildpack
 url. Here is the pet-clinic stackato.yml::
