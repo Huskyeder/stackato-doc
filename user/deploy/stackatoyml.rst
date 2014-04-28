@@ -2,8 +2,8 @@
 .. index:: stackato.yml
 .. highlight:: yaml
 
-Stackato.yml Options
-====================
+Stackato.yml
+============
 
 Configuration options for Stackato applications can be stored in a *stackato.yml* 
 file in the top-level application directory.
