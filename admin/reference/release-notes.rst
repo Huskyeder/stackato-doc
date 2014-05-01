@@ -25,6 +25,7 @@ Release Notes
   * AppStore and redis processes running in Docker
     https://docs.google.com/a/activestate.com/document/d/1rkhA3p1WWZhwJJNGQvHpJCHbnKCARpAPMWJzD7fBSlQ/edit?usp=sharing
   * [103658] Logyard communication made faster; now uses Unix domain sockets instead of TCP loopback
+  * [103789] Upgrade gnatsd to 0.5.2
 
   * Application stack changes
 
