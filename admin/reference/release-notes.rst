@@ -32,6 +32,10 @@ Release Notes
     * [103301] Upgraded ActivePython to 2.7.6.9 and 3.3.4.1
     * Improved sshd logging
 
+  * Other updates (User probably won't care, but worth listing for our future reference):
+
+    * [101897] zeromq 3.2.4 for loygard/appstore
+
 
 
 v3.2.1 (March 31, 2014)
