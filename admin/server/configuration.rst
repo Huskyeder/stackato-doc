@@ -538,14 +538,15 @@ containers by adding ``environment/app_http_proxy`` and
 ``environment/app_https_proxy`` settings in the dea_ng config using
 :ref:`kato config set <kato-command-ref-config>`. For example::
 
-  $ kato config set dea_ng environment/app_http_proxy 10.0.0.47:8080
-  $ kato config set dea_ng environment/app_https_proxy 10.0.0.47:8080
+  $ kato config set dea_ng environment/app_http_proxy http://10.0.0.47:8080
+  $ kato config set dea_ng environment/app_https_proxy https://10.0.0.47:8080
 
 Adding this configuration sets the 'http_proxy' and 'https_proxy'
 environment variables within all subsequently created application
 containers, allowing them to connect to external HTTP(S) resources on
-networks which disallow direct connections.
-
+networks which disallow direct connections. Unlike ``upstream_proxy``,
+this setting requires the protocol string to be set (i.e. ``http://`` or
+``https://``)
 
 .. _server-config-filesystem:
 
