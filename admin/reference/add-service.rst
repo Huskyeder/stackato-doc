@@ -87,12 +87,8 @@ Repeat this step on all DEA nodes in the cluster.
         ubuntu:
           - libaio-dev
   
-  Admins can modify the container template globally using::
-  
-    $ sudo chroot /lxc/template/rootfs
-    ...
-    $ apt-get install libaio-dev
-
+  Admins can modify the container base image globally using the steps
+  outlined in :ref:`Modifying or Updating the Container Image <docker-modify-container>`
 
 
 Copying the Add-on to Stackato
