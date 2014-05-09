@@ -33,6 +33,7 @@ Commands
 * :ref:`history <kato-command-ref-history>` Show the kato commands that have been run
 * :ref:`info <kato-command-ref-info>` Show information about this node or cluster including assigned and
 * :ref:`inspect <kato-command-ref-inspect>` Detect common problems with your Stackato install using 'kato inspect'
+* :ref:`license <kato-command-ref-license>` Set the Stackato license in use for this microcloud or cluster.
 * :ref:`log <kato-command-ref-log-stream>` Logging utilities for Stackato
 
   * :ref:`log drain <kato-command-ref-log-drain-add>`
@@ -69,7 +70,35 @@ Commands
   * :ref:`node upgrade <kato-command-ref-node-upgrade>`
 
   * :ref:`node version <kato-command-ref-node-version>`
-* :ref:`op <kato-command-ref-op>` Various operational commands
+* :ref:`op <kato-command-ref-op-custom_ssl_cert>` Various operational commands
+
+  * :ref:`op custom_ssl_cert <kato-command-ref-op-custom_ssl_cert>`
+
+  * :ref:`op defer <kato-command-ref-op-defer>`
+
+  * :ref:`op dhcp <kato-command-ref-op-dhcp>`
+
+  * :ref:`op generate_service_tokens <kato-command-ref-op-generate_service_tokens>`
+
+  * :ref:`op import_from_yaml_file <kato-command-ref-op-import_from_yaml_file>`
+
+  * :ref:`op import_from_yaml_files <kato-command-ref-op-import_from_yaml_files>`
+
+  * :ref:`op max_client_upload <kato-command-ref-op-max_client_upload>`
+
+  * :ref:`op regenerate <kato-command-ref-op-regenerate>`
+
+  * :ref:`op remap_hosts <kato-command-ref-op-remap_hosts>`
+
+  * :ref:`op run_deferred <kato-command-ref-op-run_deferred>`
+
+  * :ref:`op set_timezone <kato-command-ref-op-set_timezone>`
+
+  * :ref:`op static_ip <kato-command-ref-op-static_ip>`
+
+  * :ref:`op update_hostsfile <kato-command-ref-op-update_hostsfile>`
+
+  * :ref:`op upstream_proxy <kato-command-ref-op-upstream_proxy>`
 * :ref:`patch <kato-command-ref-patch>` Update a Stackato cluster with post-release fixes.
 * :ref:`process <kato-command-ref-process-list>` Start, stop, or restart individual processes. Generally not required;
 
@@ -539,6 +568,26 @@ Command Usage Details
   **-h** **--help**                       Show help information
 
   **-v** **--verbose**                    Verbose output
+
+
+
+----
+
+
+.. _kato-command-ref-license:
+
+**license** **set** [**options**] [*<value>*]
+
+**license** **enable**
+
+**license** **disable**
+
+  Set the Stackato license in use for this microcloud or cluster.
+
+  *<value>*                               The license to use; if not given then it is read from STDIN.
+
+
+  **-h** **--help**                       Show help information
 
 
 
@@ -1052,6 +1101,8 @@ Command Usage Details
 
   **--status**                            Shows the status of upgrades on a node.
 
+  **--development**                       Run a development upgrade (internal use only)
+
 
 
 ----
@@ -1068,9 +1119,7 @@ Command Usage Details
 ----
 
 
-.. _kato-command-ref-op:
-
-**op** **--help**
+.. _kato-command-ref-op-custom_ssl_cert:
 
 **op** **custom_ssl_cert** **install** *<key-path>* *<cert-path>* *<domain>* [**--wildcard-subdomains**] [**--update**]
 
@@ -1078,13 +1127,117 @@ Command Usage Details
 
 **op** **custom_ssl_cert** **list**
 
+  Configuration of custom SSL certificates to be used in conjunction with
+  router2g and deployed applications.
+
+  **-h** **--help**                       Show help information
+
+  **--wildcard-subdomains**               Wildcard SSL certificate
+
+  **--update**                            Update an existing SSL certificate
+
+
+
+----
+
+
+.. _kato-command-ref-op-defer:
+
+**op** **defer** (*<command>* | **--reset**) [**--run-as-root**] [**--post-start**]
+
+  Defer a kato command to be run (by 'op run_deferred') when the system is
+  rebooted and supervisord has started. Commands are saved to a
+  /home/stackato/.kato-deferred YAML file.
+
+  **-h** **--help**                       Show help information
+
+  **--run-as-root**                       Run deferred command as root
+
+  **--reset**                             Clear list of deferred commands
+
+  **--post-start**                        Run the deferred command after all processes managed
+
+                                          by kato have started
+
+
+
+----
+
+
+.. _kato-command-ref-op-dhcp:
+
 **op** **dhcp**
 
-**op** **defer** *<command>* [**--run-as-root**] [**--reset**] [**--post-start**]
+  Configure this node's networking to use DHCP
 
-**op** **import_from_yaml_files** [**--upgrade**] [**--new-key-file=<new-key-file>**]
+  **-h** **--help**                       Show help information
+
+
+
+----
+
+
+.. _kato-command-ref-op-generate_service_tokens:
+
+**op** **generate_service_tokens**
+
+  Generates auth tokens for services.
+
+  **-h** **--help**                       Show help information
+
+
+
+----
+
+
+.. _kato-command-ref-op-import_from_yaml_file:
+
+**op** **import_from_yaml_file** [**--upgrade**] *<process>*
+
+  Import the YAML configuration for a single process, deleting and
+  replacing all prior configuration for that process.
+
+  **-h** **--help**                       Show help information
+
+  **--upgrade**                           Merge the new configuration rather than deleting and replacing.
+
+
+
+----
+
+
+.. _kato-command-ref-op-import_from_yaml_files:
+
+**op** **import_from_yaml_files** [**--upgrade**] [**--new-key-file=<file>**]
+
+  Import configuration from YAML files for all processes, deleting and
+  replacing prior configuration.
+
+  **-h** **--help**                       Show help information
+
+  **--new-key-file=<file>**               Override config with a specific YAML file
+
+  **--upgrade**                           Merge the new configuration rather than deleting and replacing
+
+
+
+----
+
+
+.. _kato-command-ref-op-max_client_upload:
 
 **op** **max_client_upload** *<max-size>*
+
+  Set the maximum upload size in MB from stackato clients
+
+  **-h** **--help**                       Show help information
+
+
+
+----
+
+
+.. _kato-command-ref-op-regenerate:
 
 **op** **regenerate** **ssh_keys**
 
@@ -1102,64 +1255,118 @@ Command Usage Details
 
 **op** **regenerate** **token-signing-secret**
 
+  Regenerate the configuration for various processes and components
+
+  **-h** **--help**                       Show help information
+
+  **-r** **--no-restart**                 Do not restart processes.
+
+
+
+----
+
+
+.. _kato-command-ref-op-remap_hosts:
+
 **op** **remap_hosts** *<old-hostname>* *<new-hostname>*
+
+  Change the hostname to look for when remapping
+
+  **-h** **--help**                       Show help information
+
+
+
+----
+
+
+.. _kato-command-ref-op-run_deferred:
 
 **op** **run_deferred** [**--post-start**]
 
+  Runs deferred commands saved with 'kato defer'
+
+  **-h** **--help**                       Show help information
+
+  **--post-start**                        Run the deferred command after all processes managed
+
+                                          by kato have started
+
+
+
+----
+
+
+.. _kato-command-ref-op-set_timezone:
+
 **op** **set_timezone** [**--timezone** *<TZ>*]
 
+  Change the default system timezone for the host machine
+
+  **-h** **--help**                       Show help information
+
+
+
+----
+
+
+.. _kato-command-ref-op-static_ip:
+
 **op** **static_ip** [**--interface=<if>**] [**--ip=<ip>**] [**--netmask=<netmask>**] [**--gateway=<gateway>**] [**--dns-nameservers=<dnsname>**] [**--dns-search-domains=<dnssearch>**] [**--restart-network**] [**--no-restart**]
+
+  Configures this node to use a static IP. Interactively prompts for
+  inputs if they are not specified as options.
+
+  **-h** **--help**                       Show help information
+
+  **--interface=<if>**                    Network interface to configure (e.g. eth0)
+
+  **--ip=<ip>**                           Host IP address
+
+  **--netmask=<netmask>**                 Network netmask (e.g. 255.255.255.0)
+
+  **--gateway=<gateway>**                 Network gateway (IP address)
+
+  **--dns-nameservers=<ips>**             Optional list of DNS names servers (e.g. 10.0.0.252, 10.0.0.253)
+
+  **--dns-search-domains=<domains>**      Optional list of DNS search domains (e.g. example.com, example.org)
+
+  **--restart-network**                   Restart networking
+
+  **--no-restart**                        Do not restart processes.
+
+
+
+----
+
+
+.. _kato-command-ref-op-update_hostsfile:
+
+**op** **update_hostsfile**
+
+  Updates the /etc/hosts file with the endpoint URI mapped to the cloud
+  controller's internal IP.
+
+  **-h** **--help**                       Show help information
+
+
+
+----
+
+
+.. _kato-command-ref-op-upstream_proxy:
 
 **op** **upstream_proxy** **set** *<proxy-address>* [**-u** *<user>*] [**-p** *<pass>*]
 
 **op** **upstream_proxy** **delete**
 
-**op** **update_hostsfile**
-
-**op** **generate_service_tokens**
-
-  Various operational commands
-
-  **custom_ssl_cert**                     Allows admin configuration of custom SSL certificates
-
-                                          to be used in conjunction with router2g and deployed
-
-                                          applications.
-
-  **dhcp**                                Configures this node's networking to use DHCP
-
-  **defer**                               Defers a kato command to be run by 'op run_deferred'
-
-  **max_client_upload**                   Set the maximum upload size in MB
-
-  **regenerate**                          Regenerate the configuration for a process
-
-  **remap_hosts**                         Change the hostname to look for when remapping
-
-  **run_deferred**                        Runs any previously deferred kato commands
-
-  **set_timezone**                        Change the default system timezone for the host machine
-
-  **static_ip**                           Configures this node to use a static IP
-
-  **upstream_proxy**                      Configure Stackato to use an external or upstream proxy
-
-                                          server and deployed apps.
-
-  **update_hostsfile**                    Updates the /etc/hosts file with the endpoint URI mapped
-
-                                          to the CC's internal IP
-
-  **generate_service_tokens**             Generates service auth tokens.
-
+  Configure Stackato to use an external or upstream proxy server for
+  staging and deployed apps.
 
   **-h** **--help**                       Show help information
 
   **-u** **--user** *<user>*              Proxy username
 
   **-p** **--pass** *<pass>*              Proxy password
-
-  **-r** **--no-restart**                 Do not restart processes.
 
 
 
@@ -1199,6 +1406,8 @@ Command Usage Details
   **-r** **--no-restart**                 Don't restart any roles during patching
 
   **-q** **--quiet**                      Be quieter
+
+  **-j** **--json**                       Return JSON (for 'status')
 
   **-i** **--installed**                  Manually mark patch as installed
 
@@ -1296,16 +1505,18 @@ Command Usage Details
 
 .. _kato-command-ref-relocate:
 
-**relocate** [**-h**] **containers** *<new_location>*
+**relocate** [**options**] **containers** *<new_location>*
 
-**relocate** [**-h**] **droplets** *<new_location>*
+**relocate** [**options**] **droplets** *<new_location>*
 
-**relocate** [**-h**] **services** *<new_location>*
+**relocate** [**options**] **services** *<new_location>*
 
   Move containers, application droplets, or services to a new mount point
   or filesystem location.
 
   **-h** **--help**                       Show help information
+
+  **-v** **--verbose**                    Verbose output
 
 
 
