@@ -30,7 +30,7 @@ For convenience a few buildpacks are bundled with Stackato:
 * `Python <https://github.com/ActiveState/stackato-buildpack-python>`__
 * `Java <https://github.com/cloudfoundry/java-buildpack>`__
 * `Node.js <https://github.com/cloudfoundry/heroku-buildpack-nodejs>`__
-* `Ruby <https://github.com/ActiveState/stackato-buildpack-ruby>`__
+* `Ruby <https://github.com/ActiveState/heroku-buildpack-ruby>`__
 
 Stackato will cycle through the ``detect`` scripts of the built-in
 buildpacks prior to staging to match the code you are pushing. For most
