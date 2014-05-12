@@ -235,6 +235,10 @@ name of the service to create / bind, and the associated value is the type of
 the new service.  If multiple services of the same type are needed, list them on 
 separate lines as in the example below.
 
+.. note::
+  See the :ref:`Data Services <data-services>` section for information
+  on how services are bound to applications.
+
 Use ``stackato services`` for a complete list of available services.  If not 
 specified, the user may be prompted during ``stackato push``.
 
