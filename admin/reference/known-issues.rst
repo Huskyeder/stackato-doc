@@ -3,6 +3,17 @@
 Known Issues
 ============
 
+.. _known-issues-node-reset-factory:
+
+kato node reset factory with NOPASSWD
+-------------------------------------
+
+The ``kato node reset factory`` command will not work if ``NOPASSWD``
+has been set for the ``stackato`` account in */etc/sudoers*. To work
+around this, revert the change to */etc/sudoers* before resetting or
+start over with a new Stackato VM.
+
+
 .. _known-issues-logs-missing-from-cloud-events:
 
 router2g or stackato_rest logs missing from Cloud Events
