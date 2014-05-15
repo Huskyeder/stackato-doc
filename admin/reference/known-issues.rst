@@ -16,16 +16,15 @@ start over with a new Stackato VM.
 
 .. _known-issues-logs-missing-from-cloud-events:
 
-router2g or stackato_rest logs missing from Cloud Events
---------------------------------------------------------
+Cloud Events not gathering logs from some processes
+---------------------------------------------------
 
-The ``router2g`` (Stackato router) and ``stackato_rest``
-(Stackato-specific web service) processes use non-standard logging
+Certain Stackato processes noted below use non-standard logging
 formats and are therefore not included in the Cloud Events log stream
 (e.g. in the Cloud Events view of the Management Console).
 
-These log files can be inspected at */s/logs/router2g.log* (Router
-nodes) and */s/logs/stackato_rest.log* (Controller nodes).
+* ``router2g`` (Stackato router); manually inspect */s/logs/router2g.log* on Router nodes.
+* ``stackato_rest`` (Stackato-specific web service); manually inspect */s/logs/stackato_rest.log* on Controller nodes.
 
 
 .. _known-issues-config_vars:
