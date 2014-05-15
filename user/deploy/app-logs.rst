@@ -40,9 +40,9 @@ To limit the number of lines displayed, use the ``--num`` option::
 
     $ stackato logs myapp --num 50
 
-To view log stream as it is updated, use the ``--follow`` option::
+To view log stream as it is updated, use the ``--follow`` (or ``-f``) option::
 
-    $ stackato logs myapp --follow
+    $ stackato logs myapp -f
 
 Log streams can be filtered on a number of parameters:
 
