@@ -25,7 +25,9 @@ formats and are therefore not included in the Cloud Events log stream
 
 * ``router2g`` (Stackato router); manually inspect */s/logs/router2g.log* on Router nodes.
 * ``stackato_rest`` (Stackato-specific web service); manually inspect */s/logs/stackato_rest.log* on Controller nodes.
-
+* ``harbor_proxy_connector`` (Harbor); manually inspect */s/logs/harbor_proxy_connector.log* on Harbor nodes.
+* ``cc_upload_server`` (CC upload server); manually inspect */s/logs/cloud_controller_upload_server.log* on Controller nodes.
+* ``stackato-tty.log`` (Stackato TTY console); manually inspect */s/logs/stackato-tty.log* on all nodes.
 
 .. _known-issues-config_vars:
 
