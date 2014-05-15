@@ -35,11 +35,13 @@ role**:
     $ mkdir ~/newimg
     $ cd ~/newimg
 
-2. Check which image Stackato is currently using as an app container
-   template::
+2. Check which images Stackato is currently using as an app container
+   template. The first image in the list is the default, subsequent
+   entires are fallbacks (checked in order)::
   
     $ kato config get fence docker/image
-    stackato/stack/alsek
+    - stackato/stack-alsek
+    - stackato/stack/alsek
   
 3. Create a `Dockerfile <http://docs.docker.io/en/latest/use/builder/>`_
    which inherits the current Docker image, then runs an update or
@@ -61,16 +63,19 @@ role**:
 
     $ sudo docker build -rm -t exampleco/newimg .
 
-5. Configure Stackato to use the new image:
+5. Configure Stackato to use the new image::
+    
+    $ kato config set fence docker/image '["exampleco/newimg","stackato/stack-alsek","stackato/stack/alsek"]'
+    WARNING: Assumed type struct
+    - exampleco/newimg
+    - stackato/stack-alsek
+    - stackato/stack/alsek
 
 .. note::
-
   This step only needs to be done once, as the configuration change is
-  shared with all nodes::
+  shared with all nodes.
 
-    $ kato config set fence docker/image exampleco/newimg
-    WARNING: Assumed type string
-    exampleco/newimg
+
 
 
 .. index:: Admin Hooks
@@ -202,9 +207,12 @@ central repository for your container tempates.
 
 7. Configure Stackato to use the new image::
 
-    $ kato config set fence docker/image api.paas.example.com:49156/exampleco/newimg
-    WARNING: Assumed type string
-    api.paas.example.com:49156/exampleco/newimg
+    $ kato config set fence docker/image \
+    > '["api.paas.example.com:49156/exampleco/newimg","stackato/stack-alsek","stackato/stack/alsek"]'
+    WARNING: Assumed type struct
+    - api.paas.example.com:49156/exampleco/newimg
+    - stackato/stack-alsek
+    - stackato/stack/alsek
 
    This step only needs to be done once, as the configuration change is
    shared with all nodes
