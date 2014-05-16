@@ -20,8 +20,10 @@ Release Notes
   v3.4.0 RC1 (June 19, 2014)
   --------------------------
 
-  * [103069] Docker 0.10.x
+  * Docker 0.11.1
+    https://bugs.activestate.com/show_bug.cgi?id=103872
     http://blog.docker.io/2014/04/docker-0-10-quality-and-ops-tooling/
+    QA note: just do basic smoke testing of `s push -n`
   * AppStore and redis processes running in Docker
     https://docs.google.com/a/activestate.com/document/d/1rkhA3p1WWZhwJJNGQvHpJCHbnKCARpAPMWJzD7fBSlQ/edit?usp=sharing
   * [103658] Logyard communication made faster; now uses Unix domain sockets instead of TCP loopback
