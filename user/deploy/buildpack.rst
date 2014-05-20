@@ -111,6 +111,8 @@ The following buildpacks are known to work with Stackato:
   $HOME/.profile.d <https://devcenter.heroku.com/articles/profiled>`__
   instead.
   
+.. _buildpacks-procfile:
+
 Procfile
 --------
 

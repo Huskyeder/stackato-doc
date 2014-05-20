@@ -616,7 +616,7 @@ web:
 .. note:: 
 
   Used with the :ref:`Legacy buildpack <buildpacks-legacy>` only. When using
-  other buildpacks, create a `Procfile <https://devcenter.heroku.com/articles/procfile>`__ 
+  other buildpacks, create a :ref:`Procfile <buildpacks-procfile>` 
   in the application's root directory.
 
 Specify a custom command to launch your web application or to pass custom
