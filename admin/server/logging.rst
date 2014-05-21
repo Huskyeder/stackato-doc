@@ -443,6 +443,20 @@ User Drain Limit
 Apptail Limits
 ^^^^^^^^^^^^^^
 
+* **apptail** **max_record_size** (default 950 bytes): The maximum
+  length for each log line. Characters beyond this limit are discarded.
+
+* **apptail** **max_lines_per_second** (default 100): The rate at which
+  the apptail buffer empties. Apptail uses a `leaky bucket algorithm
+  <http://en.wikipedia.org/wiki/Leaky_bucket>`__ to handle bursts of log
+  output.
+
+* **apptail** **max_lines_burst** (default 10000): The number of lines
+  in the dynamic apptail buffer. This buffer empties at the rate set by
+  ``max_lines_per_second``. If a burst of log traffic exceeds
+  ``max_lines_per_second`` long enough for the ``max_lines_burst`` to
+  fill, new log records will be discarded. 
+
 * **apptail** **read_limit** (default 16MB): defines the maximum number
   of bytes to read from the end of application log files. This is done
   to prevent performance problems during restart of the ``apptail``
@@ -458,22 +472,6 @@ Apptail Limits
 
     $ kato config set apptail read_limit 100
 
-* **apptail** **rate_limit** (default 400): limits the number of log
-  lines per second that can be read from an application log file. The
-  ``apptail`` process reads (at most) the specified number of log lines
-  per second, after which it will wait for one second before resuming. A
-  line similar to the ``read_limit`` warning above is inserted in the
-  stream to explain the missing data. 
-  
-  To change the rate_limit to 300 lines::
-
-    $ kato config set apptail rate_limit 300
-
-.. note::
-  The rate limit may cause log streams to lose arbitrary lines if the
-  output is very verbose. Adjust the ``rate_limit`` upwards if this is a
-  persistent problem for users.
-  
 
 .. index:: logyard-cli
 
