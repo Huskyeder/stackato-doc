@@ -212,7 +212,7 @@ URLs, application names, and service names:
 
 * **URLs** (auto-generated or :ref:`manually mapped <deploy-map-url>`)
   must be globally unique, and are allocated on a "first come, first
-  serve" basis.
+  serve" basis (see :ref:`URL Assignment <deploy-url-assignment>` below)
 
 * **Application names** must be unique within the scope of the
   :ref:`space <orgs-spaces>`. Applications deployed in different spaces
@@ -225,6 +225,25 @@ URLs, application names, and service names:
   in the system as shown by STACKATO_SERVICES), so there is no
   possiblility of naming conflicts with services created in other orgs
   and spaces.
+
+URL Assignment
+^^^^^^^^^^^^^^
+
+The ``stackato`` client assigns URLs for applications as follows during
+:ref:`stackato push <command-push>`:
+
+#. URLs set with the ``--url`` option take precedence
+
+#. If none is set with ``--url``, URLs specified in
+   :ref:`stackato.yml <stackato_yml-url>` or :ref:`manifest.yml
+   <manifest_yml>` are used.
+
+#. If neither of the above are set, a default URL is generated and
+   assigned using the "target-base" domain of the system or the
+   domain of the Organization (if it has only one domain).
+   
+See also :ref:`Mapping App URLs <deploy-map-url>`.
+
 
 .. index:: Deployment Zones
 
