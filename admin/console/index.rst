@@ -262,16 +262,23 @@ categories:
 Quota Definitions
 ^^^^^^^^^^^^^^^^^
 
-.. note::
-  In Stackato 2.10 and earlier, every User and Group had a quota. In 3.0
-  (Cloud Foundry v2) Quota Definitions are applied at the Organization
-  level (i.e. members of an organizations share its quota). 
+Lists the Quota Definitions available to apply to Organizations on the
+system. To edit a definition, click the edit button on the right. The
+following fields can be modified:
 
-Lists the Quota Definitions available to apply to Organizations on the system.
+* **Name**: The definition name. Do not change this without also
+  changing the settings of any Organization using the definition.
+* **Memory Usage Limit**: The total amount of application RAM (in MB)
+  that can be allocated to user applications.
+* **Total Services**: The total number of service instances that can be
+  allocated.
+* **Total Droplets**: The number of droplets stored (per application)
+  for application versioning and rollback .
+* **Allow Sudo**: Allow users in the Organization ``sudo`` privileges
+  within their application containers.
 
-* To edit a definition, click the edit button on the right.
-* To create a new definition use the :ref:`stackato quota create
-  <command-quota create>` command.
+To create a new definition use the :ref:`stackato quota create
+<command-quota create>` command.
  
 .. _console-settings-cloud-controller:
 
