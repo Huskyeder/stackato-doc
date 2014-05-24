@@ -54,8 +54,6 @@ Getting Started
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -98,16 +96,8 @@ Getting Started
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-logout:
   
@@ -129,8 +119,6 @@ Getting Started
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -140,16 +128,8 @@ Getting Started
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-target:
   
@@ -232,8 +212,6 @@ Applications
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -269,18 +247,10 @@ Applications
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-app:
   
@@ -311,8 +281,6 @@ Applications
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -324,7 +292,7 @@ Applications
 	
     --path
       
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
     --space
@@ -353,18 +321,10 @@ Applications
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-list:
   
@@ -395,8 +355,6 @@ Applications
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -432,18 +390,158 @@ Applications
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
+    -n
+      Alias of --no-prompt.
+    -o
+      Alias of --organization.
+    
+.. _command-releases:
+  
+  stackato releases  *<application>* 
+    Show the list of versions for the specified application. This is a Stackato 3.4 specific command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --group
       
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+    --json
+      
+	    Print raw json as output, not human-formatted data.
+	
+    --manifest
+      
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --organization
+      
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+    --path
+      
+	    Path of the directory or file holding the application files to push.
+	    Defaults to the current working directory.
+	
+    --space
+      
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+    --space-guid
+      
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
 	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
+    
+.. _command-versions:
+  
+  stackato versions  *<application>* 
+    Show the list of versions for the specified application. This is a Stackato 3.4 specific command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --group
+      
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+    --json
+      
+	    Print raw json as output, not human-formatted data.
+	
+    --manifest
+      
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --organization
+      
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+    --path
+      
+	    Path of the directory or file holding the application files to push.
+	    Defaults to the current working directory.
+	
+    --space
+      
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+    --space-guid
+      
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    -n
+      Alias of --no-prompt.
+    -o
+      Alias of --organization.
 
 
     
@@ -481,8 +579,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -494,7 +590,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -523,18 +619,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-crashlogs:
@@ -584,8 +672,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -602,7 +688,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --prefix
@@ -652,18 +738,12 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
+        -f
+          Alias of --follow.
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-disk:
@@ -691,8 +771,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -704,7 +782,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -733,18 +811,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-drain list:
@@ -776,8 +846,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -789,7 +857,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -818,18 +886,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-drains:
@@ -861,8 +921,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -874,7 +932,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -903,18 +961,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-env:
@@ -946,8 +996,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -959,7 +1007,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -988,18 +1036,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-events:
@@ -1031,8 +1071,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1044,7 +1082,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -1073,18 +1111,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-files:
@@ -1123,8 +1153,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1136,7 +1164,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --prefix
@@ -1175,18 +1203,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-file:
@@ -1225,8 +1245,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1238,7 +1256,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --prefix
@@ -1277,18 +1295,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-health:
@@ -1316,27 +1326,17 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
           Alias of --no-prompt.
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
-	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
 	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-instances:
@@ -1368,8 +1368,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1381,7 +1379,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -1410,18 +1408,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-logs:
@@ -1471,8 +1461,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1489,7 +1477,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --prefix
@@ -1539,18 +1527,12 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
+        -f
+          Alias of --follow.
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-mem:
@@ -1578,8 +1560,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1591,7 +1571,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -1620,18 +1600,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-stats:
@@ -1663,8 +1635,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1676,7 +1646,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -1705,18 +1675,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-tail:
@@ -1750,8 +1712,6 @@ Information
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1763,7 +1723,7 @@ Information
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -1792,18 +1752,10 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
     
@@ -1957,8 +1909,6 @@ Management
 	
         --no-sso-enabled
           Complementary alias of --sso-enabled.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -1970,7 +1920,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --placement-zone
@@ -2031,12 +1981,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --url
           
 		The urls to map the application to.
@@ -2053,8 +1997,6 @@ Management
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-dbshell:
@@ -2089,8 +2031,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2102,7 +2042,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -2131,18 +2071,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-delete:
@@ -2181,8 +2113,6 @@ Management
 	
         --no-routes
           Complementary alias of --routes.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2194,7 +2124,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --routes
@@ -2228,18 +2158,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-drain add:
@@ -2271,8 +2193,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2284,7 +2204,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -2313,18 +2233,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-drain delete:
@@ -2352,8 +2264,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2365,7 +2275,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -2394,18 +2304,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-env-add:
@@ -2435,8 +2337,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2448,7 +2348,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -2495,18 +2395,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-env-del:
@@ -2536,8 +2428,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2549,7 +2439,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -2596,18 +2486,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-map:
@@ -2635,8 +2517,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2648,7 +2528,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -2677,18 +2557,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-open:
@@ -2716,8 +2588,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2729,7 +2599,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -2758,18 +2628,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-push:
@@ -2937,8 +2799,6 @@ Management
 	    
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -2954,7 +2814,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --placement-zone
@@ -3033,12 +2893,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --url
           
 		The urls to map the application to.
@@ -3055,8 +2909,6 @@ Management
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-rename:
@@ -3084,8 +2936,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3097,7 +2947,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3126,18 +2976,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-restart:
@@ -3167,8 +3009,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3180,7 +3020,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3227,18 +3067,87 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
+        -n
+          Alias of --no-prompt.
+        -o
+          Alias of --organization.
+
+
+.. _command-rollback:
+
+      stackato rollback  *<application>*  *<version>*       
+        Switch to a different version of the application. This is a Stackato 3.4 specific command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --code-only
           
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
+		When specified the rollback reactivates only the old
+		droplet of the specified version while retaining the
+		current configuration.
+	    
+        --group
+          
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+        --manifest
+          
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+        --no-prompt
+          
+	    Disable interactive queries.
+	
+        --non-interactive
+          Alias of --no-prompt.
+        --noprompt
+          Alias of --no-prompt.
+        --organization
+          
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+        --path
+          
+	    Path of the directory or file holding the application files to push.
+	    Defaults to the current working directory.
+	
+        --space
+          
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+        --space-guid
+          
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
 	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-run:
@@ -3296,8 +3205,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3309,7 +3216,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3338,20 +3245,12 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -a
           Alias of --application.
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-scale:
@@ -3431,8 +3330,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3444,7 +3341,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3491,12 +3388,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -d
           Alias of --disk.
         -i
@@ -3507,8 +3398,6 @@ Management
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-scp:
@@ -3545,8 +3434,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3558,7 +3445,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3587,20 +3474,12 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -a
           Alias of --application.
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-set-env:
@@ -3630,8 +3509,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3643,7 +3520,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3690,18 +3567,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-ssh:
@@ -3760,8 +3629,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3773,7 +3640,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3802,20 +3669,12 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -a
           Alias of --application.
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-start:
@@ -3845,8 +3704,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3858,7 +3715,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3905,18 +3762,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-stop:
@@ -3944,8 +3793,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -3957,7 +3804,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -3986,18 +3833,87 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
+        -n
+          Alias of --no-prompt.
+        -o
+          Alias of --organization.
+
+
+.. _command-switch-version:
+
+      stackato switch-version  *<application>*  *<version>*       
+        Switch to a different version of the application. This is a Stackato 3.4 specific command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --code-only
           
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
+		When specified the rollback reactivates only the old
+		droplet of the specified version while retaining the
+		current configuration.
+	    
+        --group
+          
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+        --manifest
+          
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+        --no-prompt
+          
+	    Disable interactive queries.
+	
+        --non-interactive
+          Alias of --no-prompt.
+        --noprompt
+          Alias of --no-prompt.
+        --organization
+          
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+        --path
+          
+	    Path of the directory or file holding the application files to push.
+	    Defaults to the current working directory.
+	
+        --space
+          
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+        --space-guid
+          
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
 	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-unmap:
@@ -4025,8 +3941,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4038,7 +3952,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -4067,18 +3981,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-unset-env:
@@ -4108,8 +4014,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4121,7 +4025,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -4168,18 +4072,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
     
@@ -4207,8 +4103,6 @@ Placement
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4227,16 +4121,8 @@ Placement
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-placement-zone:
@@ -4258,8 +4144,6 @@ Placement
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4278,16 +4162,8 @@ Placement
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-set-placement-zone:
@@ -4317,8 +4193,6 @@ Placement
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4330,7 +4204,7 @@ Placement
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -4377,18 +4251,10 @@ Placement
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-unset-placement-zone:
@@ -4418,8 +4284,6 @@ Placement
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4431,7 +4295,7 @@ Placement
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -4478,18 +4342,10 @@ Placement
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
   
@@ -4578,6 +4434,52 @@ Services
 ------------------------
 
     
+.. _command-purge-service-offerings:
+  
+  stackato purge-service-offerings  *<service>* 
+    Purge all offerings of the service (type) from the system. Danger. Do this only for services we know to have their brokers killed, leaving behind orphans.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --provider
+      
+		The service provider. Use this to disambiguate
+		between multiple providers of the same vendor/type.
+	    
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    --version
+      
+		The service version. Use this to disambiguate
+		between multiple versions of the same vendor/type.
+	    
+    -n
+      Alias of --no-prompt.
+    
 .. _command-services:
   
   stackato services 
@@ -4602,8 +4504,6 @@ Services
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -4639,18 +4539,10 @@ Services
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-service:
   
@@ -4676,8 +4568,6 @@ Services
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -4713,18 +4603,10 @@ Services
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
 
 
     
@@ -4757,8 +4639,6 @@ Authentication Tokens
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4794,18 +4674,10 @@ Authentication Tokens
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-delete-service-auth-token:
@@ -4828,8 +4700,6 @@ Authentication Tokens
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4865,18 +4735,10 @@ Authentication Tokens
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-service-auth-tokens:
@@ -4903,8 +4765,6 @@ Authentication Tokens
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -4940,18 +4800,10 @@ Authentication Tokens
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-update-service-auth-token:
@@ -4978,8 +4830,6 @@ Authentication Tokens
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5015,18 +4865,10 @@ Authentication Tokens
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
     
@@ -5060,8 +4902,6 @@ Brokers
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5101,12 +4941,6 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --url
           
 		    Location of the broker.
@@ -5119,8 +4953,6 @@ Brokers
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-create-service-broker:
@@ -5148,8 +4980,6 @@ Brokers
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5189,12 +5019,6 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --url
           
 		    Location of the broker.
@@ -5207,8 +5031,6 @@ Brokers
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-delete-service-broker:
@@ -5231,8 +5053,6 @@ Brokers
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5268,18 +5088,10 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-remove-service-broker:
@@ -5302,8 +5114,6 @@ Brokers
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5339,18 +5149,10 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-service-brokers:
@@ -5377,8 +5179,6 @@ Brokers
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5414,18 +5214,10 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-update-service-broker:
@@ -5453,8 +5245,6 @@ Brokers
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5494,12 +5284,6 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --url
           
 		    New location of the broker.
@@ -5512,8 +5296,6 @@ Brokers
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
     
@@ -5549,8 +5331,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5562,7 +5342,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -5609,18 +5389,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-clone-services:
@@ -5645,8 +5417,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5700,18 +5470,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-create-service:
@@ -5744,8 +5506,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5810,12 +5570,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --version
           
 		The service version. Use this to disambiguate
@@ -5826,8 +5580,6 @@ Management
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-delete-service:
@@ -5855,8 +5607,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5892,12 +5642,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --unbind
           
 		Unbind service from applications before deleting.
@@ -5908,8 +5652,6 @@ Management
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-rename-service:
@@ -5932,8 +5674,6 @@ Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -5969,18 +5709,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-tunnel:
@@ -6009,8 +5741,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -6054,12 +5784,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --url
           
 		Url the tunnel helper application is mapped to and
@@ -6070,8 +5794,6 @@ Management
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-unbind-service:
@@ -6101,8 +5823,6 @@ Management
 	
         --no-tail
           Complementary alias of --tail.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -6114,7 +5834,7 @@ Management
 	
         --path
           
-	    Path of the directory holding the application files to push.
+	    Path of the directory or file holding the application files to push.
 	    Defaults to the current working directory.
 	
         --space
@@ -6161,18 +5881,10 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
     
@@ -6196,17 +5908,15 @@ Plans
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
           Alias of --no-prompt.
         --provider
           
-		    The service provider. Use this to disambiguate
-		    between multiple providers of the same vendor/type.
-		
+		The service provider. Use this to disambiguate
+		between multiple providers of the same vendor/type.
+	    
         --target
           
 	    The once-off target to use for the current operation.
@@ -6221,25 +5931,17 @@ Plans
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --vendor
           
 		    Name of the service (type) the plan to update belongs to.
 		
         --version
           
-		    The service version. Use this to disambiguate
-		    between multiple versions of the same vendor/type.
-		
+		The service version. Use this to disambiguate
+		between multiple versions of the same vendor/type.
+	    
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-service-plans:
@@ -6261,8 +5963,6 @@ Plans
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -6281,16 +5981,8 @@ Plans
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-service-plan:
@@ -6312,17 +6004,15 @@ Plans
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
           Alias of --no-prompt.
         --provider
           
-		    The service provider. Use this to disambiguate
-		    between multiple providers of the same vendor/type.
-		
+		The service provider. Use this to disambiguate
+		between multiple providers of the same vendor/type.
+	    
         --target
           
 	    The once-off target to use for the current operation.
@@ -6337,25 +6027,17 @@ Plans
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --vendor
           
 		    Name of the service (type) the plan to update belongs to.
 		
         --version
           
-		    The service version. Use this to disambiguate
-		    between multiple versions of the same vendor/type.
-		
+		The service version. Use this to disambiguate
+		between multiple versions of the same vendor/type.
+	    
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-show-service-plan:
@@ -6373,17 +6055,15 @@ Plans
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
           Alias of --no-prompt.
         --provider
           
-		    The service provider. Use this to disambiguate
-		    between multiple providers of the same vendor/type.
-		
+		The service provider. Use this to disambiguate
+		between multiple providers of the same vendor/type.
+	    
         --target
           
 	    The once-off target to use for the current operation.
@@ -6398,25 +6078,17 @@ Plans
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --vendor
           
 		    Name of the service (type) the plan to update belongs to.
 		
         --version
           
-		    The service version. Use this to disambiguate
-		    between multiple versions of the same vendor/type.
-		
+		The service version. Use this to disambiguate
+		between multiple versions of the same vendor/type.
+	    
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-update-service-plan:
@@ -6446,17 +6118,15 @@ Plans
 	
         --no-public
           Complementary alias of --public.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
           Alias of --no-prompt.
         --provider
           
-		    The service provider. Use this to disambiguate
-		    between multiple providers of the same vendor/type.
-		
+		The service provider. Use this to disambiguate
+		between multiple providers of the same vendor/type.
+	    
         --public
           
 		    Mark the plan as globally public.
@@ -6475,25 +6145,17 @@ Plans
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --vendor
           
 		    Name of the service (type) the plan to update belongs to.
 		
         --version
           
-		    The service version. Use this to disambiguate
-		    between multiple versions of the same vendor/type.
-		
+		The service version. Use this to disambiguate
+		between multiple versions of the same vendor/type.
+	    
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
   
@@ -6535,8 +6197,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6560,16 +6220,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-delete-org:
   
@@ -6586,8 +6238,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6610,18 +6260,10 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -r
       Alias of --recursive.
-    -t
-      Alias of --trace.
     
 .. _command-link-user-org:
   
@@ -6644,8 +6286,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6664,16 +6304,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-orgs:
   
@@ -6698,8 +6330,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6718,16 +6348,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-org:
   
@@ -6752,8 +6374,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6772,16 +6392,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-quota-org:
   
@@ -6798,8 +6410,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6818,16 +6428,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-rename-org:
   
@@ -6844,8 +6446,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6864,16 +6464,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-switch-org:
   
@@ -6890,8 +6482,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6910,16 +6500,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-unlink-user-org:
   
@@ -6942,8 +6524,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -6962,16 +6542,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-update-org:
   
@@ -6999,8 +6571,6 @@ Organizations
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7023,16 +6593,8 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
 
 
   
@@ -7089,8 +6651,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7119,18 +6679,10 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-delete-space:
   
@@ -7147,8 +6699,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7181,20 +6731,12 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
     -r
       Alias of --recursive.
-    -t
-      Alias of --trace.
     
 .. _command-link-user-space:
   
@@ -7217,8 +6759,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7247,18 +6787,10 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-rename-space:
   
@@ -7275,8 +6807,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7305,18 +6835,10 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-spaces:
   
@@ -7341,8 +6863,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7371,18 +6891,10 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-space:
   
@@ -7407,8 +6919,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7437,18 +6947,10 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-switch-space:
   
@@ -7465,8 +6967,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7495,18 +6995,10 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-unlink-user-space:
   
@@ -7529,8 +7021,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7559,18 +7049,10 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-update-space:
   
@@ -7599,8 +7081,6 @@ Spaces
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7629,18 +7109,10 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
 
 
   
@@ -7663,8 +7135,6 @@ Routes
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7703,18 +7173,10 @@ Routes
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-routes:
   
@@ -7735,8 +7197,6 @@ Routes
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7755,16 +7215,8 @@ Routes
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
 
 
   
@@ -7787,8 +7239,6 @@ Domains
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7813,16 +7263,8 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-delete-domain:
   
@@ -7839,8 +7281,6 @@ Domains
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7859,16 +7299,8 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-domains:
   
@@ -7894,8 +7326,6 @@ Domains
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -7938,18 +7368,10 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-map-domain:
   
@@ -7966,8 +7388,6 @@ Domains
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8006,18 +7426,10 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-unmap-domain:
   
@@ -8034,8 +7446,6 @@ Domains
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8074,18 +7484,10 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
 
 
   
@@ -8108,22 +7510,12 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
       Alias of --no-prompt.
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-admin list:
   
@@ -8144,8 +7536,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8164,16 +7554,8 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-admin patch:
   
@@ -8197,8 +7579,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8217,16 +7597,8 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-admin report:
   
@@ -8243,8 +7615,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8263,16 +7633,8 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-admin revoke:
   
@@ -8289,22 +7651,12 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
       Alias of --no-prompt.
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-frameworks:
   
@@ -8325,8 +7677,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8345,16 +7695,8 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-info:
   
@@ -8380,8 +7722,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8417,18 +7757,10 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-runtimes:
   
@@ -8449,8 +7781,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8469,16 +7799,35 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
+    -n
+      Alias of --no-prompt.
+    
+.. _command-show-token:
+  
+  stackato show-token 
+    Print the current target's token.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --no-prompt
       
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
+	    Disable interactive queries.
+	
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
 	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-stacks:
   
@@ -8499,8 +7848,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8519,16 +7866,8 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-targets:
   
@@ -8621,8 +7960,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8658,18 +7995,10 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
     -o
       Alias of --organization.
-    -t
-      Alias of --trace.
     
 .. _command-user-info:
   
@@ -8690,8 +8019,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8710,16 +8037,8 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-user:
   
@@ -8740,8 +8059,6 @@ Administration
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -8760,16 +8077,8 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-version:
   
@@ -8819,8 +8128,6 @@ Buildpacks
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -8839,16 +8146,8 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-create-buildpack:
@@ -8866,14 +8165,18 @@ Buildpacks
           
 		Whether the buildpack will be used for staging or not.
 	    
+        --locked
+          
+		Whether the buildpack can be modified or not.
+	    
         --no-enabled
           Complementary alias of --enabled.
+        --no-locked
+          Complementary alias of --locked.
         --no-prompt
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -8897,18 +8200,10 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -P
           Alias of --position.
-        -t
-          Alias of --trace.
 
 
 .. _command-delete-buildpack:
@@ -8926,8 +8221,6 @@ Buildpacks
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -8946,16 +8239,8 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-rename-buildpack:
@@ -8973,8 +8258,6 @@ Buildpacks
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -8993,16 +8276,8 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-update-buildpack:
@@ -9020,14 +8295,18 @@ Buildpacks
           
 		Whether the buildpack will be used for staging or not.
 	    
+        --locked
+          
+		Whether the buildpack can be modified or not.
+	    
         --no-enabled
           Complementary alias of --enabled.
+        --no-locked
+          Complementary alias of --locked.
         --no-prompt
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9051,12 +8330,6 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --zip
           
  		Path to the new zip file containing the updated implementation
@@ -9066,8 +8339,6 @@ Buildpacks
           Alias of --no-prompt.
         -P
           Alias of --position.
-        -t
-          Alias of --trace.
 
 
     
@@ -9091,8 +8362,6 @@ Groups (Stackato 2)
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9111,16 +8380,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-groups create:
@@ -9138,8 +8399,6 @@ Groups (Stackato 2)
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9158,16 +8417,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-groups delete-user:
@@ -9185,8 +8436,6 @@ Groups (Stackato 2)
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9205,16 +8454,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-groups delete:
@@ -9232,8 +8473,6 @@ Groups (Stackato 2)
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9252,16 +8491,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-groups limits:
@@ -9301,8 +8532,6 @@ Groups (Stackato 2)
 	
         --no-sudo
           Complementary alias of --sudo.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9329,16 +8558,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-groups show:
@@ -9360,8 +8581,6 @@ Groups (Stackato 2)
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9380,16 +8599,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-groups users:
@@ -9411,8 +8622,6 @@ Groups (Stackato 2)
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9431,16 +8640,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-group:
@@ -9462,8 +8663,6 @@ Groups (Stackato 2)
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9487,16 +8686,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-limits:
@@ -9536,8 +8727,6 @@ Groups (Stackato 2)
 	
         --no-sudo
           Complementary alias of --sudo.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9564,16 +8753,8 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
     
@@ -9597,6 +8778,14 @@ Quotas
           
 		Applications can use sudo in their container.
 	    
+        --droplets
+          
+		Limit for the number of droplets per application
+		that are stored (older droplets that exceed this
+		quota are removed and their associated versions
+		can no longer be restored).
+		This is a Stackato 3.4+ specific setting.
+	    
         --mem
           
 		Amount of memory applications can use.
@@ -9609,8 +8798,6 @@ Quotas
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --no-trial-db-allowed
           Complementary alias of --trial-db-allowed.
         --non-interactive
@@ -9644,20 +8831,12 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --trial-db-allowed
           
 		Applications can use trial databases.
 	    
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-quota create:
@@ -9675,6 +8854,14 @@ Quotas
           
 		Applications can use sudo in their container.
 	    
+        --droplets
+          
+		Limit for the number of droplets per application
+		that are stored (older droplets that exceed this
+		quota are removed and their associated versions
+		can no longer be restored).
+		This is a Stackato 3.4+ specific setting.
+	    
         --mem
           
 		Amount of memory applications can use.
@@ -9687,8 +8874,6 @@ Quotas
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --no-trial-db-allowed
           Complementary alias of --trial-db-allowed.
         --non-interactive
@@ -9722,20 +8907,12 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         --trial-db-allowed
           
 		Applications can use trial databases.
 	    
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-quota delete:
@@ -9753,8 +8930,6 @@ Quotas
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9773,16 +8948,8 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-quota list:
@@ -9804,8 +8971,6 @@ Quotas
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9824,16 +8989,8 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-quota rename:
@@ -9851,8 +9008,6 @@ Quotas
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9871,16 +9026,8 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-quota show:
@@ -9902,8 +9049,6 @@ Quotas
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9922,16 +9067,8 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-quotas:
@@ -9953,8 +9090,6 @@ Quotas
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -9973,16 +9108,8 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
     
@@ -10048,8 +9175,6 @@ User Management
 	
         --no-sudo
           Complementary alias of --sudo.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -10088,18 +9213,10 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-delete-user:
@@ -10117,8 +9234,6 @@ User Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -10137,16 +9252,8 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-login-fields:
@@ -10168,8 +9275,6 @@ User Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -10188,16 +9293,8 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-passwd:
@@ -10215,8 +9312,6 @@ User Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -10242,16 +9337,8 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-register:
@@ -10311,8 +9398,6 @@ User Management
 	
         --no-sudo
           Complementary alias of --sudo.
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -10351,18 +9436,10 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
         -o
           Alias of --organization.
-        -t
-          Alias of --trace.
 
 
 .. _command-token:
@@ -10412,8 +9489,6 @@ User Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -10432,16 +9507,8 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
 .. _command-users:
@@ -10468,8 +9535,6 @@ User Management
           
 	    Disable interactive queries.
 	
-        --no-trace
-          Complementary alias of --trace.
         --non-interactive
           Alias of --no-prompt.
         --noprompt
@@ -10488,16 +9553,8 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        --trace
-          
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
         -n
           Alias of --no-prompt.
-        -t
-          Alias of --trace.
 
 
   
@@ -10598,16 +9655,30 @@ Miscellaneous
 		Cannot be used with neither GET nor DELETE.
 		A value of "-" or "stdin" causes the client to read the data from stdin.
 	    
+    --form
+      
+		Zero or more form fields to be added to the base url.
+		Data is in the form of "key: value".
+	    
     --no-prompt
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
       Alias of --no-prompt.
+    --port
+      
+		The port to use for the request.
+		Only relevant to websocket operation.
+	    
+    --reconnect
+      
+		Automatically reconnect when the websocket server
+		closes the connection. Only relevant to websocket
+		operation.
+	    
     --show-extended
       
 		Show additional information about the request, i.e.
@@ -10627,18 +9698,19 @@ Miscellaneous
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    --trace
+    --web-socket
       
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
+		Switch to WebSocket mode for GET.
+		Cannot be used with any other operation.
+	    
+    --ws
+      Alias of --web-socket.
     -d
       Alias of --data.
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
+    -W
+      Alias of --web-socket.
     
 .. _command-guid:
   
@@ -10659,8 +9731,6 @@ Miscellaneous
       
 	    Disable interactive queries.
 	
-    --no-trace
-      Complementary alias of --trace.
     --non-interactive
       Alias of --no-prompt.
     --noprompt
@@ -10669,16 +9739,8 @@ Miscellaneous
       
 	    The once-off target to use for the current operation.
 	
-    --trace
-      
-	    Activate tracing of the issued REST requests and responses.
-	    This option is a no-op now. Tracing is always active. See
-	    the 'trace' command to print the saved trace to stdout.
-	
     -n
       Alias of --no-prompt.
-    -t
-      Alias of --trace.
     
 .. _command-named-entities:
   

@@ -273,7 +273,7 @@ following fields can be modified:
 * **Total Services**: The total number of service instances that can be
   allocated.
 * **Total Droplets**: The number of droplets stored (per application)
-  for application versioning and rollback .
+  for versioning and rollback .
 * **Allow Sudo**: Allow users in the Organization ``sudo`` privileges
   within their application containers.
 

@@ -764,6 +764,7 @@ Quota definitions define limits for:
 
 * physical memory (RAM) in MB
 * number of services
+* number of droplets stored (per application) for versioning and rollback 
 * ``sudo`` privilege within application containers
 
 Each organization is assigned a quota definition, and all users of an

@@ -45,6 +45,7 @@ Deploying Applications
   deploy/stackatoyml
   deploy/manifestyml
   deploy/app-autoscaling
+  deploy/app-versions
   deploy/app-sso
   deploy/app-debug
 

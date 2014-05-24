@@ -84,6 +84,12 @@ the following tabs:
   Application. Events in the application's history appear here as
   notifications which can be commented on by members of the Space.
 
+* App Versions: A rolling list of code and setting changes to an
+  application. Clicking **Rollback to this version** for any listed
+  version reverts the application to the selected version's state and
+  creates a new version. See :ref:`App Versions <app-versions>` for
+  details.
+
 * Environment Variables: Environment variables that have been explicitly
   set in the application container (via application config, client
   commands, or this interface). Default variables, those set by the
