@@ -162,7 +162,7 @@ the system memory of the DEA nodes multiplied by the :ref:`Max Memory
 Percentage <console-settings-dea>`. **Memory Summary** shows how much
 memory:
 
-* has been assigned to Organizations via :ref:`Quota Definitions <console-settings-quota-definitions>`
+* has been assigned to Organizations via :ref:`Quota Plans <console-settings-quota-definitions>`
 * is available on DEA nodes 
 * remains unallocated
 * has been allocated
@@ -259,10 +259,10 @@ categories:
 
 .. _console-settings-quota-definitions:
 
-Quota Definitions
-^^^^^^^^^^^^^^^^^
+Quota Plans
+^^^^^^^^^^^
 
-Lists the Quota Definitions available to apply to Organizations on the
+Lists the Quota Plans available to apply to Organizations on the
 system. To edit a definition, click the edit button on the right. The
 following fields can be modified:
 

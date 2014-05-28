@@ -21,7 +21,7 @@ An organization is a top-level group of users, spaces, and domains. Only
 Stackato admins (accounts with global superuser privileges) can create
 Organizations.
 
-Each organization is assigned a :ref:`Quota Definition
+Each organization is assigned a :ref:`Quota Plan
 <server-config-quota-definitions>`, a set of limits on memory,
 applications, and service instances which is share between all members
 of the organization.

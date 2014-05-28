@@ -752,12 +752,12 @@ one of your apps via HTTPS for the first time.
 
 .. _server-config-quota-definitions:
 
-Quota Definitions
------------------
+Quota Plans
+-----------
 
 .. note::
   In Stackato 2.10 and earlier, every User and Group had a quota. In 3.0
-  (Cloud Foundry v2) Quota Definitions are applied at the Organization
+  (Cloud Foundry v2) Quota Plans are applied at the Organization
   level (i.e. members of an organizations share its quota).
   
 Quota definitions define limits for:
@@ -767,18 +767,18 @@ Quota definitions define limits for:
 * number of droplets stored (per application) for versioning and rollback 
 * ``sudo`` privilege within application containers
 
-Each organization is assigned a quota definition, and all users of an
+Each organization is assigned a quota plan, and all users of an
 organization share the defined limits.
 
-Use the ``stackato quota ...`` commands to modify quota definitions:
+Use the ``stackato quota ...`` commands to modify quota plans:
 
 * :ref:`stackato quota configure <command-quota configure>`
 * :ref:`stackato quota create <command-quota create>`
 * :ref:`stackato quota delete <command-quota delete>`
 * :ref:`stackato quota list <command-quota list>`
 
-Existing quota definitions can also be viewed and edited in the
-Management Console :ref:`Quota Definitions settings
+Existing quota plans can also be viewed and edited in the
+Management Console :ref:`Quota Plans settings
 <console-settings-quota-definitions>`
 
 
@@ -787,7 +787,7 @@ Management Console :ref:`Quota Definitions settings
 sudo
 ^^^^
 
-Quota Definitions can give all users in an Organization the use of the
+Quota Plans can give all users in an Organization the use of the
 ``sudo`` command within application containers. This option is disabled
 by default as a security precaution, and should only be enabled for
 Organizations where all users are trusted.

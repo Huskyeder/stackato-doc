@@ -14,7 +14,7 @@ Each change is assigned a version number, starting with "v1" for the
 first push, and a short description summarizing the change (e.g. "pushed
 new code", "changed memory to 512MB"). The number of versions available
 for rollback will depend on the number of code changes made and the
-Total Droplets limit in the organization's quota definition.
+Total Droplets limit in the organization's quota plan.
 
 
 Using App Versions
@@ -47,7 +47,7 @@ Saved Droplets
 Each code change to an application (``stackato push``) results in the
 creation of a new "droplet" containing the packaged application. The
 system keeps a certain number of these droplets (5 per application in
-the "default" quota definition) in a "most recently used" list.
+the "default" quota plan) in a "most recently used" list.
 
 When the droplet limit is exceeded, the oldest (least recently used)
 droplet is removed to make way for the new droplet. 
