@@ -760,7 +760,7 @@ Quota Plans
   (Cloud Foundry v2) Quota Plans are applied at the Organization
   level (i.e. members of an organizations share its quota).
   
-Quota definitions define limits for:
+Quota plans (called "quota definitions" in the API) define limits for:
 
 * physical memory (RAM) in MB
 * number of services
