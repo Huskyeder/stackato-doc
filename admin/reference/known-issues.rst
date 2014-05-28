@@ -3,6 +3,19 @@
 Known Issues
 ============
 
+.. _known-issues-data-users:
+
+kato data users export|import broken
+------------------------------------
+
+The ``kato data users export`` and ``kato data users import`` commands
+(for saving and loading lists of users to and from CSV files) are
+non-functional in the current release. The :ref`kato data import
+<kato-command-ref-data-import>` and :ref:`kato data export
+<kato-command-ref-data-export>` commands are still available for
+migrating users from one Stackato system to another.
+
+
 .. _known-issues-node-reset-factory:
 
 kato node reset factory with NOPASSWD
