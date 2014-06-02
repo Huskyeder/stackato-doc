@@ -179,7 +179,7 @@ Setting a Static IP
 ^^^^^^^^^^^^^^^^^^^
 
 The easiest way to configure a Stackato VM with a static IP address is
-to use the :ref:`kato op static_ip <kato-command-ref-op>` command.
+to use the :ref:`kato op static_ip <kato-command-ref-op-static_ip>` command.
 
 This command will prompt for the following inputs:
 
@@ -657,7 +657,7 @@ Adding Custom SSL Certs (SNI)
 The Stackato router supports `SNI
 <http://en.wikipedia.org/wiki/Server_Name_Indication>`__, and custom SSL
 certificates for domains resolving to the system can be added using the
-:ref:`kato op custom_ssl_cert install <kato-command-ref-op>` command.
+:ref:`kato op custom_ssl_cert install <kato-command-ref-op-custom_ssl_cert>` command.
 Usage::
 
   kato op custom_ssl_cert install <key-path> <cert-path> <domain> [--wildcard-subdomains]

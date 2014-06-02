@@ -226,6 +226,8 @@ URLs, application names, and service names:
   possiblility of naming conflicts with services created in other orgs
   and spaces.
 
+.. _deploy-url-assignment:
+
 URL Assignment
 ^^^^^^^^^^^^^^
 

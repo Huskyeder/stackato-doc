@@ -565,7 +565,7 @@ V2.8 (February 26, 2013)
   * Now a separate component.
   * Full streaming of application deployment output to the Management Console
   * [96401] App Store output now available in app log stream (:ref:`stackato logs <command-logs>`)
-  * [97622] App Store uses upstream proxy info (e.g. provided by :ref:`kato op upstream_proxy set <kato-command-ref-op>`).
+  * [97622] App Store uses upstream proxy info (e.g. provided by :ref:`kato op upstream_proxy set <kato-command-ref-op-upstream_proxy>`).
 
 * New Harbor port service
 
