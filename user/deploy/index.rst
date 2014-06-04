@@ -406,18 +406,25 @@ production rather than cutting over) and eventually :ref:`unmap
 Best Practices
 --------------
 
-.. _bestpractices-reducing-downtime-updates:
+.. _bestpractices-URL-cutover:
 
-Reducing downtime during app updates
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+URL Mapping for Version Cutover
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Updating an app can create downtime while the new code is being staged.
-URL mapping can be used to reduce this downtime by switching between two
-running versions of an app.
+The :ref:`App Versions <app-versions>` feature allows you to deploy new
+versions of an application without any down time, and provides an easy
+mechanism to quickly revert to previous versions of the code or configuration.
+
+A manual process is also available which lets you run multiple versions
+of an application concurrently, using a mapped URL to control which
+version(s) receive production traffic.
+
+This technique can also be used to split traffic between multiple
+application versions for A/B testing.
 
 For example, we have an application called "customertracker". The pushed
-application name will include a version or build number, but it is
-mapped to a "production" URL as well::
+application name will include a version, build, or revision number, but
+it is mapped to a "production" URL as well::
 
 	$ stackato apps
 	
@@ -468,14 +475,20 @@ Map the "production" URL to the new app::
 
 While both versions of the application are live and mapped to the same
 production URL, the router will round-robin web requests to this URL
-betweeen both versions.
+between both versions.
 
-Next, unmap the production URL from the first app::
+This state can be used for A/B testing. To change the distribution of
+web requests between versions, adjust the number of instances (see
+:ref:`stackato instances <command-instances>`) each version is running.
+
+To retire one of the apps from the pool, unmap the production URL from
+the first app::
 
 	$ stackato unmap customertracker-v1 customertracker.example.com
   
-The old version is still available in case it's needed for rollback. If
-everything works as expected with the newer code, delete the old app::
+The old version is still available (and visible on the non-production
+URL) in case it's needed for rollback. If everything works as expected
+with the newer code, delete the old app::
 
 	$ stackato delete customertracker-v1
 
