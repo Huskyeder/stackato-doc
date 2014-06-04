@@ -867,6 +867,21 @@ For example::
       url: tcp://logs.papertrailapp.com:12345/
       json: true
   
+.. _stackato_yml-timeout:
+
+timeout:
+^^^^^^^^
+
+Sets the number of seconds for the Health Manager to wait for the
+application to start (default 60 seconds). Adjust this value upwards (to
+a maximum of 180 seconds) if your application takes longer than to
+start. For example::
+
+  timeout: 90
+
+This setting can be overridden by the ``--health-timeout`` option in
+:ref:`stackato push <command-push>`. 
+
   
 .. _stackato_yml-version:
 
