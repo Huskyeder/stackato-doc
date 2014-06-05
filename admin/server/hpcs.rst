@@ -1,14 +1,14 @@
 .. _vm-hpcs:
 
 .. index:: HPCS
-.. index:: HP Cloud Services
+.. index:: HP Public Cloud 
 
 HP Cloud Services
 =================
 
-Stackato is available as a public server image on `HP Cloud Services
-<http://hpcloud.com/>`_. You can run a single instance of the Stackato
-VM under the terms of the `Micro Cloud License Agreement
+Stackato is available as a public server image on `HP Helion Public
+Cloud <http://hpcloud.com/>`_. You can run a single instance of the
+Stackato VM under the terms of the `Micro Cloud License Agreement
 <http://www.activestate.com/stackato/micro-cloud-license-agreement>`_.
 If you intend to create a production Stackato cluster, `contact
 ActiveState <http://www.activestate.com/get-quote>`_ about Stackato
@@ -29,7 +29,7 @@ Enterprise.
   HP Cloud offers a quick, semi-automated method of setting up a Stackato
   VM through their Partners and Solutions page for Stackato.
   
-  1. `Log in to HP Cloud <https://account.hpcloud.com/login>`__
+  1. `Log in to HP Cloud <https://account.hpcloud.com/>`__
   
   2. Navigate to the `Partners and Solutions page for Stackato <https://marketplace.hpcloud.com/stackato>`_.
     
@@ -104,7 +104,7 @@ details on which ports are required for which services.
   
 .. _server-vm-launch-instance:
 
-.. index:: HP Cloud - Starting a Stackato VM Instance
+.. index:: HP Public Cloud - Starting a Stackato VM Instance
 
 Starting a Stackato Instance
 ----------------------------
@@ -112,7 +112,7 @@ Starting a Stackato Instance
 Once you have created a security group appropriate for a Stackato micro
 cloud, launch a
 
-#. `Log in to HP Helion Public Cloud <https://horizon.hpcloud.com/auth/login/>`__
+#. `Log in to HP Public Cloud <https://horizon.hpcloud.com/>`__
 
 #. Select the desired **Region/Availability Zone** from the drop down list at the top.
 
@@ -145,7 +145,7 @@ Click the **Launch** button to start the new Stackato VM instance.
 
 .. _server-vm-hpcs-floating-ip:
 
-.. index:: HP Cloud -  Associate Floating IP
+.. index:: HP Public Cloud -  Associate Floating IP
 
 Associate Floating IP
 ---------------------
