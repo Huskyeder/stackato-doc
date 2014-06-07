@@ -190,7 +190,7 @@ options must be set in AOK's ``strategy/ldap`` settings:
 * **group_query**: The query to run to determine which groups a user
   belongs to (set in conjunction with ``group_attribute``). For example::
   
-    $ kato config set --json aok strategy/ldap/group_query '(&(objectClass=posixGroup)(memberUid=%{username}))'
+    $ kato config set aok strategy/ldap/group_query '(&(objectClass=posixGroup)(memberUid=%{username}))'
   
   This queries for posixGroups that the user belongs to:
   
@@ -201,7 +201,7 @@ options must be set in AOK's ``strategy/ldap`` settings:
 * **group_attribute**: The LDAP attribute to extract from the query
   above (requires a valid ``group_query`` setting). For example::
   
-    $ kato config set --json aok strategy/ldap/group_attribute 'cn'
+    $ kato config set aok strategy/ldap/group_attribute 'cn'
     
   This extracts the name of the group(s) returned by the ``group_query``
   above if the group's 'cn' (common name) attribute contains it's name.
@@ -210,7 +210,7 @@ options must be set in AOK's ``strategy/ldap`` settings:
   Stackato (requires ``group_attribute`` and ``group_query`` settings).
   For example::
   
-    $ kato config set --json aok strategy/ldap/allowed_groups '["dev", "engineering"]'
+    $ kato config set aok strategy/ldap/allowed_groups '["dev", "engineering"]'
   
   This would allow only members of the 'dev' or 'engineering' groups to
   access Stackato. 
@@ -228,7 +228,7 @@ Stackato. This requires the following settings:
 * **admin_groups**: A list of LDAP groups that get admin privileges. For
   example::
   
-    $ kato config set --json aok strategy/ldap/admin_groups '["admins", "bosses"]'
+    $ kato config set aok strategy/ldap/admin_groups '["admins", "bosses"]'
 
   This would give automatic Stackato admin privileges to members of the
   'admins' and 'bosses' LDAP groups.
