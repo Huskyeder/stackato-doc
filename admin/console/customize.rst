@@ -58,6 +58,8 @@ Eula Content
 The HTML/EJS to show in the EULA overlay. The :ref:`settings variables
 <customize-settings-vars>` are available.
 
+.. _customize-css:
+
 Custom Stylesheet
 ^^^^^^^^^^^^^^^^^
 
@@ -122,3 +124,59 @@ and modify the
 *~/stackato/code/console/js/views/client/templates/client.html*
 template to point to the renamed files.
 
+.. _customize-oem:
+
+OEM Customization
+-----------------
+
+The modifications shown above can be made on Stackato VM instances that
+have already run through first-boot configuration.
+
+OEM customers wishing to distribute a customized Stackato VM or make a
+branded version available on their IaaS can do so by mounting the
+original Stackato VM disk image on another system and creating the
+following four files to override the Stackato defaults::
+
+  /s/static/console_settings.json
+  /s/static/console_support_template.ejs
+  /s/static/console_eula_template.ejs
+  /s/static/console_welcome_template.ejs
+
+Values specified in these files become the new defaults. They are loaded
+very early on in the Console start up, so they are applied even on the
+first user set up page once the VM has been booted.
+
+These files survive upgrades and patches, and will be loaded if they
+exist. Regardless of which defaults are used, admins can always override
+them in **Settings > Console**.
+
+The *console_settings.json* file contains a JSON object with the
+following settings (with example values)::
+
+  {
+    "product_name": "Example PaaS",
+    "company_name": "ExampleCo",
+    "vendor_version": "3.2",
+    "default_locale": "en",
+    "product_logo_favicon_url": "/s/static/example_logo_favicon.png",
+    "product_logo_header_url": "/s/static/example_logo_header.png",
+    "product_logo_footer_url": "/s/static/example_logo_footer.png",
+    "background_color": "#ffffff",
+    "style": "body {color: #134840; font-size: 16px;}",
+    "external_docs_url": "http://docs.example.com/",
+    "use_local_docs": "false"
+    "client_version": "1.1"
+    "client_linux_ix86_url":"/s/static/linux-client-x86.tar.gz",
+    "client_linux_x86_64_url":"/s/static/linux-client-x86_64.tar.gz",
+    "client_macosx_url":"/s/static/mac-client.dmg",
+    "client_win32_url":"/s/static/windows-client.zip"
+  }
+
+CSS style overrides should be inserted under ``"style:"`` using the same
+technique described in the :ref`Custom Stylesheet <customize_css>`
+section. Since JSON cannot store multi-line strings, the ``"style"``
+value must be a single line; use your favorite CSS minifier.
+
+The three template files should contain HTML/EJS. Use the corresponding
+Stackato default pages seen in **Console Settings** as a starting point
+for creating this content.
