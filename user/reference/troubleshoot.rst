@@ -5,14 +5,20 @@
 Troubleshooting
 ===============
 
-SSH to Failed Containers
-------------------------
+.. only:: not public
 
-For troubleshooting and diagnostic purposes, it is possible to use
-``stackato ssh`` to access a :term:`container` that has recently failed
-or did not start correctly.  Containers are kept for one hour before
-being reclaimed.  See the :ref:`Command Reference <command-ref-client>`
-for details on the ``stackato ssh`` command.
+  ..note::
+    This feature is not currently available in Stackato 3, but will be
+    reimplemented when Bug #100797 is addressed.
+
+  SSH to Failed Containers
+  ------------------------
+  
+  For troubleshooting and diagnostic purposes, it is possible to use
+  ``stackato ssh`` to access a :term:`container` that has recently failed
+  or did not start correctly.  Containers are kept for one hour before
+  being reclaimed.  See the :ref:`Command Reference <command-ref-client>`
+  for details on the ``stackato ssh`` command.
 
 Checking the Logs
 -----------------
