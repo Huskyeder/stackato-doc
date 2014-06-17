@@ -694,7 +694,7 @@ Information
         --prefix
           
 		Put instance information before each line of a
-		shown log file. Before 2.3 only.
+		shown log file. Before Stackato 2.3 only.
 	    
         --prefix-logs
           Alias of --prefix.
@@ -1483,7 +1483,7 @@ Information
         --prefix
           
 		Put instance information before each line of a
-		shown log file. Before 2.3 only.
+		shown log file. Before Stackato 2.3 only.
 	    
         --prefix-logs
           Alias of --prefix.
@@ -2709,6 +2709,13 @@ Management
           
 		Push, and start the application, even when stopped.
 	    
+        --force-war-unpacking
+          
+		When true perform the special .war file handling of Stackato 2.x
+		even against a Stackato 3.x target. Alternative when reset disable
+		the special .war handling for a Stackato 2.x target. The default is
+		target dependent.
+	    
         --framework
           
 		Specify the framework to use.
@@ -2777,6 +2784,8 @@ Management
 	    
         --no-autoscale
           Complementary alias of --autoscale.
+        --no-force-war-unpacking
+          Complementary alias of --force-war-unpacking.
         --no-framework
           
 		Create application without any framework.
@@ -4434,10 +4443,74 @@ Services
 ------------------------
 
     
+.. _command-marketplace:
+  
+  stackato marketplace 
+    List the supported service plans of the target, for the current or specified space. This is a Stackato 3.4+ specific command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --group
+      
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+    --json
+      
+	    Print raw json as output, not human-formatted data.
+	
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --organization
+      
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+    --space
+      
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+    --space-guid
+      
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    -n
+      Alias of --no-prompt.
+    -o
+      Alias of --organization.
+    
 .. _command-purge-service-offerings:
   
   stackato purge-service-offerings  *<service>* 
-    Purge all offerings of the service (type) from the system. Danger. Do this only for services we know to have their brokers killed, leaving behind orphans.
+    Purge all offerings of the service (type) from the system. Danger. Do this only for services we know to have their brokers killed, leaving behind orphans. This is a Stackato 3.4+ specific command.
 
     .. raw:: html
     
@@ -8161,18 +8234,18 @@ Buildpacks
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --enabled
+        --disable
           
-		Whether the buildpack will be used for staging or not.
+		Disable the buildpack, prevent its use.
 	    
-        --locked
+        --enable
           
-		Whether the buildpack can be modified or not.
+		Enable use of the buildback.
 	    
-        --no-enabled
-          Complementary alias of --enabled.
-        --no-locked
-          Complementary alias of --locked.
+        --lock
+          
+		Lock the buildpack against modification.
+	    
         --no-prompt
           
 	    Disable interactive queries.
@@ -8200,6 +8273,10 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
+        --unlock
+          
+		Unlock the buildpack, allow changes again.
+	    
         -n
           Alias of --no-prompt.
         -P
@@ -8291,18 +8368,18 @@ Buildpacks
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --enabled
+        --disable
           
-		Whether the buildpack will be used for staging or not.
+		Disable the buildpack, prevent its use.
 	    
-        --locked
+        --enable
           
-		Whether the buildpack can be modified or not.
+		Enable use of the buildback.
 	    
-        --no-enabled
-          Complementary alias of --enabled.
-        --no-locked
-          Complementary alias of --locked.
+        --lock
+          
+		Lock the buildpack against modification.
+	    
         --no-prompt
           
 	    Disable interactive queries.
@@ -8330,6 +8407,10 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
+        --unlock
+          
+		Unlock the buildpack, allow changes again.
+	    
         --zip
           
  		Path to the new zip file containing the updated implementation
@@ -8834,6 +8915,7 @@ Quotas
         --trial-db-allowed
           
 		Applications can use trial databases.
+		Before Stackato 3.4 only.
 	    
         -n
           Alias of --no-prompt.
@@ -8910,6 +8992,7 @@ Quotas
         --trial-db-allowed
           
 		Applications can use trial databases.
+		Before Stackato 3.4 only.
 	    
         -n
           Alias of --no-prompt.
