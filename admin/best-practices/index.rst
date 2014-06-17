@@ -21,7 +21,7 @@ patch <kato-command-ref-patch>` command.
 
 .. note::
   If there is a web proxy on your network between the Stackato systems
-  and the ActiveState servers, configurure all nodes as per the
+  and the ActiveState servers, configure all nodes as per the
   :ref:`Proxy Settings <server-config-http-proxy>` documentation.
 
 To see a list of patches available from ActiveState, run the following
