@@ -42,8 +42,8 @@ upgrade completes.
 
 .. _upgrade-proxy-settings:
 
-Proxy settings
-^^^^^^^^^^^^^^
+Proxy settings for Upgrades
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The systems being upgraded will need to be able to access the following
 public hosts:
@@ -52,8 +52,8 @@ public hosts:
 * pkg.stackato.com
 * docker.stackato.com
 
-This may require setting the HTTP_PROXY and http_proxy environment
-variables on each node if a proxy is in use on your network.
+See :ref:`Proxy Settings <server-config-http-proxy>` for instructions on
+configuring upstream proxies for Stackato.
 
 
 Stackato Caching Proxy

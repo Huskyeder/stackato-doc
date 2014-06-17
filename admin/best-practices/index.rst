@@ -19,6 +19,12 @@ Major version upgrades of Stackato can be done using :ref:`kato node upgrade
 particular components) can be applied in place using the :ref:`kato
 patch <kato-command-ref-patch>` command.
 
+.. note::
+  If there is an HTTP(S) proxy between the Stackato systems and the
+  ActiveState servers, configurure the proxy settings with ``kato op
+  upstream_proxy`` (See :ref:`Proxy Settings
+  <server-config-http-proxy>`).
+
 To see a list of patches available from ActiveState, run the following
 command on any Stackato VM::
 

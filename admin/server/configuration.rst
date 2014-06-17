@@ -500,17 +500,12 @@ TCP/UDP Port Configuration
 
 .. index:: HTTP Proxy Cache
 
-Staging Cache Proxy Settings
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Proxy Settings
+^^^^^^^^^^^^^^
 
-Stackato caches all application dependencies that are downloaded by
-module managers that support the :term:`HTTP_PROXY` environment variable
-(e.g. pip, PyPM, PPM, NPM, etc). This is limited to 100MB of in-memory
-cache.
-
-If you have an upstream HTTP proxy that deployed applications and the
-staging system need to traverse to access the internet, use the ``kato
-op upstream_proxy ...`` command on all DEA nodes::
+If your network has an upstream HTTP proxy that needs to be traversed in
+order for Stackato to access the internet, use the ``kato op
+upstream_proxy ...`` command on all DEA nodes to configure it::
 
 	$ kato op upstream_proxy set 192.168.0.99:3128
 	
@@ -518,25 +513,45 @@ Then restart Polipo::
 
 	$ sudo /etc/init.d/polipo restart
   
+Stackato uses a built-in `Polipo
+<http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/>`_ web proxy
+during staging (100MB of in-memory cache by default) to cache
+application dependencies downloaded by package managers that support the
+:term:`HTTP_PROXY` environment variable (e.g. pip, PyPM, PPM, NPM, etc).
+
+The command above does the following:
+
+* configures Polipo to use the upstream proxy for staging assets
+* configures ``kato`` to use the upstream proxy for patches and upgrades
+* sets the http_proxy environment variable in application containers
+  (see below) so that applications bypass Polipo and use the upstream
+  proxy directly at runtime (after staging). 
+
 To remove the proxy setting::
 
 	$ kato op upstream_proxy delete <proxy_addr>
 	
+In most cases, you will also need to set the ``http_proxy`` and
+``https_proxy`` environment variables in the *.bashrc* file of the
+``stackato`` user (for various administrative CLI operations).
+
 .. note::
   Do not set proxy environment variables in the ``/etc/environment``
-  file directly. If these settings are needed for administrative CLI
-  operations, set them in the ``.bashrc`` file for the ``stackato`` user
-  instead.
+  file directly. 
   
 .. _server-config-application-proxy:
 
 HTTP & HTTPS Proxies for Applications
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   
-You can set HTTP and HTTPS proxies specifically for application
-containers by adding ``environment/app_http_proxy`` and
-``environment/app_https_proxy`` settings in the dea_ng config using
-:ref:`kato config set <kato-command-ref-config>`. For example::
+The ``kato op upstream_proxy`` command configures subsequently created
+application containers with the HTTP_PROXY environment variable
+
+You can set HTTP and HTTPS proxies *just* for applications (i.e. without
+reconfiguring Polipo or ``kato``) by adding
+``environment/app_http_proxy`` and ``environment/app_https_proxy``
+settings in the dea_ng config using :ref:`kato config set
+<kato-command-ref-config>`. For example::
 
   $ kato config set dea_ng environment/app_http_proxy http://10.0.0.47:8080
   $ kato config set dea_ng environment/app_https_proxy https://10.0.0.47:8080
