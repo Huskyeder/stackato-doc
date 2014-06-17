@@ -21,7 +21,7 @@ patch <kato-command-ref-patch>` command.
 
 .. note::
   If there is an HTTP(S) proxy between the Stackato systems and the
-  ActiveState servers, configurure the proxy settings with ``kato op
+  ActiveState servers, configure the proxy settings with ``kato op
   upstream_proxy`` (See :ref:`Proxy Settings
   <server-config-http-proxy>`).
 
