@@ -531,9 +531,12 @@ To remove the proxy setting::
 
 	$ kato op upstream_proxy delete <proxy_addr>
 	
-In most cases, you will also need to set the ``http_proxy`` and
-``https_proxy`` environment variables in the *.bashrc* file of the
-``stackato`` user (for various administrative CLI operations).
+You will also need to set the ``http_proxy`` and ``https_proxy``
+environment variables in the *.bashrc* file of the ``stackato`` user
+(for various administrative CLI operations). For example::
+
+  export http_proxy=http://10.0.0.47:8080
+  export https_proxy=http://10.0.0.47:8080
 
 .. note::
   Do not set proxy environment variables in the ``/etc/environment``
@@ -554,7 +557,7 @@ settings in the dea_ng config using :ref:`kato config set
 <kato-command-ref-config>`. For example::
 
   $ kato config set dea_ng environment/app_http_proxy http://10.0.0.47:8080
-  $ kato config set dea_ng environment/app_https_proxy https://10.0.0.47:8080
+  $ kato config set dea_ng environment/app_https_proxy http://10.0.0.47:8080
 
 Adding this configuration sets the 'http_proxy' and 'https_proxy'
 environment variables within all subsequently created application

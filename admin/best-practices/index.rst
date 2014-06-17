@@ -20,10 +20,9 @@ particular components) can be applied in place using the :ref:`kato
 patch <kato-command-ref-patch>` command.
 
 .. note::
-  If there is an HTTP(S) proxy between the Stackato systems and the
-  ActiveState servers, configurure the proxy settings with ``kato op
-  upstream_proxy`` (See :ref:`Proxy Settings
-  <server-config-http-proxy>`).
+  If there is a web proxy on your network between the Stackato systems
+  and the ActiveState servers, configurure all nodes as per the
+  :ref:`Proxy Settings <server-config-http-proxy>` documentation.
 
 To see a list of patches available from ActiveState, run the following
 command on any Stackato VM::
