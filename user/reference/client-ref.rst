@@ -5960,6 +5960,70 @@ Management
           Alias of --organization.
 
 
+.. _command-update-user-provided-service:
+
+      stackato update-user-provided-service  *<service>*       
+        Update the credentials of a user provided service. This is a Stackato 3 specific command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --credentials
+          
+		The new credentials to use.
+		Their entirety replaces the old credentials.
+		Each use of the option declares a single element,
+		using the form "key: value" for the argument.
+	    
+        --no-prompt
+          
+	    Disable interactive queries.
+	
+        --no-tail
+          Complementary alias of --tail.
+        --non-interactive
+          Alias of --no-prompt.
+        --noprompt
+          Alias of --no-prompt.
+        --tail
+          
+	    Request target to stream the log.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --timeout
+          
+	    The time the client waits for an application to
+	    start before giving up and returning, in seconds.
+	    Note that this is measured from the last entry
+	    seen in the log stream. While there is activity
+	    in the log the timeout is reset.
+
+	    The default is 2 minutes.
+
+	    Use the suffixes 'm', 'h', and 'd' for the convenient
+	    specification of minutes, hours, and days. The optional
+	    suffix 's' stands for seconds.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        -n
+          Alias of --no-prompt.
+
+
     
 .. _command-Services-Plans:
     
@@ -6355,6 +6419,42 @@ Organizations
        Affect the billing manager role 
     --manager
        Affect the manager role 
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    -n
+      Alias of --no-prompt.
+    
+.. _command-org-users:
+  
+  stackato org-users  *<org>* 
+    Show the users for the organization, by role.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
     --no-prompt
       
 	    Disable interactive queries.
@@ -6869,6 +6969,54 @@ Spaces
   
   stackato rename-space  *<name>*  *<newname>* 
     Rename the named space. This is a Stackato 3 specific command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --no-prompt
+      
+	    Disable interactive queries.
+	
+    --non-interactive
+      Alias of --no-prompt.
+    --noprompt
+      Alias of --no-prompt.
+    --organization
+      
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    -n
+      Alias of --no-prompt.
+    -o
+      Alias of --organization.
+    
+.. _command-space-users:
+  
+  stackato space-users  *<space>* 
+    Show the users for the space, by role.
 
     .. raw:: html
     
