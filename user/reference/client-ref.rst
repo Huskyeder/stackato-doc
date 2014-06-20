@@ -1120,7 +1120,7 @@ Information
 .. _command-files:
 
       stackato files  *<application>*  *<apath>*       
-        Display directory listing or file.
+        Display directory listing or file. Relative paths are interpreted relative to $STACKATO_APP_ROOT on the target. Without path it defaults to $STACKATO_APP_ROOT on the target.
 
         .. raw:: html
 
@@ -1212,7 +1212,7 @@ Information
 .. _command-file:
 
       stackato file  *<application>*  *<apath>*       
-        Display directory listing or file.
+        Display directory listing or file. Relative paths are interpreted relative to $STACKATO_APP_ROOT on the target. Without path it defaults to $STACKATO_APP_ROOT on the target.
 
         .. raw:: html
 
