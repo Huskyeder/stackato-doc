@@ -36,14 +36,23 @@ The Router is configured using :ref:`kato config
     $ kato config set router2g client_inactivity_timeout 2400
 
 * **prevent_x_spoofing** (true|false): Enable HTTP "X-" header spoofing
-  prevention (default 'false'). When enabled, the router discards all X-
+  prevention (default 'true'). When enabled, the router discards all X-
   headers sent by the client (e.g. X-Forwarded-For, X-Forwarded-proto,
   X-Real-IP, etc.) and replaces them with values determined by the
-  router itself. Anti-spoofing features should only be set at the
-  network gateway, so this option should not be enabled when routers are
-  configured behind an external load balancer. To enable::
+  router itself. Set this option to 'false' only if the routers are
+  behind a load balancer which terminates SSL connections; in this
+  scenario the router will trust the X-headers set by the load balancer.
   
-    $ kato config set router2g prevent_x_spoofing true --json
+  To disable::
+  
+    $ kato config set router2g prevent_x_spoofing false --json
+
+  .. note::
+    If you have configured separate network routes to the API endpoint
+    and user applications (e.g. private network access to the API
+    endpoint, load-balanced public access to applications) this option
+    must be set to 'true'. User applications will not have access to
+    X-headers set by the load balancer.
 
 * **session_affinity** (true|false - disabled/unset by default): Enable
   sticky session support on the router. Overrides normal round-robin
