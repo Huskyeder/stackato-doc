@@ -538,9 +538,12 @@ environment variables in the *.bashrc* file of the ``stackato`` user
   export http_proxy=http://10.0.0.47:8080
   export https_proxy=http://10.0.0.47:8080
 
+The protocol "http://" is required when setting these variables.
+
 .. note::
   Do not set proxy environment variables in the ``/etc/environment``
-  file directly. 
+  file directly as this interferes with internal HTTP transfers of
+  application droplets.
   
 .. _server-config-application-proxy:
 
