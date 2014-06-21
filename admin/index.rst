@@ -101,5 +101,6 @@ Reference
    reference/glossary
    reference/troubleshoot
    reference/add-service
+   reference/add-buildpack
 
 
