@@ -228,6 +228,35 @@ fail. In such cases, it's possible to resume the upgrade once
 connectivity to the upstream resources is restored.
 
 
+Upgrading with Customizations 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Many files and directories in the Stackato VM are overwritten during an
+upgrade. The instructions in the :ref:`Theming and Customization
+<customize>` section use techniques which are safe for upgrades, but
+some customers may wish to modify the system further than what has been
+documented.
+
+Customizations made within the following directories will be deleted or
+undone during an upgrade:
+
+* */s/code/aok*
+* */s/code/console*
+* */s/code*
+
+Customizations made in the following directories may also be lost:
+
+* */s/etc/*: modifications to existing files will be lost; new files
+  will not be touched (unless the filename conflicts with a new one)
+* */s/static/*: new files will survive, modifications to existing
+  clients will be lost
+
+If you have made customizations in these places or in other areas not
+described in the customization instructions, save the new or modified
+files elsewhere, run upgrade on a non-production system, then copy or
+merge the files into the upgraded test system.
+
+
 Errors and Latch Files
 ^^^^^^^^^^^^^^^^^^^^^^
 
