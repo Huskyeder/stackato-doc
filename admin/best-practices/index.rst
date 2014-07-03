@@ -142,13 +142,31 @@ special processing to account for differences in the two versions:
 * Services will be imported.
 
 * Apps will be automatically redeployed. Any apps which fail to do so
-  will be listed, and must be redeployed manually by their owners.
+  will be listed, and must be redeployed manually by their owners (see
+  :ref:`Incompatible Apps <bestpractices-migration-incompatible>`
+  below).
   
 * :ref:`AOK <aok>` (e.g. LDAP) configuration will be imported.
 
 Otherwise, the migration will follow the same :ref:`Export
 <bestpractices-migration-export>` and :ref:`Import
 <bestpractices-migration-import>` steps outlined below.
+
+.. _bestpractices-migration-incompatible:
+
+Incompatible Apps
+~~~~~~~~~~~~~~~~~
+
+Applications that use the following techniques will not import
+successfully from version 2.10 to newer systems and will need to be
+modified:
+
+* Hard-coded references to port 3000 (for HTTP within the application
+  container). Use the ``$PORT`` environment variable instead to get the
+  value dynamically.
+* Use of ``$VMC_*`` environment variables. Use the ``$VCAP_*`` equivalents.
+* hard-coded paths using */app* or */app/app*. Use paths relative to
+  ``$STACKATO_APP_ROOT`` instead. 
 
 
 .. _bestpractices-migration-export:
