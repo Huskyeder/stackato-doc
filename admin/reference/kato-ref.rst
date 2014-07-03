@@ -23,8 +23,6 @@ Commands
   * :ref:`data export <kato-command-ref-data-export>`
 
   * :ref:`data import <kato-command-ref-data-import>`
-
-  * :ref:`data users <kato-command-ref-data-users>`
 * :ref:`debug <kato-command-ref-debug-configwatch>` Commands for debugging for Stackato internals.
 
   * :ref:`debug configwatch <kato-command-ref-debug-configwatch>`
@@ -336,6 +334,8 @@ Command Usage Details
 
   **--only-this-node**                    Only affect this node
 
+  **--fix-app-paths**                     Rewrite /app and /app/app paths in stackato.yml and manifest.yml
+
   **--manual**                            Only import/export roles specified on the command line
 
   **--force**                             Force import/export of specified roles even if they are not enabled
@@ -347,6 +347,8 @@ Command Usage Details
   **--remote**                            Remote import/export (internal use only)
 
   **--base-dir** *<base-dir>*             Base directory for extracting temporary files
+
+  **--timeout** *<seconds>*               Override staging timeout default for legacy import
 
   **--legacy**                            Treat import as a legacy services import (internal use only)
 
@@ -457,27 +459,6 @@ Command Usage Details
   **--exclude-rabbit3-data**              Do not include the RabbitMQ service's data
 
   **--exclude-rabbit3-metadata**          Do not include the RabbitMQ service's metadata
-
-
-
-----
-
-
-.. _kato-command-ref-data-users:
-
-**data** **users** **import** [**options**] *<filename>*
-
-**data** **users** **export** [**options**] [**--exclude-password-hashes**] [*<filename>*]
-
-  Import or export a list of Stackato users (CSV format).
-
-  **-h** **--help**                       Show help information
-
-  **-p** **--exclude-password-hashes**    Do not include hashed passwords in export
-
-  **-d** **--dry-run**                    Do not import/export anything, just show
-
-                                          what will be done
 
 
 
@@ -1068,6 +1049,8 @@ Command Usage Details
 
 **node** **upgrade** [**options**]
 
+**node** **upgrade** **--run-command** *<command>*
+
   Upgrade the Stackato install to the latest available version, preserving
   deployed applications, config, services, and other state.
   
@@ -1085,8 +1068,6 @@ Command Usage Details
 
   **-v** **--version** *<version>*        The version of Stackato to upgrade to. The latest version is used if this isn't supplied.
 
-  **--cluster**                           Performs an upgrade of all nodes in the cluster.
-
   **--force**                             Forces an upgrade to run.
 
   **--prepare**                           Prepare the core node for an upgrade.
@@ -1101,7 +1082,15 @@ Command Usage Details
 
   **--status**                            Shows the status of upgrades on a node.
 
-  **--development**                       Run a development upgrade (internal use only)
+  **--development**                       Run a development upgrade (internal use only).
+
+  **--cache-ip** *<cache-ip>*             The ip of the node to act as a cache for all nodes in the cluster during upgrade.
+
+  **--download-only**                     Downloads the files required to perform an upgrade without starting an upgrade, must
+
+                                          specify --cache-ip when using this option.
+
+  **--cluster**                           Unused parameter for backwards compatibility.
 
 
 
@@ -1192,12 +1181,14 @@ Command Usage Details
 
 .. _kato-command-ref-op-import_from_yaml_file:
 
-**op** **import_from_yaml_file** [**--upgrade**] *<process>*
+**op** **import_from_yaml_file** [**--upgrade**] [**--new-key-file=<file>**] *<process>*
 
   Import the YAML configuration for a single process, deleting and
   replacing all prior configuration for that process.
 
   **-h** **--help**                       Show help information
+
+  **--new-key-file=<file>**               Override config with a specific YAML file
 
   **--upgrade**                           Merge the new configuration rather than deleting and replacing.
 
@@ -1239,25 +1230,35 @@ Command Usage Details
 
 .. _kato-command-ref-op-regenerate:
 
-**op** **regenerate** **ssh_keys**
+**op** **regenerate** **all** [**--no-restart**] [**--no-prompt**]
 
-**op** **regenerate** **ssl_cert**
+**op** **regenerate** **cloud-controller-bulk-api-auth** [**--no-prompt**]
 
-**op** **regenerate** **mysql**
+**op** **regenerate** **cloud-controller-client-auth** [**--no-prompt**]
 
-**op** **regenerate** **postgresql** [**--no-restart**]
+**op** **regenerate** **cloud-controller-db-encryption-key** [**--no-prompt**]
 
-**op** **regenerate** **stackato-rest-auth**
+**op** **regenerate** **cloud-controller-staging-auth** [**--no-prompt**]
 
-**op** **regenerate** **cloud-controller-client-auth**
+**op** **regenerate** **mysql** [**--no-prompt**]
 
-**op** **regenerate** **stackato-router-auth**
+**op** **regenerate** **postgresql** [**--no-restart**] [**--no-prompt**]
 
-**op** **regenerate** **token-signing-secret**
+**op** **regenerate** **ssh_keys** [**--no-prompt**]
+
+**op** **regenerate** **ssl_cert** [**--no-prompt**]
+
+**op** **regenerate** **stackato-rest-auth** [**--no-prompt**]
+
+**op** **regenerate** **stackato-router-auth** [**--no-prompt**]
+
+**op** **regenerate** **token-signing-secret** [**--no-prompt**]
 
   Regenerate the configuration for various processes and components
 
   **-h** **--help**                       Show help information
+
+  **-n** **--no-prompt**                  Show help information
 
   **-r** **--no-restart**                 Do not restart processes.
 
