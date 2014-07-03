@@ -25,7 +25,7 @@ Fields
 |                   |                                         |         |              | - production                                |
 |                   |                                         |         |              |                                             |
 +-------------------+-----------------------------------------+---------+--------------+---------------------------------------------+
-| organization_guid | The guid of the associated organization |         |              | - guid-e6a9f1c9-e2dd-43b7-888b-dd04ad8fd826 |
+| organization_guid | The guid of the associated organization |         |              | - guid-90a03e48-ed1f-485d-bf50-4372c9eb3984 |
 |                   |                                         |         |              |                                             |
 +-------------------+-----------------------------------------+---------+--------------+---------------------------------------------+
 | developer_guids   | The list of the associated developers   |         |              |                                             |
@@ -51,7 +51,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQwIiwiZW1haWwiOiJlbWFpbC00MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUwfQ._q3xyMRlwxGQ0W4BUO4YagDcklzbTeMFvJsOdyQOcgI
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE3IiwiZW1haWwiOiJlbWFpbC0xMUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzI3fQ.rcb7rqwOggyqI3ha7_RH3jH300Qodybm_OsV17CCLN8
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -70,7 +70,7 @@ Body
 
 ::
 
-  {"name":"development","organization_guid":"guid-e6a9f1c9-e2dd-43b7-888b-dd04ad8fd826","organization_guid":"c8412aa5-d3c0-4f4d-803e-c90b12a0c352"}
+  {"name":"development","organization_guid":"guid-90a03e48-ed1f-485d-bf50-4372c9eb3984","organization_guid":"3b530dec-e463-410c-9c02-bc70b7404791"}
 
 
 cURL
@@ -78,8 +78,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/spaces" -d '{"name":"development","organization_guid":"guid-e6a9f1c9-e2dd-43b7-888b-dd04ad8fd826","organization_guid":"c8412aa5-d3c0-4f4d-803e-c90b12a0c352"}' -X POST \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQwIiwiZW1haWwiOiJlbWFpbC00MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUwfQ._q3xyMRlwxGQ0W4BUO4YagDcklzbTeMFvJsOdyQOcgI" \
+  curl "https://api.[your-domain.com]/v2/spaces" -d '{"name":"development","organization_guid":"guid-90a03e48-ed1f-485d-bf50-4372c9eb3984","organization_guid":"3b530dec-e463-410c-9c02-bc70b7404791"}' -X POST \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE3IiwiZW1haWwiOiJlbWFpbC0xMUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzI3fQ.rcb7rqwOggyqI3ha7_RH3jH300Qodybm_OsV17CCLN8" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -95,9 +95,9 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  Location: /v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4
-  X-VCAP-Request-ID: da9ac60a-e87d-45e7-890c-e58f908746ba
-  Content-Length: 1076
+  Location: /v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5
+  X-VCAP-Request-ID: 41cb3c0e-732b-470e-bcc4-fc7f6d5b5aa4
+  Content-Length: 1152
   X-Content-Type-Options: nosniff
 
 
@@ -116,24 +116,25 @@ Body
 
   {
     "metadata": {
-      "guid": "f7938aba-26ed-444b-88b5-284bc0c103a4",
-      "url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4",
-      "created_at": "2014-04-07T11:19:10-07:00",
+      "guid": "141ad233-3103-406a-ae65-660d4c2642c5",
+      "url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5",
+      "created_at": "2014-06-19T17:18:47-07:00",
       "updated_at": null
     },
     "entity": {
       "name": "development",
-      "organization_guid": "c8412aa5-d3c0-4f4d-803e-c90b12a0c352",
+      "organization_guid": "3b530dec-e463-410c-9c02-bc70b7404791",
       "is_default": false,
-      "organization_url": "/v2/organizations/c8412aa5-d3c0-4f4d-803e-c90b12a0c352",
-      "developers_url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4/developers",
-      "managers_url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4/managers",
-      "auditors_url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4/auditors",
-      "apps_url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4/apps",
-      "domains_url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4/domains",
-      "service_instances_url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4/service_instances",
-      "app_events_url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4/app_events",
-      "events_url": "/v2/spaces/f7938aba-26ed-444b-88b5-284bc0c103a4/events"
+      "organization_url": "/v2/organizations/3b530dec-e463-410c-9c02-bc70b7404791",
+      "developers_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/developers",
+      "managers_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/managers",
+      "auditors_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/auditors",
+      "apps_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/apps",
+      "routes_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/routes",
+      "domains_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/domains",
+      "service_instances_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/service_instances",
+      "app_events_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/app_events",
+      "events_url": "/v2/spaces/141ad233-3103-406a-ae65-660d4c2642c5/events"
     }
   }
 
@@ -152,31 +153,31 @@ Audit Record: audit.space.create
 | Attribute Name    | Value                                                              |
 |                   |                                                                    |
 +===================+====================================================================+
-| id                | 1                                                                  |
+| id                | 36                                                                 |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
-| guid              | dfcd2807-e367-4f6d-b154-ce34cb3f9436                               |
+| guid              | 2103f25a-2c53-430c-a5da-f0f4aec647d8                               |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
-| created_at        | 2014-04-07 11:19:10 -0700                                          |
+| created_at        | 2014-06-19 17:18:47 -0700                                          |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
 | updated_at        |                                                                    |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
-| timestamp         | 2014-04-07 11:19:10 -0700                                          |
+| timestamp         | 2014-06-19 17:18:47 -0700                                          |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
 | type              | audit.space.create                                                 |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
-| actor             | uaa-id-40                                                          |
+| actor             | uaa-id-17                                                          |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
 | actor_type        | user                                                               |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
-| actee             | f7938aba-26ed-444b-88b5-284bc0c103a4                               |
+| actee             | 141ad233-3103-406a-ae65-660d4c2642c5                               |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
 | actee_type        | space                                                              |
@@ -187,20 +188,26 @@ Audit Record: audit.space.create
 |                   |   {                                                                |
 |                   |     "request": {                                                   |
 |                   |       "name": "development",                                       |
-|                   |       "organization_guid": "c8412aa5-d3c0-4f4d-803e-c90b12a0c352", |
+|                   |       "organization_guid": "3b530dec-e463-410c-9c02-bc70b7404791", |
 |                   |       "is_default": false                                          |
 |                   |     }                                                              |
 |                   |   }                                                                |
 |                   |                                                                    |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
-| space_id          | 4                                                                  |
+| space_id          | 41                                                                 |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
-| organization_guid | c8412aa5-d3c0-4f4d-803e-c90b12a0c352                               |
+| organization_guid | 3b530dec-e463-410c-9c02-bc70b7404791                               |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
-| space_guid        | f7938aba-26ed-444b-88b5-284bc0c103a4                               |
+| space_guid        | 141ad233-3103-406a-ae65-660d4c2642c5                               |
+|                   |                                                                    |
++-------------------+--------------------------------------------------------------------+
+| actor_name        | email-11@somedomain.com                                            |
+|                   |                                                                    |
++-------------------+--------------------------------------------------------------------+
+| actee_name        | development                                                        |
 |                   |                                                                    |
 +-------------------+--------------------------------------------------------------------+
 

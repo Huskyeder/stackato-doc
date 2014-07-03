@@ -29,6 +29,12 @@ Fields
 | enabled  | Whether or not the buildpack will be used for staging                                        | true    |              |                    |
 |          |                                                                                              |         |              |                    |
 +----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
+| locked   | Whether or not the buildpack is locked to prevent updates                                    | false   |              |                    |
+|          |                                                                                              |         |              |                    |
++----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
+| filename | The name of the uploaded buildpack file                                                      |         |              |                    |
+|          |                                                                                              |         |              |                    |
++----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
 
 
 Request
@@ -40,7 +46,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE2IiwiZW1haWwiOiJlbWFpbC0xNkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.phxOndcD4GbuXtvq_QDdPwF-9eBu9rRGIzlLpmuPSUk
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY2IiwiZW1haWwiOiJlbWFpbC02MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM4fQ.Owd1qa4g-yptMW31_3p2-wNym4WdD8qlPHNdjJD3NkY
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -51,7 +57,7 @@ Route
 
 ::
 
-  PUT /v2/buildpacks/60635e2e-0ec2-484f-8557-d294ffa206d8
+  PUT /v2/buildpacks/d46dc94e-b8ee-4f70-94bc-2071fd1bb66c
 
 
 Body
@@ -67,8 +73,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/buildpacks/60635e2e-0ec2-484f-8557-d294ffa206d8" -d '{"enabled":false}' -X PUT \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE2IiwiZW1haWwiOiJlbWFpbC0xNkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.phxOndcD4GbuXtvq_QDdPwF-9eBu9rRGIzlLpmuPSUk" \
+  curl "https://api.[your-domain.com]/v2/buildpacks/d46dc94e-b8ee-4f70-94bc-2071fd1bb66c" -d '{"enabled":false}' -X PUT \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY2IiwiZW1haWwiOiJlbWFpbC02MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM4fQ.Owd1qa4g-yptMW31_3p2-wNym4WdD8qlPHNdjJD3NkY" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -84,8 +90,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: b7c45915-37c4-4aee-99c9-7a6e25769ea1
-  Content-Length: 315
+  X-VCAP-Request-ID: 68318077-37ba-4190-8a46-977a59e988bc
+  Content-Length: 358
   X-Content-Type-Options: nosniff
 
 
@@ -104,15 +110,17 @@ Body
 
   {
     "metadata": {
-      "guid": "60635e2e-0ec2-484f-8557-d294ffa206d8",
-      "url": "/v2/buildpacks/60635e2e-0ec2-484f-8557-d294ffa206d8",
-      "created_at": "2014-04-07T11:18:57-07:00",
-      "updated_at": "2014-04-07T11:18:57-07:00"
+      "guid": "d46dc94e-b8ee-4f70-94bc-2071fd1bb66c",
+      "url": "/v2/buildpacks/d46dc94e-b8ee-4f70-94bc-2071fd1bb66c",
+      "created_at": "2014-06-19T17:18:58-07:00",
+      "updated_at": "2014-06-19T17:18:58-07:00"
     },
     "entity": {
       "name": "name_1",
       "position": 1,
-      "enabled": false
+      "enabled": false,
+      "locked": false,
+      "filename": null
     }
   }
 
@@ -126,7 +134,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE2IiwiZW1haWwiOiJlbWFpbC0xNkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.phxOndcD4GbuXtvq_QDdPwF-9eBu9rRGIzlLpmuPSUk
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY2IiwiZW1haWwiOiJlbWFpbC02MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM4fQ.Owd1qa4g-yptMW31_3p2-wNym4WdD8qlPHNdjJD3NkY
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -137,7 +145,7 @@ Route
 
 ::
 
-  PUT /v2/buildpacks/60635e2e-0ec2-484f-8557-d294ffa206d8
+  PUT /v2/buildpacks/d46dc94e-b8ee-4f70-94bc-2071fd1bb66c
 
 
 Body
@@ -153,8 +161,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/buildpacks/60635e2e-0ec2-484f-8557-d294ffa206d8" -d '{"enabled":true}' -X PUT \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE2IiwiZW1haWwiOiJlbWFpbC0xNkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.phxOndcD4GbuXtvq_QDdPwF-9eBu9rRGIzlLpmuPSUk" \
+  curl "https://api.[your-domain.com]/v2/buildpacks/d46dc94e-b8ee-4f70-94bc-2071fd1bb66c" -d '{"enabled":true}' -X PUT \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY2IiwiZW1haWwiOiJlbWFpbC02MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM4fQ.Owd1qa4g-yptMW31_3p2-wNym4WdD8qlPHNdjJD3NkY" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -170,8 +178,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: b5bf7171-dc22-4eb3-a89e-5465542373f6
-  Content-Length: 314
+  X-VCAP-Request-ID: 9ff98839-df8b-4273-b20a-c9f6273faabd
+  Content-Length: 357
   X-Content-Type-Options: nosniff
 
 
@@ -190,15 +198,17 @@ Body
 
   {
     "metadata": {
-      "guid": "60635e2e-0ec2-484f-8557-d294ffa206d8",
-      "url": "/v2/buildpacks/60635e2e-0ec2-484f-8557-d294ffa206d8",
-      "created_at": "2014-04-07T11:18:57-07:00",
-      "updated_at": "2014-04-07T11:18:57-07:00"
+      "guid": "d46dc94e-b8ee-4f70-94bc-2071fd1bb66c",
+      "url": "/v2/buildpacks/d46dc94e-b8ee-4f70-94bc-2071fd1bb66c",
+      "created_at": "2014-06-19T17:18:58-07:00",
+      "updated_at": "2014-06-19T17:18:58-07:00"
     },
     "entity": {
       "name": "name_1",
       "position": 1,
-      "enabled": true
+      "enabled": true,
+      "locked": false,
+      "filename": null
     }
   }
 

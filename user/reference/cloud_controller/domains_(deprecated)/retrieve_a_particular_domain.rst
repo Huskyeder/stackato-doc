@@ -42,7 +42,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTgiLCJlbWFpbCI6ImVtYWlsLThAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.gK2FHCm8f5yDgXTCqnUhr6wwVThxYNMBXKh99xqXprI
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwNCIsImVtYWlsIjoiZW1haWwtODZAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NX0.iGbxpP4jWVyV8KMP4kPh22PlParysFrK0AgalxO9a8E
   Host: example.org
   Cookie:
 
@@ -52,7 +52,7 @@ Route
 
 ::
 
-  GET /v2/domains/b5f80729-e7b4-4949-a250-548a7c956045
+  GET /v2/domains/ed91a81a-be92-4eda-8708-afab3cf602b9
 
 
 cURL
@@ -60,8 +60,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/domains/b5f80729-e7b4-4949-a250-548a7c956045" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTgiLCJlbWFpbCI6ImVtYWlsLThAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.gK2FHCm8f5yDgXTCqnUhr6wwVThxYNMBXKh99xqXprI" \
+  curl "https://api.[your-domain.com]/v2/domains/ed91a81a-be92-4eda-8708-afab3cf602b9" -X GET \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwNCIsImVtYWlsIjoiZW1haWwtODZAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NX0.iGbxpP4jWVyV8KMP4kPh22PlParysFrK0AgalxO9a8E" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -76,9 +76,9 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 032125b1-ec5c-4903-b3b2-0643c33705a4
-  X-Cf-Warning: Endpoint deprecated
-  Content-Length: 493
+  X-VCAP-Request-ID: 49d6a209-f137-442f-abf7-f341963f724d
+  X-Cf-Warnings: Endpoint+deprecated
+  Content-Length: 501
   X-Content-Type-Options: nosniff
 
 
@@ -97,16 +97,16 @@ Body
 
   {
     "metadata": {
-      "guid": "b5f80729-e7b4-4949-a250-548a7c956045",
-      "url": "/v2/domains/b5f80729-e7b4-4949-a250-548a7c956045",
-      "created_at": "2014-04-07T11:18:53-07:00",
+      "guid": "ed91a81a-be92-4eda-8708-afab3cf602b9",
+      "url": "/v2/domains/ed91a81a-be92-4eda-8708-afab3cf602b9",
+      "created_at": "2014-06-19T17:19:05-07:00",
       "updated_at": null
     },
     "entity": {
-      "name": "domain-25.com",
-      "owning_organization_guid": "fb2b41b8-6a51-4407-b419-6561b13e8a40",
-      "owning_organization_url": "/v2/organizations/fb2b41b8-6a51-4407-b419-6561b13e8a40",
-      "spaces_url": "/v2/domains/b5f80729-e7b4-4949-a250-548a7c956045/spaces"
+      "name": "domain-40.example.com",
+      "owning_organization_guid": "ebdeb3c4-f336-45d0-8ace-4a6ef58e82e4",
+      "owning_organization_url": "/v2/organizations/ebdeb3c4-f336-45d0-8ace-4a6ef58e82e4",
+      "spaces_url": "/v2/domains/ed91a81a-be92-4eda-8708-afab3cf602b9/spaces"
     }
   }
 

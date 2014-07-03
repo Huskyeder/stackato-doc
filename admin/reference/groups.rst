@@ -148,44 +148,51 @@ To remove a user from a group::
 	$ stackato groups delete-user developers user1@mydomain.com
 	Removing User From Group: OK
 
-.. _user-import-export:
 
-.. index:: User Export
-.. index:: User Import
+.. only:: not public
 
-Importing/Exporting
-^^^^^^^^^^^^^^^^^^^
+  ..note::
+    Importing and exporting user data with ``kato`` is currently not
+    supported in version 3.0 and later releases. This feature will be
+    reimplemented in an upcoming release.
 
-To import a list of system users, or export a list of the current users
-for migration to a new system, log in to the micro cloud VM or core node
-as the 'stackato' user and run the :ref:`kato data users
-<kato-command-ref-data-users>` command.
-
-The ``kato data users export`` command generates CSV file with the following
-columns::
-
-  email,isadmin,groups
-
-Using the ``--include-password-hashes`` option adds bcrypt password
-hashes in a ``passwordhash`` column::
-
-  email,passwordhash,isadmin,groups
-
-The ``kato data users import`` will accept CSV files with the following
-columns. The header row is required::
-
-  email,password,isadmin,groups
+  .. _user-import-export:
   
-Alternatively::
-
-  email,passwordhash,isadmin,groups
+  .. index:: User Export
+  .. index:: User Import
   
-The ``isadmin`` and ``groups`` columns are both optional. The
-``password`` or ``passwordhash`` columns must be provided when adding
-new users, but are optional if you are updating existing users with new
-``isadmin`` or ``group`` values. Password hashes must be in bcrypt
-format (as exported with ``--include-password-hashes``).
-
-A ``--dry-run`` option is available if you would like to test the
-import/export before actually running it.
+  Importing/Exporting
+  ^^^^^^^^^^^^^^^^^^^
+  
+  To import a list of system users, or export a list of the current users
+  for migration to a new system, log in to the micro cloud VM or core node
+  as the 'stackato' user and run the ``kato data users`` command.
+  
+  The ``kato data users export`` command generates CSV file with the following
+  columns::
+  
+    email,isadmin,groups
+  
+  Using the ``--include-password-hashes`` option adds bcrypt password
+  hashes in a ``passwordhash`` column::
+  
+    email,passwordhash,isadmin,groups
+  
+  The ``kato data users import`` will accept CSV files with the following
+  columns. The header row is required::
+  
+    email,password,isadmin,groups
+    
+  Alternatively::
+  
+    email,passwordhash,isadmin,groups
+    
+  The ``isadmin`` and ``groups`` columns are both optional. The
+  ``password`` or ``passwordhash`` columns must be provided when adding
+  new users, but are optional if you are updating existing users with new
+  ``isadmin`` or ``group`` values. Password hashes must be in bcrypt
+  format (as exported with ``--include-password-hashes``).
+  
+  A ``--dry-run`` option is available if you would like to test the
+  import/export before actually running it.
 

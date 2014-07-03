@@ -79,7 +79,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTI5IiwiZW1haWwiOiJlbWFpbC0yOUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQzfQ.a4lNvzgPJru52V5wViUIm7Cs60ln89UA_XdkAB13NH4
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQwIiwiZW1haWwiOiJlbWFpbC0zNEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMyfQ.bG8VLYJib3nzBAlXNPXNsPas_AVV_ZZnGpuDr8NaMPU
   Host: example.org
   Cookie:
 
@@ -106,7 +106,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/service_auth_tokens" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTI5IiwiZW1haWwiOiJlbWFpbC0yOUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQzfQ.a4lNvzgPJru52V5wViUIm7Cs60ln89UA_XdkAB13NH4" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQwIiwiZW1haWwiOiJlbWFpbC0zNEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMyfQ.bG8VLYJib3nzBAlXNPXNsPas_AVV_ZZnGpuDr8NaMPU" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -121,8 +121,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 6688cb2d-8353-48a2-a948-2397a991cd05
-  Content-Length: 449
+  X-VCAP-Request-ID: 275f01e7-9888-445c-be9f-7514af1f0c6a
+  Content-Length: 450
   X-Content-Type-Options: nosniff
 
 
@@ -147,14 +147,14 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "c7b27e72-c293-4404-a8bd-b5567e70245c",
-          "url": "/v2/service_auth_tokens/c7b27e72-c293-4404-a8bd-b5567e70245c",
-          "created_at": "2014-04-07T11:19:03-07:00",
+          "guid": "787c2394-a72f-48cb-8ab1-bf6e94bbc14c",
+          "url": "/v2/service_auth_tokens/787c2394-a72f-48cb-8ab1-bf6e94bbc14c",
+          "created_at": "2014-06-19T17:18:52-07:00",
           "updated_at": null
         },
         "entity": {
           "label": "Nic-Token",
-          "provider": "provider-7"
+          "provider": "provider-21"
         }
       }
     ]

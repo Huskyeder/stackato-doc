@@ -36,7 +36,7 @@ Fields
 |                      |                                                                                                                                                                                    |                                |              | - 2048                                                        |
 |                      |                                                                                                                                                                                    |                                |              |                                                               |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------+---------------------------------------------------------------+
-| space_guid           | The guid of the associated space.                                                                                                                                                  |                                |              | - guid-3982e06e-a857-4f29-8899-a36241cf7743                   |
+| space_guid           | The guid of the associated space.                                                                                                                                                  |                                |              | - guid-b9a2bd90-946b-472c-922a-39a65fdee0c6                   |
 |                      |                                                                                                                                                                                    |                                |              |                                                               |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------+---------------------------------------------------------------+
 | stack_guid           | The guid of the associated stack.                                                                                                                                                  | Uses the default system stack. |              |                                                               |
@@ -108,7 +108,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM1IiwiZW1haWwiOiJlbWFpbC0zNUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQ2fQ.VlUa6hD8wosLCmW3cfXiYaubYYZJdmekT9s19kEEfZ8
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTk4IiwiZW1haWwiOiJlbWFpbC04MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQzfQ.En2mOL2KmiBR9w_wjWgcKspaQ6vYhAQobcNEsYzuxSA
   Host: example.org
   Cookie:
 
@@ -118,7 +118,7 @@ Route
 
 ::
 
-  GET /v2/apps/6813ee08-a1e2-4236-9800-47e5566cca71
+  GET /v2/apps/2f86bb2d-42c7-439d-8e47-3490751a2c65
 
 
 cURL
@@ -126,8 +126,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/apps/6813ee08-a1e2-4236-9800-47e5566cca71" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM1IiwiZW1haWwiOiJlbWFpbC0zNUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQ2fQ.VlUa6hD8wosLCmW3cfXiYaubYYZJdmekT9s19kEEfZ8" \
+  curl "https://api.[your-domain.com]/v2/apps/2f86bb2d-42c7-439d-8e47-3490751a2c65" -X GET \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTk4IiwiZW1haWwiOiJlbWFpbC04MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQzfQ.En2mOL2KmiBR9w_wjWgcKspaQ6vYhAQobcNEsYzuxSA" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -142,8 +142,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 5ba8d0fe-fedc-40b1-90df-4f964e8f3e2f
-  Content-Length: 1544
+  X-VCAP-Request-ID: 9e6a75e1-cd69-451f-8d73-e87c0a81bdc2
+  Content-Length: 1655
   X-Content-Type-Options: nosniff
 
 
@@ -162,25 +162,25 @@ Body
 
   {
     "metadata": {
-      "guid": "6813ee08-a1e2-4236-9800-47e5566cca71",
-      "url": "/v2/apps/6813ee08-a1e2-4236-9800-47e5566cca71",
-      "created_at": "2014-04-07T11:19:06-07:00",
-      "updated_at": "2014-04-07T11:19:06-07:00"
+      "guid": "2f86bb2d-42c7-439d-8e47-3490751a2c65",
+      "url": "/v2/apps/2f86bb2d-42c7-439d-8e47-3490751a2c65",
+      "created_at": "2014-06-19T17:19:03-07:00",
+      "updated_at": "2014-06-19T17:19:03-07:00"
     },
     "entity": {
-      "guid": "6813ee08-a1e2-4236-9800-47e5566cca71",
-      "name": "name-91",
+      "guid": "2f86bb2d-42c7-439d-8e47-3490751a2c65",
+      "name": "name-539",
       "production": false,
-      "space_guid": "bca1e38c-ed40-40e3-9a11-9051c99204c2",
-      "stack_guid": "ef53669a-cbb9-42d7-a66f-f2eb9c67f370",
+      "space_guid": "dd777ec9-e71b-4e4a-a8aa-d2f8c74b58f7",
+      "stack_guid": "646c04c7-3648-4e45-892f-392816c300d0",
       "buildpack": null,
       "detected_buildpack": null,
       "environment_json": null,
       "memory": 1024,
-      "instances": 0,
+      "instances": 1,
       "disk_quota": 2048,
       "state": "STOPPED",
-      "version": "c7d76979-b12f-4c97-aa1a-6aff62948f45",
+      "version": "cd69b961-ccf0-4012-8017-11ffb7d51979",
       "command": null,
       "console": false,
       "debug": null,
@@ -201,11 +201,13 @@ Body
       "max_cpu_threshold": 80,
       "min_instances": 1,
       "max_instances": 2,
-      "space_url": "/v2/spaces/bca1e38c-ed40-40e3-9a11-9051c99204c2",
-      "stack_url": "/v2/stacks/ef53669a-cbb9-42d7-a66f-f2eb9c67f370",
-      "service_bindings_url": "/v2/apps/6813ee08-a1e2-4236-9800-47e5566cca71/service_bindings",
-      "routes_url": "/v2/apps/6813ee08-a1e2-4236-9800-47e5566cca71/routes",
-      "events_url": "/v2/apps/6813ee08-a1e2-4236-9800-47e5566cca71/events"
+      "droplet_count": 1,
+      "space_url": "/v2/spaces/dd777ec9-e71b-4e4a-a8aa-d2f8c74b58f7",
+      "stack_url": "/v2/stacks/646c04c7-3648-4e45-892f-392816c300d0",
+      "service_bindings_url": "/v2/apps/2f86bb2d-42c7-439d-8e47-3490751a2c65/service_bindings",
+      "routes_url": "/v2/apps/2f86bb2d-42c7-439d-8e47-3490751a2c65/routes",
+      "app_versions_url": "/v2/apps/2f86bb2d-42c7-439d-8e47-3490751a2c65/app_versions",
+      "events_url": "/v2/apps/2f86bb2d-42c7-439d-8e47-3490751a2c65/events"
     }
   }
 

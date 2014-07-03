@@ -36,6 +36,9 @@ Parameters
 | Name                   | Description                                                                   |
 |                        |                                                                               |
 +========================+===============================================================================+
+| q                      | Parameters used to filter the result set. Valid filters: name                 |
+|                        |                                                                               |
++------------------------+-------------------------------------------------------------------------------+
 | page                   | Page of results to fetch                                                      |
 |                        |                                                                               |
 +------------------------+-------------------------------------------------------------------------------+
@@ -71,7 +74,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEiLCJlbWFpbCI6ImVtYWlsLTFAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzMX0.KanctlpozuLePI1WMX5oFQK0ErpiqoCjzUdhgPExVpc
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTU1IiwiZW1haWwiOiJlbWFpbC00OUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM3fQ.0-Zyt-71sPnV1xci4n-Q2TUAIL0JbduzX_NfpThK7dY
   Host: example.org
   Cookie:
 
@@ -90,7 +93,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/shared_domains" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEiLCJlbWFpbCI6ImVtYWlsLTFAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzMX0.KanctlpozuLePI1WMX5oFQK0ErpiqoCjzUdhgPExVpc" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTU1IiwiZW1haWwiOiJlbWFpbC00OUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM3fQ.0-Zyt-71sPnV1xci4n-Q2TUAIL0JbduzX_NfpThK7dY" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -105,8 +108,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: d6dbe518-1849-4baf-84e1-a5337264df9d
-  Content-Length: 1026
+  X-VCAP-Request-ID: 3dea7e37-48be-4ca7-b4a2-ee45bc79ae7a
+  Content-Length: 1053
   X-Content-Type-Options: nosniff
 
 
@@ -131,35 +134,35 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "dd9a4410-a97b-4d56-8dc4-b04223dd6e7d",
-          "url": "/v2/shared_domains/dd9a4410-a97b-4d56-8dc4-b04223dd6e7d",
-          "created_at": "2014-04-07T11:18:51-07:00",
+          "guid": "2a57b4e6-251b-4ed0-8849-ad0c4d4d9c1f",
+          "url": "/v2/shared_domains/2a57b4e6-251b-4ed0-8849-ad0c4d4d9c1f",
+          "created_at": "2014-06-19T17:18:56-07:00",
           "updated_at": null
         },
         "entity": {
-          "name": "domain-1.com"
+          "name": "domain-20.example.com"
         }
       },
       {
         "metadata": {
-          "guid": "cd1247f5-8952-476a-92e3-fbfbb5b488f2",
-          "url": "/v2/shared_domains/cd1247f5-8952-476a-92e3-fbfbb5b488f2",
-          "created_at": "2014-04-07T11:18:51-07:00",
+          "guid": "bcc37f6e-50e8-4d93-ac48-f19747c38cfe",
+          "url": "/v2/shared_domains/bcc37f6e-50e8-4d93-ac48-f19747c38cfe",
+          "created_at": "2014-06-19T17:18:56-07:00",
           "updated_at": null
         },
         "entity": {
-          "name": "domain-2.com"
+          "name": "domain-21.example.com"
         }
       },
       {
         "metadata": {
-          "guid": "8ef44517-7f2b-4df1-9bde-5bca4e9d5eb9",
-          "url": "/v2/shared_domains/8ef44517-7f2b-4df1-9bde-5bca4e9d5eb9",
-          "created_at": "2014-04-07T11:18:51-07:00",
+          "guid": "c835ecc5-b699-4d95-bbae-50c684fed75b",
+          "url": "/v2/shared_domains/c835ecc5-b699-4d95-bbae-50c684fed75b",
+          "created_at": "2014-06-19T17:18:57-07:00",
           "updated_at": null
         },
         "entity": {
-          "name": "domain-3.com"
+          "name": "domain-22.example.com"
         }
       }
     ]

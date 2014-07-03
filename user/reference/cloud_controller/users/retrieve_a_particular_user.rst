@@ -61,7 +61,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTc0IiwiZW1haWwiOiJlbWFpbC01OUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU5fQ.MoTDpgdz4Zu85aV9pv6SqLu-8_MTBqqS3U0i52gAXqU
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTg3IiwiZW1haWwiOiJlbWFpbC03MkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQxfQ.z2R-bF6Y14VNCU2hVclVEZRhfD3llMYG54YRu44b3to
   Host: example.org
   Cookie:
 
@@ -71,7 +71,7 @@ Route
 
 ::
 
-  GET /v2/users/uaa-id-71
+  GET /v2/users/uaa-id-84
 
 
 cURL
@@ -79,8 +79,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/users/uaa-id-71" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTc0IiwiZW1haWwiOiJlbWFpbC01OUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU5fQ.MoTDpgdz4Zu85aV9pv6SqLu-8_MTBqqS3U0i52gAXqU" \
+  curl "https://api.[your-domain.com]/v2/users/uaa-id-84" -X GET \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTg3IiwiZW1haWwiOiJlbWFpbC03MkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQxfQ.z2R-bF6Y14VNCU2hVclVEZRhfD3llMYG54YRu44b3to" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -95,8 +95,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: b56a6e04-29e1-4ae7-8df0-2aeb7c7be908
-  Content-Length: 784
+  X-VCAP-Request-ID: 501bd456-81e9-4c34-92ff-b78f7731d200
+  Content-Length: 810
   X-Content-Type-Options: nosniff
 
 
@@ -115,24 +115,25 @@ Body
 
   {
     "metadata": {
-      "guid": "uaa-id-71",
-      "url": "/v2/users/uaa-id-71",
-      "created_at": "2014-04-07T11:19:19-07:00",
-      "updated_at": null
+      "guid": "uaa-id-84",
+      "url": "/v2/users/uaa-id-84",
+      "created_at": "2014-06-19T17:19:01-07:00",
+      "updated_at": null,
+      "logged_in_at": null
     },
     "entity": {
       "admin": false,
       "active": false,
       "default_space_guid": null,
-      "guid": "uaa-id-71",
+      "guid": "uaa-id-84",
       "username": "testuser",
-      "spaces_url": "/v2/users/uaa-id-71/spaces",
-      "organizations_url": "/v2/users/uaa-id-71/organizations",
-      "managed_organizations_url": "/v2/users/uaa-id-71/managed_organizations",
-      "billing_managed_organizations_url": "/v2/users/uaa-id-71/billing_managed_organizations",
-      "audited_organizations_url": "/v2/users/uaa-id-71/audited_organizations",
-      "managed_spaces_url": "/v2/users/uaa-id-71/managed_spaces",
-      "audited_spaces_url": "/v2/users/uaa-id-71/audited_spaces"
+      "spaces_url": "/v2/users/uaa-id-84/spaces",
+      "organizations_url": "/v2/users/uaa-id-84/organizations",
+      "managed_organizations_url": "/v2/users/uaa-id-84/managed_organizations",
+      "billing_managed_organizations_url": "/v2/users/uaa-id-84/billing_managed_organizations",
+      "audited_organizations_url": "/v2/users/uaa-id-84/audited_organizations",
+      "managed_spaces_url": "/v2/users/uaa-id-84/managed_spaces",
+      "audited_spaces_url": "/v2/users/uaa-id-84/audited_spaces"
     }
   }
 

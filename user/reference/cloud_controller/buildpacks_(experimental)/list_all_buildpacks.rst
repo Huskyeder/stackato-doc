@@ -29,6 +29,12 @@ Fields
 | enabled  | Whether or not the buildpack will be used for staging                                        | true    |              |                    |
 |          |                                                                                              |         |              |                    |
 +----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
+| locked   | Whether or not the buildpack is locked to prevent updates                                    | false   |              |                    |
+|          |                                                                                              |         |              |                    |
++----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
+| filename | The name of the uploaded buildpack file                                                      |         |              |                    |
+|          |                                                                                              |         |              |                    |
++----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
 
 
 Parameters
@@ -79,7 +85,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTIxIiwiZW1haWwiOiJlbWFpbC0yMUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.FU3M_fowKY6Yyg6HD4twdYAxw_s3nxkkNhpX5S8hHCI
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY4IiwiZW1haWwiOiJlbWFpbC02MkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM5fQ.aKkl7b_OIp2OwTwcUl9mDfMnDZPsC3T2jJeK44XvuOk
   Host: example.org
   Cookie:
 
@@ -98,7 +104,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/buildpacks" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTIxIiwiZW1haWwiOiJlbWFpbC0yMUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.FU3M_fowKY6Yyg6HD4twdYAxw_s3nxkkNhpX5S8hHCI" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY4IiwiZW1haWwiOiJlbWFpbC02MkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM5fQ.aKkl7b_OIp2OwTwcUl9mDfMnDZPsC3T2jJeK44XvuOk" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -113,8 +119,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 1ec1174b-e617-4a58-80f1-a50e495d0aa6
-  Content-Length: 1140
+  X-VCAP-Request-ID: 3ebcce86-d8bc-41db-a4c4-5dcd733ebf52
+  Content-Length: 1293
   X-Content-Type-Options: nosniff
 
 
@@ -139,41 +145,47 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "5823e62a-9be9-4644-83c1-51e9a654366e",
-          "url": "/v2/buildpacks/5823e62a-9be9-4644-83c1-51e9a654366e",
-          "created_at": "2014-04-07T11:18:57-07:00",
+          "guid": "d1495b71-b307-4610-b285-5fe818b5d178",
+          "url": "/v2/buildpacks/d1495b71-b307-4610-b285-5fe818b5d178",
+          "created_at": "2014-06-19T17:18:58-07:00",
           "updated_at": null
         },
         "entity": {
           "name": "name_1",
           "position": 1,
-          "enabled": true
+          "enabled": true,
+          "locked": false,
+          "filename": null
         }
       },
       {
         "metadata": {
-          "guid": "f6a2a183-a4a2-4859-8c2c-9b98fcf9a631",
-          "url": "/v2/buildpacks/f6a2a183-a4a2-4859-8c2c-9b98fcf9a631",
-          "created_at": "2014-04-07T11:18:57-07:00",
+          "guid": "a0c9bbee-8f22-4e85-a56a-345db412abb4",
+          "url": "/v2/buildpacks/a0c9bbee-8f22-4e85-a56a-345db412abb4",
+          "created_at": "2014-06-19T17:18:58-07:00",
           "updated_at": null
         },
         "entity": {
           "name": "name_2",
           "position": 2,
-          "enabled": true
+          "enabled": true,
+          "locked": false,
+          "filename": null
         }
       },
       {
         "metadata": {
-          "guid": "419b223b-60ab-42e8-9a1b-3a1bfd1f33da",
-          "url": "/v2/buildpacks/419b223b-60ab-42e8-9a1b-3a1bfd1f33da",
-          "created_at": "2014-04-07T11:18:57-07:00",
+          "guid": "ffa2fc54-0c5b-4d06-8a83-a4b4d0c9f9b5",
+          "url": "/v2/buildpacks/ffa2fc54-0c5b-4d06-8a83-a4b4d0c9f9b5",
+          "created_at": "2014-06-19T17:18:58-07:00",
           "updated_at": null
         },
         "entity": {
           "name": "name_3",
           "position": 3,
-          "enabled": true
+          "enabled": true,
+          "locked": false,
+          "filename": null
         }
       }
     ]

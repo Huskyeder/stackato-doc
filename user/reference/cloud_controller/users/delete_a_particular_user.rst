@@ -76,7 +76,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTc4IiwiZW1haWwiOiJlbWFpbC02MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU5fQ.ro8RD6z2f_EKG4tl_TeOvftKSb8ua9Knufz_g6odxog
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTc5IiwiZW1haWwiOiJlbWFpbC03MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQxfQ.B1dtk2t6h9bhvnElcEAIDZwI9PvsdTvBS0jkMPXiFLI
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -87,7 +87,7 @@ Route
 
 ::
 
-  DELETE /v2/users/uaa-id-75
+  DELETE /v2/users/uaa-id-76
 
 
 cURL
@@ -95,8 +95,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/users/uaa-id-75" -d '' -X DELETE \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTc4IiwiZW1haWwiOiJlbWFpbC02MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU5fQ.ro8RD6z2f_EKG4tl_TeOvftKSb8ua9Knufz_g6odxog" \
+  curl "https://api.[your-domain.com]/v2/users/uaa-id-76" -d '' -X DELETE \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTc5IiwiZW1haWwiOiJlbWFpbC03MEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQxfQ.B1dtk2t6h9bhvnElcEAIDZwI9PvsdTvBS0jkMPXiFLI" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -111,7 +111,7 @@ Headers
 
 ::
 
-  X-VCAP-Request-ID: 15b8555c-48d8-4072-a0b8-33f2c786d4aa
+  X-VCAP-Request-ID: c8623a3d-66db-4b8a-9cb8-5dabf80145df
   X-Content-Type-Options: nosniff
 
 

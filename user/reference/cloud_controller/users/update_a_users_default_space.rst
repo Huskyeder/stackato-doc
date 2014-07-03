@@ -76,7 +76,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTcwIiwiZW1haWwiOiJlbWFpbC01OEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU5fQ.FDpyPHtUSFFAZSvttCItWDysIdE36wWruEBD9Iciz3Q
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTkxIiwiZW1haWwiOiJlbWFpbC03M0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQxfQ.sa_PTgPoFvbG5mOhbqu6guaBuYRtW1nGJcJaMA_GX9g
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -87,7 +87,7 @@ Route
 
 ::
 
-  PUT /v2/users/uaa-id-67
+  PUT /v2/users/uaa-id-88
 
 
 Body
@@ -95,7 +95,7 @@ Body
 
 ::
 
-  {"default_space_guid":"0e6374ee-ad11-42ce-b518-2f84ebe155a8"}
+  {"default_space_guid":"abd63229-4356-46cf-b0b6-83bcf04bdff7"}
 
 
 cURL
@@ -103,8 +103,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/users/uaa-id-67" -d '{"default_space_guid":"0e6374ee-ad11-42ce-b518-2f84ebe155a8"}' -X PUT \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTcwIiwiZW1haWwiOiJlbWFpbC01OEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU5fQ.FDpyPHtUSFFAZSvttCItWDysIdE36wWruEBD9Iciz3Q" \
+  curl "https://api.[your-domain.com]/v2/users/uaa-id-88" -d '{"default_space_guid":"abd63229-4356-46cf-b0b6-83bcf04bdff7"}' -X PUT \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTkxIiwiZW1haWwiOiJlbWFpbC03M0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQxfQ.sa_PTgPoFvbG5mOhbqu6guaBuYRtW1nGJcJaMA_GX9g" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -120,8 +120,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 72a45adb-c20b-4ab9-8a63-c5be3b78d262
-  Content-Length: 917
+  X-VCAP-Request-ID: eeb9b9fb-9084-40c4-936f-a1645a354ff2
+  Content-Length: 943
   X-Content-Type-Options: nosniff
 
 
@@ -140,25 +140,26 @@ Body
 
   {
     "metadata": {
-      "guid": "uaa-id-67",
-      "url": "/v2/users/uaa-id-67",
-      "created_at": "2014-04-07T11:19:19-07:00",
-      "updated_at": "2014-04-07T11:19:19-07:00"
+      "guid": "uaa-id-88",
+      "url": "/v2/users/uaa-id-88",
+      "created_at": "2014-06-19T17:19:01-07:00",
+      "updated_at": "2014-06-19T17:19:01-07:00",
+      "logged_in_at": null
     },
     "entity": {
       "admin": false,
       "active": false,
-      "default_space_guid": "0e6374ee-ad11-42ce-b518-2f84ebe155a8",
-      "guid": "uaa-id-67",
+      "default_space_guid": "abd63229-4356-46cf-b0b6-83bcf04bdff7",
+      "guid": "uaa-id-88",
       "username": "testuser",
-      "default_space_url": "/v2/spaces/0e6374ee-ad11-42ce-b518-2f84ebe155a8",
-      "spaces_url": "/v2/users/uaa-id-67/spaces",
-      "organizations_url": "/v2/users/uaa-id-67/organizations",
-      "managed_organizations_url": "/v2/users/uaa-id-67/managed_organizations",
-      "billing_managed_organizations_url": "/v2/users/uaa-id-67/billing_managed_organizations",
-      "audited_organizations_url": "/v2/users/uaa-id-67/audited_organizations",
-      "managed_spaces_url": "/v2/users/uaa-id-67/managed_spaces",
-      "audited_spaces_url": "/v2/users/uaa-id-67/audited_spaces"
+      "default_space_url": "/v2/spaces/abd63229-4356-46cf-b0b6-83bcf04bdff7",
+      "spaces_url": "/v2/users/uaa-id-88/spaces",
+      "organizations_url": "/v2/users/uaa-id-88/organizations",
+      "managed_organizations_url": "/v2/users/uaa-id-88/managed_organizations",
+      "billing_managed_organizations_url": "/v2/users/uaa-id-88/billing_managed_organizations",
+      "audited_organizations_url": "/v2/users/uaa-id-88/audited_organizations",
+      "managed_spaces_url": "/v2/users/uaa-id-88/managed_spaces",
+      "audited_spaces_url": "/v2/users/uaa-id-88/audited_spaces"
     }
   }
 

@@ -25,7 +25,7 @@ Fields
 |                   |                                         |         |              | - production                                |
 |                   |                                         |         |              |                                             |
 +-------------------+-----------------------------------------+---------+--------------+---------------------------------------------+
-| organization_guid | The guid of the associated organization |         |              | - guid-e6a9f1c9-e2dd-43b7-888b-dd04ad8fd826 |
+| organization_guid | The guid of the associated organization |         |              | - guid-90a03e48-ed1f-485d-bf50-4372c9eb3984 |
 |                   |                                         |         |              |                                             |
 +-------------------+-----------------------------------------+---------+--------------+---------------------------------------------+
 | developer_guids   | The list of the associated developers   |         |              |                                             |
@@ -66,7 +66,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQyIiwiZW1haWwiOiJlbWFpbC00MkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUwfQ.ZlA6tZjlKjWrQBx80A2eHyshLyxEGQKktSmXTHqgeJc
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE2IiwiZW1haWwiOiJlbWFpbC0xMEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzI3fQ.c5AwkJp_6_A32oQmD2e20b2Tj6UT4obRbuyq1Hz2HLc
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -77,7 +77,7 @@ Route
 
 ::
 
-  DELETE /v2/spaces/83628c67-2086-43b6-bc15-8c10ad4aeac0
+  DELETE /v2/spaces/f98621d1-c72d-4a71-b1fc-f710c1221e4e
 
 
 cURL
@@ -85,8 +85,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/spaces/83628c67-2086-43b6-bc15-8c10ad4aeac0" -d '' -X DELETE \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQyIiwiZW1haWwiOiJlbWFpbC00MkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUwfQ.ZlA6tZjlKjWrQBx80A2eHyshLyxEGQKktSmXTHqgeJc" \
+  curl "https://api.[your-domain.com]/v2/spaces/f98621d1-c72d-4a71-b1fc-f710c1221e4e" -d '' -X DELETE \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE2IiwiZW1haWwiOiJlbWFpbC0xMEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzI3fQ.c5AwkJp_6_A32oQmD2e20b2Tj6UT4obRbuyq1Hz2HLc" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -101,7 +101,7 @@ Headers
 
 ::
 
-  X-VCAP-Request-ID: 7ff96f9d-93e1-482c-8e06-281d379080a5
+  X-VCAP-Request-ID: 93e385b3-4541-451d-9a55-6ed293bf0e80
   X-Content-Type-Options: nosniff
 
 
@@ -127,31 +127,31 @@ Audit Record: audit.space.delete-request
 | Attribute Name    | Value                                |
 |                   |                                      |
 +===================+======================================+
-| id                | 1                                    |
+| id                | 35                                   |
 |                   |                                      |
 +-------------------+--------------------------------------+
-| guid              | 59df8a5b-6730-472e-8234-43cabb00b7ff |
+| guid              | d35b7007-03ec-49e2-8306-e029e7df0e87 |
 |                   |                                      |
 +-------------------+--------------------------------------+
-| created_at        | 2014-04-07 11:19:10 -0700            |
+| created_at        | 2014-06-19 17:18:47 -0700            |
 |                   |                                      |
 +-------------------+--------------------------------------+
 | updated_at        |                                      |
 |                   |                                      |
 +-------------------+--------------------------------------+
-| timestamp         | 2014-04-07 11:19:10 -0700            |
+| timestamp         | 2014-06-19 17:18:47 -0700            |
 |                   |                                      |
 +-------------------+--------------------------------------+
 | type              | audit.space.delete-request           |
 |                   |                                      |
 +-------------------+--------------------------------------+
-| actor             | uaa-id-42                            |
+| actor             | uaa-id-16                            |
 |                   |                                      |
 +-------------------+--------------------------------------+
 | actor_type        | user                                 |
 |                   |                                      |
 +-------------------+--------------------------------------+
-| actee             | 83628c67-2086-43b6-bc15-8c10ad4aeac0 |
+| actee             | f98621d1-c72d-4a71-b1fc-f710c1221e4e |
 |                   |                                      |
 +-------------------+--------------------------------------+
 | actee_type        | space                                |
@@ -170,10 +170,16 @@ Audit Record: audit.space.delete-request
 | space_id          |                                      |
 |                   |                                      |
 +-------------------+--------------------------------------+
-| organization_guid | befaa453-57e7-4de5-a96c-0b4fbe6dee1a |
+| organization_guid | 9c4bc150-8a25-4b82-b62b-7468018168fe |
 |                   |                                      |
 +-------------------+--------------------------------------+
-| space_guid        | 83628c67-2086-43b6-bc15-8c10ad4aeac0 |
+| space_guid        | f98621d1-c72d-4a71-b1fc-f710c1221e4e |
+|                   |                                      |
++-------------------+--------------------------------------+
+| actor_name        | email-10@somedomain.com              |
+|                   |                                      |
++-------------------+--------------------------------------+
+| actee_name        | name-246                             |
 |                   |                                      |
 +-------------------+--------------------------------------+
 

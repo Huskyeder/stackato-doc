@@ -53,7 +53,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQ3IiwiZW1haWwiOiJlbWFpbC00N0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUyfQ.iPe4iGo4j83aUTbC2lLNPTepudgpR_ywNuhwKJe0b-w
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTMzIiwiZW1haWwiOiJlbWFpbC0yN0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMwfQ.NWGwal5ZV9mFrA7auVWpZcxDiBJ9N4WJuEbs5nrZm1Y
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -64,7 +64,7 @@ Route
 
 ::
 
-  DELETE /v2/private_domains/8d054ee3-37d8-47f5-9f1a-537fd1153828
+  DELETE /v2/private_domains/38284358-fa53-4e2c-a340-2f7b3475f0e2
 
 
 cURL
@@ -72,8 +72,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/private_domains/8d054ee3-37d8-47f5-9f1a-537fd1153828" -d '' -X DELETE \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQ3IiwiZW1haWwiOiJlbWFpbC00N0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUyfQ.iPe4iGo4j83aUTbC2lLNPTepudgpR_ywNuhwKJe0b-w" \
+  curl "https://api.[your-domain.com]/v2/private_domains/38284358-fa53-4e2c-a340-2f7b3475f0e2" -d '' -X DELETE \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTMzIiwiZW1haWwiOiJlbWFpbC0yN0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMwfQ.NWGwal5ZV9mFrA7auVWpZcxDiBJ9N4WJuEbs5nrZm1Y" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -88,7 +88,7 @@ Headers
 
 ::
 
-  X-VCAP-Request-ID: 49a5ea0b-8f1e-4d1d-bf88-ecdeac5c8f82
+  X-VCAP-Request-ID: 1bf4dfdd-eead-43ba-b491-fc0f89b2726c
   X-Content-Type-Options: nosniff
 
 

@@ -36,7 +36,7 @@ Fields
 |                      |                                                                                                                                                                                    |                                |              | - 2048                                                        |
 |                      |                                                                                                                                                                                    |                                |              |                                                               |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------+---------------------------------------------------------------+
-| space_guid           | The guid of the associated space.                                                                                                                                                  |                                |              | - guid-3982e06e-a857-4f29-8899-a36241cf7743                   |
+| space_guid           | The guid of the associated space.                                                                                                                                                  |                                |              | - guid-b9a2bd90-946b-472c-922a-39a65fdee0c6                   |
 |                      |                                                                                                                                                                                    |                                |              |                                                               |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------+---------------------------------------------------------------+
 | stack_guid           | The guid of the associated stack.                                                                                                                                                  | Uses the default system stack. |              |                                                               |
@@ -105,37 +105,37 @@ Parameters
 .. cssclass:: fields table-striped table-bordered table-condensed
 
 
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| Name                   | Description                                                                                                                        |
-|                        |                                                                                                                                    |
-+========================+====================================================================================================================================+
-| q                      | Parameters used to filter the result set. Valid filters: name, space_guid, organization_guid, restart_required, state, sso_enabled |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| page                   | Page of results to fetch                                                                                                           |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| pretty                 | Enable pretty-printing of responses                                                                                                |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| results-per-page       | Number of results per page                                                                                                         |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| inline-relations-depth | 0 - don't inline any relations and return URLs. Otherwise, inline to depth N.                                                      |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| exclude-relations      | Exclude the given relations from inlining.                                                                                         |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| include-relations      | Include only the given relations during inlining.                                                                                  |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| order                  | Result ordering, either 'asc' or 'desc'. Defaults to ascending.                                                                    |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| order-by               | The column to order results by.                                                                                                    |
-|                        |                                                                                                                                    |
-+------------------------+------------------------------------------------------------------------------------------------------------------------------------+
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| Name                   | Description                                                                                                                                       |
+|                        |                                                                                                                                                   |
++========================+===================================================================================================================================================+
+| q                      | Parameters used to filter the result set. Valid filters: name, space_guid, organization_guid, restart_required, state, package_state, sso_enabled |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| page                   | Page of results to fetch                                                                                                                          |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| pretty                 | Enable pretty-printing of responses                                                                                                               |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| results-per-page       | Number of results per page                                                                                                                        |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| inline-relations-depth | 0 - don't inline any relations and return URLs. Otherwise, inline to depth N.                                                                     |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| exclude-relations      | Exclude the given relations from inlining.                                                                                                        |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| include-relations      | Include only the given relations during inlining.                                                                                                 |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| order                  | Result ordering, either 'asc' or 'desc'. Defaults to ascending.                                                                                   |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+| order-by               | The column to order results by.                                                                                                                   |
+|                        |                                                                                                                                                   |
++------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 Request
@@ -147,7 +147,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM4IiwiZW1haWwiOiJlbWFpbC0zOEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQ2fQ.gRSj4WnOkLpwYfHJwN1me7LBxEy7uReag9HUyPf_-so
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwMSIsImVtYWlsIjoiZW1haWwtODNAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NH0.3dkzWYsw5wh8-zXe8Q0zKaDX1yCYp6zA5ZpWnF9U_6Q
   Host: example.org
   Cookie:
 
@@ -166,7 +166,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/apps" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM4IiwiZW1haWwiOiJlbWFpbC0zOEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQ2fQ.gRSj4WnOkLpwYfHJwN1me7LBxEy7uReag9HUyPf_-so" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwMSIsImVtYWlsIjoiZW1haWwtODNAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NH0.3dkzWYsw5wh8-zXe8Q0zKaDX1yCYp6zA5ZpWnF9U_6Q" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -181,8 +181,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: d9a50bfc-de54-41cf-88f1-f9c85ed2a48f
-  Content-Length: 5310
+  X-VCAP-Request-ID: 90ab4577-e9e6-4c3f-b1dc-f1b108b2a9fa
+  Content-Length: 5664
   X-Content-Type-Options: nosniff
 
 
@@ -207,25 +207,25 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "b70a1166-5cee-46fa-8190-b87231e31364",
-          "url": "/v2/apps/b70a1166-5cee-46fa-8190-b87231e31364",
-          "created_at": "2014-04-07T11:19:06-07:00",
-          "updated_at": "2014-04-07T11:19:06-07:00"
+          "guid": "a7427044-ec8f-4eac-a3bb-cee90450c678",
+          "url": "/v2/apps/a7427044-ec8f-4eac-a3bb-cee90450c678",
+          "created_at": "2014-06-19T17:19:04-07:00",
+          "updated_at": "2014-06-19T17:19:04-07:00"
         },
         "entity": {
-          "guid": "b70a1166-5cee-46fa-8190-b87231e31364",
-          "name": "name-129",
+          "guid": "a7427044-ec8f-4eac-a3bb-cee90450c678",
+          "name": "name-588",
           "production": false,
-          "space_guid": "bd002a97-5755-4b22-9996-4a39abc05472",
-          "stack_guid": "54c28cd5-95e4-45f1-8997-fd2a2561d30f",
+          "space_guid": "bfaff659-9e0d-4f4a-9767-0452e72d785c",
+          "stack_guid": "7fe763c9-a898-4656-9987-d83136cf3258",
           "buildpack": null,
           "detected_buildpack": null,
           "environment_json": null,
           "memory": 1024,
-          "instances": 0,
+          "instances": 1,
           "disk_quota": 2048,
           "state": "STOPPED",
-          "version": "d3878361-8697-4b37-b952-5643abe572ff",
+          "version": "1fce932b-b9a6-4b53-9e37-53423984aa93",
           "command": null,
           "console": false,
           "debug": null,
@@ -246,34 +246,36 @@ Body
           "max_cpu_threshold": 80,
           "min_instances": 1,
           "max_instances": 2,
-          "space_url": "/v2/spaces/bd002a97-5755-4b22-9996-4a39abc05472",
-          "stack_url": "/v2/stacks/54c28cd5-95e4-45f1-8997-fd2a2561d30f",
-          "service_bindings_url": "/v2/apps/b70a1166-5cee-46fa-8190-b87231e31364/service_bindings",
-          "routes_url": "/v2/apps/b70a1166-5cee-46fa-8190-b87231e31364/routes",
-          "events_url": "/v2/apps/b70a1166-5cee-46fa-8190-b87231e31364/events"
+          "droplet_count": 1,
+          "space_url": "/v2/spaces/bfaff659-9e0d-4f4a-9767-0452e72d785c",
+          "stack_url": "/v2/stacks/7fe763c9-a898-4656-9987-d83136cf3258",
+          "service_bindings_url": "/v2/apps/a7427044-ec8f-4eac-a3bb-cee90450c678/service_bindings",
+          "routes_url": "/v2/apps/a7427044-ec8f-4eac-a3bb-cee90450c678/routes",
+          "app_versions_url": "/v2/apps/a7427044-ec8f-4eac-a3bb-cee90450c678/app_versions",
+          "events_url": "/v2/apps/a7427044-ec8f-4eac-a3bb-cee90450c678/events"
         }
       },
       {
         "metadata": {
-          "guid": "f862c6e5-bee8-49e8-84cf-e01e0f486f0d",
-          "url": "/v2/apps/f862c6e5-bee8-49e8-84cf-e01e0f486f0d",
-          "created_at": "2014-04-07T11:19:06-07:00",
-          "updated_at": "2014-04-07T11:19:06-07:00"
+          "guid": "6e1face5-2c4b-45ed-876c-3ab4d7b140f3",
+          "url": "/v2/apps/6e1face5-2c4b-45ed-876c-3ab4d7b140f3",
+          "created_at": "2014-06-19T17:19:04-07:00",
+          "updated_at": "2014-06-19T17:19:04-07:00"
         },
         "entity": {
-          "guid": "f862c6e5-bee8-49e8-84cf-e01e0f486f0d",
-          "name": "name-134",
+          "guid": "6e1face5-2c4b-45ed-876c-3ab4d7b140f3",
+          "name": "name-593",
           "production": false,
-          "space_guid": "1092c4d3-08d7-432e-bfeb-4ce7b194b2e6",
-          "stack_guid": "a8d9f531-feee-419d-b7fa-b8227325efad",
+          "space_guid": "831a7a06-bcbe-42e4-9f9d-a59869cb9a69",
+          "stack_guid": "0e8566f5-8c4b-49f4-8723-727a88fb36ee",
           "buildpack": null,
           "detected_buildpack": null,
           "environment_json": null,
           "memory": 1024,
-          "instances": 0,
+          "instances": 1,
           "disk_quota": 2048,
           "state": "STOPPED",
-          "version": "a81916e0-a426-4a1c-89ee-80718656642e",
+          "version": "9ba15c23-e037-42fb-9d9b-6da267263543",
           "command": null,
           "console": false,
           "debug": null,
@@ -294,34 +296,36 @@ Body
           "max_cpu_threshold": 80,
           "min_instances": 1,
           "max_instances": 2,
-          "space_url": "/v2/spaces/1092c4d3-08d7-432e-bfeb-4ce7b194b2e6",
-          "stack_url": "/v2/stacks/a8d9f531-feee-419d-b7fa-b8227325efad",
-          "service_bindings_url": "/v2/apps/f862c6e5-bee8-49e8-84cf-e01e0f486f0d/service_bindings",
-          "routes_url": "/v2/apps/f862c6e5-bee8-49e8-84cf-e01e0f486f0d/routes",
-          "events_url": "/v2/apps/f862c6e5-bee8-49e8-84cf-e01e0f486f0d/events"
+          "droplet_count": 1,
+          "space_url": "/v2/spaces/831a7a06-bcbe-42e4-9f9d-a59869cb9a69",
+          "stack_url": "/v2/stacks/0e8566f5-8c4b-49f4-8723-727a88fb36ee",
+          "service_bindings_url": "/v2/apps/6e1face5-2c4b-45ed-876c-3ab4d7b140f3/service_bindings",
+          "routes_url": "/v2/apps/6e1face5-2c4b-45ed-876c-3ab4d7b140f3/routes",
+          "app_versions_url": "/v2/apps/6e1face5-2c4b-45ed-876c-3ab4d7b140f3/app_versions",
+          "events_url": "/v2/apps/6e1face5-2c4b-45ed-876c-3ab4d7b140f3/events"
         }
       },
       {
         "metadata": {
-          "guid": "a2416192-c9f4-4cb2-923e-47562ff6676d",
-          "url": "/v2/apps/a2416192-c9f4-4cb2-923e-47562ff6676d",
-          "created_at": "2014-04-07T11:19:06-07:00",
-          "updated_at": "2014-04-07T11:19:06-07:00"
+          "guid": "43d32a9e-956e-4948-b351-56f0f8483e68",
+          "url": "/v2/apps/43d32a9e-956e-4948-b351-56f0f8483e68",
+          "created_at": "2014-06-19T17:19:04-07:00",
+          "updated_at": "2014-06-19T17:19:04-07:00"
         },
         "entity": {
-          "guid": "a2416192-c9f4-4cb2-923e-47562ff6676d",
-          "name": "name-139",
+          "guid": "43d32a9e-956e-4948-b351-56f0f8483e68",
+          "name": "name-598",
           "production": false,
-          "space_guid": "1ab236fc-7afd-4e24-a275-6c70b506f157",
-          "stack_guid": "3d3f559f-8aa8-4ec1-80bb-6db32baf97c2",
+          "space_guid": "140b0d7f-be7f-49a0-a8f2-91f11003ab85",
+          "stack_guid": "6d53ed48-cea0-4510-a19e-b446021ae651",
           "buildpack": null,
           "detected_buildpack": null,
           "environment_json": null,
           "memory": 1024,
-          "instances": 0,
+          "instances": 1,
           "disk_quota": 2048,
           "state": "STOPPED",
-          "version": "c164c2aa-87f9-428b-a858-03812f75f520",
+          "version": "7f1ec1a6-4ea8-40d2-a26b-7fbcfff21315",
           "command": null,
           "console": false,
           "debug": null,
@@ -342,11 +346,13 @@ Body
           "max_cpu_threshold": 80,
           "min_instances": 1,
           "max_instances": 2,
-          "space_url": "/v2/spaces/1ab236fc-7afd-4e24-a275-6c70b506f157",
-          "stack_url": "/v2/stacks/3d3f559f-8aa8-4ec1-80bb-6db32baf97c2",
-          "service_bindings_url": "/v2/apps/a2416192-c9f4-4cb2-923e-47562ff6676d/service_bindings",
-          "routes_url": "/v2/apps/a2416192-c9f4-4cb2-923e-47562ff6676d/routes",
-          "events_url": "/v2/apps/a2416192-c9f4-4cb2-923e-47562ff6676d/events"
+          "droplet_count": 1,
+          "space_url": "/v2/spaces/140b0d7f-be7f-49a0-a8f2-91f11003ab85",
+          "stack_url": "/v2/stacks/6d53ed48-cea0-4510-a19e-b446021ae651",
+          "service_bindings_url": "/v2/apps/43d32a9e-956e-4948-b351-56f0f8483e68/service_bindings",
+          "routes_url": "/v2/apps/43d32a9e-956e-4948-b351-56f0f8483e68/routes",
+          "app_versions_url": "/v2/apps/43d32a9e-956e-4948-b351-56f0f8483e68/app_versions",
+          "events_url": "/v2/apps/43d32a9e-956e-4948-b351-56f0f8483e68/events"
         }
       }
     ]

@@ -1,12 +1,12 @@
 
-Retrieve a Particular Job
--------------------------
+Retrieve Job Error message
+--------------------------
 
 
-GET /v2/apps/:guid
+GET /v2/jobs/:guid
 ~~~~~~~~~~~~~~~~~~
 
-This is an unauthenticated access to get the job's status with specified guid.
+This is an unauthenticated access to get the job's error status with specified guid.
 
 Fields
 ~~~~~~
@@ -47,7 +47,7 @@ Route
 
 ::
 
-  GET /v2/jobs/377678a6-c69e-4c8e-86f3-d6414232469f
+  GET /v2/jobs/db177bbd-36e9-4246-9a11-f9bd0d5975ef
 
 
 cURL
@@ -55,7 +55,7 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/jobs/377678a6-c69e-4c8e-86f3-d6414232469f" -X GET \
+  curl "https://api.[your-domain.com]/v2/jobs/db177bbd-36e9-4246-9a11-f9bd0d5975ef" -X GET \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -70,8 +70,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 3c0703b6-11cb-4d24-bcac-7524fb45c5e9
-  Content-Length: 275
+  X-VCAP-Request-ID: 0b497425-84b6-43f0-92ed-7020313713f1
+  Content-Length: 496
   X-Content-Type-Options: nosniff
 
 
@@ -90,13 +90,19 @@ Body
 
   {
     "metadata": {
-      "guid": "377678a6-c69e-4c8e-86f3-d6414232469f",
-      "created_at": "2014-04-07T11:19:08-07:00",
-      "url": "/v2/jobs/377678a6-c69e-4c8e-86f3-d6414232469f"
+      "guid": "db177bbd-36e9-4246-9a11-f9bd0d5975ef",
+      "created_at": "2014-06-19T17:18:51-07:00",
+      "url": "/v2/jobs/db177bbd-36e9-4246-9a11-f9bd0d5975ef"
     },
     "entity": {
-      "guid": "377678a6-c69e-4c8e-86f3-d6414232469f",
-      "status": "queued"
+      "guid": "db177bbd-36e9-4246-9a11-f9bd0d5975ef",
+      "status": "failed",
+      "error": "Use of entity>error is deprecated in favor of entity>error_details.",
+      "error_details": {
+        "error_code": "UnknownError",
+        "description": "An unknown error occurred.",
+        "code": 10001
+      }
     }
   }
 

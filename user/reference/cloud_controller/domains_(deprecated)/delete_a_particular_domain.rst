@@ -57,7 +57,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTkiLCJlbWFpbCI6ImVtYWlsLTlAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.4Z11nUfUrcDIvAGLMTB7Pr7WaM9-EHMFfxbTiV0DqGM
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwMiIsImVtYWlsIjoiZW1haWwtODRAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NX0.V6r5sKNfalj-ScM9930bAV-4InIHXGltd8rWVz7X9-g
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -68,7 +68,7 @@ Route
 
 ::
 
-  DELETE /v2/domains/bdd36aad-2271-4319-a2b2-49aea9ba7b94
+  DELETE /v2/domains/d4ee7c6b-bc11-40d1-b35c-1c2ee34a7d95
 
 
 cURL
@@ -76,8 +76,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/domains/bdd36aad-2271-4319-a2b2-49aea9ba7b94" -d '' -X DELETE \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTkiLCJlbWFpbCI6ImVtYWlsLTlAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.4Z11nUfUrcDIvAGLMTB7Pr7WaM9-EHMFfxbTiV0DqGM" \
+  curl "https://api.[your-domain.com]/v2/domains/d4ee7c6b-bc11-40d1-b35c-1c2ee34a7d95" -d '' -X DELETE \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwMiIsImVtYWlsIjoiZW1haWwtODRAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NX0.V6r5sKNfalj-ScM9930bAV-4InIHXGltd8rWVz7X9-g" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -92,8 +92,8 @@ Headers
 
 ::
 
-  X-VCAP-Request-ID: b4612968-bb22-4381-a5ec-2498b93549fa
-  X-Cf-Warning: Endpoint deprecated
+  X-VCAP-Request-ID: 207d1a9b-506c-41b6-a069-05f641a1b0d1
+  X-Cf-Warnings: Endpoint+deprecated
   X-Content-Type-Options: nosniff
 
 

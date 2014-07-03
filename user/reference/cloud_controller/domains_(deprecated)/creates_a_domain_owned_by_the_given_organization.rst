@@ -42,7 +42,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTciLCJlbWFpbCI6ImVtYWlsLTdAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.Uc51AqUhIaRhHnY-WTL-CPWz1tmToEYYbsHk97vyeNk
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwNSIsImVtYWlsIjoiZW1haWwtODdAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NX0.xt8zq0u_g3FWQiZoPtFf6GAvOmV85CgL-KZwhWabFw8
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -61,7 +61,7 @@ Body
 
 ::
 
-  {"name":"exmaple.com","wildcard":true,"owning_organization_guid":"298aea61-35cc-40ae-9670-70bd1375782a"}
+  {"name":"exmaple.com","wildcard":true,"owning_organization_guid":"f292255b-04e6-4047-a413-dde77323c25a"}
 
 
 cURL
@@ -69,8 +69,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/domains" -d '{"name":"exmaple.com","wildcard":true,"owning_organization_guid":"298aea61-35cc-40ae-9670-70bd1375782a"}' -X POST \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTciLCJlbWFpbCI6ImVtYWlsLTdAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.Uc51AqUhIaRhHnY-WTL-CPWz1tmToEYYbsHk97vyeNk" \
+  curl "https://api.[your-domain.com]/v2/domains" -d '{"name":"exmaple.com","wildcard":true,"owning_organization_guid":"f292255b-04e6-4047-a413-dde77323c25a"}' -X POST \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwNSIsImVtYWlsIjoiZW1haWwtODdAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NX0.xt8zq0u_g3FWQiZoPtFf6GAvOmV85CgL-KZwhWabFw8" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -86,10 +86,10 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  Location: /v2/domains/fde694ea-3efb-47ce-a308-3ef55546d57c
-  X-VCAP-Request-ID: 41887c36-206d-4d83-bdda-b76e259ddc79
-  X-Cf-Warning: Endpoint deprecated
-  Content-Length: 414
+  Location: /v2/domains/df94b92c-9551-464e-8d72-ab719aaa3269
+  X-VCAP-Request-ID: 222cd95b-b86a-479a-bf8e-9208902ba406
+  X-Cf-Warnings: Endpoint+deprecated
+  Content-Length: 491
   X-Content-Type-Options: nosniff
 
 
@@ -108,15 +108,16 @@ Body
 
   {
     "metadata": {
-      "guid": "fde694ea-3efb-47ce-a308-3ef55546d57c",
-      "url": "/v2/domains/fde694ea-3efb-47ce-a308-3ef55546d57c",
-      "created_at": "2014-04-07T11:18:53-07:00",
+      "guid": "df94b92c-9551-464e-8d72-ab719aaa3269",
+      "url": "/v2/domains/df94b92c-9551-464e-8d72-ab719aaa3269",
+      "created_at": "2014-06-19T17:19:05-07:00",
       "updated_at": null
     },
     "entity": {
       "name": "exmaple.com",
-      "owning_organization_guid": "298aea61-35cc-40ae-9670-70bd1375782a",
-      "owning_organization_url": "/v2/organizations/298aea61-35cc-40ae-9670-70bd1375782a"
+      "owning_organization_guid": "f292255b-04e6-4047-a413-dde77323c25a",
+      "owning_organization_url": "/v2/organizations/f292255b-04e6-4047-a413-dde77323c25a",
+      "spaces_url": "/v2/domains/df94b92c-9551-464e-8d72-ab719aaa3269/spaces"
     }
   }
 

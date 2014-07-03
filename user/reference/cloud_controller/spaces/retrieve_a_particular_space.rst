@@ -25,7 +25,7 @@ Fields
 |                   |                                         |         |              | - production                                |
 |                   |                                         |         |              |                                             |
 +-------------------+-----------------------------------------+---------+--------------+---------------------------------------------+
-| organization_guid | The guid of the associated organization |         |              | - guid-e6a9f1c9-e2dd-43b7-888b-dd04ad8fd826 |
+| organization_guid | The guid of the associated organization |         |              | - guid-90a03e48-ed1f-485d-bf50-4372c9eb3984 |
 |                   |                                         |         |              |                                             |
 +-------------------+-----------------------------------------+---------+--------------+---------------------------------------------+
 | developer_guids   | The list of the associated developers   |         |              |                                             |
@@ -51,7 +51,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQxIiwiZW1haWwiOiJlbWFpbC00MUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUwfQ.V-oKHBYuB-B2shRVRYWQzlX3euQ--muzUefQPwpvgoE
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE4IiwiZW1haWwiOiJlbWFpbC0xMkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzI4fQ.hL_1UGUpb-XH34oftbGPWdlwUxs219gKslWaTJMjGJA
   Host: example.org
   Cookie:
 
@@ -61,7 +61,7 @@ Route
 
 ::
 
-  GET /v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a
+  GET /v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff
 
 
 cURL
@@ -69,8 +69,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQxIiwiZW1haWwiOiJlbWFpbC00MUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUwfQ.V-oKHBYuB-B2shRVRYWQzlX3euQ--muzUefQPwpvgoE" \
+  curl "https://api.[your-domain.com]/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff" -X GET \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE4IiwiZW1haWwiOiJlbWFpbC0xMkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzI4fQ.hL_1UGUpb-XH34oftbGPWdlwUxs219gKslWaTJMjGJA" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -85,8 +85,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 66190038-bff6-4954-a561-3a3934107082
-  Content-Length: 1073
+  X-VCAP-Request-ID: c43e0e0b-d47a-4b28-a355-69b4b97b06c2
+  Content-Length: 1149
   X-Content-Type-Options: nosniff
 
 
@@ -105,24 +105,25 @@ Body
 
   {
     "metadata": {
-      "guid": "25b40658-329f-4d2e-bda5-5bb8d01aad3a",
-      "url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a",
-      "created_at": "2014-04-07T11:19:10-07:00",
+      "guid": "5eaa75ca-c127-4828-8263-4cdde9207bff",
+      "url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff",
+      "created_at": "2014-06-19T17:18:47-07:00",
       "updated_at": null
     },
     "entity": {
-      "name": "name-164",
-      "organization_guid": "3e30c75b-adcc-4a53-b9b6-23c09c912475",
+      "name": "name-266",
+      "organization_guid": "89730508-b505-4d53-8926-af0957360e91",
       "is_default": false,
-      "organization_url": "/v2/organizations/3e30c75b-adcc-4a53-b9b6-23c09c912475",
-      "developers_url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a/developers",
-      "managers_url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a/managers",
-      "auditors_url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a/auditors",
-      "apps_url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a/apps",
-      "domains_url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a/domains",
-      "service_instances_url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a/service_instances",
-      "app_events_url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a/app_events",
-      "events_url": "/v2/spaces/25b40658-329f-4d2e-bda5-5bb8d01aad3a/events"
+      "organization_url": "/v2/organizations/89730508-b505-4d53-8926-af0957360e91",
+      "developers_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/developers",
+      "managers_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/managers",
+      "auditors_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/auditors",
+      "apps_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/apps",
+      "routes_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/routes",
+      "domains_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/domains",
+      "service_instances_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/service_instances",
+      "app_events_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/app_events",
+      "events_url": "/v2/spaces/5eaa75ca-c127-4828-8263-4cdde9207bff/events"
     }
   }
 

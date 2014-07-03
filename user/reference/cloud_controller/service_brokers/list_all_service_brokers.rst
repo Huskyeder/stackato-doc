@@ -55,7 +55,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTIyIiwiZW1haWwiOiJlbWFpbC0yMkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM5fQ.9Kpk31s_DKGWtxlLMy8cIY6AqtPjm9kEQQHPuBRrbrg
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTkzIiwiZW1haWwiOiJlbWFpbC03NUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQyfQ.v97xAE2-wLbeqr4N7nL1IVjTeQKaa9VGWWP1d5nRAzc
   Host: example.org
   Cookie:
 
@@ -74,7 +74,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/service_brokers" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTIyIiwiZW1haWwiOiJlbWFpbC0yMkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM5fQ.9Kpk31s_DKGWtxlLMy8cIY6AqtPjm9kEQQHPuBRrbrg" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTkzIiwiZW1haWwiOiJlbWFpbC03NUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQyfQ.v97xAE2-wLbeqr4N7nL1IVjTeQKaa9VGWWP1d5nRAzc" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -89,8 +89,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 69ab2c28-5742-46e5-bbdc-64458815df88
-  Content-Length: 933
+  X-VCAP-Request-ID: 05fa4239-066b-48c5-9cd8-3e3bc89741f7
+  Content-Length: 941
   X-Content-Type-Options: nosniff
 
 
@@ -107,5 +107,5 @@ Body
 
 ::
 
-  {"total_results":3,"total_pages":1,"prev_url":null,"next_url":null,"resources":[{"metadata":{"guid":"b4e9ec99-5154-4817-a971-52397519f30c","created_at":"2014-04-07T11:18:59-07:00","updated_at":null,"url":"/v2/service_brokers/b4e9ec99-5154-4817-a971-52397519f30c"},"entity":{"name":"name-26","broker_url":"https://foo.com/url-1","auth_username":"auth_username-1"}},{"metadata":{"guid":"1b399612-4a45-4625-bfeb-7246042e08a1","created_at":"2014-04-07T11:18:59-07:00","updated_at":null,"url":"/v2/service_brokers/1b399612-4a45-4625-bfeb-7246042e08a1"},"entity":{"name":"name-27","broker_url":"https://foo.com/url-2","auth_username":"auth_username-2"}},{"metadata":{"guid":"46eaf5b3-dddc-47a3-a2e7-7bde103f98dd","created_at":"2014-04-07T11:18:59-07:00","updated_at":null,"url":"/v2/service_brokers/46eaf5b3-dddc-47a3-a2e7-7bde103f98dd"},"entity":{"name":"name-28","broker_url":"https://foo.com/url-3","auth_username":"auth_username-3"}}]}
+  {"total_results":3,"total_pages":1,"prev_url":null,"next_url":null,"resources":[{"metadata":{"guid":"e06e74c9-23a7-4a38-a690-e0698f83d6d5","created_at":"2014-06-19T17:19:01-07:00","updated_at":null,"url":"/v2/service_brokers/e06e74c9-23a7-4a38-a690-e0698f83d6d5"},"entity":{"name":"name-500","broker_url":"https://foo.com/url-22","auth_username":"auth_username-9"}},{"metadata":{"guid":"7785c97e-1b99-4c28-80f9-5042a17a3cdb","created_at":"2014-06-19T17:19:01-07:00","updated_at":null,"url":"/v2/service_brokers/7785c97e-1b99-4c28-80f9-5042a17a3cdb"},"entity":{"name":"name-501","broker_url":"https://foo.com/url-23","auth_username":"auth_username-10"}},{"metadata":{"guid":"f73f7fef-671a-43e1-81ef-cfb551c01e7b","created_at":"2014-06-19T17:19:01-07:00","updated_at":null,"url":"/v2/service_brokers/f73f7fef-671a-43e1-81ef-cfb551c01e7b"},"entity":{"name":"name-502","broker_url":"https://foo.com/url-24","auth_username":"auth_username-11"}}]}
 

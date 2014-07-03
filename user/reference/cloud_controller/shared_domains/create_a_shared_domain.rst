@@ -35,7 +35,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTIiLCJlbWFpbCI6ImVtYWlsLTJAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzMX0.nme1eh9e6aVkLcyzsgceJZfoZRDz0__ir4HJD1Aiszs
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTU3IiwiZW1haWwiOiJlbWFpbC01MUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM3fQ.SHaeTmdR9AeUg-TnMdDHHaW5vSi_qMMWjMACd1EnvnU
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -67,7 +67,7 @@ cURL
   curl "https://api.[your-domain.com]/v2/shared_domains" -d '{
     "name": "example.com"
   }' -X POST \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTIiLCJlbWFpbCI6ImVtYWlsLTJAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzMX0.nme1eh9e6aVkLcyzsgceJZfoZRDz0__ir4HJD1Aiszs" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTU3IiwiZW1haWwiOiJlbWFpbC01MUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM3fQ.SHaeTmdR9AeUg-TnMdDHHaW5vSi_qMMWjMACd1EnvnU" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -83,8 +83,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  Location: /v2/shared_domains/94a61b85-7131-419c-b84b-cb60f5e1a1f1
-  X-VCAP-Request-ID: b6d45ea8-fe9a-46e7-b309-6123d25a8395
+  Location: /v2/shared_domains/5fe4e320-a5cd-4094-b19f-d29dd8330bb6
+  X-VCAP-Request-ID: a8c6c9ae-a01d-4d47-89f1-f14cef06fc18
   Content-Length: 260
   X-Content-Type-Options: nosniff
 
@@ -104,9 +104,9 @@ Body
 
   {
     "metadata": {
-      "guid": "94a61b85-7131-419c-b84b-cb60f5e1a1f1",
-      "url": "/v2/shared_domains/94a61b85-7131-419c-b84b-cb60f5e1a1f1",
-      "created_at": "2014-04-07T11:18:51-07:00",
+      "guid": "5fe4e320-a5cd-4094-b19f-d29dd8330bb6",
+      "url": "/v2/shared_domains/5fe4e320-a5cd-4094-b19f-d29dd8330bb6",
+      "created_at": "2014-06-19T17:18:57-07:00",
       "updated_at": null
     },
     "entity": {

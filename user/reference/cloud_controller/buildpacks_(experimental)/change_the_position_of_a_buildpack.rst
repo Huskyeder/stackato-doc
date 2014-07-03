@@ -31,6 +31,12 @@ Fields
 | enabled  | Whether or not the buildpack will be used for staging                                        | true    |              |                    |
 |          |                                                                                              |         |              |                    |
 +----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
+| locked   | Whether or not the buildpack is locked to prevent updates                                    | false   |              |                    |
+|          |                                                                                              |         |              |                    |
++----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
+| filename | The name of the uploaded buildpack file                                                      |         |              |                    |
+|          |                                                                                              |         |              |                    |
++----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
 
 
 Request
@@ -42,7 +48,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE1IiwiZW1haWwiOiJlbWFpbC0xNUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.AziGO22foRaT9y3qy7ubBw2XgMBLL0h2hN-j02F-2tw
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY1IiwiZW1haWwiOiJlbWFpbC01OUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM4fQ.AF5ENOXP6CpFrCYLjEhtPINDdIo_IffimH9pYyzfXTE
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -53,7 +59,7 @@ Route
 
 ::
 
-  PUT /v2/buildpacks/4cebc1c8-e32c-40f8-b3e5-6d6273951700
+  PUT /v2/buildpacks/27bd71f1-56c1-4370-a988-9aefd380fd8c
 
 
 Body
@@ -69,8 +75,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/buildpacks/4cebc1c8-e32c-40f8-b3e5-6d6273951700" -d '{"position":3}' -X PUT \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE1IiwiZW1haWwiOiJlbWFpbC0xNUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.AziGO22foRaT9y3qy7ubBw2XgMBLL0h2hN-j02F-2tw" \
+  curl "https://api.[your-domain.com]/v2/buildpacks/27bd71f1-56c1-4370-a988-9aefd380fd8c" -d '{"position":3}' -X PUT \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY1IiwiZW1haWwiOiJlbWFpbC01OUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM4fQ.AF5ENOXP6CpFrCYLjEhtPINDdIo_IffimH9pYyzfXTE" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -86,8 +92,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: d3728ffa-6e3a-4645-9eed-d663a64c63f5
-  Content-Length: 314
+  X-VCAP-Request-ID: ff89f3b9-6589-45ca-b78b-434ba8695b64
+  Content-Length: 357
   X-Content-Type-Options: nosniff
 
 
@@ -106,15 +112,17 @@ Body
 
   {
     "metadata": {
-      "guid": "4cebc1c8-e32c-40f8-b3e5-6d6273951700",
-      "url": "/v2/buildpacks/4cebc1c8-e32c-40f8-b3e5-6d6273951700",
-      "created_at": "2014-04-07T11:18:57-07:00",
-      "updated_at": "2014-04-07T11:18:57-07:00"
+      "guid": "27bd71f1-56c1-4370-a988-9aefd380fd8c",
+      "url": "/v2/buildpacks/27bd71f1-56c1-4370-a988-9aefd380fd8c",
+      "created_at": "2014-06-19T17:18:58-07:00",
+      "updated_at": "2014-06-19T17:18:58-07:00"
     },
     "entity": {
       "name": "name_1",
       "position": 3,
-      "enabled": true
+      "enabled": true,
+      "locked": false,
+      "filename": null
     }
   }
 

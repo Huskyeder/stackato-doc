@@ -29,6 +29,12 @@ Fields
 | enabled  | Whether or not the buildpack will be used for staging                                        | true    |              |                    |
 |          |                                                                                              |         |              |                    |
 +----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
+| locked   | Whether or not the buildpack is locked to prevent updates                                    | false   |              |                    |
+|          |                                                                                              |         |              |                    |
++----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
+| filename | The name of the uploaded buildpack file                                                      |         |              |                    |
+|          |                                                                                              |         |              |                    |
++----------+----------------------------------------------------------------------------------------------+---------+--------------+--------------------+
 
 
 Parameters
@@ -55,7 +61,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE5IiwiZW1haWwiOiJlbWFpbC0xOUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.juXvx6TDOhPVBgnUjgF87S02N86YOX7IiWX13ADjw9U
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTYxIiwiZW1haWwiOiJlbWFpbC01NUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM4fQ.PDMDWLX-TgB2oNTmk-MPD9ssxpTpauy7yE4dhfpkPw0
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -66,7 +72,7 @@ Route
 
 ::
 
-  DELETE /v2/buildpacks/269557bb-f27d-4618-a54e-7fda9a5a9032
+  DELETE /v2/buildpacks/f03da8a5-cf18-48c5-a8dd-1ba2f78c48ac
 
 
 cURL
@@ -74,8 +80,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/buildpacks/269557bb-f27d-4618-a54e-7fda9a5a9032" -d '' -X DELETE \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE5IiwiZW1haWwiOiJlbWFpbC0xOUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM3fQ.juXvx6TDOhPVBgnUjgF87S02N86YOX7IiWX13ADjw9U" \
+  curl "https://api.[your-domain.com]/v2/buildpacks/f03da8a5-cf18-48c5-a8dd-1ba2f78c48ac" -d '' -X DELETE \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTYxIiwiZW1haWwiOiJlbWFpbC01NUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM4fQ.PDMDWLX-TgB2oNTmk-MPD9ssxpTpauy7yE4dhfpkPw0" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -90,7 +96,7 @@ Headers
 
 ::
 
-  X-VCAP-Request-ID: 1c9d2888-1c81-489d-bb3c-07bac2115459
+  X-VCAP-Request-ID: 2cef76d5-0cb8-4490-80f1-72ecf6b471cf
   X-Content-Type-Options: nosniff
 
 

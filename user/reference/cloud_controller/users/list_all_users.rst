@@ -100,7 +100,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY2IiwiZW1haWwiOiJlbWFpbC01N0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU5fQ.Bt5EVhJWMpqaQkCEfZDeIb9jkIRaxEOno1OqCUfVbE8
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTgzIiwiZW1haWwiOiJlbWFpbC03MUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQxfQ.QYXkPQrPR2kVhBP1lGx3Ts3vwa1GvoKKX_34CSF46zo
   Host: example.org
   Cookie:
 
@@ -119,7 +119,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/users" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTY2IiwiZW1haWwiOiJlbWFpbC01N0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU5fQ.Bt5EVhJWMpqaQkCEfZDeIb9jkIRaxEOno1OqCUfVbE8" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTgzIiwiZW1haWwiOiJlbWFpbC03MUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQxfQ.QYXkPQrPR2kVhBP1lGx3Ts3vwa1GvoKKX_34CSF46zo" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -134,8 +134,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: d1d71f10-fa3a-4d10-bd5d-05aa9ce25c9b
-  Content-Length: 3600
+  X-VCAP-Request-ID: e6756134-a7ee-4aec-bfce-ad5fc0fda115
+  Content-Length: 3720
   X-Content-Type-Options: nosniff
 
 
@@ -160,90 +160,94 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "uaa-id-63",
-          "url": "/v2/users/uaa-id-63",
-          "created_at": "2014-04-07T11:19:19-07:00",
-          "updated_at": null
+          "guid": "uaa-id-80",
+          "url": "/v2/users/uaa-id-80",
+          "created_at": "2014-06-19T17:19:01-07:00",
+          "updated_at": null,
+          "logged_in_at": null
         },
         "entity": {
           "admin": false,
           "active": false,
           "default_space_guid": null,
-          "guid": "uaa-id-63",
+          "guid": "uaa-id-80",
           "username": "testuser",
-          "spaces_url": "/v2/users/uaa-id-63/spaces",
-          "organizations_url": "/v2/users/uaa-id-63/organizations",
-          "managed_organizations_url": "/v2/users/uaa-id-63/managed_organizations",
-          "billing_managed_organizations_url": "/v2/users/uaa-id-63/billing_managed_organizations",
-          "audited_organizations_url": "/v2/users/uaa-id-63/audited_organizations",
-          "managed_spaces_url": "/v2/users/uaa-id-63/managed_spaces",
-          "audited_spaces_url": "/v2/users/uaa-id-63/audited_spaces"
+          "spaces_url": "/v2/users/uaa-id-80/spaces",
+          "organizations_url": "/v2/users/uaa-id-80/organizations",
+          "managed_organizations_url": "/v2/users/uaa-id-80/managed_organizations",
+          "billing_managed_organizations_url": "/v2/users/uaa-id-80/billing_managed_organizations",
+          "audited_organizations_url": "/v2/users/uaa-id-80/audited_organizations",
+          "managed_spaces_url": "/v2/users/uaa-id-80/managed_spaces",
+          "audited_spaces_url": "/v2/users/uaa-id-80/audited_spaces"
         }
       },
       {
         "metadata": {
-          "guid": "uaa-id-64",
-          "url": "/v2/users/uaa-id-64",
-          "created_at": "2014-04-07T11:19:19-07:00",
-          "updated_at": null
+          "guid": "uaa-id-81",
+          "url": "/v2/users/uaa-id-81",
+          "created_at": "2014-06-19T17:19:01-07:00",
+          "updated_at": null,
+          "logged_in_at": null
         },
         "entity": {
           "admin": false,
           "active": false,
           "default_space_guid": null,
-          "guid": "uaa-id-64",
+          "guid": "uaa-id-81",
           "username": "testuser",
-          "spaces_url": "/v2/users/uaa-id-64/spaces",
-          "organizations_url": "/v2/users/uaa-id-64/organizations",
-          "managed_organizations_url": "/v2/users/uaa-id-64/managed_organizations",
-          "billing_managed_organizations_url": "/v2/users/uaa-id-64/billing_managed_organizations",
-          "audited_organizations_url": "/v2/users/uaa-id-64/audited_organizations",
-          "managed_spaces_url": "/v2/users/uaa-id-64/managed_spaces",
-          "audited_spaces_url": "/v2/users/uaa-id-64/audited_spaces"
+          "spaces_url": "/v2/users/uaa-id-81/spaces",
+          "organizations_url": "/v2/users/uaa-id-81/organizations",
+          "managed_organizations_url": "/v2/users/uaa-id-81/managed_organizations",
+          "billing_managed_organizations_url": "/v2/users/uaa-id-81/billing_managed_organizations",
+          "audited_organizations_url": "/v2/users/uaa-id-81/audited_organizations",
+          "managed_spaces_url": "/v2/users/uaa-id-81/managed_spaces",
+          "audited_spaces_url": "/v2/users/uaa-id-81/audited_spaces"
         }
       },
       {
         "metadata": {
-          "guid": "uaa-id-65",
-          "url": "/v2/users/uaa-id-65",
-          "created_at": "2014-04-07T11:19:19-07:00",
-          "updated_at": null
+          "guid": "uaa-id-82",
+          "url": "/v2/users/uaa-id-82",
+          "created_at": "2014-06-19T17:19:01-07:00",
+          "updated_at": null,
+          "logged_in_at": null
         },
         "entity": {
           "admin": false,
           "active": false,
           "default_space_guid": null,
-          "guid": "uaa-id-65",
+          "guid": "uaa-id-82",
           "username": "testuser",
-          "spaces_url": "/v2/users/uaa-id-65/spaces",
-          "organizations_url": "/v2/users/uaa-id-65/organizations",
-          "managed_organizations_url": "/v2/users/uaa-id-65/managed_organizations",
-          "billing_managed_organizations_url": "/v2/users/uaa-id-65/billing_managed_organizations",
-          "audited_organizations_url": "/v2/users/uaa-id-65/audited_organizations",
-          "managed_spaces_url": "/v2/users/uaa-id-65/managed_spaces",
-          "audited_spaces_url": "/v2/users/uaa-id-65/audited_spaces"
+          "spaces_url": "/v2/users/uaa-id-82/spaces",
+          "organizations_url": "/v2/users/uaa-id-82/organizations",
+          "managed_organizations_url": "/v2/users/uaa-id-82/managed_organizations",
+          "billing_managed_organizations_url": "/v2/users/uaa-id-82/billing_managed_organizations",
+          "audited_organizations_url": "/v2/users/uaa-id-82/audited_organizations",
+          "managed_spaces_url": "/v2/users/uaa-id-82/managed_spaces",
+          "audited_spaces_url": "/v2/users/uaa-id-82/audited_spaces"
         }
       },
       {
         "metadata": {
-          "guid": "uaa-id-66",
-          "url": "/v2/users/uaa-id-66",
-          "created_at": "2014-04-07T11:19:19-07:00",
-          "updated_at": null
+          "guid": "uaa-id-83",
+          "url": "/v2/users/uaa-id-83",
+          "created_at": "2014-06-19T17:19:01-07:00",
+          "updated_at": null,
+          "logged_in_at": null
         },
         "entity": {
           "admin": true,
           "active": false,
           "default_space_guid": null,
-          "guid": "uaa-id-66",
+          "guid": "uaa-id-83",
           "username": "testuser",
-          "spaces_url": "/v2/users/uaa-id-66/spaces",
-          "organizations_url": "/v2/users/uaa-id-66/organizations",
-          "managed_organizations_url": "/v2/users/uaa-id-66/managed_organizations",
-          "billing_managed_organizations_url": "/v2/users/uaa-id-66/billing_managed_organizations",
-          "audited_organizations_url": "/v2/users/uaa-id-66/audited_organizations",
-          "managed_spaces_url": "/v2/users/uaa-id-66/managed_spaces",
-          "audited_spaces_url": "/v2/users/uaa-id-66/audited_spaces"
+          "spaces_url": "/v2/users/uaa-id-83/spaces",
+          "organizations_url": "/v2/users/uaa-id-83/organizations",
+          "managed_organizations_url": "/v2/users/uaa-id-83/managed_organizations",
+          "billing_managed_organizations_url": "/v2/users/uaa-id-83/billing_managed_organizations",
+          "audited_organizations_url": "/v2/users/uaa-id-83/audited_organizations",
+          "managed_spaces_url": "/v2/users/uaa-id-83/managed_spaces",
+          "audited_spaces_url": "/v2/users/uaa-id-83/audited_spaces"
         }
       }
     ]

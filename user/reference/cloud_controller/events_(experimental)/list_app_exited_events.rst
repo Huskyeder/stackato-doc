@@ -36,11 +36,17 @@ Fields
 |                   |                                          |         |                              | - app              |
 |                   |                                          |         |                              |                    |
 +-------------------+------------------------------------------+---------+------------------------------+--------------------+
+| actor_name        | The name of the actor.                   |         |                              |                    |
+|                   |                                          |         |                              |                    |
++-------------------+------------------------------------------+---------+------------------------------+--------------------+
 | actee             | The GUID of the actee.                   |         |                              |                    |
 |                   |                                          |         |                              |                    |
 +-------------------+------------------------------------------+---------+------------------------------+--------------------+
 | actee_type        | The actee type.                          |         |                              | - space            |
 |                   |                                          |         |                              | - app              |
+|                   |                                          |         |                              |                    |
++-------------------+------------------------------------------+---------+------------------------------+--------------------+
+| actee_name        | The name of the actee.                   |         |                              |                    |
 |                   |                                          |         |                              |                    |
 +-------------------+------------------------------------------+---------+------------------------------+--------------------+
 | timestamp         | The event creation time.                 |         |                              |                    |
@@ -105,7 +111,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTUzIiwiZW1haWwiOiJlbWFpbC01MUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU0fQ.33bLg1nV3M3Y5o9kgd9VTWqZvhTa40BBcbzHEtuUIAs
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTUiLCJlbWFpbCI6ImVtYWlsLTNAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODMyNn0.3NmmimHN5LdA1-Kg-tH0Q1EptqUhRX2YdOknmYXXVtM
   Host: example.org
   Cookie:
 
@@ -132,7 +138,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/events?q=type:app.crash" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTUzIiwiZW1haWwiOiJlbWFpbC01MUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTU0fQ.33bLg1nV3M3Y5o9kgd9VTWqZvhTa40BBcbzHEtuUIAs" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTUiLCJlbWFpbCI6ImVtYWlsLTNAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODMyNn0.3NmmimHN5LdA1-Kg-tH0Q1EptqUhRX2YdOknmYXXVtM" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -147,8 +153,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 9b297de8-3a9f-483c-ae97-a8cb20825477
-  Content-Length: 1013
+  X-VCAP-Request-ID: 3d616268-261a-438b-9ca6-aa75cf46d9a7
+  Content-Length: 1007
   X-Content-Type-Options: nosniff
 
 
@@ -173,18 +179,20 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "e447165b-cf8c-48f1-abe2-f1c523ced466",
-          "url": "/v2/events/e447165b-cf8c-48f1-abe2-f1c523ced466",
-          "created_at": "2014-04-07T11:19:14-07:00",
+          "guid": "3869b711-2d43-4a1b-a0a4-8b9d14b0269e",
+          "url": "/v2/events/3869b711-2d43-4a1b-a0a4-8b9d14b0269e",
+          "created_at": "2014-06-19T17:18:46-07:00",
           "updated_at": null
         },
         "entity": {
           "type": "app.crash",
-          "actor": "309a9ccd-ff48-4606-816e-340d2ce29987",
+          "actor": "3da9d3c6-ef5e-48ef-97df-9da296649a03",
           "actor_type": "app",
-          "actee": "309a9ccd-ff48-4606-816e-340d2ce29987",
+          "actor_name": "name-83",
+          "actee": "3da9d3c6-ef5e-48ef-97df-9da296649a03",
           "actee_type": "app",
-          "timestamp": "2014-04-07T11:19:14-07:00",
+          "actee_name": "name-83",
+          "timestamp": "2014-06-19T17:18:46-07:00",
           "metadata": {
             "instance": 0,
             "index": 1,
@@ -192,9 +200,8 @@ Body
             "exit_description": "out of memory",
             "reason": "crashed"
           },
-          "space_guid": "80e568ba-7494-4c96-9b41-25ec96aaac72",
-          "organization_guid": "16046e4a-b7c2-406b-b7c2-daa9b7ef4aca",
-          "space_url": "/v2/spaces/80e568ba-7494-4c96-9b41-25ec96aaac72"
+          "space_guid": "b6f62e0e-5a7f-4507-bae5-86bb542c1262",
+          "organization_guid": "5020c799-09fd-4a28-9222-4c5d948a209b"
         }
       }
     ]

@@ -53,7 +53,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwIiwiZW1haWwiOiJlbWFpbC0xMEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM1fQ.SdYad3HjFClO2Jg9aqC57lVAbGrfW2VI3ApkaRm6nlE
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTczIiwiZW1haWwiOiJlbWFpbC02N0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM5fQ.lguce8r9w5P27Bj7lCrNvdMslI-lnUguKWJNHAPavR4
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -64,7 +64,7 @@ Route
 
 ::
 
-  PUT /v2/quota_definitions/38b4973d-79ea-4f73-a61f-a599e6fb17f5
+  PUT /v2/quota_definitions/9b7e088f-92c1-4474-86b0-72bd43142f4c
 
 
 Body
@@ -86,14 +86,14 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/quota_definitions/38b4973d-79ea-4f73-a61f-a599e6fb17f5" -d '{
+  curl "https://api.[your-domain.com]/v2/quota_definitions/9b7e088f-92c1-4474-86b0-72bd43142f4c" -d '{
     "name": "gold_quota",
     "non_basic_services_allowed": true,
     "total_services": 5,
     "total_routes": 10,
     "memory_limit": 5120
   }' -X PUT \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwIiwiZW1haWwiOiJlbWFpbC0xMEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM1fQ.SdYad3HjFClO2Jg9aqC57lVAbGrfW2VI3ApkaRm6nlE" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTczIiwiZW1haWwiOiJlbWFpbC02N0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM5fQ.lguce8r9w5P27Bj7lCrNvdMslI-lnUguKWJNHAPavR4" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -109,8 +109,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 43209b7e-9a79-4be1-b6c3-97b38c63f633
-  Content-Length: 456
+  X-VCAP-Request-ID: 5f872c20-1d5a-45c2-a8aa-7a3320432dfe
+  Content-Length: 481
   X-Content-Type-Options: nosniff
 
 
@@ -129,10 +129,10 @@ Body
 
   {
     "metadata": {
-      "guid": "38b4973d-79ea-4f73-a61f-a599e6fb17f5",
-      "url": "/v2/quota_definitions/38b4973d-79ea-4f73-a61f-a599e6fb17f5",
-      "created_at": "2014-04-07T11:18:55-07:00",
-      "updated_at": "2014-04-07T11:18:55-07:00"
+      "guid": "9b7e088f-92c1-4474-86b0-72bd43142f4c",
+      "url": "/v2/quota_definitions/9b7e088f-92c1-4474-86b0-72bd43142f4c",
+      "created_at": "2014-06-19T17:18:59-07:00",
+      "updated_at": "2014-06-19T17:18:59-07:00"
     },
     "entity": {
       "name": "gold_quota",
@@ -141,7 +141,8 @@ Body
       "memory_limit": 5120,
       "trial_db_allowed": false,
       "allow_sudo": false,
-      "total_routes": 10
+      "total_routes": 10,
+      "total_droplets": 5
     }
   }
 

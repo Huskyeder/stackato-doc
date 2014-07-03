@@ -29,7 +29,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTI3IiwiZW1haWwiOiJlbWFpbC0yN0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQxfQ.wKl5Cst1LZ49WVf4O9OShjILqqKLA0dtZ4ZTqzqDCe0
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwNyIsImVtYWlsIjoiZW1haWwtODlAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0Nn0.XbuB6Idj7kMo-xPwklbvOem7TyMdrQgUmw-evttQ670
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -49,7 +49,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/app_usage_events/destructively_purge_all_and_reseed_started_apps" -d '' -X POST \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTI3IiwiZW1haWwiOiJlbWFpbC0yN0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQxfQ.wKl5Cst1LZ49WVf4O9OShjILqqKLA0dtZ4ZTqzqDCe0" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwNyIsImVtYWlsIjoiZW1haWwtODlAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0Nn0.XbuB6Idj7kMo-xPwklbvOem7TyMdrQgUmw-evttQ670" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -64,7 +64,7 @@ Headers
 
 ::
 
-  X-VCAP-Request-ID: 9205a7c1-7695-456d-ae8c-017d804f6c5c
+  X-VCAP-Request-ID: 06881ba6-3204-44be-a27b-125bdf5efa82
   X-Content-Type-Options: nosniff
 
 

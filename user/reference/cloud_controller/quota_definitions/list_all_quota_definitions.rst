@@ -92,7 +92,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE0IiwiZW1haWwiOiJlbWFpbC0xNEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM1fQ.DxfsbzNYMiFu0YhUAp-xx8oewlTszP7XEE-Ka17kppo
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTcwIiwiZW1haWwiOiJlbWFpbC02NEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM5fQ.zGk5BG1IamMQFHiqnbCzx4i3d8xfFyMxwGaQrNsSPmE
   Host: example.org
   Cookie:
 
@@ -111,7 +111,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/quota_definitions" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTE0IiwiZW1haWwiOiJlbWFpbC0xNEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTM1fQ.DxfsbzNYMiFu0YhUAp-xx8oewlTszP7XEE-Ka17kppo" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTcwIiwiZW1haWwiOiJlbWFpbC02NEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzM5fQ.zGk5BG1IamMQFHiqnbCzx4i3d8xfFyMxwGaQrNsSPmE" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -126,7 +126,7 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: c6357550-e194-4918-83a3-119805db3217
+  X-VCAP-Request-ID: 313e6f8a-3bfe-4fb1-b612-2dea4061f3f1
   Content-Length: 107
   X-Content-Type-Options: nosniff
 

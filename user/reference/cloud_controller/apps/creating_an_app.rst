@@ -36,7 +36,7 @@ Fields
 |                      |                                                                                                                                                                                    |                                |              | - 2048                                                        |
 |                      |                                                                                                                                                                                    |                                |              |                                                               |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------+---------------------------------------------------------------+
-| space_guid           | The guid of the associated space.                                                                                                                                                  |                                |              | - guid-3982e06e-a857-4f29-8899-a36241cf7743                   |
+| space_guid           | The guid of the associated space.                                                                                                                                                  |                                |              | - guid-b9a2bd90-946b-472c-922a-39a65fdee0c6                   |
 |                      |                                                                                                                                                                                    |                                |              |                                                               |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------+---------------------------------------------------------------+
 | stack_guid           | The guid of the associated stack.                                                                                                                                                  | Uses the default system stack. |              |                                                               |
@@ -108,7 +108,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM3IiwiZW1haWwiOiJlbWFpbC0zN0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQ2fQ.vYPaAVGrXFtWxZQxcHAymBZJIf62T2kq-U63eCFTTkY
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwMCIsImVtYWlsIjoiZW1haWwtODJAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NH0.ctrVDpLrjjN-_hFRr2ubqBGuWizo_smNF1GyfBGk_uU
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -127,7 +127,7 @@ Body
 
 ::
 
-  {"name":"my-super-app","memory":1024,"instances":2,"disk_quota":1204,"space_guid":"guid-3982e06e-a857-4f29-8899-a36241cf7743","space_guid":"1b272644-9f8f-4132-84d8-a52a970c18a0"}
+  {"name":"my-super-app","memory":1024,"instances":2,"disk_quota":1204,"space_guid":"guid-b9a2bd90-946b-472c-922a-39a65fdee0c6","space_guid":"118a2ab9-708f-4ee6-9125-c3fe1c9c83d7"}
 
 
 cURL
@@ -135,8 +135,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/apps" -d '{"name":"my-super-app","memory":1024,"instances":2,"disk_quota":1204,"space_guid":"guid-3982e06e-a857-4f29-8899-a36241cf7743","space_guid":"1b272644-9f8f-4132-84d8-a52a970c18a0"}' -X POST \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM3IiwiZW1haWwiOiJlbWFpbC0zN0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQ2fQ.vYPaAVGrXFtWxZQxcHAymBZJIf62T2kq-U63eCFTTkY" \
+  curl "https://api.[your-domain.com]/v2/apps" -d '{"name":"my-super-app","memory":1024,"instances":2,"disk_quota":1204,"space_guid":"guid-b9a2bd90-946b-472c-922a-39a65fdee0c6","space_guid":"118a2ab9-708f-4ee6-9125-c3fe1c9c83d7"}' -X POST \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwMCIsImVtYWlsIjoiZW1haWwtODJAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NH0.ctrVDpLrjjN-_hFRr2ubqBGuWizo_smNF1GyfBGk_uU" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -152,9 +152,9 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  Location: /v2/apps/48e6562a-4d35-46be-9e9a-9d999303e3ec
-  X-VCAP-Request-ID: 24a1b82a-2ff6-453e-9575-6d843c2c619c
-  Content-Length: 1531
+  Location: /v2/apps/97c6f16f-74e8-4f3d-b17b-c5bb0270eda9
+  X-VCAP-Request-ID: 7991fed6-6772-43f9-ae09-8d0214e8d826
+  Content-Length: 1641
   X-Content-Type-Options: nosniff
 
 
@@ -173,17 +173,17 @@ Body
 
   {
     "metadata": {
-      "guid": "48e6562a-4d35-46be-9e9a-9d999303e3ec",
-      "url": "/v2/apps/48e6562a-4d35-46be-9e9a-9d999303e3ec",
-      "created_at": "2014-04-07T11:19:06-07:00",
+      "guid": "97c6f16f-74e8-4f3d-b17b-c5bb0270eda9",
+      "url": "/v2/apps/97c6f16f-74e8-4f3d-b17b-c5bb0270eda9",
+      "created_at": "2014-06-19T17:19:04-07:00",
       "updated_at": null
     },
     "entity": {
-      "guid": "48e6562a-4d35-46be-9e9a-9d999303e3ec",
+      "guid": "97c6f16f-74e8-4f3d-b17b-c5bb0270eda9",
       "name": "my-super-app",
       "production": false,
-      "space_guid": "1b272644-9f8f-4132-84d8-a52a970c18a0",
-      "stack_guid": "613b43bf-413f-403d-a5e2-e0b82435a23e",
+      "space_guid": "118a2ab9-708f-4ee6-9125-c3fe1c9c83d7",
+      "stack_guid": "36892c55-02f7-49bd-b181-57a810586a2e",
       "buildpack": null,
       "detected_buildpack": null,
       "environment_json": {
@@ -193,7 +193,7 @@ Body
       "instances": 2,
       "disk_quota": 1204,
       "state": "STOPPED",
-      "version": "eae1ffb5-1b9d-43ec-a690-3601c4347c6e",
+      "version": "e26d72d3-ffde-4563-aae8-8418f2682298",
       "command": null,
       "console": false,
       "debug": null,
@@ -214,11 +214,13 @@ Body
       "max_cpu_threshold": 80,
       "min_instances": 1,
       "max_instances": 2,
-      "space_url": "/v2/spaces/1b272644-9f8f-4132-84d8-a52a970c18a0",
-      "stack_url": "/v2/stacks/613b43bf-413f-403d-a5e2-e0b82435a23e",
-      "service_bindings_url": "/v2/apps/48e6562a-4d35-46be-9e9a-9d999303e3ec/service_bindings",
-      "routes_url": "/v2/apps/48e6562a-4d35-46be-9e9a-9d999303e3ec/routes",
-      "events_url": "/v2/apps/48e6562a-4d35-46be-9e9a-9d999303e3ec/events"
+      "droplet_count": 0,
+      "space_url": "/v2/spaces/118a2ab9-708f-4ee6-9125-c3fe1c9c83d7",
+      "stack_url": "/v2/stacks/36892c55-02f7-49bd-b181-57a810586a2e",
+      "service_bindings_url": "/v2/apps/97c6f16f-74e8-4f3d-b17b-c5bb0270eda9/service_bindings",
+      "routes_url": "/v2/apps/97c6f16f-74e8-4f3d-b17b-c5bb0270eda9/routes",
+      "app_versions_url": "/v2/apps/97c6f16f-74e8-4f3d-b17b-c5bb0270eda9/app_versions",
+      "events_url": "/v2/apps/97c6f16f-74e8-4f3d-b17b-c5bb0270eda9/events"
     }
   }
 
@@ -237,31 +239,31 @@ Audit Record: audit.app.create
 | Attribute Name    | Value                                                       |
 |                   |                                                             |
 +===================+=============================================================+
-| id                | 1                                                           |
+| id                | 44                                                          |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
-| guid              | abb1d899-7b2d-40f9-b8bf-89db992b0abb                        |
+| guid              | 77298004-8196-4340-b5d3-0e6b5a6cfd02                        |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
-| created_at        | 2014-04-07 11:19:06 -0700                                   |
+| created_at        | 2014-06-19 17:19:04 -0700                                   |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
 | updated_at        |                                                             |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
-| timestamp         | 2014-04-07 11:19:06 -0700                                   |
+| timestamp         | 2014-06-19 17:19:04 -0700                                   |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
 | type              | audit.app.create                                            |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
-| actor             | uaa-id-37                                                   |
+| actor             | uaa-id-100                                                  |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
 | actor_type        | user                                                        |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
-| actee             | 48e6562a-4d35-46be-9e9a-9d999303e3ec                        |
+| actee             | 97c6f16f-74e8-4f3d-b17b-c5bb0270eda9                        |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
 | actee_type        | app                                                         |
@@ -275,12 +277,9 @@ Audit Record: audit.app.create
 |                   |       "memory": 1024,                                       |
 |                   |       "instances": 2,                                       |
 |                   |       "disk_quota": 1204,                                   |
-|                   |       "space_guid": "1b272644-9f8f-4132-84d8-a52a970c18a0", |
+|                   |       "space_guid": "118a2ab9-708f-4ee6-9125-c3fe1c9c83d7", |
 |                   |       "production": false,                                  |
 |                   |       "environment_json": "PRIVATE DATA HIDDEN",            |
-|                   |       "system_env_json": {                                  |
-|                   |                                                             |
-|                   |       },                                                    |
 |                   |       "state": "STOPPED",                                   |
 |                   |       "console": false,                                     |
 |                   |       "distribution_zone": "default",                       |
@@ -292,13 +291,19 @@ Audit Record: audit.app.create
 |                   |                                                             |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
-| space_id          | 4                                                           |
+| space_id          | 99                                                          |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
-| organization_guid | b9d38d40-5880-4b02-a256-5b6afb3e113f                        |
+| organization_guid | e679996a-881a-464b-aa4f-22c775a590d4                        |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
-| space_guid        | 1b272644-9f8f-4132-84d8-a52a970c18a0                        |
+| space_guid        | 118a2ab9-708f-4ee6-9125-c3fe1c9c83d7                        |
+|                   |                                                             |
++-------------------+-------------------------------------------------------------+
+| actor_name        | email-82@somedomain.com                                     |
+|                   |                                                             |
++-------------------+-------------------------------------------------------------+
+| actee_name        | my-super-app                                                |
 |                   |                                                             |
 +-------------------+-------------------------------------------------------------+
 

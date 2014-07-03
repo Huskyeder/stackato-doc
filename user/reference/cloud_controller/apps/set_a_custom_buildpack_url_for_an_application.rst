@@ -37,7 +37,7 @@ Fields
 |                      |                                                                                                                                                                                    |                                |              | - 2048                                                        |
 |                      |                                                                                                                                                                                    |                                |              |                                                               |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------+---------------------------------------------------------------+
-| space_guid           | The guid of the associated space.                                                                                                                                                  |                                |              | - guid-3982e06e-a857-4f29-8899-a36241cf7743                   |
+| space_guid           | The guid of the associated space.                                                                                                                                                  |                                |              | - guid-b9a2bd90-946b-472c-922a-39a65fdee0c6                   |
 |                      |                                                                                                                                                                                    |                                |              |                                                               |
 +----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------+--------------+---------------------------------------------------------------+
 | stack_guid           | The guid of the associated stack.                                                                                                                                                  | Uses the default system stack. |              |                                                               |
@@ -109,7 +109,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM0IiwiZW1haWwiOiJlbWFpbC0zNEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQ2fQ.xaurbbgIDXUFdNFoVsy5TEx-vLOxrMursfnOJV6Tj7A
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTk3IiwiZW1haWwiOiJlbWFpbC03OUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQzfQ.brulF3Ydc7RyWaKEhGCRytmiLZ4DkQhS47v4kQfcuc0
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -120,7 +120,7 @@ Route
 
 ::
 
-  PUT /v2/apps/91282eb6-1d8f-4a2f-9e6a-e3732478b8e6
+  PUT /v2/apps/131146a5-aefd-45e8-98df-a16fe3ca80a9
 
 
 Body
@@ -136,8 +136,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/apps/91282eb6-1d8f-4a2f-9e6a-e3732478b8e6" -d '{"buildpack":"http://github.com/a-buildpack"}' -X PUT \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM0IiwiZW1haWwiOiJlbWFpbC0zNEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQ2fQ.xaurbbgIDXUFdNFoVsy5TEx-vLOxrMursfnOJV6Tj7A" \
+  curl "https://api.[your-domain.com]/v2/apps/131146a5-aefd-45e8-98df-a16fe3ca80a9" -d '{"buildpack":"http://github.com/a-buildpack"}' -X PUT \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTk3IiwiZW1haWwiOiJlbWFpbC03OUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzQzfQ.brulF3Ydc7RyWaKEhGCRytmiLZ4DkQhS47v4kQfcuc0" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -153,8 +153,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: d5872e88-10c3-4519-a286-dca2f4d3ebc3
-  Content-Length: 1571
+  X-VCAP-Request-ID: 29d81df8-d117-4a03-948d-900e412ae0c2
+  Content-Length: 1682
   X-Content-Type-Options: nosniff
 
 
@@ -173,25 +173,25 @@ Body
 
   {
     "metadata": {
-      "guid": "91282eb6-1d8f-4a2f-9e6a-e3732478b8e6",
-      "url": "/v2/apps/91282eb6-1d8f-4a2f-9e6a-e3732478b8e6",
-      "created_at": "2014-04-07T11:19:06-07:00",
-      "updated_at": "2014-04-07T11:19:06-07:00"
+      "guid": "131146a5-aefd-45e8-98df-a16fe3ca80a9",
+      "url": "/v2/apps/131146a5-aefd-45e8-98df-a16fe3ca80a9",
+      "created_at": "2014-06-19T17:19:03-07:00",
+      "updated_at": "2014-06-19T17:19:03-07:00"
     },
     "entity": {
-      "guid": "91282eb6-1d8f-4a2f-9e6a-e3732478b8e6",
-      "name": "name-66",
+      "guid": "131146a5-aefd-45e8-98df-a16fe3ca80a9",
+      "name": "name-524",
       "production": false,
-      "space_guid": "911447f8-b346-4b02-b4b3-ffbd9cecff45",
-      "stack_guid": "3695cb2f-e370-414e-9f77-afd2db867b79",
+      "space_guid": "0dc15831-1756-4479-a892-63153716f0db",
+      "stack_guid": "20ece2d7-29ec-4a5a-a219-0b1d0a0f29de",
       "buildpack": "http://github.com/a-buildpack",
       "detected_buildpack": null,
       "environment_json": null,
       "memory": 1024,
-      "instances": 0,
+      "instances": 1,
       "disk_quota": 2048,
       "state": "STOPPED",
-      "version": "a7257733-3054-46d2-9bfe-b4a8d1e8a0e0",
+      "version": "31964ced-3b29-462b-bc57-12be772b9a1e",
       "command": null,
       "console": false,
       "debug": null,
@@ -212,11 +212,13 @@ Body
       "max_cpu_threshold": 80,
       "min_instances": 1,
       "max_instances": 2,
-      "space_url": "/v2/spaces/911447f8-b346-4b02-b4b3-ffbd9cecff45",
-      "stack_url": "/v2/stacks/3695cb2f-e370-414e-9f77-afd2db867b79",
-      "service_bindings_url": "/v2/apps/91282eb6-1d8f-4a2f-9e6a-e3732478b8e6/service_bindings",
-      "routes_url": "/v2/apps/91282eb6-1d8f-4a2f-9e6a-e3732478b8e6/routes",
-      "events_url": "/v2/apps/91282eb6-1d8f-4a2f-9e6a-e3732478b8e6/events"
+      "droplet_count": 1,
+      "space_url": "/v2/spaces/0dc15831-1756-4479-a892-63153716f0db",
+      "stack_url": "/v2/stacks/20ece2d7-29ec-4a5a-a219-0b1d0a0f29de",
+      "service_bindings_url": "/v2/apps/131146a5-aefd-45e8-98df-a16fe3ca80a9/service_bindings",
+      "routes_url": "/v2/apps/131146a5-aefd-45e8-98df-a16fe3ca80a9/routes",
+      "app_versions_url": "/v2/apps/131146a5-aefd-45e8-98df-a16fe3ca80a9/app_versions",
+      "events_url": "/v2/apps/131146a5-aefd-45e8-98df-a16fe3ca80a9/events"
     }
   }
 
@@ -235,31 +237,31 @@ Audit Record: audit.app.update
 | Attribute Name    | Value                                              |
 |                   |                                                    |
 +===================+====================================================+
-| id                | 1                                                  |
+| id                | 42                                                 |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
-| guid              | e770ea97-5c5b-4843-88e4-c3b251500c9c               |
+| guid              | 992932c3-3629-4d3d-9f0c-6fd96343bd4b               |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
-| created_at        | 2014-04-07 11:19:06 -0700                          |
+| created_at        | 2014-06-19 17:19:03 -0700                          |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
 | updated_at        |                                                    |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
-| timestamp         | 2014-04-07 11:19:06 -0700                          |
+| timestamp         | 2014-06-19 17:19:03 -0700                          |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
 | type              | audit.app.update                                   |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
-| actor             | uaa-id-34                                          |
+| actor             | uaa-id-97                                          |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
 | actor_type        | user                                               |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
-| actee             | 91282eb6-1d8f-4a2f-9e6a-e3732478b8e6               |
+| actee             | 131146a5-aefd-45e8-98df-a16fe3ca80a9               |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
 | actee_type        | app                                                |
@@ -275,13 +277,19 @@ Audit Record: audit.app.update
 |                   |                                                    |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
-| space_id          | 1                                                  |
+| space_id          | 87                                                 |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
-| organization_guid | d1a36764-2f1e-4d6e-9c1e-a90920fd008e               |
+| organization_guid | fda3bb9e-16b3-430e-9250-91d8391058b8               |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
-| space_guid        | 911447f8-b346-4b02-b4b3-ffbd9cecff45               |
+| space_guid        | 0dc15831-1756-4479-a892-63153716f0db               |
+|                   |                                                    |
++-------------------+----------------------------------------------------+
+| actor_name        | email-79@somedomain.com                            |
+|                   |                                                    |
++-------------------+----------------------------------------------------+
+| actee_name        | name-524                                           |
 |                   |                                                    |
 +-------------------+----------------------------------------------------+
 

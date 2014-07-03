@@ -79,7 +79,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTMwIiwiZW1haWwiOiJlbWFpbC0zMEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQzfQ.3yl6LZYkpiWtH6El8o2FTt854kKfLcoosbWrw5Y4xnU
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM5IiwiZW1haWwiOiJlbWFpbC0zM0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMyfQ.G2kjoxYBJpWuKB5dt5gFR-notOrJvAblwovnwH940Eo
   Host: example.org
   Cookie:
 
@@ -106,7 +106,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/service_auth_tokens" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTMwIiwiZW1haWwiOiJlbWFpbC0zMEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQzfQ.3yl6LZYkpiWtH6El8o2FTt854kKfLcoosbWrw5Y4xnU" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM5IiwiZW1haWwiOiJlbWFpbC0zM0Bzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMyfQ.G2kjoxYBJpWuKB5dt5gFR-notOrJvAblwovnwH940Eo" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -121,7 +121,7 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 368a07c3-1b42-48b7-95f5-fa6b9dc07884
+  X-VCAP-Request-ID: 92d6b57d-4cf5-433e-bd9a-94d3ae5eba7f
   Content-Length: 448
   X-Content-Type-Options: nosniff
 
@@ -147,13 +147,13 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "21d34918-6f9d-4f3b-93d4-6a2c3431b3c5",
-          "url": "/v2/service_auth_tokens/21d34918-6f9d-4f3b-93d4-6a2c3431b3c5",
-          "created_at": "2014-04-07T11:19:03-07:00",
+          "guid": "663a573a-f5a2-4779-9e83-166834d41fc1",
+          "url": "/v2/service_auth_tokens/663a573a-f5a2-4779-9e83-166834d41fc1",
+          "created_at": "2014-06-19T17:18:52-07:00",
           "updated_at": null
         },
         "entity": {
-          "label": "label-10",
+          "label": "label-18",
           "provider": "Face-Offer"
         }
       }

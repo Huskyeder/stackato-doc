@@ -42,7 +42,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTYiLCJlbWFpbCI6ImVtYWlsLTZAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.9LIVocXPOPZx3KnQHVoDMIyLb5Ev_ygHp3Uzuq7HMVY
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwNiIsImVtYWlsIjoiZW1haWwtODhAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NX0.KfGrSznlHoKH3IzFOZIavYtrkGdEfZC9kyNsFQdgCRo
   Host: example.org
   Content-Type: application/x-www-form-urlencoded
   Cookie:
@@ -76,7 +76,7 @@ cURL
     "name": "example.com",
     "wildcard": true
   }' -X POST \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTYiLCJlbWFpbCI6ImVtYWlsLTZAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTM5NzQ5OTUzM30.9LIVocXPOPZx3KnQHVoDMIyLb5Ev_ygHp3Uzuq7HMVY" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwNiIsImVtYWlsIjoiZW1haWwtODhAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0NX0.KfGrSznlHoKH3IzFOZIavYtrkGdEfZC9kyNsFQdgCRo" \
   	-H "Host: example.org" \
   	-H "Content-Type: application/x-www-form-urlencoded" \
   	-H "Cookie: "
@@ -92,9 +92,9 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  Location: /v2/domains/4f7ef27d-7108-4fb2-91a1-385fe2088776
-  X-VCAP-Request-ID: dbabc33e-7ca4-4e21-bb00-d561446c2e87
-  X-Cf-Warning: Endpoint deprecated
+  Location: /v2/domains/4017deba-7067-42ef-9ac8-7be6f2f517da
+  X-VCAP-Request-ID: 81039b7a-a296-4d4a-bff0-d53fd14a54a0
+  X-Cf-Warnings: Endpoint+deprecated
   Content-Length: 291
   X-Content-Type-Options: nosniff
 
@@ -114,9 +114,9 @@ Body
 
   {
     "metadata": {
-      "guid": "4f7ef27d-7108-4fb2-91a1-385fe2088776",
-      "url": "/v2/domains/4f7ef27d-7108-4fb2-91a1-385fe2088776",
-      "created_at": "2014-04-07T11:18:53-07:00",
+      "guid": "4017deba-7067-42ef-9ac8-7be6f2f517da",
+      "url": "/v2/domains/4017deba-7067-42ef-9ac8-7be6f2f517da",
+      "created_at": "2014-06-19T17:19:05-07:00",
       "updated_at": null
     },
     "entity": {

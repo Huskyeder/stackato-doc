@@ -39,6 +39,9 @@ Parameters
 | Name                   | Description                                                                   |
 |                        |                                                                               |
 +========================+===============================================================================+
+| q                      | Parameters used to filter the result set. Valid filters: name                 |
+|                        |                                                                               |
++------------------------+-------------------------------------------------------------------------------+
 | page                   | Page of results to fetch                                                      |
 |                        |                                                                               |
 +------------------------+-------------------------------------------------------------------------------+
@@ -74,7 +77,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQ0IiwiZW1haWwiOiJlbWFpbC00NEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUyfQ.doLnNu5Ej_Tjl4KTLOb0Xpz1Jyl8wNYPzztI1XJMawU
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTMyIiwiZW1haWwiOiJlbWFpbC0yNkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMwfQ.1GW5iGBBtrGHcMoyaMSsxDZPOCcWdSGA7RCxi2O9viM
   Host: example.org
   Cookie:
 
@@ -93,7 +96,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/private_domains" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTQ0IiwiZW1haWwiOiJlbWFpbC00NEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTUyfQ.doLnNu5Ej_Tjl4KTLOb0Xpz1Jyl8wNYPzztI1XJMawU" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTMyIiwiZW1haWwiOiJlbWFpbC0yNkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMwfQ.1GW5iGBBtrGHcMoyaMSsxDZPOCcWdSGA7RCxi2O9viM" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -108,8 +111,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: fe20d8dd-5a35-4ed8-91fc-a23c57d42797
-  Content-Length: 1539
+  X-VCAP-Request-ID: a0ed30fe-d818-42be-9e13-da1af8eb23eb
+  Content-Length: 1560
   X-Content-Type-Options: nosniff
 
 
@@ -134,41 +137,41 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "d9f314c3-d69b-4131-bcd7-ad27c80cf67d",
-          "url": "/v2/private_domains/d9f314c3-d69b-4131-bcd7-ad27c80cf67d",
-          "created_at": "2014-04-07T11:19:12-07:00",
+          "guid": "c447082b-4c47-4efe-97b1-70892e7abd94",
+          "url": "/v2/private_domains/c447082b-4c47-4efe-97b1-70892e7abd94",
+          "created_at": "2014-06-19T17:18:50-07:00",
           "updated_at": null
         },
         "entity": {
-          "name": "domain-33.com",
-          "owning_organization_guid": "eed2c6c1-4f8e-42f7-89a1-5a9294705cf4",
-          "owning_organization_url": "/v2/organizations/eed2c6c1-4f8e-42f7-89a1-5a9294705cf4"
+          "name": "domain-5.example.com",
+          "owning_organization_guid": "58be8c92-d005-432f-b39f-c09a0d462e96",
+          "owning_organization_url": "/v2/organizations/58be8c92-d005-432f-b39f-c09a0d462e96"
         }
       },
       {
         "metadata": {
-          "guid": "385d41bd-e99d-4258-adcf-08573748b007",
-          "url": "/v2/private_domains/385d41bd-e99d-4258-adcf-08573748b007",
-          "created_at": "2014-04-07T11:19:12-07:00",
+          "guid": "dfd95467-43f1-4472-b1cc-49d040d6d5a9",
+          "url": "/v2/private_domains/dfd95467-43f1-4472-b1cc-49d040d6d5a9",
+          "created_at": "2014-06-19T17:18:50-07:00",
           "updated_at": null
         },
         "entity": {
-          "name": "domain-34.com",
-          "owning_organization_guid": "86e771ce-311d-4141-a31d-7416f1519dcf",
-          "owning_organization_url": "/v2/organizations/86e771ce-311d-4141-a31d-7416f1519dcf"
+          "name": "domain-6.example.com",
+          "owning_organization_guid": "34d15c85-a264-4b1e-b253-999fa0c78a7d",
+          "owning_organization_url": "/v2/organizations/34d15c85-a264-4b1e-b253-999fa0c78a7d"
         }
       },
       {
         "metadata": {
-          "guid": "9e52834d-5c80-419a-bcb1-0b036787ecb4",
-          "url": "/v2/private_domains/9e52834d-5c80-419a-bcb1-0b036787ecb4",
-          "created_at": "2014-04-07T11:19:12-07:00",
+          "guid": "2ac9eadf-d43c-45db-8562-9463392d1451",
+          "url": "/v2/private_domains/2ac9eadf-d43c-45db-8562-9463392d1451",
+          "created_at": "2014-06-19T17:18:50-07:00",
           "updated_at": null
         },
         "entity": {
-          "name": "domain-35.com",
-          "owning_organization_guid": "46bbbda3-c3ea-4069-9a76-2aa6d9ef4eae",
-          "owning_organization_url": "/v2/organizations/46bbbda3-c3ea-4069-9a76-2aa6d9ef4eae"
+          "name": "domain-7.example.com",
+          "owning_organization_guid": "1e86bbcc-1786-429d-9691-bebde502cfbe",
+          "owning_organization_url": "/v2/organizations/1e86bbcc-1786-429d-9691-bebde502cfbe"
         }
       }
     ]

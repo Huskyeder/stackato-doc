@@ -40,7 +40,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTMxIiwiZW1haWwiOiJlbWFpbC0zMUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQzfQ.nbt_fM4Mp0EBTRmchPhlOLk-SW8upNuyshv2id7dpIk
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM4IiwiZW1haWwiOiJlbWFpbC0zMkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMyfQ.jiSSirtho9nN6NlCz4q247Lc7kxMOV6Zpv6utlQMDw4
   Host: example.org
   Cookie:
 
@@ -50,7 +50,7 @@ Route
 
 ::
 
-  GET /v2/service_auth_tokens/e120ecb8-d935-48f0-9576-319b38123ecc
+  GET /v2/service_auth_tokens/c88374d8-dbdf-4253-aa09-f2cbd7279695
 
 
 cURL
@@ -58,8 +58,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/service_auth_tokens/e120ecb8-d935-48f0-9576-319b38123ecc" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTMxIiwiZW1haWwiOiJlbWFpbC0zMUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQzfQ.nbt_fM4Mp0EBTRmchPhlOLk-SW8upNuyshv2id7dpIk" \
+  curl "https://api.[your-domain.com]/v2/service_auth_tokens/c88374d8-dbdf-4253-aa09-f2cbd7279695" -X GET \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM4IiwiZW1haWwiOiJlbWFpbC0zMkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMyfQ.jiSSirtho9nN6NlCz4q247Lc7kxMOV6Zpv6utlQMDw4" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -74,7 +74,7 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 4228567c-932f-47b0-8a8d-e403d5c78a3e
+  X-VCAP-Request-ID: 41f4e827-1089-4333-9562-b192fad26208
   Content-Length: 294
   X-Content-Type-Options: nosniff
 
@@ -94,14 +94,14 @@ Body
 
   {
     "metadata": {
-      "guid": "e120ecb8-d935-48f0-9576-319b38123ecc",
-      "url": "/v2/service_auth_tokens/e120ecb8-d935-48f0-9576-319b38123ecc",
-      "created_at": "2014-04-07T11:19:03-07:00",
+      "guid": "c88374d8-dbdf-4253-aa09-f2cbd7279695",
+      "url": "/v2/service_auth_tokens/c88374d8-dbdf-4253-aa09-f2cbd7279695",
+      "created_at": "2014-06-19T17:18:52-07:00",
       "updated_at": null
     },
     "entity": {
-      "label": "label-11",
-      "provider": "provider-11"
+      "label": "label-12",
+      "provider": "provider-12"
     }
   }
 

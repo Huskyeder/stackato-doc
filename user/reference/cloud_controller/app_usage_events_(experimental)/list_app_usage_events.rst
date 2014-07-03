@@ -14,43 +14,51 @@ Fields
 .. cssclass:: fields table-striped table-bordered table-condensed
 
 
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| Name                      | Description                                                                                                    | Default | Valid Values | Example Values |
-|                           |                                                                                                                |         |              |                |
-+===========================+================================================================================================================+=========+==============+================+
-| guid                      | The guid of the event.                                                                                         |         |              |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| state                     | The state of the app.                                                                                          |         | - STARTED    |                |
-|                           |                                                                                                                |         | - STOPPED    |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| instance_count            | How many instance of the app.                                                                                  |         |              |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| memory_in_mb_per_instance | How much memory per app instance.                                                                              |         |              | - 128          |
-|                           |                                                                                                                |         |              | - 256          |
-|                           |                                                                                                                |         |              | - 512          |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| app_guid                  | The GUID of the app.                                                                                           |         |              |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| app_name                  | The name of the app.                                                                                           |         |              |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| org_guid                  | The GUID of the organization.                                                                                  |         |              |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| space_guid                | The GUID of the space.                                                                                         |         |              |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| space_name                | The name of the space.                                                                                         |         |              |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
-| created_at                | The timestamp when the event is recorded. It is possible that later events may have earlier created_at values. |         |              |                |
-|                           |                                                                                                                |         |              |                |
-+---------------------------+----------------------------------------------------------------------------------------------------------------+---------+--------------+----------------+
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| Name                      | Description                                                                                                    | Default | Valid Values    | Example Values                      |
+|                           |                                                                                                                |         |                 |                                     |
++===========================+================================================================================================================+=========+=================+=====================================+
+| guid                      | The guid of the event.                                                                                         |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| state                     | The desired state of the app or 'BUILDPACK_SET' when buildpack info has been set.                              |         | - STARTED       |                                     |
+|                           |                                                                                                                |         | - STOPPED       |                                     |
+|                           |                                                                                                                |         | - BUILDPACK_SET |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| instance_count            | How many instance of the app.                                                                                  |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| memory_in_mb_per_instance | How much memory per app instance.                                                                              |         |                 | - 128                               |
+|                           |                                                                                                                |         |                 | - 256                               |
+|                           |                                                                                                                |         |                 | - 512                               |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| app_guid                  | The GUID of the app.                                                                                           |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| app_name                  | The name of the app.                                                                                           |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| org_guid                  | The GUID of the organization.                                                                                  |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| space_guid                | The GUID of the space.                                                                                         |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| space_name                | The name of the space.                                                                                         |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| buildpack_guid            | The GUID of the buildpack used to stage the app.                                                               |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| buildpack_name            | The name of the buildpack or the URL of the custom buildpack used to stage the app.                            |         |                 | - https://example.com/buildpack.git |
+|                           |                                                                                                                |         |                 | - admin_buildpack                   |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
+| created_at                | The timestamp when the event is recorded. It is possible that later events may have earlier created_at values. |         |                 |                                     |
+|                           |                                                                                                                |         |                 |                                     |
++---------------------------+----------------------------------------------------------------------------------------------------------------+---------+-----------------+-------------------------------------+
 
 
 Parameters
@@ -101,7 +109,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTI2IiwiZW1haWwiOiJlbWFpbC0yNkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQxfQ.JsUwYm5mRRKiNgEz3jgPj1S-YK4QneCgHMPuA0FBP6E
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwOCIsImVtYWlsIjoiZW1haWwtOTBAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0Nn0.i3NvI2jYA4O-o-ESAPLXu-Lc-WuScq4EGRVsbKWMk9Q
   Host: example.org
   Cookie:
 
@@ -111,7 +119,7 @@ Route
 
 ::
 
-  GET /v2/app_usage_events?results-per-page=1&after_guid=a5ea45df-5901-4dc1-8438-9758ce54d0d7
+  GET /v2/app_usage_events?results-per-page=1&after_guid=5735b6a6-faf1-4a02-84f5-ae21ded1671c
 
 
 Query Parameters
@@ -120,7 +128,7 @@ Query Parameters
 ::
 
   results-per-page: 1
-  after_guid: a5ea45df-5901-4dc1-8438-9758ce54d0d7
+  after_guid: 5735b6a6-faf1-4a02-84f5-ae21ded1671c
 
 
 cURL
@@ -128,8 +136,8 @@ cURL
 
 ::
 
-  curl "https://api.[your-domain.com]/v2/app_usage_events?results-per-page=1&after_guid=a5ea45df-5901-4dc1-8438-9758ce54d0d7" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTI2IiwiZW1haWwiOiJlbWFpbC0yNkBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQxfQ.JsUwYm5mRRKiNgEz3jgPj1S-YK4QneCgHMPuA0FBP6E" \
+  curl "https://api.[your-domain.com]/v2/app_usage_events?results-per-page=1&after_guid=5735b6a6-faf1-4a02-84f5-ae21ded1671c" -X GET \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTEwOCIsImVtYWlsIjoiZW1haWwtOTBAc29tZWRvbWFpbi5jb20iLCJzY29wZSI6WyJjbG91ZF9jb250cm9sbGVyLmFkbWluIl0sImF1ZCI6WyJjbG91ZF9jb250cm9sbGVyIl0sImV4cCI6MTQwMzgyODM0Nn0.i3NvI2jYA4O-o-ESAPLXu-Lc-WuScq4EGRVsbKWMk9Q" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -144,8 +152,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 516c2472-dfce-4fda-9a55-2d7ac36e9b20
-  Content-Length: 806
+  X-VCAP-Request-ID: a88f0952-7674-4da5-88d7-a49557521d70
+  Content-Length: 937
   X-Content-Type-Options: nosniff
 
 
@@ -166,23 +174,25 @@ Body
     "total_results": 2,
     "total_pages": 2,
     "prev_url": null,
-    "next_url": "/v2/app_usage_events?after_guid=a5ea45df-5901-4dc1-8438-9758ce54d0d7&page=2&results-per-page=1",
+    "next_url": "/v2/app_usage_events?after_guid=5735b6a6-faf1-4a02-84f5-ae21ded1671c&order-direction=asc&page=2&results-per-page=1",
     "resources": [
       {
         "metadata": {
-          "guid": "86306eef-e32f-4096-bcb8-25b85c0c7bc0",
-          "url": "/v2/app_usage_events/86306eef-e32f-4096-bcb8-25b85c0c7bc0",
-          "created_at": "2014-04-07T11:19:01-07:00"
+          "guid": "852f4ec8-a63d-4ddb-b183-ffd502bcd75a",
+          "url": "/v2/app_usage_events/852f4ec8-a63d-4ddb-b183-ffd502bcd75a",
+          "created_at": "2014-06-19T17:19:06-07:00"
         },
         "entity": {
           "state": "STARTED",
           "memory_in_mb_per_instance": 564,
           "instance_count": 1,
-          "app_guid": "guid-0f196d69-e148-4a32-b2d2-ed72a16ef4c1",
-          "app_name": "name-40",
-          "space_guid": "guid-68051df8-3aa9-460f-a65a-a5b745831dc5",
-          "space_name": "name-41",
-          "org_guid": "guid-6d611819-2a2d-454f-9210-4594102229e5"
+          "app_guid": "guid-74aba979-6337-472f-9841-a43f1d7f53d4",
+          "app_name": "name-637",
+          "space_guid": "guid-3db7f274-c0bc-4fb2-a8ac-2a231cbb87af",
+          "space_name": "name-638",
+          "org_guid": "guid-a2b9d24b-0517-420c-8c72-37b9228ce667",
+          "buildpack_guid": "guid-6f8d3c5e-6f7c-4c89-8757-7bf65136ac79",
+          "buildpack_name": "name-639"
         }
       }
     ]

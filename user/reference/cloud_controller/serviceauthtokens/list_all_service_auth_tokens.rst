@@ -79,7 +79,7 @@ Headers
 
 ::
 
-  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTI4IiwiZW1haWwiOiJlbWFpbC0yOEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQzfQ.wPQAM5WCIcPuDrV5x_X_WkcVjgdpguwDyoR1l_jW1ME
+  Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM3IiwiZW1haWwiOiJlbWFpbC0zMUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMyfQ.Cgn8P-wnJj_bdCyDnXO1nZlZOj6W8WPCbOzG0FXWlVk
   Host: example.org
   Cookie:
 
@@ -98,7 +98,7 @@ cURL
 ::
 
   curl "https://api.[your-domain.com]/v2/service_auth_tokens" -X GET \
-  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTI4IiwiZW1haWwiOiJlbWFpbC0yOEBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxMzk3NDk5NTQzfQ.wPQAM5WCIcPuDrV5x_X_WkcVjgdpguwDyoR1l_jW1ME" \
+  	-H "Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidWFhLWlkLTM3IiwiZW1haWwiOiJlbWFpbC0zMUBzb21lZG9tYWluLmNvbSIsInNjb3BlIjpbImNsb3VkX2NvbnRyb2xsZXIuYWRtaW4iXSwiYXVkIjpbImNsb3VkX2NvbnRyb2xsZXIiXSwiZXhwIjoxNDAzODI4MzMyfQ.Cgn8P-wnJj_bdCyDnXO1nZlZOj6W8WPCbOzG0FXWlVk" \
   	-H "Host: example.org" \
   	-H "Cookie: "
 
@@ -113,8 +113,8 @@ Headers
 ::
 
   Content-Type: application/json;charset=utf-8
-  X-VCAP-Request-ID: 1de8c6b6-26ef-44a3-aea0-8c97172ad5eb
-  Content-Length: 1131
+  X-VCAP-Request-ID: 93d65882-91ec-4743-86b5-9696aa64bb17
+  Content-Length: 1135
   X-Content-Type-Options: nosniff
 
 
@@ -139,38 +139,38 @@ Body
     "resources": [
       {
         "metadata": {
-          "guid": "c0c71de9-582a-4e71-ba0e-66ec02cc2d66",
-          "url": "/v2/service_auth_tokens/c0c71de9-582a-4e71-ba0e-66ec02cc2d66",
-          "created_at": "2014-04-07T11:19:03-07:00",
+          "guid": "40335045-77cf-45e5-9958-00a6ad0b5b04",
+          "url": "/v2/service_auth_tokens/40335045-77cf-45e5-9958-00a6ad0b5b04",
+          "created_at": "2014-06-19T17:18:52-07:00",
           "updated_at": null
         },
         "entity": {
-          "label": "label-1",
-          "provider": "provider-1"
+          "label": "label-9",
+          "provider": "provider-9"
         }
       },
       {
         "metadata": {
-          "guid": "626295a1-8412-4a41-9680-de7538f831a9",
-          "url": "/v2/service_auth_tokens/626295a1-8412-4a41-9680-de7538f831a9",
-          "created_at": "2014-04-07T11:19:03-07:00",
+          "guid": "2653deeb-42fa-497d-aa33-ae72542ebd7c",
+          "url": "/v2/service_auth_tokens/2653deeb-42fa-497d-aa33-ae72542ebd7c",
+          "created_at": "2014-06-19T17:18:52-07:00",
           "updated_at": null
         },
         "entity": {
-          "label": "label-2",
-          "provider": "provider-2"
+          "label": "label-10",
+          "provider": "provider-10"
         }
       },
       {
         "metadata": {
-          "guid": "04075e41-cd90-41ff-950b-93bccc12373f",
-          "url": "/v2/service_auth_tokens/04075e41-cd90-41ff-950b-93bccc12373f",
-          "created_at": "2014-04-07T11:19:03-07:00",
+          "guid": "d582fdfa-5925-46b4-b0cd-3156c99f69e8",
+          "url": "/v2/service_auth_tokens/d582fdfa-5925-46b4-b0cd-3156c99f69e8",
+          "created_at": "2014-06-19T17:18:52-07:00",
           "updated_at": null
         },
         "entity": {
-          "label": "label-3",
-          "provider": "provider-3"
+          "label": "label-11",
+          "provider": "provider-11"
         }
       }
     ]
