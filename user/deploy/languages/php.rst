@@ -181,3 +181,13 @@ session storage instead::
     - echo "session.save_handler = memcached" > "$STACKATO_APP_ROOT"/apache/php/sessions.ini
     - echo "session.save_path = $MEMCACHE_URL" >> "$STACKATO_APP_ROOT"/apache/php/sessions.ini
 
+
+PHP Modules
+-----------
+
+Additional modules for PHP can be added in the :ref:`requirements
+section <stackato_yml-requirements>` of *stackato.yml* (as Ubuntu
+packages) only if administrators have enabled an Ubuntu PPA for PHP 5.5.
+These modules are not available from the standard Ubuntu 12.04
+repositories configured in Stackato by default.
+

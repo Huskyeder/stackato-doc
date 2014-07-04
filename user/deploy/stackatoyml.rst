@@ -306,6 +306,9 @@ than binding to the existing 'sample-db' service::
   | sample      | 1 | RUNNING | sample.stackato-pjw3.local   | sample-db   |
   | sample-2    | 1 | RUNNING | sample-2.stackato-pjw3.local | sample-2-db |
   +-------------+---+---------+------------------------------+-------------+
+  
+
+.. _stackato_yml-requirements:
 
 requirements:
 ^^^^^^^^^^^^^
