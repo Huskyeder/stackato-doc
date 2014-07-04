@@ -3,6 +3,32 @@
 Known Issues
 ============
 
+.. _known-issues-php5-repos:
+
+PHP 5.5 Repositories
+--------------------
+
+Stackato ships with PHP 5.5 in the default Docker image. This version is
+more recent than the one available in the standard Ubuntu repositories.
+
+To get updates for PHP 5.5 or add additional modules (globally or as
+user-defined requirements for applications), a third-party package
+repository must be added to the Allowed Repos list.
+
+Stackato administrators can add the `PPA for PHP 5.5 maintained by
+Ondřej Surý <https://launchpad.net/~ondrej/+archive/php5>`_, or a
+different repository supporting compatible packages:
+
+* Using ``kato``::
+
+    kato config push cloud_controller_ng allowed_repos \
+    "deb http://ppa.launchpad.net/ondrej/php5/ubuntu precise main"
+
+* In the :ref:`Management Console settings
+  <console-settings-cloud-controller>`
+
+
+
 .. _known-issues-data-users:
 
 kato data users export|import broken
