@@ -24,6 +24,8 @@ specified in the main :ref:`Settings <console-settings>` page of the
 Management Console or set using :ref:`kato config
 <kato-command-ref-config>`.
 
+.. _app-store-definition:
+
 App Store Definition
 ^^^^^^^^^^^^^^^^^^^^
 

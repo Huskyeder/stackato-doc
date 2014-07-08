@@ -24,8 +24,7 @@ different repository supporting compatible packages:
     kato config push cloud_controller_ng allowed_repos \
     "deb http://ppa.launchpad.net/ondrej/php5/ubuntu precise main"
 
-* In the :ref:`Management Console settings
-  <console-settings-cloud-controller>`
+* In the :ref:`Management Console settings <console-settings-stackato>`
 
 
 

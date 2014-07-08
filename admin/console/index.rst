@@ -141,6 +141,7 @@ The Users section displays a list of users and admins.
 
 * Click on the user name or email address to view account details or
   change the password.
+  
 
 .. _console-dashboard:
 
@@ -200,6 +201,7 @@ Displays graphs for server statistics: CPU, Load, Memory, Disk
 Operations, Disk Space, Processes, and Swap (primary node or micro cloud
 only).
 
+
 .. _console-cloud-events:
 
 Cloud Events
@@ -216,6 +218,40 @@ Settings
 
 The Settings menu gives access to the following Console and system settings:
 
+
+.. _console-settings-stackato:
+
+Stackato Settings
+^^^^^^^^^^^^^^^^^
+
+* **System Settings**:
+
+  * **Logging Level**: Changes the verbosity of Stackato logs from
+    'debug2' (most verbose) through 'off' (silent).
+  
+  * **Support Email**: The email address displayed to end users when
+    errors are encountered. Use an address which is monitored by Stackato
+    administrators.
+
+* **App Store URLs**: URIs for :ref:`App Store Definition YAML files
+  <app-store-definition>` which populate the App Store. The URIs need
+  not be public, but must be accessible from the controller node.
+
+* **Allowed Repos**: Debian package repositories allowed in application
+  containers. End users can install additional packages (e.g. with
+  ``apt-get`` or ``aptitude``) only from these repositories.
+
+.. index:: maintenance mode
+
+.. _console-settings-maintenance-mode:
+
+* **Maintenance Mode**: Shuts down API requests but continues to serve
+  web requests, useful when performing system operations such as
+  importing and exporting data for upgrades. When the primary node
+  enters maintenance mode, the Management Console becomes "read only"
+  with the exception of this toggle (to bring it back online).
+
+
 .. _console-settings-applications:
 
 Applications
@@ -226,6 +262,7 @@ Applications
   prevents users from deploying applications on URIs which the system
   requires (e.g. 'api'), or for cases where a particular DNS sub-domain
   record is not being resolved to the Stackato system.
+
 
 Console
 ^^^^^^^
@@ -238,6 +275,9 @@ categories:
   deployments, change the default locale (currently only 'en' and 'de'
   available), choose a different URL for documentation, or disable
   console pingbacks.
+
+* **Client**: A version number setting and alternative paths/URLs for
+  alternative or renamed CLI clients.
   
 * **Look and Feel**: Change the favicon, header, footer, or background
   color.
@@ -248,16 +288,56 @@ categories:
 * **Support Page**: EJS templated HTML to display on the Support page.
   Change this if you are supporting your end users directly.
 
-* **Eula Content**: End User License Agreement. Change this if you are
-  exposing Stackato to end users under specific terms.
+* **Eula Content**: End User License Agreement. Change this only if you
+  are an OEM customer exposing Stackato to end users under your own
+  specific licensing terms.
 
 * **Custom Stylesheet**: A single CSS file used to override any existing
   styling in the Management Console. Inspect the Console with browser
   tools such as Firebug or Chrome Developer Tools to see the class names
   and IDs.
 
+Detailed instructions for customizing and branding Stackato can be found
+in the :ref:`Theming and Customization <customize>` section.
+
+
+.. _console-settings-dea:
+
+.. index:: Max Memory Percentage
+
+.. index:: max_memory_percentage
+
+DEA
+^^^
+
+* **Max Memory Percentage**: The percentage of physical memory each DEA
+  node can use for hosted applications. The 80% default setting leaves
+  enough memory for the OS and DEA processes on a node with 4GB of RAM.
+  This can be increased on nodes with more memory available (e.g. to 90%
+  on a node with 8GB of RAM). Do not exceed 100% unless the system
+  correctly supports swap space and has it enabled. Restart all DEA
+  roles/nodes to apply the change.
+  
+* **Max Staging Duration**: The maximum time allowed for application
+  staging. 
+
+
+.. _console-settings-logyard:
+
+Logyard
+^^^^^^^
+
+Lists current log :ref:`Drains <logging-drains-system>` and the log
+drain retry limits.
+Drains and limits cannot be changed in this interface;
+use the :ref:`kato log drain ... <kato-command-ref-log-drain-add>`
+commands and :ref:`kato config ... <kato-command-ref-config>`
+commands.
+
 
 .. _console-settings-quota-definitions:
+
+.. _console-settings-quota-plans:
 
 Quota Plans
 ^^^^^^^^^^^
@@ -280,66 +360,15 @@ following fields can be modified:
 To create a new definition use the :ref:`stackato quota create
 <command-quota create>` command.
  
-.. _console-settings-cloud-controller:
 
-Cloud Controller
-^^^^^^^^^^^^^^^^
+.. _console-settings-filesystem:
 
-.. index:: maintenance mode
+File System
+^^^^^^^^^^^
 
-.. _console-settings-maintenance-mode:
-
-* **Maintenance Mode**: Shuts down API requests but continues to serve
-  web requests, useful when performing system operations such as
-  importing and exporting data for upgrades. When the primary node
-  enters maintenance mode, the Management Console becomes "read only"
-  with the exception of this toggle (to bring it back online).
-
-* **Logging Level**: Changes the verbosity of Stackato logs from
-  'debug2' (most verbose) through 'off' (silent).
-
-* **Support Email**: The email address displayed to end users when
-  errors are encountered. Use an address which is monitored by Stackato
-  administrators.
-
-* **App Store URLs**: URIs for JSON files which populate the :ref:`App
-  Store <app-store>`. The URIs need not be public, but must be
-  accessible from the controller node.
-
-* **Allowed Repos**: Debian package repositories allowed in application
-  containers. End users can install additional packages (e.g. with
-  ``apt-get`` or ``aptitude``) only from these repositories.
-
-
-.. _console-settings-dea:
-
-DEA
-^^^
-.. index:: Max Memory Percentage
-.. index:: max_memory_percentage
-
-* **Max Memory Percentage**: The percentage of physical memory each DEA
-  node can use for hosted applications. The 80% default setting leaves
-  enough memory for the OS and DEA processes on a node with 4GB of RAM.
-  This can be increased on nodes with more memory available (e.g. to 90%
-  on a node with 8GB of RAM). Do not exceed 100% unless the system
-  correctly supports swap space and has it enabled. Restart all DEA
-  roles/nodes to apply the change.
-  
-* **Max Staging Duration**: The maximum time allowed for application
-  staging. 
-
-.. _console-settings-logyard:
-
-Logyard
-^^^^^^^
-
-Lists current log :ref:`Drains <logging-drains-system>` and the log
-drain retry limits.
-Drains and limits cannot be changed in this interface;
-use the :ref:`kato log drain ... <kato-command-ref-log-drain-add>`
-commands and :ref:`kato config ... <kato-command-ref-config>`
-commands.
+* **Capacity**: Maximum number of service slots to allocate.
+* **Max FS Size**: Maximum size on disk for filesystem services in MB.
+* **Allow Over-provisioning**: Ignore the Capacity setting.
 
 
 .. _console-settings-harbor:
@@ -356,6 +385,7 @@ Settings for the :ref:`Harbor <harbor>` TCP/UDP port service.
 * **Port Range Minimum**: Sets the minimum for the exposed port range (default: 35000).
 
 * **Port Range Maximum**: Sets the maximum for the exposed port range (default: 40000).
+
 
 See :ref:`Harbor: Requirements & Setup <harbor-setup>` for more information.
 
@@ -378,11 +408,13 @@ Data Services
 * **Max FS Size**: Maximum size on disk for filesystem services.
 
 
-.. _console-settings-filesystem:
+.. _console-settings-register:
 
-File System
-^^^^^^^^^^^
+Register Stackato
+^^^^^^^^^^^^^^^^^
 
-* **Capacity**: Maximum number of service slots to allocate.
-* **Max FS Size**: Maximum size on disk for filesystem services in MB.
-* **Allow Over-provisioning**: Ignore the Capacity setting. 
+Stackato ships without any license key installed. In this configuration you may use the VM as a stand-alone system using up to 4GB of RAM under the `Stackato Micro Cloud License Agreement <http://www.activestate.com/stackato/micro-cloud-license-agreement>`__.
+
+With a Free License Key you can create a :ref:`Stackato cluster <cluster-setup>` using up to 20GB of memory. Click the **Get a Free License** button to register on the ActiveState website. Paste the generated key in the **License Key** field to activate.
+
+For clusters larger than 20GB with technical support, contact stackato-sales@activestate.com for Stackato Enterprise pricing and options.
