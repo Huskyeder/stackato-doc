@@ -107,3 +107,44 @@ their respective service nodes. The default ranges are:
 .. note::
   You can check the currently configured port range for each service
   with ``kato config`` (e.g. ``kato config get redis_node port_range``).
+
+  
+Container Allowed Hosts & Ports
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For security reasons, Docker application containers restrict access to
+hosts on the eth0 subnet. By default, only ports and hosts for built-in
+services and components (e.g. service instances bound to an application)
+are explicitly allowed. The following settings are available to allow or
+restrict access from the application containers:
+
+* ``fence docker/allowed_host_ports``: If applications need access to
+  custom services on a specific port, but the IP address changes or is
+  not known ahead of time, add the port to this list. For example::
+  
+    $ kato config push fence docker/allowed_host_ports 25
+  
+* ``fence docker/allowed_subnet_ips``: If the specific IP address for
+  the service is static and known, add the IP address with or without
+  the port specification::
+  
+    $ kato config push fence docker/allowed_subnet_ips 10.0.0.54
+    $ kato config push fence docker/allowed_subnet_ips 10.0.0.55:9001
+    
+* ``fence docker/block_network_ips``: To explicitly block access to a
+  specific IP address (internal or external)::
+  
+    $ kato config push fence docker/block_network_ips 8.8.8.8
+
+Restart the DEA role to apply the changes.
+
+Two additional settings are exposed in ``kato config`` but should not
+generally be modified:
+
+* ``fence docker/exposed_container_ports``: Container ports to be
+  accessed over the subnet (internal services).
+
+* ``fence docker/network_interface``: The docker bridge interface. Do
+  not modify.
+  
+

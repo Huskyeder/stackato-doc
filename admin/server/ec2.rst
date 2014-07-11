@@ -162,12 +162,12 @@ All DEA and Data Service nodes would use the "Stackato-Internal" group,
 while externally facing nodes (e.g. Router) would use the "Stackato"
 group.
 
-.. include:: ../common/harbor-ports.inc
-
 .. note::
 
 	See :ref:`Stackato port requirements <cluster-config-ports>`
 	for more information on how these ports are used.
+
+.. include:: ../common/harbor-ports.inc
 
 .. _server-vm-ec2-etc-hosts:
 
