@@ -7,9 +7,8 @@ Adding Buildpacks
 =================
 
 Stackato has a number of built-in :ref:`buildpacks <buildpacks>`
-installed by default. Administrators can install additional buildpacks
-with the :ref:`stackato create-buildpack <command-create-buildpack>`
-command, making them available to developers pushing applications.
+installed by default. Administrators can install additional buildpacks,
+making them available to developers pushing applications.
 
 
 Building Packages
@@ -46,6 +45,20 @@ build target for these buildpacks fetch the external assets and bundle
 them in the .zip file. See their respective README files for more
 information.
 
+.. _add-buildpack-installing:
+
+Installing Packaged Buildpacks
+------------------------------
+
+Use the :ref:`stackato create-buildpack <command-create-buildpack>`
+command to upload and install buildpack .zip archives. For example::
+
+  $ stackato create-buildpack June2014CF-ruby ruby_buildpack.zip 
+  Creating new buildpack June2014CF-ruby ... OK
+  Uploading buildpack bits ... 100% OK
+  OK
+
+
 Buildpack Order
 ---------------
 
@@ -61,19 +74,20 @@ The order in which these ``detect`` scripts are run is displayed by the
 defaults::
 
   $ stackato buildpacks
-  +---+---------+-------------------------------+---------+--------+
-  | # | Name    | Filename                      | Enabled | Locked |
-  +---+---------+-------------------------------+---------+--------+
-  | 1 | java    | java-buildpack.zip            | yes     | no     |
-  | 2 | ruby    | heroku-buildpack-ruby.zip     | yes     | no     |
-  | 3 | nodejs  | heroku-buildpack-nodejs.zip   | yes     | no     |
-  | 4 | python  | stackato-buildpack-python.zip | yes     | no     |
-  | 5 | go      | heroku-buildpack-go.zip       | yes     | no     |
-  | 6 | clojure | heroku-buildpack-clojure.zip  | yes     | no     |
-  | 7 | scala   | heroku-buildpack-scala.zip    | yes     | no     |
-  | 8 | perl    | stackato-buildpack-perl.zip   | yes     | no     |
-  +---+---------+-------------------------------+---------+--------+
-  
+  +---+-------------------+--------------------+---------+--------+
+  | # | Name              | Filename           | Enabled | Locked |
+  +---+-------------------+--------------------+---------+--------+
+  | 1 | java              | java.zip           | yes     | no     |
+  | 2 | ruby              | ruby.zip           | yes     | no     |
+  | 3 | nodejs            | nodejs.zip         | yes     | no     |
+  | 4 | python            | python.zip         | yes     | no     |
+  | 5 | go                | go.zip             | yes     | no     |
+  | 6 | clojure           | clojure.zip        | yes     | no     |
+  | 7 | scala             | scala.zip          | yes     | no     |
+  | 8 | perl              | perl.zip           | yes     | no     |
+  | 9 | June2014CF-ruby   | ruby_buildpack.zip | yes     | no     |
+  +---+-------------------+--------------------+---------+--------+
+
 To change the order, use the :ref:`stackato update-buildpack
 <command-update-buildpack>` command to set the ``--position`` of the
 specified buildpack in this queue::
