@@ -110,6 +110,16 @@ provides will become available to users::
   | FP | postgresql  | PostgreSQL database service   | core     | 9.1     | free      | free                       |      |
   +----+-------------+-------------------------------+----------+---------+-----------+----------------------------+------+
 
+By default, service plans are created as private (the "P" in the
+leftmost column above). To make a plan available to your Organization,
+run the following command::
+
+  $ stackato curl put /v2/service_plans/<plan_guid> '{"public":true}'
+
+Get the "plan_guid" from the "metadata: guid" value of the service plan
+as shown by ``stackato service-brokers --json``. This guid is created
+when the broker is added to Stackato, and is not the same as the plan or
+service IDs specified in the service broker JSON config.
 
 .. _oracle-db:
 
