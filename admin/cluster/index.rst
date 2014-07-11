@@ -10,6 +10,9 @@ then be cloned across several :term:`node`\s.  You connect to each node
 in turn and tell it which :term:`role`\s it is to serve, thereby
 distributing the processing load for maximum performance.
 
+You should :ref:`register Stackato <console-settings-register>` and add
+the license key before building cluster.
+
 .. _server-cluster-roles:
 
 Roles
