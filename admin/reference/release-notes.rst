@@ -17,27 +17,126 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-  v3.4.0 RC1 (June 19, 2014)
-  --------------------------
+v3.4.1 (July 29, 2014)
+----------------------
 
-  * Docker 0.12.0 (XXX: verify by running 'docker version' on release VM)
-    https://bugs.activestate.com/show_bug.cgi?id=103872
-    http://blog.docker.io/2014/04/docker-0-10-quality-and-ops-tooling/
-    https://raw.githubusercontent.com/dotcloud/docker/master/CHANGELOG.md
-  * AppStore and redis processes running in Docker
-    https://docs.google.com/a/activestate.com/document/d/1rkhA3p1WWZhwJJNGQvHpJCHbnKCARpAPMWJzD7fBSlQ/edit?usp=sharing
-  * [103658] Logyard communication made faster; now uses Unix domain sockets instead of TCP loopback
-  * [103789] Upgrade gnatsd to 0.5.2
+* New Features
 
-  * Application stack changes
+  * :ref:`App Versions <app-versions>`: User application updates now tracked with versions for easier rollback.
+  * :ref:`Admin Buildpacks <add-buildpack>`: Administrators can now easily add custom buildpacks to the system.
+  
+* Enhancements & Updates
 
-    * [103517] Upgraded to latest git
-    * [103301] Upgraded ActivePython to 2.7.6.9 and 3.3.4.1
-    * Improved sshd logging
+  * Upgraded Docker to 1.0
+  * New upgrade back end for ``kato node upgrade`` (Sentinel)
+  * Several system processes (e.g. AppStore and Redis)now running in Docker containers.
+  * [103658] Logyard communication faster - using Unix domain sockets instead of TCP loopback.
+  * [103789] Upgraded gnatsd to 0.5.2.
+  * [101897] zeromq 3.2.4 for loygard/appstore
+  * [103674] Custom AOK endpoint URLs
 
-  * Other updates (User probably won't care, but worth listing for our future reference):
+* Application Stack Changes
 
-    * [101897] zeromq 3.2.4 for loygard/appstore
+  * [103517] Upgraded to latest git
+  * [103301] Upgraded ActivePython to 2.7.6.9 and 3.3.4.1
+  * [104164] Update stack to include missing prereq for 2.10.x import
+  * [104488] upgrade to ActivePython 2.7.8.10
+  * [104401] Missing libs from LXC container
+  * Improved sshd logging
+
+* Bug Fixes
+
+  * Management Console
+
+    * [102977] Can't issue patches to web console
+    * [103892] Patch notification box should not be coloured red when no patches are available
+    * [104176] The App Store application install button doesn't disappear when no app store urls exist
+    * [104026] Status: 400 error while inputting symbols in the search bar
+    * [103579] Deleting timeline comment throws an error
+    * [103605] UI displays no route for apps deployed from app store
+    * [104012] Application > Summary > Memory Usage: Should be Bright red if over capacity
+    * [103934] App summary screen: memory usage is counted for all stored droplets, not just the current one
+    * [104021] Search bar on cluster management is confusing
+    * [102716] Top bar re-design
+    * [102966] Add quota usage dashboard to org view
+    * [102949] Consistent search and filtering controls
+    
+  
+  * kato
+
+    * [103763] ``kato node setup micro --no-start`` silently fails
+    * [103719] ``kato`` always returns 0 exit code due to tee'ing the output
+    * [103869] ``kato data import`` of app fails and halts import
+    * [103824] ``kato node reset factory`` leaves VMs in a corrupt state
+    * [103919] ``kato relocate containers`` failing - Device or resource busy
+    * [102928] ``kato node rename`` hangs waiting for password
+    * [102768] ``kato restart`` on core node causes issues on other nodes
+    * [103905] ``kato op max_client_upload`` fails while restarting cc_nginx - undefined method \`join' for "cc_nginx":String (NoMethodError)
+    * [103310] ``kato node reset soft`` has been removed
+    * [103945] ``kato process ready --block`` does not actually timeout as expected
+  
+  * Upgrades & Migrations
+
+    * [103720] ``kato node upgrade`` remote upgrades not re-throwing exceptions after creating upgrade-failed flat file.
+    * [103921] Upgrade to 3.2.1 fails during role restart
+    * [104403] Legacy import must ignore the app-dir in stackato.yml
+    * [104374] Import fails if the app name contains an underscore
+    * [104400] Apps with an empty manifest.yml are not being imported
+    * [104405] Higher timeout for app import
+    * [104360] Legacy import of standalone apps crashes
+    * [103687] Upgrade failure with multiple CC's and cc_jobs process
+    * [104315] Can't login to console after upgrade to 3.4.1
+  
+  * Logyard:
+
+    * [104002] Staging has missing and duplicated lines
+    * [103948] Restarting apptail doesn't tail existing apps unless they are restarted
+    * [103107] App and system log stream improvements
+    * [100913] Logyard drains targetting harbor services don't reconnect
+
+  * Security:
+
+    * [103749] AOK: Apps can map the route aok.<system domain>
+    * [104192] Fixed open redirect in AOK
+    * [104280] Secure key regeneration using ``kato op regenerate ...``
+    * [103522] Reflected XSS vulnerability
+    * [104020] Locked down supervisord 
+
+
+  * Misc:
+  
+    * [103642,103657,103680] Fixed issues with ``kato relocate`` commands
+    * [104244] More detailed docs on ``prevent_x_spoofing`` router2g configuration with load balancers
+    * [104247] Improved documentation on configuring https proxies
+    * [104270] Fix "vendor_version" information of /info endpoint
+    * [103549] Org managers unable to create spaces
+    * [101009] Eclipse CFv2 plugin doesn't work with Stackato3
+    * [104371] Incorrect redirect URI error after enabling application SSO
+    * [103665] Assigning parent domain to org breaks CC_NG
+    * [100770] router2g file handle leak; systail inotify instances leak
+    * [104326] Increase upload limit from 0.5GB to 1.5GB
+    * [104114] Update to the new CF exception style in CCNG
+    * [103320] Issues installing oracledb service in 3.2.1
+    * [104141] Cannot create first user in multiple CC cluster - An unknown error occurred (10001)
+    * [103830] Configurable http_proxy for appstore
+    * [102399] supervisord pid problem with sudo
+    * [103699] pre-running hooks for imported legacy apps running too early
+    * [103693] Documentation on buildpack Procfiles
+    * [103895] Merge Cloud Controller changes from upstream
+    * [102679] Allow admins to modify/theme the Client name
+    
+
+  * Stackato CLI client updated to 3.1
+  
+    * [104254] ``stackato tunnel`` fails against 3.2 server
+    * [102774] Client hangs after ``target`` on Windows
+    * [103099] Some client commands extremely slow past a certain number of users
+    * [104052] Update test suite info for external users
+    * [103899] Client always explodes \*.war files
+    * [104203] The quota attribute 'trial_db_allowed' cannot be set anymore.
+    * [104225] Use a URL to specify the buildpack in create-buildpack
+    * [103560] Inconsistent quota handling affects app push
+  
 
 
 
