@@ -1271,7 +1271,9 @@ Command Usage Details
 
 **op** **remap_hosts** *<old-hostname>* *<new-hostname>*
 
-  Change the hostname to look for when remapping
+  Change the fully qualified basename (i.e. the default shared domain) in
+  the URLs of hosted applications. Used when renaming the system or
+  migrating user applications to a new system.
 
   **-h** **--help**                       Show help information
 
@@ -1356,7 +1358,7 @@ Command Usage Details
 
 .. _kato-command-ref-op-upstream_proxy:
 
-**op** **upstream_proxy** **set** *<proxy-address>* [**-u** *<user>*] [**-p** *<pass>*]
+**op** **upstream_proxy** **set** *<proxy-address>* [**-u** *<user>*] [**-p** *<pass>*] [**--no-proxy** *<no_proxy>*]
 
 **op** **upstream_proxy** **delete**
 
@@ -1368,6 +1370,8 @@ Command Usage Details
   **-u** **--user** *<user>*              Proxy username
 
   **-p** **--pass** *<pass>*              Proxy password
+
+  **--no-proxy** *<no_proxy>*             Comma separated list of domain names that should bypass the proxy
 
 
 
