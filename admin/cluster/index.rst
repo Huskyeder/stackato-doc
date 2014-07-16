@@ -426,6 +426,10 @@ For example, to share */home/stackato/stackato/data*:
   * Create a symlink from ``/home/stackato/stackato/data`` to the mount point::
 
     $ ln -s /mnt/controller /home/stackato/stackato/data
+    
+  * Copy the contents of ``/home/stackato/stackato/data.old`` into the new data directory::
+  
+    $ cp -r /home/stackato/stackato/data.old/* /home/stackato/stackato/data/
 
 * On the Core node, start the controller process::
 
