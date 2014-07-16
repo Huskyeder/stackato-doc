@@ -111,6 +111,27 @@ format::
 Replace ``setting_name`` with one of the variables above and that value
 will be reset to the default.
 
+Error Pages
+-----------
+
+To expose customized error pages, create the following HTML files in
+*/home/stackato/stackato/static/vendor/errors/*:
+
+* 404.html
+* 422.html
+* 500.html
+* 502.html
+* app-not-available.html
+
+When present, these files will be used to display the corresponding HTTP
+errors.
+
+The default error page files in
+*/home/stackato/stackato/code/console/errors/* can be used as a
+reference, but should not be modified directly as changes may be lost
+during upgrades or patches.
+
+
 Renaming the Client
 -------------------
 
