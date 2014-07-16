@@ -37,11 +37,11 @@ v3.4.1 (July 29, 2014)
 
 * Application Stack Changes
 
-  * [103517] Upgraded to latest git
-  * [103301] Upgraded ActivePython to 2.7.6.9 and 3.3.4.1
-  * [104164] Update stack to include missing prereq for 2.10.x import
-  * [104488] upgrade to ActivePython 2.7.8.10
-  * [104401] Missing libs from LXC container
+  * [103517] git 2.0.1
+  * [103301,104488] Upgraded to ActivePython 2.7.8.10 and 3.3.4.1
+  * npm 1.4.20 for Node 0.8
+  * [104164] Include prereqisites for 2.10.x import
+  * [104401] Added libevent-dev and libffi-dev
   * Improved sshd logging
 
 * Bug Fixes
