@@ -24,6 +24,9 @@ v3.4.1 (July 29, 2014)
 
   * :ref:`App Versions <app-versions>`: User application updates now tracked with versions for easier rollback.
   * :ref:`Admin Buildpacks <add-buildpack>`: Administrators can now easily add custom buildpacks to the system.
+  * [103539] Stackon subsystem for Docker-based Stackato add-ons
+  * [99935] IP based ACL for the Router
+  * [104414] New Stackato Micro Cloud License Agreement allowing clusters up to 20GB with a free license key
   
 * Enhancements & Updates
 
@@ -34,6 +37,7 @@ v3.4.1 (July 29, 2014)
   * [103789] Upgraded gnatsd to 0.5.2.
   * [101897] zeromq 3.2.4 for loygard/appstore
   * [103674] Custom AOK endpoint URLs
+  * [103908] Upstream merge of Cloud Foundry sources
 
 * Application Stack Changes
 
@@ -43,6 +47,7 @@ v3.4.1 (July 29, 2014)
   * [104164] Include prereqisites for 2.10.x import
   * [104401] Added libevent-dev and libffi-dev
   * Improved sshd logging
+  * [103130] App containers should have a ``stackato`` client
 
 * Bug Fixes
 
@@ -60,7 +65,28 @@ v3.4.1 (July 29, 2014)
     * [102716] Top bar re-design
     * [102966] Add quota usage dashboard to org view
     * [102949] Consistent search and filtering controls
-    
+    * [102369] Show available patches and major updates 
+    * [102718] Filterable App Store
+    * [103739] OEM white lable customization improvements
+    * [102963] Consistent terminology and language
+    * [104169] Web UI errors with LDAP admin group
+    * [103768] adding/deleting repo create duplicate "Allowed Repos" div
+    * [104274] User Provided Service causes error when viewing app in console - 110003 - service plan could not be found
+    * [104466] Timeline: Deactivate the preview button when the content is cleared
+    * [99801] Internationalization efforts
+    * [96728] Browser layout bugs on small viewports
+    * [103313] App store deployment fails - Response: undefined
+    * [104391] Add a "view app" icon to Applications page
+    * [104292] Cannot change app in timeline
+    * [104058] Deploy app space dropdown list shows blank
+    * [104322] Load custom styles before displaying "Loading" view
+    * [104275] Drilling down on user provided services in web console loads no data
+    * [104262] Update German translations
+    * [103685] Apps list shows apps as "STARTED" when they are not
+    * [103736] Clicking alerts goes to a page where there appears to be no problem
+    * [104116] When admin alerts clear, the user dropdown in the header stops working
+    * [103779] Router stats counter grows out of bounds
+  
   
   * kato
 
@@ -74,6 +100,21 @@ v3.4.1 (July 29, 2014)
     * [103905] ``kato op max_client_upload`` fails while restarting cc_nginx - undefined method \`join' for "cc_nginx":String (NoMethodError)
     * [103310] ``kato node reset soft`` has been removed
     * [103945] ``kato process ready --block`` does not actually timeout as expected
+    * [97785] Refactor usage and cmd.rb files for kato commands with >3 sub-commands
+    * [103906] ``kato op set_timezone`` not updated to use docker
+    * [103675] ``kato data import`` ignores manifest.yml
+    * [104238] docker daemon log should be in ``kato report``
+    * [103876] ``kato log tail`` drain should use UDP instead of TCP
+    * [103823] Intermittent failure of ``kato patch`` when fetching patch manifest from get.stackato.com
+    * [103969] ``kato patch status --json`` error
+    * [103676] ``kato data import`` doesn't always detect worker apps without a URL
+    * [104469] ``kato node rename`` crashing
+    * [104158] Patch state lost in micro -> node/core change
+    * [101788] Audit API for validation of input
+    * [101416] Add ``--upgrade option`` to ``kato op import_from_yaml_files``
+    * [103788] ``kato status`` hangs and stacktraces when a node goes offline
+    
+    
   
   * Upgrades & Migrations
 
@@ -86,6 +127,8 @@ v3.4.1 (July 29, 2014)
     * [104360] Legacy import of standalone apps crashes
     * [103687] Upgrade failure with multiple CC's and cc_jobs process
     * [104315] Can't login to console after upgrade to 3.4.1
+    * [103305] Upgrades fail to work through proxy
+    * [103742] Check 'urls' in addition to 'url' to determine the default route
   
   * Logyard:
 
@@ -93,6 +136,16 @@ v3.4.1 (July 29, 2014)
     * [103948] Restarting apptail doesn't tail existing apps unless they are restarted
     * [103107] App and system log stream improvements
     * [100913] Logyard drains targetting harbor services don't reconnect
+    * [97378] Improve ``stackato logs`` using websockets
+    * [104175] Kato custom log drains result in "MISSING"
+    * [103790,103958] Split long lines of ``kato log tail`` and app log streams 
+    * [103150] apptail message not clear when dropping loglines
+    * [103511] Fixed error colors in log tail
+    * [103839] apptail rate throttling improvement
+    * [103625] ERROR decoding json from a message with key
+    * [104173] Legacy importer fails to remap services correctly when multiple services of the same name exist
+    
+    
 
   * Security:
 
@@ -124,6 +177,49 @@ v3.4.1 (July 29, 2014)
     * [103693] Documentation on buildpack Procfiles
     * [103895] Merge Cloud Controller changes from upstream
     * [102679] Allow admins to modify/theme the Client name
+    * [103689] Implement lazy docker registry for sent
+    * [99952] Upgrade rollback
+    * [103944] Router websocket issues
+    * [103462] Fix application instance downscaling
+    * [103942] Cannot ssh to failed containers
+    * [103727] Instructions for updating docker image are incorrect
+    * [104153] Document container network security access options in fence
+    * [103529] If fence/dea fails, report it in the app log stream
+    * [103723] Default min_instances field not set
+    * [103937] Account for missing /dev/fd when using docker 0.11.1+
+    * [103836] Fence should report CPU usage scaled per core
+    * [103399] Make fence delegate to Docker for memory limit
+    * [100953] No error given with malformed app store yaml file
+    * [103922] Don't setup STACKATO_HARBOR_* variables during staging
+    * [103679] Docs: Updated notes on url generation in the client.
+    * [104369] Import of legacy apps with mangled manifest.yml fails
+    * [103712] App push: Error 10001: undefined method \`include?' for nil:NilClass (500)
+    * [103184] Autoscaling: Respond to large changes in average CPU more quickly
+    * [103918] Router: dispatchWebSocketErr function and terminate socket to allow long polling fallback for the clients
+    * [104216] Document limitations of legacy import
+    * [103952] cloud_controller_uploads_access.log not rotating properly
+    * [104344] Docs: Architecture diagram out of date
+    * [104299] AOK: LDAP error on invalid characters
+    * [103668] Autoscaling: Each app needs its own heartbeat counter
+    * [103059] ``kato data import/export`` cannot clearly delete the previous first admin account
+    * [102689] core node does not recognize elasticsearch custom plug-in
+    * [103886] AOK: Login info endpoint 500
+    * [104171] Document required apt repo to install additional PHP modules
+    * [102487] Fix docs for app_https_proxy
+    * [103528] load balancer not working post-upgrade
+    * [103638] Docs: Links to any cloudfoundry.com URL are broken
+    * [103333] Docs: Limitations of Procfile support
+    * [102793] Unicode in app description causes 500 error
+    * [101282] Switch back to using upstream cloudfoundry/cf-uaa-lib
+    * [98824] Check for ~/.stackato-firstboot-error in the MOTD
+    * [103391] Connect to local harbor-redis instance on non-loopback address.
+    * [103618] Docs: Client app config option ``--health-timeout`` and stackato.yml/manifest.yml support
+    * [104060] SESSION_AFFINITY prevents logins to the webconsole
+    * [103677] Failed to create an instance of the elasticsearch service
+    * [103606] JAVA_OPTS not passed into CF Java buildpack
+    * [99109] API for all apps by group with all instances and instance usage
+    * [104199] Fix missing Harbor metadata in a cluster import, when the harbor node is not import-local
+    
     
 
   * Stackato CLI client updated to 3.1
@@ -136,9 +232,50 @@ v3.4.1 (July 29, 2014)
     * [104203] The quota attribute 'trial_db_allowed' cannot be set anymore.
     * [104225] Use a URL to specify the buildpack in create-buildpack
     * [103560] Inconsistent quota handling affects app push
-  
-
-
+    * [103703] can't find package cmdr::history
+    * [104145] client is polling for logs
+    * [103586] client asks the user to use map-domain in 3.2+
+    * [104389] Trap and ignore broken redirections issued to POST /bits (push, buildpack)
+    * [103547] Rephrased help text of "create-user" (aka "register")
+    * [103737] Detect and elide html dumps in general (http) error (status 500, etc.)
+    * [103588] ``update-service-broker`` should offer to change URL, username & password attributes
+    * [104137] Unable to locate service plan matching <service name>
+    * [104279] Client needs update-service for user-provided services
+    * [103683] Admin status not respected in create-space
+    * [104025] ``marketplace`` command
+    * [103530] Client reports failed staging for timeout start
+    * [103984] Crash with ambiguous options to ``stackato delete``
+    * [103786] ``trace`` outputs garbage characters
+    * [104415] Failure to delete services
+    * [103578] Client should display URLs with https://
+    * [104120] ``stackato buildspacks`` display bug
+    * [102411] CLI help output does not show binary name
+    * [103866] `` curl`` is hardcoded to always request /info
+    * [103562] Remove --distribution-zone in the list of ``stackato help push``
+    * [104150] ``stackato user-info`` is broken for non admin user
+    * [101377] Stackato client commands returning Error 306
+    * [103555] ``--space`` option is strictly enforced with ``--no-prompt`` but not without
+    * [103947] ``logs -f`` alias for ``logs --follow``
+    * [103597] Org manager can't unlink or change org user roles with client
+    * [103590] Support raw PUT data with ``stackato curl``
+    * [103853] ``stackato services`` fails against 3.0.1
+    * [103924] Need a ``--droplets`` option for ``quota create`` and ``quota configure``
+    * [103684] ``stackato logs --tail`` does not stream the logs
+    * [104370] Client defaults to zero for quota values not explicitly set, should default to a useful value
+    * [103713] Incomprehensible space-base error message
+    * [103774] ``stackato tunnel`` fails with error - got keep-zip, expected parameter name
+    * [104016] ``stackato push --as ...`` does not work without stackato.yml
+    * [103900] Client should use the new logs API (websocket)
+    * [103662] Added cli option --domain, in parallel to the 'domain' manifest key.
+    * [103854] client help --json output broken in 3.0.8
+    * [104098] Unhelpful error for ``delete-service`` as admin
+    * [103587] Crash on v2 broker ``service --json`` / credentials field missing from ``services`` output
+    * [103581] Implement 'service-plan-visibility {public, private}'
+    * [103576] Issues with domains on orgs without spaces
+    * [103507] Add health_check_timeout setting during ``stackato push``
+    * [103286] Add a ``history`` command 
+    
+    
 
 v3.2.1 (March 31, 2014)
 -----------------------
