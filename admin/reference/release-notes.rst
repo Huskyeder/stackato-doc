@@ -76,6 +76,7 @@ v3.4.1 (July 29, 2014)
     * [99801] Internationalization efforts
     * [96728] Browser layout bugs on small viewports
     * [103313] App store deployment fails - Response: undefined
+    * [101682] App Store  sorting is confusing
     * [104391] Add a "view app" icon to Applications page
     * [104292] Cannot change app in timeline
     * [104058] Deploy app space dropdown list shows blank
@@ -86,10 +87,20 @@ v3.4.1 (July 29, 2014)
     * [103736] Clicking alerts goes to a page where there appears to be no problem
     * [104116] When admin alerts clear, the user dropdown in the header stops working
     * [103779] Router stats counter grows out of bounds
-  
+    * [97540] App Store install progress window is not scrollable
+    * [103486] Cannot deploy apps to the desired org/space if there are more than 50 orgs/spaces in the drop down list
+    * [104457] cannot input tag in timeline on organization page
+    * [104397] App Store Deploy fields marked as required or optional
+    * [104298] User Provided Service Instances not displayed in Services list
+    * [104503] api endpoint cut off on cluster management screen
+    * [102146] Add an Application menu option for a developer
+    * [103599] Add bootstrap-accessibility JS lib
+    * [102920] Let users know that timeline posts/comments are in markdown
+    * [103602] Cannot create a timeline event for individual apps in the drop down list
   
   * kato
 
+    * [103642,103657,103680] Fixed issues with ``kato relocate`` commands
     * [103763] ``kato node setup micro --no-start`` silently fails
     * [103719] ``kato`` always returns 0 exit code due to tee'ing the output
     * [103869] ``kato data import`` of app fails and halts import
@@ -113,9 +124,12 @@ v3.4.1 (July 29, 2014)
     * [101788] Audit API for validation of input
     * [101416] Add ``--upgrade option`` to ``kato op import_from_yaml_files``
     * [103788] ``kato status`` hangs and stacktraces when a node goes offline
+    * [104273] ``kato node retire -n <node>`` hangs, apparently waiting for a sudo password
+    * [104078] ``kato report`` broken after 3.2.1 -> 3.4.1 upgrade
+    * [103821] ``kato inspect`` returns 'Docker configuration isn't valid Can't locate docker image :latest'
+    * [104093] ``kato node upgrade --skip-confirmation`` does not skip confirmation
+    * [103744] The Kato::Info restricted field is always set to true
     
-    
-  
   * Upgrades & Migrations
 
     * [103720] ``kato node upgrade`` remote upgrades not re-throwing exceptions after creating upgrade-failed flat file.
@@ -129,6 +143,9 @@ v3.4.1 (July 29, 2014)
     * [104315] Can't login to console after upgrade to 3.4.1
     * [103305] Upgrades fail to work through proxy
     * [103742] Check 'urls' in addition to 'url' to determine the default route
+    * [104402] Legacy import ignores environment variables
+    * [104216] Docs: Limitations of legacy import
+    * [103501] Improve upgrade output for end users
   
   * Logyard:
 
@@ -144,8 +161,8 @@ v3.4.1 (July 29, 2014)
     * [103839] apptail rate throttling improvement
     * [103625] ERROR decoding json from a message with key
     * [104173] Legacy importer fails to remap services correctly when multiple services of the same name exist
-    
-    
+    * [103108] cloud events occurring out of order in the app log stream
+    * [103143] Improve apptail rate throttling
 
   * Security:
 
@@ -153,33 +170,51 @@ v3.4.1 (July 29, 2014)
     * [104192] Fixed open redirect in AOK
     * [104280] Secure key regeneration using ``kato op regenerate ...``
     * [103522] Reflected XSS vulnerability
-    * [104020] Locked down supervisord 
+    * [104020] Locked down supervisord
+    
+  * Router
+  
+    * [104244] More detailed docs on ``prevent_x_spoofing`` router2g configuration with load balancers
+    * [100770] Router file handle leak; systail inotify instances leak
+    * [103944] Websocket issues
+    * [103918] dispatchWebSocketErr function and terminate socket to allow long polling fallback for the clients
 
+  * Staging & Legacy Buildpack
+  
+    * [104369] Import of legacy apps with mangled manifest.yml fails
+    * [103600] Grails apps use different home directory in 3.2 (legacy buildpack) than they did in 2.10
+    * [103699] pre-running hooks for imported legacy apps running too early
+    * [103922] Don't setup STACKATO_HARBOR_* variables during staging
+    * [103333] Docs: Procfile support
+    * [103618] Docs: Client app config option ``--health-timeout`` and stackato.yml/manifest.yml support
+    * [101636] Ability to set a custom npm registry blocked by staging plugin
+    * [102356] Some buildpacks may not work with proxies
+  
+  * AOK (Authentication)
 
+    * [104299] LDAP error on invalid characters
+    * [103886] Login info endpoint 500
+    * [102008] Buildpack assets should be cached
+    
   * Misc:
   
-    * [103642,103657,103680] Fixed issues with ``kato relocate`` commands
-    * [104244] More detailed docs on ``prevent_x_spoofing`` router2g configuration with load balancers
     * [104247] Improved documentation on configuring https proxies
     * [104270] Fix "vendor_version" information of /info endpoint
     * [103549] Org managers unable to create spaces
     * [101009] Eclipse CFv2 plugin doesn't work with Stackato3
     * [104371] Incorrect redirect URI error after enabling application SSO
     * [103665] Assigning parent domain to org breaks CC_NG
-    * [100770] router2g file handle leak; systail inotify instances leak
     * [104326] Increase upload limit from 0.5GB to 1.5GB
     * [104114] Update to the new CF exception style in CCNG
     * [103320] Issues installing oracledb service in 3.2.1
     * [104141] Cannot create first user in multiple CC cluster - An unknown error occurred (10001)
     * [103830] Configurable http_proxy for appstore
     * [102399] supervisord pid problem with sudo
-    * [103699] pre-running hooks for imported legacy apps running too early
     * [103693] Documentation on buildpack Procfiles
     * [103895] Merge Cloud Controller changes from upstream
     * [102679] Allow admins to modify/theme the Client name
     * [103689] Implement lazy docker registry for sent
     * [99952] Upgrade rollback
-    * [103944] Router websocket issues
     * [103462] Fix application instance downscaling
     * [103942] Cannot ssh to failed containers
     * [103727] Instructions for updating docker image are incorrect
@@ -190,37 +225,33 @@ v3.4.1 (July 29, 2014)
     * [103836] Fence should report CPU usage scaled per core
     * [103399] Make fence delegate to Docker for memory limit
     * [100953] No error given with malformed app store yaml file
-    * [103922] Don't setup STACKATO_HARBOR_* variables during staging
     * [103679] Docs: Updated notes on url generation in the client.
-    * [104369] Import of legacy apps with mangled manifest.yml fails
     * [103712] App push: Error 10001: undefined method \`include?' for nil:NilClass (500)
     * [103184] Autoscaling: Respond to large changes in average CPU more quickly
-    * [103918] Router: dispatchWebSocketErr function and terminate socket to allow long polling fallback for the clients
-    * [104216] Document limitations of legacy import
     * [103952] cloud_controller_uploads_access.log not rotating properly
     * [104344] Docs: Architecture diagram out of date
-    * [104299] AOK: LDAP error on invalid characters
     * [103668] Autoscaling: Each app needs its own heartbeat counter
     * [103059] ``kato data import/export`` cannot clearly delete the previous first admin account
     * [102689] core node does not recognize elasticsearch custom plug-in
-    * [103886] AOK: Login info endpoint 500
     * [104171] Document required apt repo to install additional PHP modules
     * [102487] Fix docs for app_https_proxy
     * [103528] load balancer not working post-upgrade
     * [103638] Docs: Links to any cloudfoundry.com URL are broken
-    * [103333] Docs: Limitations of Procfile support
     * [102793] Unicode in app description causes 500 error
     * [101282] Switch back to using upstream cloudfoundry/cf-uaa-lib
     * [98824] Check for ~/.stackato-firstboot-error in the MOTD
     * [103391] Connect to local harbor-redis instance on non-loopback address.
-    * [103618] Docs: Client app config option ``--health-timeout`` and stackato.yml/manifest.yml support
     * [104060] SESSION_AFFINITY prevents logins to the webconsole
     * [103677] Failed to create an instance of the elasticsearch service
     * [103606] JAVA_OPTS not passed into CF Java buildpack
     * [99109] API for all apps by group with all instances and instance usage
     * [104199] Fix missing Harbor metadata in a cluster import, when the harbor node is not import-local
-    
-    
+    * [104340] service_bindings_url is incorrect for UPSIs
+    * [104311] Regenerate cc api docs
+    * [101350] Invalid bearer token: #<CF::UAA::InvalidTokenFormat: Not enough or too many segments
+    * [104424] stackato-tty only shows partial version number
+    * [97938] mssql service is not created during IronFoundry setup script
+    * [102029] Firstboot rename does not catch non-zero exits from kato node rename
 
   * Stackato CLI client updated to 3.1
   
@@ -274,8 +305,17 @@ v3.4.1 (July 29, 2014)
     * [103576] Issues with domains on orgs without spaces
     * [103507] Add health_check_timeout setting during ``stackato push``
     * [103286] Add a ``history`` command 
-    
-    
+    * [103912] Add a ``--code-only`` option to ``stackato rollback``
+    * [102364] Specify .war file with ``push --path`` 
+    * [103751] Implement {create,delete}-shared-domain <domain>
+    * [103845] ``open`` should deduce the app name from the directory name
+    * [103554] Use the same *-service-broker nomenclature as the cf client
+    * [104291] ``files`` gives "~" rather than "~/app"
+    * [104323] Changes to ``service-plans`` and ``help service-plan`` output
+    * [103700] Don't warn for hooks::legacy-running key in stackato.yml and manifest.yml
+    * [104383] ``create-buildpack`` - support directory as source of the BP (auto-create zip for upload)
+    * [102848] Add support for admin buildpacks to commandline client
+
 
 v3.2.1 (March 31, 2014)
 -----------------------
