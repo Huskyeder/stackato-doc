@@ -417,4 +417,4 @@ Stackato ships without any license key installed. In this configuration you may 
 
 With a Free License Key you can create a :ref:`Stackato cluster <cluster-setup>` using up to 20GB of memory. Click the **Get a Free License** button to register on the ActiveState website. Paste the generated key in the **License Key** field to activate.
 
-For clusters larger than 20GB with technical support, contact stackato-sales@activestate.com for Stackato Enterprise pricing and options.
+For clusters larger than 20GB with technical support, contact `ActiveState Sales <http://www.activestate.com/contact-stackato?intcmp=contact&intdet=stackato-home>`_ for Stackato Enterprise pricing and options.
