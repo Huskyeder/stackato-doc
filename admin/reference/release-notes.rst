@@ -67,7 +67,7 @@ v3.4.1 (July 29, 2014)
     * [102949] Consistent search and filtering controls
     * [102369] Show available patches and major updates 
     * [102718] Filterable App Store
-    * [103739] OEM white lable customization improvements
+    * [103739] OEM white-label customization improvements
     * [102963] Consistent terminology and language
     * [104169] Web UI errors with LDAP admin group
     * [103768] Adding/deleting repo creates duplicate "Allowed Repos" div
