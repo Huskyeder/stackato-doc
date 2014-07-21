@@ -54,7 +54,7 @@ v3.4.1 (July 29, 2014)
   * Management Console
 
     * [102977] Can't issue patches to web console
-    * [103892] Patch notification box should not be coloured red when no patches are available
+    * [103892] Patch notification box should not be colored red when no patches are available
     * [104176] The App Store install button doesn't disappear when no app store URLs exist
     * [104026] Status: 400 error while inputting symbols in the search bar
     * [103579] Deleting timeline comment throws an error
@@ -97,7 +97,7 @@ v3.4.1 (July 29, 2014)
     * [103599] Add bootstrap-accessibility JS lib
     * [102920] Let users know that timeline posts/comments are in markdown
     * [103602] Cannot create a timeline event for individual apps in the drop down list
-    * [104531] Unstarted apps should appear as "Offline" rather than "Staging"
+    * [104531] Un-started apps should appear as "Offline" rather than "Staging"
     * [104544] Need appropriate status on app view when app has a crashed instance
 
   * kato
@@ -154,11 +154,11 @@ v3.4.1 (July 29, 2014)
     * [104002] Staging has missing and duplicated lines
     * [103948] Restarting apptail doesn't tail existing apps unless they are restarted
     * [103107] App and system log stream improvements
-    * [100913] Logyard drains targetting harbor services don't reconnect
+    * [100913] Logyard drains targeting harbor services don't reconnect
     * [97378] Improve ``stackato logs`` using websockets
     * [104175] Kato custom log drains result in "MISSING"
     * [103790,103958] Split long lines of ``kato log tail`` and app log streams 
-    * [103150] apptail message not clear when dropping loglines
+    * [103150] apptail message not clear when dropping log lines
     * [103511] Fixed error colors in log tail
     * [103839] apptail rate throttling improvement
     * [103625] ERROR decoding json from a message with key
@@ -246,13 +246,13 @@ v3.4.1 (July 29, 2014)
     * [101282] Switch back to using upstream cloudfoundry/cf-uaa-lib
     * [98824] Check for ~/.stackato-firstboot-error in the MOTD
     * [103391] Connect to local harbor-redis instance on non-loopback address.
-    * [104060] SESSION_AFFINITY prevents logins to the webconsole
+    * [104060] SESSION_AFFINITY prevents logins to the web console
     * [103677] Failed to create an instance of the elasticsearch service
     * [103606] JAVA_OPTS not passed into CF Java buildpack
     * [99109] API for all apps by group with all instances and instance usage
     * [104199] Fix missing Harbor metadata in a cluster import, when the harbor node is not import-local
     * [104340] service_bindings_url is incorrect for UPSIs
-    * [104311] Regenerate cc api docs
+    * [104311] Regenerate cc API docs
     * [101350] Invalid bearer token: #<CF::UAA::InvalidTokenFormat: Not enough or too many segments
     * [104424] stackato-tty only shows partial version number
     * [97938] mssql service is not created during IronFoundry setup script
@@ -273,7 +273,7 @@ v3.4.1 (July 29, 2014)
     * [103586] client asks the user to use map-domain in 3.2+
     * [104389] Trap and ignore broken redirections issued to POST /bits (push, buildpack)
     * [103547] Rephrased help text of "create-user" (aka "register")
-    * [103737] Detect and elide html dumps in general (http) error (status 500, etc.)
+    * [103737] Detect and elide HTML dumps in general (http) error (status 500, etc.)
     * [103588] ``update-service-broker`` should offer to change URL, username & password attributes
     * [104137] Unable to locate service plan matching <service name>
     * [104279] Client needs update-service for user-provided services
@@ -284,9 +284,9 @@ v3.4.1 (July 29, 2014)
     * [103786] ``trace`` outputs garbage characters
     * [104415] Failure to delete services
     * [103578] Client should display URLs with https://
-    * [104120] ``stackato buildspacks`` display bug
+    * [104120] ``stackato buildpacks`` display bug
     * [102411] CLI help output does not show binary name
-    * [103866] `` curl`` is hardcoded to always request /info
+    * [103866] `` curl`` is hard coded to always request /info
     * [103562] Remove --distribution-zone in the list of ``stackato help push``
     * [104150] ``stackato user-info`` is broken for non admin user
     * [101377] Stackato client commands returning Error 306
@@ -302,7 +302,7 @@ v3.4.1 (July 29, 2014)
     * [103774] ``stackato tunnel`` fails with error - got keep-zip, expected parameter name
     * [104016] ``stackato push --as ...`` does not work without stackato.yml
     * [103900] Client should use the new logs API (websocket)
-    * [103662] Added cli option --domain, in parallel to the 'domain' manifest key.
+    * [103662] Added CLI option --domain, in parallel to the 'domain' manifest key.
     * [103854] client help --json output broken in 3.0.8
     * [104098] Unhelpful error for ``delete-service`` as admin
     * [103587] Crash on v2 broker ``service --json`` / credentials field missing from ``services`` output
@@ -319,7 +319,7 @@ v3.4.1 (July 29, 2014)
     * [104323] Changes to ``service-plans`` and ``help service-plan`` output
     * [103700] Don't warn for hooks::legacy-running key in stackato.yml and manifest.yml
     * [104383] ``create-buildpack`` - support directory as source of the BP (auto-create zip for upload)
-    * [102848] Add support for admin buildpacks to commandline client
+    * [102848] Add support for admin buildpacks to command line client
 
 
 v3.2.1 (March 31, 2014)
