@@ -63,19 +63,20 @@ or a Stackato Admin:
 Org Roles
 ^^^^^^^^^
 
-* Manager: Can invite/manage users, select/change the plan, establish
-  spending limits
+* Manager: Can add/remove Spaces and Domains, edit the roles of Org
+  members, and change the name of the Org
   
 * Billing Manager: Can edit/change the billing account info, payment
   info
   
-* Auditor: View only access to all org and space info, settings, reports
+* Auditor: View-only access to all org and space info, settings, reports
 
 Space Roles
 ^^^^^^^^^^^
 
-* Space Manager: Can invite/manage users, enable features for a given
-  space
+* Space Manager: Can add/remove Org members to the space (as managers,
+  developers or auditors) and rename the space. Inherits developer
+  permissions. 
   
 * Space Developer: Can create, delete, manage applications and services,
   full access to all usage reports and logs
