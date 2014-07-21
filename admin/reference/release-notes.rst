@@ -24,20 +24,20 @@ v3.4.1 (July 29, 2014)
 
   * :ref:`App Versions <app-versions>`: User application updates now tracked with versions for easier rollback.
   * :ref:`Admin Buildpacks <add-buildpack>`: Administrators can now easily add custom buildpacks to the system.
-  * [103539] Stackon subsystem for Docker-based Stackato add-ons
-  * [99935] IP based ACL for the Router
-  * [104414] New Stackato Micro Cloud License Agreement allowing clusters up to 20GB with a free license key
+  * [103539] Stackon subsystem for Docker-based Stackato add-ons.
+  * [99935] IP based ACL for the Router.
+  * [104414] New Stackato Micro Cloud License Agreement allowing clusters up to 20GB with a free license key.
   
 * Enhancements & Updates
 
-  * Upgraded Docker to 1.0
-  * New upgrade back end for ``kato node upgrade`` (Sentinel)
-  * Several system processes (e.g. AppStore and Redis)now running in Docker containers.
+  * Upgraded Docker to 1.0.
+  * New upgrade back end for ``kato node upgrade`` (Sentinel).
+  * Several system processes (e.g. AppStore and Redis) now running in Docker containers.
   * [103658] Logyard communication faster - using Unix domain sockets instead of TCP loopback.
   * [103789] Upgraded gnatsd to 0.5.2.
-  * [101897] zeromq 3.2.4 for loygard/appstore
-  * [103674] Custom AOK endpoint URLs
-  * [103908] Upstream merge of Cloud Foundry sources
+  * [101897] zeromq 3.2.4 for loygard/appstore.
+  * [103674] Custom AOK endpoint URLs.
+  * [103908] Upstream merge of Cloud Foundry sources.
 
 * Application Stack Changes
 
@@ -55,12 +55,12 @@ v3.4.1 (July 29, 2014)
 
     * [102977] Can't issue patches to web console
     * [103892] Patch notification box should not be coloured red when no patches are available
-    * [104176] The App Store application install button doesn't disappear when no app store urls exist
+    * [104176] The App Store install button doesn't disappear when no app store URLs exist
     * [104026] Status: 400 error while inputting symbols in the search bar
     * [103579] Deleting timeline comment throws an error
-    * [103605] UI displays no route for apps deployed from app store
+    * [103605] No route displayed for apps deployed from app store
     * [104012] Application > Summary > Memory Usage: Should be Bright red if over capacity
-    * [103934] App summary screen: memory usage is counted for all stored droplets, not just the current one
+    * [103934] App view: memory usage is counted for all stored droplets, not just the current one
     * [104021] Search bar on cluster management is confusing
     * [102716] Top bar re-design
     * [102966] Add quota usage dashboard to org view
@@ -70,13 +70,13 @@ v3.4.1 (July 29, 2014)
     * [103739] OEM white lable customization improvements
     * [102963] Consistent terminology and language
     * [104169] Web UI errors with LDAP admin group
-    * [103768] adding/deleting repo create duplicate "Allowed Repos" div
-    * [104274] User Provided Service causes error when viewing app in console - 110003 - service plan could not be found
+    * [103768] Adding/deleting repo creates duplicate "Allowed Repos" div
+    * [104274] User Provided Service causes error when viewing app in console: 110003 - service plan could not be found
     * [104466] Timeline: Deactivate the preview button when the content is cleared
     * [99801] Internationalization efforts
     * [96728] Browser layout bugs on small viewports
     * [103313] App store deployment fails - Response: undefined
-    * [101682] App Store  sorting is confusing
+    * [101682] App Store sorting is confusing
     * [104391] Add a "view app" icon to Applications page
     * [104292] Cannot change app in timeline
     * [104058] Deploy app space dropdown list shows blank
@@ -89,15 +89,17 @@ v3.4.1 (July 29, 2014)
     * [103779] Router stats counter grows out of bounds
     * [97540] App Store install progress window is not scrollable
     * [103486] Cannot deploy apps to the desired org/space if there are more than 50 orgs/spaces in the drop down list
-    * [104457] cannot input tag in timeline on organization page
+    * [104457] Cannot input tag in timeline on organization page
     * [104397] App Store Deploy fields marked as required or optional
     * [104298] User Provided Service Instances not displayed in Services list
-    * [104503] api endpoint cut off on cluster management screen
+    * [104503] API endpoint cut off on cluster management screen
     * [102146] Add an Application menu option for a developer
     * [103599] Add bootstrap-accessibility JS lib
     * [102920] Let users know that timeline posts/comments are in markdown
     * [103602] Cannot create a timeline event for individual apps in the drop down list
-  
+    * [104531] Unstarted apps should appear as "Offline" rather than "Staging"
+    * [104544] Need appropriate status on app view when app has a crashed instance
+
   * kato
 
     * [103642,103657,103680] Fixed issues with ``kato relocate`` commands
@@ -181,6 +183,7 @@ v3.4.1 (July 29, 2014)
 
   * Staging & Legacy Buildpack
   
+    * [103760] Updated 
     * [104369] Import of legacy apps with mangled manifest.yml fails
     * [103600] Grails apps use different home directory in 3.2 (legacy buildpack) than they did in 2.10
     * [103699] pre-running hooks for imported legacy apps running too early
@@ -189,6 +192,8 @@ v3.4.1 (July 29, 2014)
     * [103618] Docs: Client app config option ``--health-timeout`` and stackato.yml/manifest.yml support
     * [101636] Ability to set a custom npm registry blocked by staging plugin
     * [102356] Some buildpacks may not work with proxies
+    * [103858] Staging error: cannot get instances since staging failed (400)
+    
   
   * AOK (Authentication)
 
@@ -309,7 +314,7 @@ v3.4.1 (July 29, 2014)
     * [102364] Specify .war file with ``push --path`` 
     * [103751] Implement {create,delete}-shared-domain <domain>
     * [103845] ``open`` should deduce the app name from the directory name
-    * [103554] Use the same *-service-broker nomenclature as the cf client
+    * [103554] Use the same \*-service-broker nomenclature as the cf client
     * [104291] ``files`` gives "~" rather than "~/app"
     * [104323] Changes to ``service-plans`` and ``help service-plan`` output
     * [103700] Don't warn for hooks::legacy-running key in stackato.yml and manifest.yml
