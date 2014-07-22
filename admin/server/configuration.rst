@@ -829,3 +829,39 @@ To configure these, modify the ``allowed_repos:`` parameter of the
 
 The file is located on the Stackato server at
 ``~/stackato/vcap/cloud_controller/config/cloud_controller.yml``.
+
+
+.. _server-config-container-NFS-mounts:
+
+Container NFS Mounts
+--------------------
+
+.. warning::
+  Configuring Stackato to allow user applications to mount NFS
+  partitions has serious security implications. See the :ref:`Privileged
+  Containers <docker-privileged-containers>` section for details.
+
+By default, application containers are unable to mount external
+filesystems (other than the built-in :ref:`Filesystem Service
+<persistent-file-system>`) via network protocols such as NFS.
+
+If the system has been configured to use ref:`privileged containers
+<docker-privileged-containers>` and ``sudo`` permissions have been
+explicitly allowed in the quota, NFS partitions can be mounted in
+application containers using application configuration similar to the
+following *stackato.yml* excerpt::
+
+  requirements:
+    ubuntu:
+        - nfs-common
+  hooks:
+    pre-running:
+      - mkdir /mount/point
+      - sudo mount nfs.server:/path/to/export /mount/point
+
+The IP address of the NFS server must also be added to the
+``docker/allowed_supnet_ips`` list. For example::
+
+  $ kato config push fence docker/allowed_subnet_ips 10.0.0.110
+
+

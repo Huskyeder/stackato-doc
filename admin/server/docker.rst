@@ -76,7 +76,36 @@ role**:
   shared with all nodes.
 
 
+.. _docker-privileged-containers:
 
+.. index:: Privileged Containers
+
+Privileged Containers
+---------------------
+
+Stackato runs "unprivileged" Docker containers by default. The
+containers do not have access to any devices on the (virtual) host.
+
+This is a barrier to certain operations such as mounting disk partitions
+via NFS, so an option exists to change Docker container creation to
+"privileged"::
+
+  $ kato config set dea_ng docker/privileged true
+  
+This `container privilege elevation
+<https://docs.docker.com/reference/run/#runtime-privilege-and-lxc-configuration>`__
+would normally be used in conjunction with ``sudo`` container access in
+the quota::
+
+  $ stackato quota configure --allow-sudo
+  
+.. warning::
+  These changes should only be made when all users of the system are
+  completely trusted (i.e. with admin privileges) as they compromise the
+  isolation between application containers and host. Every application
+  running under this configuration has the potential to become root on
+  the host.
+  
 
 .. index:: Admin Hooks
 .. index:: Global Hooks
