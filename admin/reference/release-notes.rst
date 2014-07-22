@@ -258,7 +258,7 @@ v3.4.1 (July 29, 2014)
     * [97938] mssql service is not created during IronFoundry setup script
     * [102029] Firstboot rename does not catch non-zero exits from kato node rename
 
-  * Stackato CLI client updated to 3.1
+  * Stackato CLI client updated to 3.1.1
   
     * [104254] ``stackato tunnel`` fails against 3.2 server
     * [102774] Client hangs after ``target`` on Windows
