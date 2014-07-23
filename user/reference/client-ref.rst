@@ -4510,7 +4510,7 @@ Services
 .. _command-purge-service-offerings:
   
   stackato purge-service-offerings  *<service>* 
-    Purge all offerings of the service (type) from the system. Danger. Do this only for services we know to have their brokers killed, leaving behind orphans. This is a Stackato 3.4+ specific command.
+    Purge all offerings of the service type from the system. Danger. Do this only for services we know to have their brokers killed, leaving behind orphans. This is a Stackato 3.4+ specific command.
 
     .. raw:: html
     
@@ -6070,7 +6070,7 @@ Plans
 	
         --vendor
           
-		    Name of the service (type) the plan to update belongs to.
+		    Name of the service type the specified plan belongs to.
 		
         --version
           
@@ -6166,7 +6166,7 @@ Plans
 	
         --vendor
           
-		    Name of the service (type) the plan to update belongs to.
+		    Name of the service type the specified plan belongs to.
 		
         --version
           
@@ -6217,7 +6217,7 @@ Plans
 	
         --vendor
           
-		    Name of the service (type) the plan to update belongs to.
+		    Name of the service type the specified plan belongs to.
 		
         --version
           
@@ -6284,7 +6284,7 @@ Plans
 	
         --vendor
           
-		    Name of the service (type) the plan to update belongs to.
+		    Name of the service type the specified plan belongs to.
 		
         --version
           
@@ -6750,7 +6750,7 @@ Organizations
       Alias of --no-prompt.
     --quota
       
-		Name of the quota definition to use in the organization.
+		Name of the quota plan to use in the organization.
 	    
     --target
       
@@ -8995,7 +8995,7 @@ Quotas
 .. _command-quota configure:
 
       stackato quota configure  *<name>*       
-        Reconfigure the named quota definition. This is a Stackato 3 specific command.
+        Reconfigure the named quota plan. This is a Stackato 3 specific command.
 
         .. raw:: html
 
@@ -9072,7 +9072,7 @@ Quotas
 .. _command-quota create:
 
       stackato quota create  *<name>*       
-        Create a new quota definition. This is a Stackato 3 specific command.
+        Create a new quota plan. This is a Stackato 3 specific command.
 
         .. raw:: html
 
@@ -9149,7 +9149,7 @@ Quotas
 .. _command-quota delete:
 
       stackato quota delete  *<name>*       
-        Delete the named quota definition. This is a Stackato 3 specific command.
+        Delete the named quota plan. This is a Stackato 3 specific command.
 
         .. raw:: html
 
@@ -9186,7 +9186,7 @@ Quotas
 .. _command-quota list:
 
       stackato quota list       
-        List the available quota definitions. This is a Stackato 3 specific command.
+        List the available quota plans. This is a Stackato 3 specific command.
 
         .. raw:: html
 
@@ -9227,7 +9227,7 @@ Quotas
 .. _command-quota rename:
 
       stackato quota rename  *<name>*  *<newname>*       
-        Rename the named quota definition. This is a Stackato 3 specific command.
+        Rename the named quota plan. This is a Stackato 3 specific command.
 
         .. raw:: html
 
@@ -9264,7 +9264,7 @@ Quotas
 .. _command-quota show:
 
       stackato quota show  *<name>*       
-        Show the details of the named quota definition. If not specified it will be asked for interactively (menu). This is a Stackato 3 specific command.
+        Show the details of the named quota plan. If not specified it will be asked for interactively (menu). This is a Stackato 3 specific command.
 
         .. raw:: html
 
@@ -9305,7 +9305,7 @@ Quotas
 .. _command-quotas:
 
       stackato quotas       
-        List the available quota definitions. This is a Stackato 3 specific command.
+        List the available quota plans. This is a Stackato 3 specific command.
 
         .. raw:: html
 
@@ -9372,6 +9372,11 @@ User Management
           
 	    Limit for the number of mapped uris per application.
 	
+        --auditor
+          
+		Add the new user to the organization, as auditor.
+		By request.
+	    
         --drains
           
 	    Limit for the number of drains in the group.
@@ -9396,10 +9401,19 @@ User Management
 		The group to put the new user into.
 		This is a Stackato 2 specific option.
 	    
+        --manager
+          
+		Add the new user to the organization, as manager.
+		By request
+	    
         --mem
           
 	    Amount of memory applications can use.
 	
+        --no-auditor
+          Complementary alias of --auditor.
+        --no-manager
+          Complementary alias of --manager.
         --no-prompt
           
 	    Disable interactive queries.
@@ -9595,6 +9609,11 @@ User Management
           
 	    Limit for the number of mapped uris per application.
 	
+        --auditor
+          
+		Add the new user to the organization, as auditor.
+		By request.
+	    
         --drains
           
 	    Limit for the number of drains in the group.
@@ -9619,10 +9638,19 @@ User Management
 		The group to put the new user into.
 		This is a Stackato 2 specific option.
 	    
+        --manager
+          
+		Add the new user to the organization, as manager.
+		By request
+	    
         --mem
           
 	    Amount of memory applications can use.
 	
+        --no-auditor
+          Complementary alias of --auditor.
+        --no-manager
+          Complementary alias of --manager.
         --no-prompt
           
 	    Disable interactive queries.
