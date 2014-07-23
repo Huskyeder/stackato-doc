@@ -22,6 +22,8 @@ Administrators can configure external data services to work in the same
 way as core Stackato System Services, exposing existing software and
 infrastructure for use by Stackato and its users.
 
+.. _add-service-brokers:
+
 Service Brokers
 ---------------
 
