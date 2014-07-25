@@ -39,7 +39,7 @@ role**:
    template. The first image in the list is the default, subsequent
    entires are fallbacks (checked in order)::
   
-    $ kato config get fence docker/image
+    $ kato config get fence docker/images
     - stackato/stack-alsek
     - stackato/stack/alsek
   
@@ -65,7 +65,7 @@ role**:
 
 5. Configure Stackato to use the new image::
     
-    $ kato config set fence docker/image '["exampleco/newimg","stackato/stack-alsek","stackato/stack/alsek"]'
+    $ kato config set fence docker/images '["exampleco/newimg","stackato/stack-alsek","stackato/stack/alsek"]'
     WARNING: Assumed type struct
     - exampleco/newimg
     - stackato/stack-alsek
@@ -236,7 +236,7 @@ central repository for your container tempates.
 
 7. Configure Stackato to use the new image::
 
-    $ kato config set fence docker/image \
+    $ kato config set fence docker/images \
     > '["api.paas.example.com:49156/exampleco/newimg","stackato/stack-alsek","stackato/stack/alsek"]'
     WARNING: Assumed type struct
     - api.paas.example.com:49156/exampleco/newimg
