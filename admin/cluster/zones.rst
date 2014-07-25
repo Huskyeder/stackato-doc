@@ -89,7 +89,11 @@ those zones.
 
 By default, apps are deployed into the 'default' zone. DEAs that don't
 register *any* zone will also accept apps for the 'default' zone
-(maintaining backwards compatibility). 
+(maintaining backwards compatibility).
+
+Users can set the placement zone for an app using the
+:ref:`placement-zone <stackato_yml-placement-zone>` key or using the
+:ref:`stackato set-placement-zone <command-set-placement-zone>` command.
 
 Zones are strictly enforced. If an application requests the 'production'
 zone, and the DEA doesn't advertise it, the app will never be deployed

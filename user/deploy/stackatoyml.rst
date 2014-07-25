@@ -462,6 +462,18 @@ to ``false``, the other autoscaling parameters will be ignored and the
 top-level :ref:`instances <stackato_yml-instances>` value will be used
 to set a specific (static) number of instances.
 
+
+.. _stackato_yml-placement-zone:
+
+placement-zone:
+^^^^^^^^^^^^^^^
+
+The DEA :ref:`placement zone <dea-zones-placement>` to run the app in
+(optional). Use the :ref:`stackato placement-zones
+<command-placement-zone>` command to see which placement zones are
+available on the current target.
+
+
 .. _stackato_yml-url:
 
 url (or urls):
