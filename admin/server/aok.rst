@@ -169,6 +169,7 @@ To set the entire array in one step, use the ``--json`` option::
 
   kato config set --json aok strategy/ldap/email '["mail","ADMailAcct", "email"]'
 
+To make the configuration changes active, run ``kato restart controller``.
 
 LDAP Groups
 -----------
