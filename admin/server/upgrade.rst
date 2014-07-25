@@ -173,7 +173,7 @@ Zero-downtime Upgrades
 On Stackato clusters with redundant components, the upgrade will result
 in no down time for user applications which:
 
-* use an external data services (e.g. via a :ref:`Service Broker <add-service-broker>`)
+* use an external data services (e.g. via a :ref:`Service Broker <add-service-brokers>`)
 * are running at least two instances
 
 The cluster must have the following redundant roles:
@@ -223,6 +223,16 @@ described in the customization instructions, save the new or modified
 files elsewhere, run upgrade on a non-production system, then copy or
 merge the files into the upgraded test system.
 
+Custom Buildpacks
+^^^^^^^^^^^^^^^^^
+
+.. warning::
+  Any custom buildpacks added to the system prior to the upgrade will be
+  lost.
+  
+Custom buildpacks should be restored to the system after an upgrade
+using the :ref:`stackato create-buildpack <command-create-buildpack>`
+command (see :ref:`Adding Buildpacks <add-buildpack>`).
 
 Clearing Browser Cache
 ----------------------
