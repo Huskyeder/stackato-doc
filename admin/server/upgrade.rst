@@ -50,6 +50,12 @@ public hosts:
 
 * upgrade.stackato.com
 * docker.stackato.com
+* component-images.stackato.com
+* us.archive.ubuntu.com
+* security.ubuntu.com
+* keyserver.ubuntu.com (via ``hkp`` port 11371 )
+* github.com
+* rubygems.org
 
 See :ref:`Proxy Settings <server-config-http-proxy>` for instructions on
 configuring upstream proxies for Stackato.
