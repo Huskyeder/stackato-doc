@@ -125,20 +125,24 @@ Download Only
 ^^^^^^^^^^^^^
 
 The ``--download-only`` option causes ``kato node upgrade`` to download
-the files required for a subsequent upgrade, but not execute the upgrade
-itself, first update ``kato`` itself::
+the files required for a subsequent upgrade to a specified cache
+location, but not execute the actual upgrade.
+
+This step can be done while the system is operating normally (i.e. not
+in Maintenance Mode). The subsequent upgrade should be faster, as files
+are fetched from a cache within the cluster, so the upgrade can be
+accomplished in a shorter maintenance window.
+
+First, update ``kato`` itself::
 
   $ kato node upgrade --update-kato
 
-This is necessary so that the ``--download-only`` option is available
-for the next command. To start the download::
+This makes the ``--download-only`` option is available for the next
+command.
+
+To start the download::
 
   $ kato node upgrade --download-only --cache-ip <Core node IP>
-
-This step can be done while the system is operating normally (i.e. not
-in Maintenance Mode). The subsequent upgrade should be faster (files are
-fetched from a cache within the cluster) so the operation can be
-accomplished in a shorter maintenance window.
 
 Once the download has completed, the upgrade portion can be run (with or
 without public network connectivity) by running::
