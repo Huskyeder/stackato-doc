@@ -42,27 +42,37 @@ upgrade completes.
 
 .. _upgrade-proxy-settings:
 
-Proxy settings for Upgrades
+Proxy Settings for Upgrades
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The systems being upgraded will need to be able to access the following
 public hosts:
 
-* upgrade.stackato.com
-* docker.stackato.com
-* component-images.stackato.com
-* us.archive.ubuntu.com
-* security.ubuntu.com
-* keyserver.ubuntu.com (via ``hkp`` port 11371 )
-* github.com
-* rubygems.org
+.. cssclass:: fields table-striped table-bordered table-condensed
 
+  ===============================  =====  ===============================
+  Host                             Port   Description
+  ===============================  =====  ===============================
+  component-images.stackato.com    443    Stackato upgrade data
+  docker.stackato.com              443    Stackato internal Docker images
+  upgrade.stackato.com             443    kato and sentinel data
+  github.com                       443    git clone
+  s3.amazonaws.com                 443    rubygems
+  \*.rubygems.org                  443    rubygems
+  \*.rubygems.org                  80     rubygems
+  us.archive.ubuntu.com            80     debian packages
+  mirrors.kernel.org               80     debian packages
+  security.ubuntu.com              80     debian packages
+  get.docker.io                    80     debian packages
+  ppa.launchpad.net                80     debian packages
+  ===============================  =====  ===============================
+  
 See :ref:`Proxy Settings <server-config-http-proxy>` for instructions on
 configuring upstream proxies for Stackato.
 
 
-RSA keys
-^^^^^^^^
+Passwordless Authentication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For cluster upgrades, you should `set up SSH keys for passwordless
 authentication
