@@ -209,6 +209,9 @@ The cluster must have the following redundant roles:
 Upgrade Problems
 ----------------
 
+Network
+^^^^^^^
+
 Network connectivity errors during the upgrade process can cause it to
 fail. In such cases, it's possible to resume the upgrade once
 connectivity to the upstream resources is restored.
@@ -218,6 +221,14 @@ connectivity to the upstream resources is restored.
   option described above to limit the possibility of a network error
   during upgrade.
   
+App Store Proxy Settings
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Proxy settings for the App Store to may be lost during an upgrade. If
+the App Store cannot fetch data after an upgrade, and your system is
+behind an HTTP(S) proxy, reset the proxy information for your network as
+described in the :ref:`Proxy Settings <server-config-http-proxy>`
+instructions. 
 
 Upgrading with Customizations 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
