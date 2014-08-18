@@ -8,6 +8,35 @@ Best Practices
 .. index:: Applying Updates
 .. index:: Patching Stackato
 
+.. _bestpractices-passwordless-ssh:
+
+Passwordless SSH Authentication
+-------------------------------
+
+Routine cluster configuration and maintenance operations (e.g. cluster
+upgrades) are simpler if the cluster nodes are configured with
+`key-based passwordless SSH login
+<https://help.ubuntu.com/community/SSH/OpenSSH/Keys#Key-Based_SSH_Logins>`__. 
+
+This can be done prior to cluster setup and role assignment or
+afterwards.
+
+The Stackato VM automatically generates a new 2048 bit RSA key pair on
+first boot which can be used for this purpose. If you wish to use a
+stronger key, or one with a passphrase, follow the Ubuntu documentation
+on `Generating RSA Keys
+<https://help.ubuntu.com/community/SSH/OpenSSH/Keys#Generating_RSA_Keys>`__
+
+To transfer the public key from all non-Core nodes to the Core node, log
+in to each non-Core node via SSH (using the password) and run::
+
+  $ ssh-copy-id stackato@<Core node hostname / IP>
+
+With the keys in place, you can `disable password authentication
+<https://help.ubuntu.com/community/SSH/OpenSSH/Configuring#Disable_Password_Authentication>`__
+if desired.
+
+
 .. _bestpractices-patch:
 
 Applying Updates (kato patch)

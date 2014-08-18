@@ -171,6 +171,11 @@ generally preferable to enable roles during the ``kato attach`` step
 using the ``-e`` (enable) option as described below for each of the node
 types.
 
+.. note::
+  Setup and maintenance operations can be simplified if
+  :ref:`Passwordless SSH Authentication
+  <bestpractices-passwordless-ssh>` has been set up between the Core
+  node and the other nodes in the cluster.
 
 .. _server-cluster-router:
 

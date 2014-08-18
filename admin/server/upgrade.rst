@@ -71,15 +71,14 @@ See :ref:`Proxy Settings <server-config-http-proxy>` for instructions on
 configuring upstream proxies for Stackato.
 
 
-Passwordless Authentication
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Passwordless SSH
+^^^^^^^^^^^^^^^^
 
-For cluster upgrades, you should `set up SSH keys for passwordless
-authentication
-<https://help.ubuntu.com/community/SSH/OpenSSH/Configuring#disable-password-authentication>`__
-between the Core node and all other cluster nodes. Without this, you
-will be prompted for the 'stackato' system user password each time
-``kato`` makes a remote connection to the other nodes in the cluster. 
+For cluster upgrades, you should set up :ref:`Passwordless SSH
+Authentication <bestpractices-passwordless-ssh>` between the Core node
+and the other nodes in the cluster. Without this, ``kato`` will prompt
+for the 'stackato' system user password for each remote connection to
+the other nodes in the cluster. 
 
 
 Passwordless sudo
