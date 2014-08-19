@@ -10,6 +10,7 @@ software or services:
 
 * :ref:`Papertrail <logging-examples-papertrail>`
 * :ref:`Splunk <logging-examples-splunk>`
+* :ref:`Hello World Custom Drain <logging-examples-hello-world-custom-drain>`
 
 .. note::
 
