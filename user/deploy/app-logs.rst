@@ -107,12 +107,12 @@ stackato drain
 The :ref:`stackato drain add <command-drain add>` command is used to create a
 log drain which forwards application logs to external log aggregation
 services, log analysis tools, or Redis databases. For example::
-
-  $ stackato drain add myapp appdrain udp://logs.loggly.com:12345 
+  
+  $ stackato drain add myapp appdrain udp://logs.papertrailapp.com:12345 
 
 This creates a UDP drain called "appdrain" for the application "myapp"
 which forwards all log messages and events for that application to
-`Loggly <http://loggly.com/>`_ on port 12345.
+`Papertrail <http://papertrailapp.com/>`_ on port 12345.
 
 The log drain URL can contain only:
 
@@ -128,7 +128,7 @@ To delete the drain::
   
 Use the `--json` option send the log lines in JSON format::
 
-  $ stackato drain add myapp jsondrain --json udp://logs.loggly.com:12346
+  $ stackato drain add myapp jsondrain --json udp://logs.papertrailapp.com:12346
   
 To check the status of your application drains, use the ``stackato drain
 list`` command.

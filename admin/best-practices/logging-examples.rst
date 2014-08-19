@@ -9,7 +9,6 @@ Detailed instructions on how to use drains with third party log analysis
 software or services:
 
 * :ref:`Papertrail <logging-examples-papertrail>`
-* :ref:`Loggly <logging-examples-loggly>`
 * :ref:`Splunk <logging-examples-splunk>`
 
 .. note::
@@ -55,64 +54,6 @@ Enable system logging (via udp) by executing the following kato command:
     formatted this way (see example in :ref:`Saving Custom Log Formats
     <logging-drains-save-format>`).
 
-
-.. _logging-examples-loggly:
-
-Loggly
-------
-
-1. `Create an account for Loggly <https://app.loggly.com/pricing>`_
-
-2. Under *Incoming Data* tab, click *Add Input*.
-
-.. image:: ../images/loggly1.png
-    :class: shadow
-
-3. In the Add Input screen:
-
-* Choose *Syslog UDP or TCP*
-* Choose *Combination Log Type*
-* [Optional] For JSON Logging, Choose UDP or TCP **with Stripe** and enable **JSON Logging**. (for system logs)
-
-.. image:: ../images/loggly2.png
-    :class: shadow
-
-4. If we want to accept logs from any Stackato nodes or applications modify Allowed Devices section:
-
-* Click *Add device*
-
-.. image:: ../images/loggly3.png
-    :class: shadow
-
-* Add IP Address 0.0.0.0/0 when prompted 
-
-.. image:: ../images/loggly4.png
-    :class: shadow
-
-5. Turn off discovery since we allowed all devices. Also, note down the **port number**.
-
-.. image:: ../images/loggly5.png
-    :class: shadow
-
-Enable system logging by executing the following kato command:
-
-.. parsed-literal::
-
-    kato log drain add *drain-name* udp://logs.loggly.com:*port#*
-
-OR
-
-.. parsed-literal::
-
-    kato log drain add *drain-name* tcp://logs.loggly.com:*port#*
-
-Loggly supports JSON format with minor configuration changes shown above.
-
-Enable system JSON logging by executing the following kato command:
-
-.. parsed-literal::
-
-    kato log drain add --format json *drain-name* tcp://logs.loggly.com:*port#*
 
 .. _logging-examples-splunk:
 
