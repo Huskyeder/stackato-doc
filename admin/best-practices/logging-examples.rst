@@ -10,6 +10,8 @@ software or services:
 
 * :ref:`Papertrail <logging-examples-papertrail>`
 * :ref:`Splunk <logging-examples-splunk>`
+* :ref:`Logstash <logging-examples-logstash>`
+* :ref:`Hello World Custom Drain <logging-examples-hello-world-custom-drain>`
 
 .. note::
 
@@ -101,6 +103,33 @@ Enable system JSON logging by executing the following kato command:
 .. parsed-literal::
 
     kato log drain add --format json *drain-name* tcp://*splunk-server-address*:*port#*
+
+.. _logging-examples-logstash:
+
+Logstash
+--------
+
+1. `Download and Install Logstash <http://www.elasticsearch.org/overview/logstash/download/>`_.
+
+2. Configure Logstash to add a UDP or TCP listener on the port of your choosing.  For example, 
+   for a UDP listener on port 10000, add the following to the logstash.conf:
+
+.. parsed-literal::
+
+    input {
+       udp {
+          port => '10000'
+       }
+    }
+
+3. Enable system logging (via udp) by executing the following kato command:
+
+.. parsed-literal::
+
+    kato log drain add *drain-name* udp://logstash-server-address:*port#*
+
+
+.. _logging-examples-hello-world-custom-drain:
 
 Hello World Custom Drain
 ------------------------
