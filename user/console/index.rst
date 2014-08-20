@@ -76,9 +76,9 @@ The top navigation of the Application view gives the name and status of
 the application followed by its organization / space. The view includes
 the following tabs: 
 
-* Summary: General information about the app including its description,
-  which buildpack it uses, when it was created, and when it was last
-  modified.
+* Summary: General information about the app including its description
+  (optional), which buildpack it uses, when it was created, and when it
+  was last modified. 
 
 * Timeline: A realtime stream of events and discussions relevant to the
   Application. Events in the application's history appear here as
