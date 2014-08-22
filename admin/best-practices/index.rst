@@ -27,12 +27,12 @@ stronger key, or one with a passphrase, follow the Ubuntu documentation
 on `Generating RSA Keys
 <https://help.ubuntu.com/community/SSH/OpenSSH/Keys#Generating_RSA_Keys>`__
 
-To transfer the public key from all non-Core nodes to the Core node, log
-in to each non-Core node via SSH (using the password) and run::
+To transfer the public key from the Core node to all non-Core nodes::
 
-  $ ssh-copy-id stackato@<Core node hostname / IP>
+  $ ssh-copy-id stackato@<node hostname or IP>
 
-With the keys in place, you can `disable password authentication
+With the Core node's public key in place on all cluster nodes, you can
+`disable password authentication
 <https://help.ubuntu.com/community/SSH/OpenSSH/Configuring#Disable_Password_Authentication>`__
 if desired.
 
