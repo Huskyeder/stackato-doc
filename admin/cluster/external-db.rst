@@ -29,10 +29,13 @@ configuration.
 
 To automatically provision databases for applications on these external
 servers, Stackato must have access to an administrator account on the
-database server with permissions to create users and databases. The
-credentials for this account, along with the hostname and port of the
-database server, are set in the Stackato configuration (via
-:ref:`kato config <kato-command-ref-config>`).
+database server with permissions to create users and databases. You can
+use the default superuser accounts (e.g. 'root' or 'postgres') for this,
+or create new ones specifically for Stackato.
+
+The credentials for this account, along with the hostname and port of
+the database server, are set in the Stackato configuration via
+:ref:`kato config set <kato-command-ref-config>`.
 
 .. _external-db-mysql:
 
@@ -46,15 +49,13 @@ the host's IP address (or '0.0.0.0').
 Enter the ``mysql`` shell and grant the root user privileges on all
 tables. For example::
 
-    $ GRANT ALL PRIVILEGES ON *.* TO 'root'@'10.5.120.%' IDENTIFIED BY
+    $ GRANT ALL PRIVILEGES ON *.* TO 'root'@'<HOSTNAME|IP>' IDENTIFIED BY
     '<PASSWORD>'
     WITH GRANT OPTION;
     $ FLUSH PRIVILEGES;
 
-The ``10.5.120.%`` portion above should be in relation to the Stackato
-``mysql_node`` IP address. For increased security you can create a special
-'stackato' user with the same privileges as the 'root' user as an alternative
-option.
+Replace the ``<HOSTNAME|IP>`` portion above with the IP address or
+hostname of the Stackato node running the ``mysql_node`` process. 
 
 Once the user is configured to accept connections from Stackato and to
 create users and databases, change the configuration for 'mysql_node' in
