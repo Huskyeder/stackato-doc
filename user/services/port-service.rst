@@ -135,7 +135,7 @@ service name with `udp`, for example::
   $ stackato create-service harbor udp-debug-port
 
 If you have an application that requires both TCP & UDP, you can prefix
-your service name with `both`, for example::
+your service name with either ``multi-`` or ``both-``, for example::
 
   $ stackato create-service harbor both-debug-port
 
