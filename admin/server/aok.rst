@@ -237,6 +237,50 @@ Stackato. This requires the following settings:
 This can be used with or without ``allowed_groups`` limiting regular
 user-level access to Stackato.
 
+Active Directory Example Settings
+---------------------------------
+
+The following example shows what a typical AOK configuration might look
+like for an Active Directory server. This configuration:
+
+* connects an Active Directory host called 'ad.example.com'
+* authenticates with the 'reader' account
+* queries the 'group' object
+* allows members of the 'developers' and 'admins' groups access to Stackato
+* gives members of the 'admins' group an admin account in Stackato
+
+::
+
+  use: ldap
+  ldap:
+    host: directory.example.com
+    port: 389
+    method: plain
+    base: DC=directory,DC=example,DC=com
+    uid: sAMAccountName
+    email:
+    - mail
+    - email
+    - userPrincipalName
+    bind_dn: CN=reader,CN=admins,DC=example,DC=com
+    password: passwordhere
+    group_query: (&(objectCategory=group)(member=%{dn}))
+    group_attribute: cn
+    allowed_groups:
+    - developers
+    - admins
+    admin_groups:
+    - admins
+
+.. note::
+
+  See also `Searching Active Directory
+  <http://msdn.microsoft.com/en-us/library/aa746468%28v=vs.85%29.aspx>`__
+  (Microsoft Developer Network) and `Common LDAP Queries
+  <https://www.google.com/support/enterprise/static/gapps/docs/admin/en/gads/admin/ldap.5.4.html>`__
+  (Google Apps Directory Sync Administration Guide) for more information
+  creating ``group_query``.
+
 
 User Management
 ---------------
