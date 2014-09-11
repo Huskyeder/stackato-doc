@@ -187,7 +187,7 @@ Most of the output from the scaling triggers comes from the health manager::
 Once scaling has been triggered by the health manager, you can check for
 the relevant platform API output in the controller::
 
-	$ kato log tail cloud_controller
+	$ kato log tail cloud_controller_ng
 
 If you are using vSphere, make sure to monitor any logs and events on
 the vCenter GUI. A common issue is running out of available disk space
