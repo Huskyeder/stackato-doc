@@ -125,7 +125,7 @@ AWS Cluster
 With a Stackato cluster, you must allow TCP access on all ports (0 -
 65535) between the nodes of the cluster. To do this, add a rule with the
 Type "All TCP" and specify the "Stackato" Security Group (or your own
-existing one) as the Source by specifying it's Security Group ID.
+existing one) as the Source by specifying its Security Group ID.
 
 Select "Custom IP" in the Source drop-down list, and start typing the
 name of your security group in the adjacent field. Select the group from
