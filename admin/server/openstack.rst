@@ -53,25 +53,13 @@ http://www.activestate.com/stackato/download_vm
 
 Unzip the image in a convenient local directory, then use ``glance`` to
 create an image in OpenStack. For example, the following command imports
-a raw image of Stackato to OpenStack and makes it publicly available:
+a qcow2 image of Stackato to OpenStack and makes it publicly available:
 
 .. parsed-literal::
 
   glance image-create --name="Stackato-|version|" --is-public=true \\
-    --container-format=bare --disk-format=raw \\
-    --file stackato-img-kvm-|version|.0.img
-
-The unzipped KVM image is quite large (around 10GB) and will take a long
-time to upload on some networks. You can convert the image to compressed
-qcow2 format to make it smaller:
-
-.. parsed-literal::
-
-  $ qemu-img convert -c -O qcow2 stackato-img-kvm-|version|.0.img stackato-|version|.0.qcow2
-
-Using the resultant image will significantly speed up the ``glance
-image-create`` step. Specify ``--disk-format=qcow2`` when using a qcow2
-source image.
+    --container-format=bare --disk-format=qcow2 \\
+    --file stackato-v|version|-release.qcow2
 
 
 Adding a keypair
