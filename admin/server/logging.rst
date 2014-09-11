@@ -49,7 +49,7 @@ application-specific events from the **logyard_sieve** stream.
 Drains
 ------
 
-A "drain" is a receiver for a log stream. Logyard has three kinds:
+A "drain" is a receiver for a log stream. Logyard has four kinds:
 
 * TCP (e.g. tcp://10.0.11.101:12345)
 
