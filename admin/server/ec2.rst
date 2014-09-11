@@ -123,44 +123,48 @@ AWS Cluster
 ^^^^^^^^^^^
 
 With a Stackato cluster, you must allow TCP access on all ports (0 -
-65535) between the nodes of the cluster. The easiest way to do this is
-to specify the "Stackato" Security Group (or the name of your existing
-one) as the Source in this rule:
+65535) between the nodes of the cluster. To do this, add a rule with the
+Type "All TCP" and specify the "Stackato" Security Group (or your own
+existing one) as the Source by specifying it's Security Group ID.
+
+Select "Custom IP" in the Source drop-down list, and start typing the
+name of your security group in the adjacent field. Select the group from
+the list of matches to insert the ID (e.g. "sg-5a6ff830" below).
 
 .. cssclass:: fields table-striped table-bordered table-condensed
 
-==========  ========  ===========================
-Port        Service   Source
-==========  ========  ===========================
-0 - 65535   various   Stackato
-22          ssh       0.0.0.0/0 (or specific IP)
-80          http      0.0.0.0/0
-443         https     0.0.0.0/0
-==========  ========  ===========================
-
-When adding "Stackato" to the Source field in AWS Management Console,
-the name is translated into the Security Group ID (e.g. "sg-0cdb4362
-(Stackato)"). 
+========  ============  ============  ======================
+Type      Protocol      Port Range    Source
+========  ============  ============  ======================
+SSH       TCP           22            Anywhere   0.0.0.0/0
+HTTP      TCP           80            Anywhere   0.0.0.0/0
+HTTPS     TCP           443           Anywhere   0.0.0.0/0
+All TCP   TCP           0-65535       Custom IP  sg-5a6ff830
+========  ============  ============  ======================
 
 This configuration exposes ssh, HTTP, and HTTPS access to all nodes in
-the cluster, which you may not want. You could further lock down access
-by creating a second "Stackato-Internal" Security Group which exposes
-all TCP ports *only* to the Stackato and Stackato-Internal groups. This
-allows access on all TCP ports, but only for the Stackato and
-Stackato-Internal groups.
+the cluster, which you may not want. Lock down access to non-gateway
+nodes by creating a second "Stackato-Internal" Security Group which
+exposes all TCP ports *only* to the Stackato and Stackato-Internal
+groups. This allows access on all TCP ports, but only for the Stackato
+and Stackato-Internal groups. The internal group needs only two rules
+for this, allowing "All TCP" between both groups:
 
 .. cssclass:: fields table-striped table-bordered table-condensed
 
-==========  ========  ===========================
-Port        Service   Source
-==========  ========  ===========================
-0 - 65535   various   Stackato
-0 - 65535   various   Stackato-Internal
-==========  ========  ===========================
+========  ============  ============  ======================
+Type      Protocol      Port Range    Source
+========  ============  ============  ======================
+All TCP   TCP           0-65535       Custom IP  sg-5a6ff830
+All TCP   TCP           0-65535       Custom IP  sg-9a6dfaf0
+========  ============  ============  ======================
 
-All DEA and Data Service nodes would use the "Stackato-Internal" group,
-while externally facing nodes (e.g. Router) would use the "Stackato"
-group.
+All DEA and Data Service nodes should use the Stackato-Internal group,
+while externally exposed nodes (e.g. Router) use the "Stackato" group.
+
+Once you've created the Stackato Internal group, add its ID to the
+original Stackato group in a new "All TCP" rule to ensure that VMs in
+both security groups can communicate with one another.
 
 .. note::
 
