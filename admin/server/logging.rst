@@ -6,7 +6,7 @@ Log Streams
 ===========
 
 Application and system logs in Stackato are aggregated into streams
-which can be viewed, tailed, filtered, and and sent via drains to other
+which can be viewed, tailed, filtered, and sent via drains to other
 log aggregators for archiving or analysis. There are three general types
 of streams:
 
