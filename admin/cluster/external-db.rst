@@ -6,7 +6,7 @@ External Data Services
 ======================
 
 Stackato comes with several data services that can be enabled on a micro
-cloud or in a Stackto cluster. However, for implementations where high
+cloud or in a Stackato cluster. However, for implementations where high
 availability or high performance databases are required, it's advisable
 to configure Stackato to connect to an externally maintained database or
 data service.
@@ -126,7 +126,7 @@ Stackato. For example::
 
 Once these have been set, restart the postgresql_node process::
 
-    $ kato restart postgresql_node
+    $ kato process restart postgresql_node
 
 .. _external-db-troubleshoot:
 
