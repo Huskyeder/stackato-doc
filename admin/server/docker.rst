@@ -9,7 +9,7 @@ these application containers is handled by the ``fence`` process, which
 in turn uses `Docker <http://docs.docker.io/en/latest/>`__ to create and
 destroy Linux containers on demand.
 
-Typically, admins will not have to work directly Docker, but it is
+Typically, admins will not have to work directly with Docker, but it is
 available if needed to customize or create new container images.
 
 
