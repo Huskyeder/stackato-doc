@@ -3,6 +3,19 @@
 Known Issues
 ============
 
+
+.. _known-issues-ec2-autoscaling-dea:
+
+security_groups_ids in autoscaling.yaml
+---------------------------------------
+
+The ``security_group`` key in the EC2 section of *autoscaling.yml* has
+been changed to ``security_group_ids``. Specify the AWS Security Groups
+by ID rather than name in this setting.
+
+If you are upgrading a Stackato cluster that already has DEA autoscaling
+configured, the settings should be manually modified to use the new key. 
+
 .. _known-issues-php5-repos:
 
 PHP 5.5 Repositories
