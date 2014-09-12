@@ -203,11 +203,3 @@ For EC2, you can monitor using the AWS console. It can provide useful
 insights into the health of the instance such as network reach-ability
 and OS responsiveness, as well as setting administrative alerts.
 
-Testing
--------
-
-If you want to emulate a scaling trigger, you can force a scale-up
-operation by issuing the following on the cloud controller node::
-
-  $ nats-pub health.scale '{"op": "up"}'
-
