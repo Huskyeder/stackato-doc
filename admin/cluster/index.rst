@@ -398,9 +398,9 @@ Multiple Controllers
 --------------------------
 
 A Stackato cluster can have multiple controller nodes running on
-separate VMs to improve redundancy. The key element in designing this
-redundancy is to have all controller nodes share the following two
-important data directories on a high-availability filesystem server:
+separate VMs to improve performance. To do this, all controller nodes
+must share the following two important data directories on a
+high-availability filesystem server:
 
 * **/home/stackato/stackato/data**
 * **/var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads** 
