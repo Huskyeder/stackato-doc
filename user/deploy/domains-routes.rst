@@ -33,7 +33,7 @@ categories of these:
   are available globally to all organizations. Applications deployed by
   any organization can use these domains for their URLs. 
   
-* **Owned Domains**: domains which can only used by applications
+* **Owned Domains**: domains which can only be used by applications
   deployed in a specific organization. Organization managers can add
   these domains in the **Domains** view or using the :ref:`stackato
   create-domain <command-create-domain>` command. 
