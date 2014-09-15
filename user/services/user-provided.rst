@@ -85,7 +85,7 @@ expose the connection information within the application container. The
 parameter names you provided when setting up the service instance become
 the keys in the ``prod-db-int`` JSON object::
 
-    django-cms$ echo $STACKATO_SERVICES \|json
+    django-cms$ echo $STACKATO_SERVICES |json
     {
       "prod-db-int": {
         "database": "prod-django-321",
