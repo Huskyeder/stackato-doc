@@ -85,7 +85,7 @@ expose the connection information within the application container. The
 parameter names you provided when setting up the service instance become
 the keys in the ``prod-db-int`` JSON object::
 
-    django-cms$ echo $STACKATO_SERVICES |json
+    django-cms$ echo $STACKATO_SERVICES \|json
     {
       "prod-db-int": {
         "database": "prod-django-321",
@@ -101,5 +101,27 @@ your application code to extract the credentials at runtime. See the
 :ref:`Language Specific Deployment <language-specific-deploy>` section
 for examples.
 
-Frameworks or buildpacks that autoconfigure bound services will do so
-automatically, as they would for system-provided data services.
+Buildpacks that autoconfigure applications for system-provided services
+can also do so for user-provided services. For example, the
+`java-buildpack <https://github.com/cloudfoundry/java-buildpack>`__ will
+configure applications to connect to databases if the service has a name
+or tag with ``postgres``, ``mariadb``, or ``mysql`` in it. Check the
+buildpack documentation or code to see what it supports.
+
+
+.. _user-provided-URL-env:
+
+Other Environment Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+User-provided service instances do not set ``DATABASE_URL`` or
+database-specific URL environment variables.
+
+If your application uses variables in URL format, you can add them
+manually to the application with the :ref:`stackato set-env
+<command-set-env>` command. For example::
+
+  $ stackato set-env appname MYSQL_URL mysql://dbuser:pass@10.0.0.55:3306/dbname
+
+These variables can be created whether or not user-provided service
+instances have been created.
