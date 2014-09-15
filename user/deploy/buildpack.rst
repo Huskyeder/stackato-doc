@@ -79,14 +79,15 @@ using the following format::
 
     buildpack: https://github.com/ActiveState/stackato-buildpack-ruby.git#branchname
 
+There are hundreds of buildpacks available on Github. Searching Github
+for the term '`buildpack <https://github.com/search?q=buildpack>`__ '
+and the name of the language or framework you wish to deploy may provide
+you with a working solution, or at least the starting point for your own
+custom buildpack.
 
-.. note::
-  Not all Heroku buildpacks work with Stackato due to environmental
-  differences (e.g. relying on certain executables or libraries in
-  Heroku-specific locations). Test any buildpack before using it in
-  production deployments.
-
-The following buildpacks are known to work with Stackato:
+  
+Third-Party Buildpack Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * `Jekyll <https://github.com/ActiveState/heroku-buildpack-jekyll/>`_
 
@@ -105,11 +106,17 @@ The following buildpacks are known to work with Stackato:
 
   * `Sphinx example <https://github.com/Stackato-Apps/sphinx-demo>`_
 
+Not all third-party buildpacks work with Stackato due to environmental
+differences (e.g. relying on certain executables or libraries in
+specific locations in the container). Buildpacks should be examined and
+tested before being used in production deployments.
+
 .. note::
   Using ``config_vars`` in a buildpack's *bin/release* to set
   environment variables has been deprecated. `Use a shell script in
   $HOME/.profile.d <https://devcenter.heroku.com/articles/profiled>`__
   instead.
+
   
 .. _buildpacks-procfile:
 
