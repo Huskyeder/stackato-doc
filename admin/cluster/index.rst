@@ -405,7 +405,12 @@ high-availability filesystem server:
 * **/home/stackato/stackato/data**
 * **/var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads** 
 
-For example, to share */home/stackato/stackato/data*:
+.. warning::
+  These directories are not empty. It is essential that the contents of
+  these directories are preserved and copied back into the new, shared
+  directories once symlinks have been created.
+
+For example:
 
 * Create a shared filesystem on a Network Attached Storage device. [1]_
 
@@ -424,7 +429,7 @@ For example, to share */home/stackato/stackato/data*:
 
     $ sshfs -o idmap=user -o reconnect -o allow_other -o ServerAliveInterval=15 stackato@10.0.0.3:/mnt/add-volume/stackato-shared/ /mnt/controller
   
-  * Set aside the original ``/home/stackato/stackato/data``::
+  * Set aside the original ``/home/stackato/stackato/data`` temporarily (**do not delete**)::
 
     $ mv /home/stackato/stackato/data /home/stackato/stackato/data.old
 
@@ -432,9 +437,21 @@ For example, to share */home/stackato/stackato/data*:
 
     $ ln -s /mnt/controller /home/stackato/stackato/data
     
-  * Copy the contents of ``/home/stackato/stackato/data.old`` into the new data directory::
+  * Copy the contents of ``/home/stackato/stackato/data.old`` into the new shared data directory::
   
     $ cp -r /home/stackato/stackato/data.old/* /home/stackato/stackato/data/
+
+  * Set aside the original ``/var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads`` temporarily (**do not delete**)::
+  
+    $ mv /var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads /var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads.old
+    
+  * Create a symlink from ``/var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads`` to the mount point::
+
+    $ ln -s /mnt/controller /var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads
+
+  * Copy the contents of ``/var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads.old`` into the new shared data directory::
+
+    $ cp -r /var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads.old/* /var/stackato/data/cloud_controller_ng/tmp/staged_droplet_uploads/
 
 * On the Core node, start the controller process::
 
