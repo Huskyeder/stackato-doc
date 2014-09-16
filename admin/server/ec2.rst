@@ -18,19 +18,19 @@ Initial Setup
 
    You will need to provide your AWS Account ID (12-digit number) and will
    receive a confirmation email from ActiveState when the AMI have been
-   successfully provisioned into your AWS Account.  It will appear in the **US
-   East (Virginia)** Private Images section.
+   successfully provisioned into your AWS Account.
+   
+#. Choose the latest Stackato VM available under "My AMIs -> Shared with me"
 
-#. Launch a **Medium or larger** (2GB+ RAM) 64-bit instance.
+#. Choose a **m3.medium or larger** (3.7GB+ RAM) instance.
 
-#. At Advanced Instance Details, just press Continue. At the next page,
-   provide a value for key **Name** to track the instance you are working
-   with.  No key pair is necessary.
+#. Add at least 30GB of storage to the instance (SSD or Magnetic).
 
-#. Create New Security Group, because the default only allows ports 80
-   and 22. Allow SSH/HTTP(S). You can allow all ICMP if you want to be
-   able to ping the machine. See the :ref:`Security Groups
-   <server-vm-ec2-firewall>` section for details.
+#. Tag the instance with a **Name** (optional). 
+
+#. Configure/select an appropriate Security Group. See the
+   :ref:`Security Groups <server-vm-ec2-firewall>` section for
+   details. 
 
 #. After launching the image, associate an `Elastic IP
    <http://aws.amazon.com/articles/1346>`_ with it.
