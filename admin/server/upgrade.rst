@@ -26,6 +26,27 @@ to upgrade to the next release, which will include all of the interim
 patches.
 
 
+Free Disk Space
+^^^^^^^^^^^^^^^
+
+Each node in the cluster to be upgraded requires at least 4GB free disk
+space, except for the cache node (see ``--cache-ip`` option below) which
+needs at least 10GB free.
+
+To add additional space on the cache node specifically for the upgrade:
+
+* mount an external filesystem on the cache node
+* create a temporary directory on the drive (e.g. */mnt/sda2/tmp*)
+* change the ``cache_dir`` setting in
+  */s/code/sentinel/daemon/config/config.yml* to point to the new
+  temporary directory
+* run ``sudo service sentinel-d restart`` on the cache node
+
+If sufficient disk space cannot be reserved in the existing cluster for
+an upgrade, consider creating a new cluster and :ref:`migrating the data
+<bestpractices-migration-export>` rather than upgrading in place.
+
+
 Maintenance Mode
 ^^^^^^^^^^^^^^^^
 
