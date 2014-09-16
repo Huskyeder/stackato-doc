@@ -68,7 +68,11 @@ public hosts:
   ===============================  =====  ===============================
   
 See :ref:`Proxy Settings <server-config-http-proxy>` for instructions on
-configuring upstream proxies for Stackato.
+configuring upstream proxies for Stackato. For upgrades specifically,
+the ``http_proxy`` environment variable must be set in the shell you'll
+be running the upgrade from. For example::
+
+  $ export http_proxy=http://intproxy.example.com:8080
 
 
 Passwordless SSH
