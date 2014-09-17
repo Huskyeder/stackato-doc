@@ -27,14 +27,25 @@ the following commands on a fresh Stackato VM:
   $ kato op defer "node attach -e dea *CORE_IP*" --run-as-root
 
 This defers the ``attach`` command and enables the DEA role on the next
-boot. Shut down the VM once this is done.
+boot. Shut down the VM once this is done (e.g. ``sudo shutdown -h now``).
 
-.. note::
+vSphere Templates
+^^^^^^^^^^^^^^^^^
 
-    When shutting down in vSphere, right click the VM in vCenter and
-    select *Create a Template*. It is important that it is a 'template'
-    object so that it can be seamlessly deployed to any of the available
-    ESXi hosts.
+When shutting down in vSphere, right click the VM in vCenter and
+select **Create a Template**. It is important that it is a 'template'
+object so that it can be seamlessly deployed to any of the available
+ESXi hosts.
+
+EC2 AMIs
+^^^^^^^^
+
+Select the stopped DEA instance and choose **Actions -> Instance
+Management -> Create Image**. Set an image name and optional
+description, then click **Create Image**. This saves the instance as an
+AMI which will appear in the AMIs view. Use the AMI ID for this template
+image in the *autoscaling.yaml* configuration file (below).
+  
 
 DEA Scaling configuration
 -------------------------
