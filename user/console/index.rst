@@ -51,7 +51,8 @@ The list shows:
 * the Organization it belongs to
 * the Space it was deployed to
 * the Description field
-* its current state (e.g. STARTED or STOPPED)
+* its current state (STARTED or STOPPED)
+* its staging state (STAGED or FAILED)
 * Application Access (i.e. if :ref:`Application SSO <application-sso>` is enabled)
 
 The list can be sorted by name or state, and filtered by:
@@ -76,50 +77,97 @@ The top navigation of the Application view gives the name and status of
 the application followed by its organization / space. The view includes
 the following tabs: 
 
-* Summary: General information about the app including its description
-  (optional), which buildpack it uses, when it was created, and when it
-  was last modified. 
+* **Summary**: General information about the app including its
+  description (optional), which buildpack it uses, when it was created,
+  and when it was last modified. The application state will appear in
+  parentheses beside the application name, and will be one of the
+  following:
+  
+  * Staging: currently staging the application droplet.
 
-* Timeline: A realtime stream of events and discussions relevant to the
-  Application. Events in the application's history appear here as
+  * Staging Failed. Check Logs:  staging of application droplet has
+    failed
+  
+  * Online: successfully staged as a droplet and application instances
+    are running
+  
+  * Flapping: successfully staged as a droplet and application instances
+    are running, but 1 or more instances are flapping (see below)
+  
+  * Down: successfully staged as a droplet and application instances
+    have been created, but all instances are down. This state will
+    typically not be seen as any one instance will only be down for a
+    short period of time before starting or being removed.
+  
+  * Offline: successfully staged the application droplet, but no
+    application instances have been created and started.
+
+* **Timeline**: A real-time stream of events and discussions relevant to
+  the Application. Events in the application's history appear here as
   notifications which can be commented on by members of the Space.
 
-* App Versions: A rolling list of code and setting changes to an
+* **App Versions**: A rolling list of code and setting changes to an
   application. Clicking **Rollback to this version** for any listed
   version reverts the application to the selected version's state and
   creates a new version. See :ref:`App Versions <app-versions>` for
   details.
 
-* Environment Variables: Environment variables that have been explicitly
-  set in the application container (via application config, client
-  commands, or this interface). Default variables, those set by the
-  application framework, or those added by the system for data services
-  are excluded from this view.
+* **Environment Variables**: Environment variables that have been
+  explicitly set in the application container (via application config,
+  client commands, or this interface). Default variables, those set by
+  the application framework, or those added by the system for data
+  services are excluded from this view.
 
-* Files: A browsable list of directories and files in each application
-  instance.
+* **Files**: A browse-able list of directories and files in each
+  application instance.
   
-* Instances:
+* **Instances**:
 
   * Application Autoscaling Settings: CPU Threshold and Instances
     sliders for configuring :ref:`Application Autoscaling
     <app-autoscaling>`.
   * Instance Status: A list of application instances showing the status
-    and host DEA IP address of each.
+    and host DEA IP address of each. The normal sequence of application
+    instance states is DOWN -> STARTING -> RUNNING. The possible states
+    are:
+    
+    * DOWN: Instance has been created but is not registered yet.
+      This is typically a transient state that occurs when a new
+      application instance is provisioned or an existing application
+      instance taken down (i.e., via app autoscaling).
+    
+    * STARTING: Instance is created and in the process of starting. 
+    
+    * RUNNING: Instance is running. This is the normal state for a
+      healthy application instance.
+    
+    * FLAPPING: Instance has been repeatedly crashing over a short
+      period of time and the system’s health manager has been
+      automatically trying to restore it. If the health manager is
+      unable to restore the application instance, the instance will
+      transition to the CRASHED state. This typically indicates a
+      problem such as a software bug in the application itself. Check
+      the application logs for the source of the crashes.
+    
+    * CRASHED: Instance is no longer running because it has crashed
+      and could not be successfully restored (the health manager has
+      stopped trying to restart it). As with FLAPPING, this normally
+      indicates a bug in the application.
+    
 
-* Logs Stream: A real time :ref:`stream of the application logs
+* **Logs Stream**: A real time :ref:`stream of the application logs
   <application_logs>`.
 
-* Routes: The URLs mapped to the application. These :ref:`Routes
+* **Routes**: The URLs mapped to the application. These :ref:`Routes
   <domains-routes-routes>` are made up of the name of the application
   name (a virtual hostname) followed by a dot and a :ref:`Domain
   <domains-routes-domains>` (assigned to the Org and Space).
 
-* Services: Data (and other) service instances bound to the Application.
+* **Services**: Data (and other) service instances bound to the Application.
 
-* Settings: The number of application instances, disk space, and memory
-  allotment used by the application. This usage counts against the
-  organizations's quota.
+* **Settings**: The number of application instances, disk space, and
+  memory allotment used by the application. This usage counts against
+  the organizations's quota.
 
 .. _user-console-organizations-list:
 
@@ -145,27 +193,27 @@ Organization.
 Clicking on the Organization name opens a view of that organization,
 including the following tabs:
 
-* Spaces: A list of Spaces that belong to the Organization.
+* **Spaces**: A list of Spaces that belong to the Organization.
   Clicking on a Space in the list opens a :ref:`view of that Space
   <user-console-space>`.
   
-* Users: A list of Users who are members of the Organization, showing
-  the Email address and Organization :ref:`Roles <orgs-spaces-roles>` of
-  each.
+* **Users**: A list of Users who are members of the Organization,
+  showing the Email address and Organization :ref:`Roles
+  <orgs-spaces-roles>` of each.
   
   * Users: can view organization quotas, domains, spaces and users.
   
   * Manager: can add domains and spaces to the organization, but not
     users.
   
-* Quota Usage:
+* **Quota Usage**:
 
   * Memory: The amount of RAM (in GB) available to the Organization, and
     how much of it is currently used by applications.
 
   * Services: The number of deployed / allotted services.
 
-* Domains: Domains belonging to the Organization that can be used by
+* **Domains**: Domains belonging to the Organization that can be used by
   applications deployed to :ref:`Spaces <orgs-spaces>` in the
   Organization. Typically, these will be a subdomain of the Stackato
   system itself. For example, an Organization called "acme" on a PaaS
@@ -178,27 +226,28 @@ including the following tabs:
 Space View
 ^^^^^^^^^^
 
-* Apps: A sortable, filterable list of applications in the Space.
+* **Apps**: A sortable, filterable list of applications in the Space.
   Clicking an app name opens an :ref:`administrative view of that
   application <user-console-app>`.
 
-* Timeline: A realtime stream of events and discussions relevant to
-  the Space. The creation, update, and deletion of apps and services appear
-  here as notifications which can be commented on by members of the
-  Space. Discussions can be started by any member, tagged, and assigned
-  to an application (which makes the item visible in the Application view).
+* **Timeline**: A real-time stream of events and discussions relevant to
+  the Space. The creation, update, and deletion of apps and services
+  appear here as notifications which can be commented on by members of
+  the Space. Discussions can be started by any member, tagged, and
+  assigned to an application (which makes the item visible in the
+  Application view).
 
-* Services: A list of services bound to applications in the Space.
+* **Services**: A list of services bound to applications in the Space.
   Clicking a service name opens a ref:`administrative view of that
   service <user-console-service>`.
 
-* Managers: Managers can invite/manage users, enable features for a
+* **Managers**: Managers can invite/manage users, enable features for a
   given space.
 
-* Developers: Developers can create, delete, manage applications and
+* **Developers**: Developers can create, delete, manage applications and
   services, full access to all usage reports and logs.
 
-* Auditors: Auditors have view only access to all space information,
+* **Auditors**: Auditors have view only access to all space information,
   settings, reports, logs.
 
 
