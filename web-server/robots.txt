@@ -1,0 +1,8 @@
+# robots.txt for http://docs.stackato.com/
+
+User-agent: *
+# Older documentation was cluttering search results 
+# these versions are still available but not searchable
+Disallow: /3.0/
+Disallow: /3.2/
+ 
