@@ -85,6 +85,86 @@ prevent this, use the ``--no-restart`` option.
 To apply a patch only to the local Stackato VM (not the whole cluster),
 use the ``--only-this-node`` option. 
 
+.. _bestpractices-ubuntu-security:
+
+Ubuntu Security Updates
+-----------------------
+
+Both the Stackato VM and the Docker base image used for application
+containers run Ubuntu. To maintain an up-to-date system with all known
+security patches in place, the VM and Docker base images should be
+updated with the following process whenever an important security update
+becomes available in the Ubuntu repositories.
+
+Upgrade the Stackato VM
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Run the following command on all cluster nodes, one node at a time::
+
+  $ sudo unattended-upgrades -d
+
+If you are using a proxy you may need to export http_proxy and https_proxy
+environment variables. For example::
+
+  $ sudo sh -c "http_proxy=http://myproxy.example.com:3128 \
+  https_proxy=http://myproxy.example.com:3128 unattended-upgrades -d"
+
+This will run the `unattended-upgrades
+<http://manpages.ubuntu.com/manpages/lucid/man8/unattended-upgrade.8.html>`__
+script to install all upgrades from the "-security" stream.
+
+Each node should be rebooted after ``unattended-upgrades`` completes to
+ensure new kernels, modules, and libraries are loaded.
+
+Upgrade the Docker image
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The base Docker image used for application containers should also be
+upgraded once the VM is up-to-date. Perform the following steps on each
+DEA node in the cluster, one node at a time:
+
+#. Create a new working directory::
+
+    $ mkdir ~/upgrade-alsek && cd $_
+
+#. Create a *Dockerfile*. In this new directory, create a file called
+   "Dockerfile" and add the following::
+
+    FROM stackato/stack-alsek
+    RUN apt-get update
+    RUN unattended-upgrades -d
+    RUN apt-get clean && apt-get autoremove
+  
+#. Build the docker image. Give the image a tag relevant to this
+   particular upgrade (e.g. "upgrade-2014-09-19")::
+
+    $ sudo docker build -rm -t stackato/stack-alsek:upgrade-2014-09-19 .
+    
+   The "." at the end is important. It specifies to use the *Dockerfile*
+   in the current directory.
+
+#. Tag the Docker image as the "latest" stack-alsek image::
+
+    $ sudo docker tag stackato/stack-alsek:upgrade-2014-09-19 stackato/stack-alsek:latest
+    
+#. All running applications will need to be restarted by their owners or
+   Stackato admins (using the management console or the ``stackato``
+   client) in order for security upgrades to take effect within their
+   application containers. You can check which image running apps are
+   using by running ``docker ps`` on your DEAs (but **do not** use
+   ``docker restart``).
+
+If you have :ref:`DEA autoscaling <autoscaling>` enabled, be sure to
+also update the DEA template.
+
+Local Docker Registry
+^^^^^^^^^^^^^^^^^^^^^
+
+If you are running a cluster with several DEA nodes, you may wish to
+share the Docker base image from a :ref:`Docker Registry
+<docker-registry>` on your network instead of generating an updated
+image on each DEA.
+
 
 .. _bestpractices-migration:
 

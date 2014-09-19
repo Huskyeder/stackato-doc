@@ -63,6 +63,11 @@ role**:
 
     $ sudo docker build -rm -t exampleco/newimg .
 
+   If the new image is simply an updated version of the default base
+   image, you can tag the image ``stackato/stack-alsek:latest`` (as
+   described in the :ref:`Ubuntu Security Updates
+   <bestpractices-ubuntu-security>`) and skip the following step.
+
 5. Configure Stackato to use the new image::
     
     $ kato config set fence docker/images '["exampleco/newimg","stackato/stack-alsek","stackato/stack/alsek"]'
@@ -71,10 +76,10 @@ role**:
     - stackato/stack-alsek
     - stackato/stack/alsek
 
-.. note::
-  This step only needs to be done once, as the configuration change is
-  shared with all nodes.
+   This step only needs to be done once, as the configuration change is
+   shared with all nodes.
 
+  
 
 .. _docker-privileged-containers:
 
