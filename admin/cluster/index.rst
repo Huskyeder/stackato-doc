@@ -63,18 +63,18 @@ Boot a Stackato VM and set up the Core node as described below, then add
 the other nodes and assign roles.
 
 
-CORE_IP
+MBUS_IP
 ^^^^^^^
 
 A :ref:`static IP address <server-config-static-ip>` is necessary to
-provide a consistent network interface for other nodes to connect to. If
-your IaaS or cloud orchestration software provide IP addresses which
-persist indefinitely and are not reset on reboot you may not have to set
-this explicitly.
+provide a consistent network interface for other nodes to connect to.
+This address is called the MBUS IP. If your IaaS or cloud orchestration
+software provide IP addresses which persist indefinitely and are not
+reset on reboot you may not have to set this explicitly.
 
-Take note of the IP address of the Core node. It will be required when
-configuring additional nodes in the following steps, so that they can
-attach to the Core node.
+Take note of the internal IP address of the Core node. It will be
+required when configuring additional nodes in the following steps, so
+that they can attach to the Core node.
 
 Make sure that the IP address of its ``eth0`` interface is registering
 the correct address, which may not be the case if you have set a static
@@ -92,10 +92,11 @@ If necessary, set the :ref:`static IP address <server-config-static-ip>`:
 	$ kato op static_ip
 
 .. note::
-  If the IP address of the Core node changes, the :ref:`kato node migrate
-  <kato-command-ref-node-attach>` command must be run on all nodes in the
-  cluster (starting with the Core node) to set the new CORE_IP.
-  
+  If the IP address of the Core node changes, you must reconfigure the
+  cluster to use the new MBUS IP address. Run :ref:`kato node migrate
+  <kato-command-ref-node-migrate>` (or :ref:`kato op static_ip
+  <server-config-static-ip>`) on the Core node, then :ref:`kato node
+  attach <server-cluster-attach>` on all other cluster nodes.
 
 Hostname
 ^^^^^^^^
