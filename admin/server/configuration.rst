@@ -220,11 +220,10 @@ You will see a deprecation warning about the ``restart`` option, which
 can safely be ignored in this context.
 
 .. note::
-
-  If you are setting a new static IP *after* having configured the VM as
-  a Core node in a cluster, you must run the :ref:`kato node migrate
-  <kato-command-ref-node-attach>` command on each Stackato node to reset the
-  MBUS_IP for the cluster.
+  If you are setting a new static IP *after* having configured set up a
+  cluster, you must reconfigure all other nodes in the cluster to use
+  the new MBUS IP address. Run :ref:`kato node attach
+  <kato-command-ref-node-attach>` on all non-Core nodes.
 
 Alternatively, these changes could be made by editing the
 */etc/network/interfaces* file manually. For example::
