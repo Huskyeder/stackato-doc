@@ -47,7 +47,7 @@ role**:
    which inherits the current Docker image, then runs an update or
    installation command. For example::
 
-    FROM stackato/stack/alsek
+    FROM stackato/stack-alsek
     RUN apt-get -y install libgraphite2-dev
 
    * `FROM <http://docs.docker.io/en/latest/use/builder/#from>`__:
