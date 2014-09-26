@@ -79,8 +79,8 @@ template IDs and so forth. Configure the settings for your platform in
 this file before proceeding.
 
 .. note::
-  The ``security_group`` key in the EC2 section of *autoscaling.yml* has
-  been changed to ``security_group_ids``. Specify the AWS Security
+  The ``security_group`` key in the EC2 section of *autoscaling.yaml*
+  has been changed to ``security_group_ids``. Specify the AWS Security
   Groups by ID rather than name in this setting.
 
 
