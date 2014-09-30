@@ -63,6 +63,8 @@ optionally set a specific ``runtime:`` as well. For example::
   settings (see :ref:`Legacy Buildpack and Environment Variables
   <known-issues-legacy-env>`).
 
+.. _buildpacks-custom:
+
 Custom Buildpacks
 -----------------
 
