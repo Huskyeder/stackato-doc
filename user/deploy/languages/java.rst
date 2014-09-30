@@ -5,24 +5,79 @@
 Java
 ====
 
-Stackato has several Java frameworks to choose from:
+Java applications can be deployed to Stackato using the built-in Java
+Buildpack, the Legacy Buildpack (which emulates CF v1 framework
+behavior), or the buildpack of your choice.
+
+
+Java Buildpack
+--------------
+
+By default, Stackato deploys Java applications using a fork of the
+`Cloud Foundry Java buildpack
+<https://github.com/ActiveState/java-buildpack>`__, which supports many
+types of JVM-based applications.
+
+Consult the online `Java Buildpack documentation
+<https://github.com/ActiveState/java-buildpack/blob/master/README.md>`
+for complete and up-to-date instructions on deploying different JVM
+application types.
+
+You can deploy applications using a different Java buildpack by setting
+a Git URL in the ``buildpack:`` setting in *manifest.yml* or as an
+argument to the ``--buildpack`` option for ``stackato push``. For
+example, to use the "feature-1" branch of a specific fork of the Java
+buildpack::
+
+  applications:
+  - name: hello-java
+    buildpack: https://github.com/mycompany/java-buildpack.git#feature-1
+    mem: 512M
+    path: target/zjava-mysql-1.0
+
+See also: :ref:`Custom Buildpacks <buildpacks-custom>`
+ 
+Example
+^^^^^^^
+
+The `Spring Music 
+<https://github.com/Stackato-Apps/spring-music>`_
+sample demonstrates a simple Spring application which can be bound to a
+MySQL or PostgreSQL data service.
+
+ 
+.. _java-legacy-buildpack:
+
+Java Support in the Legacy Buildpack
+------------------------------------
+
+Stackato also has a :ref:`Legacy Buildpack <buildpacks-legacy>` (CF v1
+compatibility) which supports several Java frameworks:
 
 * :ref:`Java Web <java-web>`
 * :ref:`Spring <java-spring>`
 * :ref:`Java EE (via TomEE or JBoss) <java-ee>`
 * Grails
 * Lift
-* Buildpack - Java (see :ref:`Buildpacks <buildpacks>`)
 
-You can push bytecode built on on your local machine 
-with tools like `Apache Ant <http://ant.apache.org/>`_ and `Apache Maven
-<http://maven.apache.org/>`_, or build the Java bytecode on Stackato
-itself (using Buildpack - Java).
+To use the Legacy buildpack, set a ``framework: type`` in *stackato.yml*
+(or in the ``stackato:`` section of *manifest.yml*). For example::
+
+  framework:
+    type: java_ee
+
+The available framework types for JVM applications are:
+
+* java_ee
+* java_web
+* grails
+* play
+* spring
 
 .. _java-web:
 
 Java Web Applications
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The Java Web framework is the default Java framework in Stackato, and
 requires little or no modification of application code in most cases.
@@ -32,7 +87,7 @@ Stackato simply deploys the WAR file.
 simple Servlet-based Java webapp using the Java Web framework.
 
 Service Configuration
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 If you have created data services, you can get the service configuration
 by using the :ref:`environment variables <environment-variables>` below:
@@ -50,7 +105,7 @@ variable. If it uses more than one, use :ref:`STACKATO_SERVICES
 .. index:: JDBC
 
 Using JDBC
-^^^^^^^^^^
+~~~~~~~~~~
 
 It is possible to access the database services using the standard JDBC API::
 
@@ -88,11 +143,6 @@ It is possible to access the database services using the standard JDBC API::
     }
   }
 
-Example
-^^^^^^^
-
-The `Java-MySQL (JDBC) <https://github.com/Stackato-Apps/hello-java-mysql>`_
-sample demonstrates a simple Java application using a MySQL service.
 
 .. _java-web-debug:
 
@@ -144,14 +194,14 @@ IDE instance with the appropriate host and port values.
 .. _java-spring:
 
 Spring
-------
+^^^^^^
 
 Applications that use the Spring framework are detected and automaticaly
 configured if there is either a *spring-core* jar file or an
 *org/springframework* folder.
 
 Service Configuration
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 If there is only one service of a given type (e.g. one MySQL data
 service), the application is automatically reconfigured to use that
@@ -174,13 +224,13 @@ to use VCAP_SERVICES environment variable to obtain the details for each
 one (host, port, username, password).
 
 <CLOUD> Namespace Version
-^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you are using <CLOUD> namespace in your application, make sure
 the cloudfoundry-runtime version is 0.8.2.
 
 Example
-^^^^^^^
+~~~~~~~
 
 The `Hello-Spring-MySQL
 <https://github.com/Stackato-Apps/hello-spring-mysql>`_
@@ -189,7 +239,7 @@ sample demonstrates a simple Spring application with one MySQL service.
 .. _java-ee:
 
 JavaEE 6
---------
+^^^^^^^^
 
 Stackato's 'java_ee' framework has two application servers available:
 
@@ -200,7 +250,7 @@ The Java EE framework is detected if there is a *persistence.xml* file located i
 *src/main/resources/META-INF/persistence.xml*.
 
 Service Configuration
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 For JavaEE applications, you must create a ``persistence-unit`` in your
 *persistence.xml* file with the name of your database service.
@@ -231,7 +281,7 @@ And in your JavaEE code::
     private EntityManager em;
 
 Examples
-^^^^^^^^
+~~~~~~~~
 
 The `hello-jee-mysql <https://github.com/Stackato-Apps/hello-jee-mysql>`_
 sample demonstrates a JavaEE 6 application with a MySQL service running
@@ -244,7 +294,7 @@ MySQL service, but uses the JBoss server instead of TomEE.
 .. _java-home:
 
 HOME Directories
-----------------
+^^^^^^^^^^^^^^^^
 
 Java applications will have different HOME directories on Stackato
 depending on which Java framework is used:
@@ -256,7 +306,7 @@ depending on which Java framework is used:
 .. _catalina-opts:
 
 CATALINA_OPTS
--------------
+^^^^^^^^^^^^^
 
 The CATALINA_OPTS environment variable can be set in the ``env:`` block
 of `stackato.yml` (or set in the Management Console) to override
