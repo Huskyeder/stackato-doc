@@ -199,10 +199,10 @@ between :ref:`two or more Stackato Router nodes
 <cluster-load-balancer>`.
 
 The load balancer will need to be part of a security group which allows
-access on ports 80 (HTTP) and 443 (HTTPS). For administrative access to
-the cluster (if there are no other gateways into the Stackato cluster),
-you should also allow access on port 22 (SSH) or an arbitrary external
-port which forwards to port 22 internally.
+access on ports 80 (HTTP) and 443 (HTTPS). If there are no other
+gateways into the Stackato cluster, allow access to an arbitrary
+external port (between 1024 and 4999) which can be forwarded to
+port 22 internally for administrative access via SSH.
 
 Setting up :ref:`key-based, passwordless authentication
 <bestpractices-passwordless-ssh>` on the router nodes is recommended
@@ -218,7 +218,7 @@ Load Balancer Protocol  Load Balancer Port  Instance Protocol  Instance Port
 ======================  ==================  =================  =============
 TCP                     80                  TCP                80
 SSL                     443                 SSL                443
-TCP                     22 (or arbitrary)   TCP                22
+TCP                     2222 (example)      TCP                22
 ======================  ==================  =================  =============
 
 With this configuration the load balancer will pass SSL connections
