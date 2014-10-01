@@ -188,6 +188,46 @@ System Monitoring with Nagios
 If Nagios is installed on your EC2 instances, you can use it to monitor and report resource utilization.
 See the :ref:`Best Practices Guide <bestpractices-nagios>` for details.
 
+.. _server-vm-ec2-elb:
+
+EC2 Elastic Load Balancer
+-------------------------
+
+Stackato clusters can be set up behind an `EC2 Elastic Load Balancer
+<http://aws.amazon.com/elasticloadbalancing/>`__ to spread web traffic
+between :ref:`two or more Stackato Router nodes
+<cluster-load-balancer>`.
+
+The load balancer will need to be part of a security group which allows
+access on ports 80 (HTTP) and 443 (HTTPS). For administrative access to
+the cluster (if there are no other gateways into the Stackato cluster),
+you should also allow access on port 22 (SSH) or an arbitrary external
+port which forwards to port 22 internally.
+
+Setting up :ref:`key-based, passwordless authentication
+<bestpractices-passwordless-ssh>` on the router nodes is recommended
+when exposing SSH.
+
+The load balancer's **Port Configuration** settings should be set up as
+follows:
+
+.. cssclass:: fields table-striped table-bordered table-condensed
+
+======================  ==================  =================  =============
+Load Balancer Protocol  Load Balancer Port  Instance Protocol  Instance Port
+======================  ==================  =================  =============
+TCP                     80                  TCP                80
+SSL                     443                 SSL                443
+TCP                     22 (or arbitrary)   TCP                22
+======================  ==================  =================  =============
+
+With this configuration the load balancer will pass SSL connections
+through to the router nodes. See the :ref:`Using your own SSL
+certificate <server-config-ssl-cert-own-use>` and :ref:`CA Certificate
+Chaining <server-config-ssl-cert-chain>` sections for instructions on
+setting up certificates on the router nodes. 
+
+
 .. _server-vm-fs-relocate-ec2:
 
 Persistent storage for /var/vcap
