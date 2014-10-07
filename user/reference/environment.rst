@@ -71,6 +71,9 @@ You can set your own environment variables:
 
   HTTP_PROXY
     A variable recognized by many web applications to direct them to a proxy HTTP server.
+    
+  MEMORY_LIMIT
+    The amount of memory allocated to the application container.
 
   PATH
     A list of directories, separated by ":", which are to be searched for the names of executable files
@@ -208,3 +211,29 @@ You can set your own environment variables:
     bound to the application. See :ref:`VCAP_SERVICES
     <database-services-vcap-services>`.
 
+
+Staging Variables
+-----------------
+
+The following environment variables are available during application
+staging, and can be used in buildpacks or staging hooks:
+
+* BUILDPACK_CACHE: Filesystem location the buildpack uses to store assets during the build.
+* :term:`HOME`: As above, but containing a different filesystem path during staging.
+* http_proxy and https_proxy: The proxy host:port of the DEA running the staging container.
+* :term:`MEMORY_LIMIT` 
+* :term:`STACKATO_APP_NAME`
+* :term:`STACKATO_APP_NAME_UPCASE`
+* :term:`STACKATO_APP_ROOT`
+* :term:`STACKATO_LOG_FILES`
+* :term:`STACKATO_SERVICES`
+* STAGING_TIMEOUT: Time limit for staging to complete.
+* USER: Will always be "stackato"
+* :term:`VCAP_APPLICATION`
+* :term:`VCAP_SERVICES`
+
+.. note::
+  Service instance variables (e.g. STACKATO_SERVICES and VCAP_SERVICES)
+  can change between staging and running. Do not save values from these
+  variables to config files during staging as the hard-coded values may
+  no longer be applicable after staging.
