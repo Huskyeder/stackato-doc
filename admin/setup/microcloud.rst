@@ -116,7 +116,7 @@ when the first admin user is set up, but you may wish to add more. Do
 this on in the :ref:`Organizations <console-organizations>` view in the
 :ref:`Management Console <management-console>`.
 
-Not that each organization has an assigned :ref:`quota plan
+Note that each organization has an assigned :ref:`quota plan
 <console-settings-quota-definitions>`, which should be changed or edited
 to reflect the resources available on the VM/cluster.
 

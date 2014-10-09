@@ -171,7 +171,7 @@ First, update ``kato`` itself::
 
   $ kato node upgrade --update-kato
 
-This makes the ``--download-only`` option is available for the next
+This ensures the ``--download-only`` option is available for the next
 command.
 
 To start the download::
@@ -248,7 +248,7 @@ connectivity to the upstream resources is restored.
 App Store Proxy Settings
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Proxy settings for the App Store to may be lost during an upgrade. If
+Proxy settings for the App Store may be lost during an upgrade. If
 the App Store cannot fetch data after an upgrade, and your system is
 behind an HTTP(S) proxy, reset the proxy information for your network as
 described in the :ref:`Proxy Settings <server-config-http-proxy>`

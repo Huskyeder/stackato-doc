@@ -168,7 +168,7 @@ Adding the App Store to Stackato
 
 To confirm the App Store is loading correctly, select "App Store" in the
 menu and view the list of applications displayed. A "CC Catalog Manager"
-error appear in the Event Log if an App Store URL fails to load.
+error appears in the Event Log if an App Store URL fails to load.
 
 App Store URLs can also be viewed, added, deleted, enabled, and disabled
 with :ref:`kato config <kato-command-ref-config>`. For example::

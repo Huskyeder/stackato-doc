@@ -58,8 +58,8 @@ port from this range. This range can be set in the Management Console's
 config set ...`` command.
 
 A Harbor node can run standalone, or on the same node as your router.
-This may be the preferred option if wish to use the same DNS name for
-Harbor and Router services. Otherwise, create new DNS entry for the
+This may be the preferred option if you wish to use the same DNS name for
+Harbor and Router services. Otherwise, create a new DNS entry for the
 harbor node, so that consumers of the port do not have to address it by
 its external IP.
 

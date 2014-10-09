@@ -12,7 +12,7 @@ EC2, or OpenStack.
 
 When auto scaling is enabled, stackato will automatically grow the pool
 of DEA nodes to accommodate new app deployments. Scaling events are
-triggered the available memory in the pool falls below a certain
+triggered when the available memory in the pool falls below a certain
 threshold.
 
 DEA Template

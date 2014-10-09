@@ -31,7 +31,7 @@ from the Application details page of the :ref:`Management Console
 stackato logs
 -------------
 
-To view and application log stream, use the :ref:`stackato logs
+To view an application log stream, use the :ref:`stackato logs
 <command-logs>` command::
 
     $ stackato logs myapp
@@ -40,7 +40,7 @@ To limit the number of lines displayed, use the ``--num`` option::
 
     $ stackato logs myapp --num 50
 
-To view log stream as it is updated, use the ``--follow`` (or ``-f``) option::
+To view a log stream as it is updated, use the ``--follow`` (or ``-f``) option::
 
     $ stackato logs myapp -f
 
@@ -135,7 +135,7 @@ list`` command.
   
 .. note::
 
-  If the service at the recieving end of the drain goes offline or
+  If the service at the receiving end of the drain goes offline or
   becomes disconnected, Stackato will retry the connection at increasing
   intervals.
 

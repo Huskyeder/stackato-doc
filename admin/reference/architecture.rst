@@ -102,7 +102,7 @@ containers. In a Stackato cluster, there will typically be a number of
 nodes running the DEA role, which in turn each host multiple user
 application instances.
 
-The Cloud Controller allocates instances of an application accross
+The Cloud Controller allocates instances of an application across
 available DEA nodes, prioritizing eligible nodes that are running the
 fewest instances of that app already. This maintains an even
 distribution of instances of an app across the pool.

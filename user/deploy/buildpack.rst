@@ -131,7 +131,7 @@ needs a custom command to start the process, create a `Procfile
 <https://devcenter.heroku.com/articles/procfile>`__ in the base
 directory of your application.
 
-The ``Procfile`` will should contain a single line with the ``web:``
+The ``Procfile`` should contain a single line with the ``web:``
 process for the application defined. For example::
 
   web: bundle exec rails server -p $PORT
