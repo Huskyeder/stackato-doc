@@ -307,3 +307,12 @@ If you are scheduling an upgrade, notify the system users that it may be
 necessary to clear their browser cache for the web console (e.g.
 "Ctrl+Shift+F5" rather than "F5").
 
+Restaging Apps Behind a Proxy
+-----------------------------
+
+When migrating applications from 2.10.x to 3.x, applications with broken
+support for ``https_proxy`` may fail during staging (or pre-running
+hooks) because ``https_proxy`` is now always defined during these
+stages, even when there is no upstream proxy behind the :ref:`builtin
+polipo proxy <server-config-http-proxy-cache>`.
+
