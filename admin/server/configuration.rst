@@ -665,7 +665,7 @@ The setting above is the default for the Stackato router. See OpenSSL's
 `Cipher List Format
 <https://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT>`_
 and `Cipher Strings
-<https://www.openssl.org/docs/apps/ciphers.html#CIPHER_STRINGS>`
+<https://www.openssl.org/docs/apps/ciphers.html#CIPHER_STRINGS>`_
 documentation for valid values.
 
 
