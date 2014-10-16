@@ -14,15 +14,11 @@ Amazon supplies a prebuilt Stackato :term:`AMI` on its :term:`EC2` platform.
 Initial Setup
 -------------
 
-#. `Request access to the Stackato AMI <http://www.activestate.com/stackato/amazon_ami/>`_.
+#. In the `EC2 Dashboard <https://console.aws.amazon.com/ec2/v2/>`_, click **Launch Instance**
 
-   You will need to provide your AWS Account ID (12-digit number) and will
-   receive a confirmation email from ActiveState when the AMI have been
-   successfully provisioned into your AWS Account.
-   
-#. Choose the latest Stackato VM available under "My AMIs -> Shared with me"
+#. Click **Community AMIs** then search for "Stackato"
 
-#. Choose a **m3.medium or larger** (3.7GB+ RAM) instance.
+#. Click **Select** and choose an **m3.medium or larger** (3.7GB+ RAM) instance.
 
 #. Add at least 30GB of storage to the instance (SSD or Magnetic).
 
