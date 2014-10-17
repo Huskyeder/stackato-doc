@@ -37,9 +37,13 @@ Deploying Applications
 ----------------------
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
 
   deploy/index
+
+.. toctree::
+  :maxdepth: 1
+
   deploy/orgs-spaces
   deploy/domains-routes
   deploy/stackatoyml

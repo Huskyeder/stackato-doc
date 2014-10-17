@@ -40,6 +40,38 @@ and password::
   Password: ******
   Successfully logged into [https://api.stacka.to]
 
+.. _bestpractices-manage-multiple-targets:
+
+.. _deploy-manage-multiple-targets:
+
+Managing Multiple Targets
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Stackato client targets a single location with the command
+``stackato target``.
+
+If you need to target two or more instances at the same time, use one of
+the following methods:
+
+1. Use the ``--target <target>`` option. This sets the specified target
+   for the current command only, and does not set it as the default::
+	
+    $ stackato apps --target api.stackato-xxx1.local
+  
+
+2. Use two or more terminals to access multiple targets. Within each
+   terminal, set the ``STACKATO_TARGET`` environment variable for the
+   API endpoint URL you want to work with in that terminal. The client
+   will use this URL, overriding any target set with the ``stackato
+   target`` command::
+	
+    $ export STACKATO_TARGET='api.stackato-xxx2.local'
+
+   This target is used until the variable is unset or the terminal is closed. To unset it::
+	
+    $ unset STACKATO_TARGET
+
+
 Selecting Org & Space
 ---------------------
 
@@ -403,10 +435,9 @@ number of instances of 'myapp-v2' (i.e. phasing that version into
 production rather than cutting over) and eventually :ref:`unmap
 <command-unmap>` 'mydomain.com' from the original 'myapp'.
 
-Best Practices
---------------
-
 .. _bestpractices-URL-cutover:
+
+.. _deploy-URL-cutover:
 
 URL Mapping for Version Cutover
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -501,37 +532,6 @@ with the newer code, delete the old app::
 	|                    |   |         | customertracker.example.com  |            |
 	+--------------------+---+---------+------------------------------+------------+
   
-
-.. _bestpractices-manage-multiple-targets:
-
-Managing Multiple Targets
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The Stackato client targets a single location with the command
-``stackato target``.
-
-If you need to target two or more instances at the same time, use one of
-the following methods:
-
-1. Use the ``--target <target>`` option. This sets the specified target
-   for the current command only, and does not set it as the default::
-	
-    $ stackato apps --target api.stackato-xxx1.local
-  
-
-2. Use two or more terminals to access multiple targets. Within each
-   terminal, set the ``STACKATO_TARGET`` environment variable for the
-   API endpoint URL you want to work with in that terminal. The client
-   will use this URL, overriding any target set with the ``stackato
-   target`` command::
-	
-    $ export STACKATO_TARGET='api.stackato-xxx2.local'
-
-   This target is used until the variable is unset or the terminal is closed. To unset it::
-	
-    $ unset STACKATO_TARGET
-
-
 .. index:: Persistent Sessions
 .. index:: Session Persistence
 .. index:: Sticky Sessions
