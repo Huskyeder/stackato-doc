@@ -56,7 +56,7 @@ the :ref:`stackato client <client>` or the :ref:`Management Console
 Users & Roles
 -------------
 
-Stackato users can take on different roles within organizations and
+Stackato users can take on one or more roles within organizations and
 spaces. These roles can be assigned by a Manager of the relevant scope
 or a Stackato Admin: 
 
@@ -74,14 +74,15 @@ Org Roles
 Space Roles
 ^^^^^^^^^^^
 
-* Space Manager: Can add/remove Org members to the space (as managers,
-  developers or auditors) and rename the space. Inherits developer
-  permissions. 
+* Manager: Can add/remove Org members to the space (as managers,
+  developers or auditors) and rename the space. The role does not
+  automatically inherit Developer permissions, but Managers have
+  permission to add that role to their own account.
   
-* Space Developer: Can create, delete, manage applications and services,
+* Developer: Can create, delete, manage applications and services,
   full access to all usage reports and logs
   
-* Space Auditor: View only access to all space information, settings,
+* Auditor: View only access to all space information, settings,
   reports, logs
   
 
