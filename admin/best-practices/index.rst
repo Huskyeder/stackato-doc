@@ -130,15 +130,21 @@ DEA node in the cluster, one node at a time:
 #. Create a *Dockerfile*. In this new directory, create a file called
    "Dockerfile" and add the following::
 
-    FROM stackato/stack-alsek
+    FROM stackato/stack-alsek:kato-patched
     RUN apt-get update
     RUN unattended-upgrades -d
     RUN apt-get clean && apt-get autoremove
-  
-#. Build the docker image. Give the image a tag relevant to this
-   particular upgrade (e.g. "upgrade-2014-09-19")::
 
-    $ sudo docker build -rm -t stackato/stack-alsek:upgrade-2014-09-19 .
+   The "kato-patched" tag is attached to the image most recently
+   updated by ``kato patch``. Use this as a starting point rather than
+   "latest" to prevent the accumulation of too many AUFS filesystem
+   layers.
+  
+#. Build the docker image with the ``--no-cache=true`` option. Give the
+   image a tag relevant to this particular upgrade (e.g.
+   "upgrade-2014-09-19")::
+
+    $ sudo docker build --no-cache=true -rm -t stackato/stack-alsek:upgrade-2014-09-19 .
     
    The "." at the end is important. It specifies to use the *Dockerfile*
    in the current directory.
