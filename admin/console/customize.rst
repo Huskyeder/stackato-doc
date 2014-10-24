@@ -29,6 +29,22 @@ Product
 * **Default Locale**: Sets the default locale of the console if the users current locale isn't recognized. Currently, only the 'en' localization is complete.
 * **External Docs URL**: The link to direct users to to view docs. Defaults to the current documentation published to docs.stackato.com. Ticking 'Use local docs' will cause this URL to be ignored and the docs from the VM will be served instead.
 
+Client
+^^^^^^
+
+The Stackato CLI client version number and the paths or URLs to the
+downloadable archives for each platform.
+
+Local paths are relative to the */home/stackato/stackato/* directory
+(Router node, see :ref:`Renaming the Client <customize-rename-client>`
+below), but HTTP URLs can also be used for externally hosted files. 
+
+The client executables served from the VM are the latest version
+available at the time of the Stackato VM release, but updated clients
+may become available between releases. The current release of the
+Stackato CLI client is always available from the `ActiveState Downloads
+site <http://downloads.activestate.com/stackato/client/>`_.
+
 Look and Feel
 ^^^^^^^^^^^^^
 
@@ -131,6 +147,7 @@ The default error page files in
 reference, but should not be modified directly as changes may be lost
 during upgrades or patches.
 
+.. _customize-rename-client:
 
 Renaming the Client
 -------------------
@@ -138,12 +155,18 @@ Renaming the Client
 The ``stackato`` client is distributed as a single file executable for
 Windows, OS X and Linux (x86 and x86_64). Zip files containing
 executables for each platform can be found in the ``~/stackato/static``
-directory.
+directory. 
 
-After renaming the executable, you can re-package them in .zip files
-and modify the
-*~/stackato/code/console/js/views/client/templates/client.html*
-template to point to the renamed files.
+Some customers may wish to repackage and rename these CLI executables to
+match their own branding. To do so:
+
+* unzip each archive
+* change the name of the executable
+* re-zip the contents with the desired filename
+* save the archives to the ``/s/static/`` directory **of each Router
+  node** 
+* change the filenames in **Console Settings -> Client**
+
 
 .. _customize-oem:
 
