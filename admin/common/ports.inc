@@ -136,7 +136,9 @@ restrict access from the application containers:
   
     $ kato config push fence docker/block_network_ips 8.8.8.8
 
-Restart the DEA role to apply the changes.
+Restart the DEA role to apply these changes for new application
+containers. If applications which require access to these IP addresses
+have already been deployed they will need to be restarted.
 
 Two additional settings are exposed in ``kato config`` but should not
 generally be modified:
