@@ -254,6 +254,29 @@ behind an HTTP(S) proxy, reset the proxy information for your network as
 described in the :ref:`Proxy Settings <server-config-http-proxy>`
 instructions. 
 
+Missing ``kato`` Utility
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the ``kato upgrade`` command exits during the installation of the
+``stackato-kato`` package, it is possible that ``kato`` itself can go
+missing (removed before the upgraded package is fully installed).
+
+To recover from this state:
+
+#. Find the command and options ``kato`` used to initiate the upgrade.
+   For example::
+
+    $ tac /s/logs/sentinel-cli.log | grep -m1 'Running with command'
+    INFO  Sentinel::CLI : Running with command: bin/sentinel upgrade 3.4.1 127.0.0.1 192.168.20.11 --skip-download
+
+#. ``cd /s/code/sentinel/cli``
+
+#. Copy the output after 'Running with command:' and run it. For
+   example::
+
+    $ bin/sentinel upgrade 3.4.1 127.0.0.1 192.168.20.11 --skip-download
+
+
 Upgrading with Customizations 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
