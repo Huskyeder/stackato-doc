@@ -50,7 +50,11 @@ system keeps a certain number of these droplets (5 per application in
 the "default" quota plan) in a "most recently used" list.
 
 When the droplet limit is exceeded, the oldest (least recently used)
-droplet is removed to make way for the new droplet. 
+droplet is removed to make way for the new droplet.
+
+If an admin reduces the number of saved droplets in the quota plan,
+excess droplets for each application will be culled (starting with the
+oldest) when a code change is next pushed for that application.
 
 
 Version Rotation
