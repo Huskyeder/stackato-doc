@@ -96,6 +96,8 @@ security patches in place, the VM and Docker base images should be
 updated with the following process whenever an important security update
 becomes available in the Ubuntu repositories.
 
+.. _bestpractices-ubuntu-upgrade-vm:
+
 Upgrade the Stackato VM
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -116,7 +118,9 @@ script to install all upgrades from the "-security" stream.
 Each node should be rebooted after ``unattended-upgrades`` completes to
 ensure new kernels, modules, and libraries are loaded.
 
-Upgrade the Docker image
+.. _bestpractices-ubuntu-upgrade-docker:
+
+Upgrade the Docker Image
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 The base Docker image used for application containers should also be

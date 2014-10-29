@@ -47,12 +47,12 @@ role**:
    which inherits the current Docker image, then runs an update or
    installation command. For example::
 
-    FROM stackato/stack-alsek
+    FROM stackato/stack-alsek:kato-patched
     RUN apt-get -y install libgraphite2-dev
 
    * `FROM <http://docs.docker.io/en/latest/use/builder/#from>`__:
      inherits the environment and installed software from Stackato's app
-     image.
+     image (the latest patched version).
    * `RUN <http://docs.docker.io/en/latest/use/builder/#run>`__:
      specifies arbitrary commands to run before saving the image.
    * `ADD <http://docs.docker.io/en/latest/use/builder/#add>`__: could
@@ -79,6 +79,11 @@ role**:
    This step only needs to be done once, as the configuration change is
    shared with all nodes.
 
+.. note::
+  See also the :ref:`Upgrade the Docker Image
+  <bestpractices-ubuntu-upgrade-docker>` section in the :ref:`Best
+  Practices <best-practices>` section, which shows how to modify the
+  Docker base image without changing ``kato config``.
   
 
 .. _docker-privileged-containers:
