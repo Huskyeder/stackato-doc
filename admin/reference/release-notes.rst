@@ -17,6 +17,14 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
+v3.4.2 (Nov 2014)
+-----------------
+
+* Bug Fixes
+
+  * [104272] Staging and pre-running hooks abort if they return a non-zero exit code (as in v2.10).
+
+
 v3.4.1 (July 29, 2014)
 ----------------------
 
