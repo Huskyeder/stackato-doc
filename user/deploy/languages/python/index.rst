@@ -30,7 +30,7 @@ command. For example::
 
   web: python$PYTHON_VERSION app.py
 
-See also: https://github.com/ActiveState/stackato-buildpack-python
+See also: https://github.com/ActiveState/stackato-buildpack-python/tree/v2.90.1
 
 
 Python with the Legacy Buildpack

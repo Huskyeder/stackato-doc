@@ -25,12 +25,17 @@ Stackato, replacing the built-in frameworks used in previous versions.
 Built-In Buildpacks
 -------------------
 
-For convenience a few buildpacks are bundled with Stackato:
+For convenience a number of buildpacks are bundled with Stackato:
 
-* `Python <https://github.com/ActiveState/stackato-buildpack-python>`__
-* `Java <https://github.com/cloudfoundry/java-buildpack>`__
-* `Node.js <https://github.com/cloudfoundry/heroku-buildpack-nodejs>`__
-* `Ruby <https://github.com/ActiveState/heroku-buildpack-ruby>`__
+* `Python <https://github.com/ActiveState/stackato-buildpack-python/tree/v2.90.1>`__
+* `Java <https://github.com/cloudfoundry/java-buildpack/tree/v2.4>`__
+* `Node.js <https://github.com/cloudfoundry/nodejs-buildpack/tree/v1.0.4>`__
+* `Ruby <https://github.com/ActiveState/ruby-buildpack/tree/v1.1.3>`__
+* `Go <https://github.com/ActiveState/go-buildpack/tree/v1.0.4.1>`__
+* `Clojure <https://github.com/ActiveState/heroku-buildpack-clojure/tree/v2014.10.14>`__
+* `Scala <https://github.com/heroku/heroku-buildpack-scala/tree/v42>`__
+* `Perl <https://github.com/ActiveState/stackato-buildpack-perl/tree/v1.0.0>`__
+* `PHP <https://github.com/ActiveState/php-buildpack/tree/v1.0.2>`__
 
 Stackato will cycle through the ``detect`` scripts of the built-in
 buildpacks prior to staging to match the code you are pushing. For most

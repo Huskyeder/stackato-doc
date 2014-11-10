@@ -13,13 +13,12 @@ behavior), or the buildpack of your choice.
 Java Buildpack
 --------------
 
-By default, Stackato deploys Java applications using a fork of the
-`Cloud Foundry Java buildpack
-<https://github.com/ActiveState/java-buildpack>`__, which supports many
-types of JVM-based applications.
+By default, Stackato deploys Java applications using the `Cloud Foundry
+Java buildpack <https://github.com/cloudfoundry/java-buildpack/>`__,
+which supports many types of JVM-based applications.
 
 Consult the online `Java Buildpack documentation
-<https://github.com/ActiveState/java-buildpack/blob/master/README.md>`
+<https://github.com/cloudfoundry/java-buildpack/blob/v2.4/README.md>`
 for complete and up-to-date instructions on deploying different JVM
 application types.
 
