@@ -144,7 +144,7 @@ This sets up the Core node with just the implicit **controller**, **primary**, a
 
 If you intend to set up the rest of the cluster immediately, you would
 carry on to enable those roles you ultimately intend to run on the Core
-node.  For example, to set up a Core node with the **controller**, **primary**
+node.  For example, to set up a Core node with the **controller**, **primary**, 
 **router**, and **dea** roles:
 
 .. parsed-literal::
