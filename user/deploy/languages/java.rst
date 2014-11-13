@@ -328,3 +328,22 @@ the heap and 64MB for overhead, a 160MB application will still have 64MB for
 the heap but 96MB for overhead, and a 512MB application will get a
 416MB heap and allow 96MB for overhead.
 
+Slow-Starting Apps
+------------------
+
+Stackato's DEA health check limits the amount of time an application has
+to complete staging and start receiving web requests. This is is set to
+60 seconds by default, but many Java applications require more time
+before they can start accepting HTTP requests.
+
+If your application will not successfully stage and start within 60
+seconds, increase the timeout threshold (to a maximum of 189 seconds) by
+setting a new :ref:`timeout <stackato_yml-timeout>` value in the
+*manifest.yml* or by using the ``--health-timeout`` option for
+:ref:`stackato push <command-push>`. For example::
+
+  $ stackato push --health-timeout 180s
+
+
+
+
