@@ -5,17 +5,17 @@
 Manifest.yml Options
 ====================
 
-Using a *manifest.yml* file is an alternative to *stackato.yml* which
-allows for specific customizations such as pushing more than one app
-with dependencies. It is the standard configuration file format for all
-Cloud Foundry systems, allowing for portability from those systems to
-Stackato without configuration changes. See `Application Manifests
-<http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html>`_
-for the canonical documentation.
+A *manifest.yml* file sets application configuration options which are
+passed to Stackato during the ``stackato push`` command. It is the
+standard application configuration file format for all Cloud Foundry
+platforms, allowing for portability from those systems to Stackato
+without configuration changes. See `Application Manifests
+<http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html>`_ for
+the canonical documentation.
 
-As with *stackato.yml*, the client uses the keys to determine values
-that are otherwise passed by the user as arguments or as answers
-to prompts. 
+As with :ref:`stackato.yml <stackato_yml>`, the client uses the keys to
+determine values that are otherwise passed by the user as arguments or
+as answers to prompts. 
 
 The options below are specific to the *manifest.yml* file. Most
 *stackato.yml* keys (see :ref:`stackato.yml Options <stackato_yml>`) can
@@ -23,15 +23,14 @@ also be declared in *manifest.yml*. Those that cannot are listed in the
 :ref:`stackato <manifest-yml-stackato>` section below.
 
 .. note::
-    
-    Options in :ref:`stackato.yml <stackato_yml>` take precedence over
-    those declared in *manifest.yml*. Detailed specifications for these
-    configuration files can be found in the `stackato-cli source
-    repository <https://github.com/ActiveState/stackato-cli/>`_:
+  Options in :ref:`stackato.yml <stackato_yml>` take precedence over
+  those declared in *manifest.yml*. Detailed specifications for these
+  configuration files can be found in the `stackato-cli source
+  repository <https://github.com/ActiveState/stackato-cli/>`_:
 
-    * `stackato.yml specification <https://github.com/ActiveState/stackato-cli/blob/master/doc/stackato.yml.txt>`__
-    * `manifest.yml specification <https://github.com/ActiveState/stackato-cli/blob/master/doc/manifest.yml.txt>`__
-    * `stackato.yml to manifest.yml key mappings <https://github.com/ActiveState/stackato-cli/blob/master/doc/stackato-2-manifest.txt>`__
+  * `stackato.yml specification <https://github.com/ActiveState/stackato-cli/blob/master/doc/stackato.yml.txt>`__
+  * `manifest.yml specification <https://github.com/ActiveState/stackato-cli/blob/master/doc/manifest.yml.txt>`__
+  * `stackato.yml to manifest.yml key mappings <https://github.com/ActiveState/stackato-cli/blob/master/doc/stackato-2-manifest.txt>`__
 
 applications:
 ^^^^^^^^^^^^^
@@ -40,6 +39,7 @@ This key contains a list of options corresponding to individual apps to
 be pushed. Each sub-key should match the name of folders where the
 files for each app are contained. For example::
 
+  ---
   applications:
     web:
       name: springweb
@@ -122,24 +122,23 @@ stackato:
 ^^^^^^^^^
 
 The following Stackato-specific options need to be placed in a
-``stackato:`` block within the application block.
+``stackato:`` block within the application block. They use the same
+syntax as when defined in *stackato.yml*, but are indented as sub-keys
+of the ``stackato:`` block.
 
-* processes:
-* min_version:
-* env:
-* ignores:
-* hooks:
-* cron:
-* requirements
+* :ref:`processes <stackato_yml-processes>`:
+* :ref:`min_version <stackato_yml-version>`:
+* :ref:`ignores <stackato_yml-ignores>`:
+* :ref:`hooks <stackato_yml-hooks>`:
+* :ref:`cron <stackato_yml-cron>`:
+* :ref:`requirements <stackato_yml-requirements>`:
 
 For example::
 
   applications:
     .:
       name: celery-demo
-      framework:
-        name: python
-        runtime: python27
+      buildpack: https://github.com/ActiveState/stackato-buildpack-python.git
       mem: 128
       stackato:
         env:

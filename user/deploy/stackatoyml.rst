@@ -5,9 +5,9 @@
 Stackato.yml
 ============
 
-Configuration options for Stackato applications can be stored in a *stackato.yml* 
-file in the top-level application directory.
-
+Configuration options for Stackato applications can be stored in a
+*stackato.yml* or :ref:`manifest.yml <manifest_yml>` file in the
+top-level application directory. 
 
 The *stackato.yml* file defines **keys** and associated **values** which
 the ``stackato`` client uses to set options that are otherwise passed by
@@ -94,32 +94,50 @@ If unset, Stackato will check to see if the application triggers the
 framework:
 ^^^^^^^^^^
 
-Allows the app to specify a framework and runtime to be used. Specifying
-a value for the ``framework`` key triggers the use of the :ref:`Legacy
-Buildpack <buildpacks-legacy>`.
+Specifies the framework type and runtime to be used for deploying the
+application. If set, this triggers the use of the :ref:`Legacy Buildpack
+<buildpacks-legacy>`, which enables the older Stackato v2 / Cloud
+Foundry v1 staging mechanism.
 
-.. note::
-  The keys in the ``framework`` section are used with the :ref:`Legacy
-  Buildpack <buildpacks-legacy>` only. Applications using language or
-  framework-specific buildpacks do not require these values, and should
-  instead specify the :ref:`buildpack <stackato_yml-buildpack>` or rely
-  on the detection scripts of the :ref:`built-in buildpacks <buildpacks-built-in>`.
+Applications using language or framework-specific buildpacks do not
+require these values, and should instead specify the :ref:`buildpack
+<stackato_yml-buildpack>` or rely on the detection scripts of the
+:ref:`built-in buildpacks <buildpacks-built-in>`.
   
 type:
 ~~~~~
 
-The framework to use.  Check ``stackato frameworks`` for a complete list of 
-available frameworks. If not specified, user may be prompted during 
-``stackato push``. Can also be input with the command line option --framework, 
--f (eg. ``stackato push --framework python``).
+The framework to use. Can also be input with the command line option
+--framework, -f (eg. ``stackato push --framework python``). The Legacy
+Buildpack supports the following frameworks:
+
+* aspdotnet
+*	django 
+*	generic 
+*	grails
+*	java_ee
+*	java_web
+*	lift
+*	node
+*	otp_rebar (Erlang)
+*	perl
+*	perlcgi
+*	php
+*	play
+*	python
+*	rack
+*	rails3
+*	sinatra
+*	spring
+*	standalone
+*	wsgi
 
 .. _stackato_yml-runtime:
 
 runtime:
 ~~~~~~~~
 
-The runtime to use.  Check ``stackato runtimes`` for a complete list of available 
-runtimes. If not specified, server will select the best option based on available 
+The runtime to use. If not specified, server will select the best option based on available 
 data.  Can also be input with the command line option --runtime, -f 
 (eg. ``stackato push --runtime python32``).
 	
@@ -779,55 +797,52 @@ hooks:
 ^^^^^^
 
 Hooks are commands that are run at various point of the staging and running 
-process of an app.
-
-pre-push:
-~~~~~~~~~
-
-Commands run **on the local system** before pushing the code to
-Stackato. This can be useful for building source files (e.g. with
-``make``) or performing configuration steps that need to be done on the
-local system before the application code can be pushed. Commands are
-executed between application creation (when the URL and application
-resources are reserved) and the actual upload of the local code.
-
-The client will set the STACKATO_HOOK_ACTION variable to "create" if the
-application is new, or "update" if it detects the application already
-exists. You can use this variable to run hooks differently in either
-context.
-
-pre-staging:
-~~~~~~~~~~~~~
-
-A list of commands to be run in the root of the app's directory before the 
-staging process is started.  The commands are only run a single time on push 
-or update.
-
-post-staging:
-~~~~~~~~~~~~~
-
-A list of commands to be run in the root of the app's directory after the 
-staging process is complete.  The commands are only run a single time on push 
-or update.
-		
-pre-running:
-~~~~~~~~~~~~
-
-A list of commands to be run in the root of the app's directory after
-staging is complete and before the app is started.  The commands are run
-sequentially, in the order listed, each time an app is started or
-restarted.
-
-Example::
+process of an app. For example::
 
   hooks:
     pre-staging:
-      - python prestagingsetup.py    
+    - python prestagingsetup.py    
     post-staging:
-      - python manage.py syncdb --noinput
-      - python manage.py migrate --noinput
+    - python manage.py syncdb --noinput
+    - python manage.py migrate --noinput
     pre-running:
     - python prerunsetup.py
+
+There are four stages at which hooks can be run:
+
+.. _stackato_yml-hooks-pre-push:
+
+*  **pre-push**: Commands run **on the local system** before pushing the
+   code to Stackato. This can be useful for building source files (e.g.
+   with ``make``) or performing configuration steps that need to be done
+   on the local system before the application code can be pushed.
+   Commands are executed between application creation (when the URL and
+   application resources are reserved) and the actual upload of the
+   local code.
+  
+   The client will set the STACKATO_HOOK_ACTION variable to "create" if
+   the application is new, or "update" if it detects the application
+   already exists. You can use this variable to run hooks differently in
+   either context.
+  
+.. _stackato_yml-hooks-pre-staging:
+
+*  **pre-staging**: Commands run in the root of the app's directory
+   before the staging process is started. The commands are only run a
+   single time on push or update.
+  
+.. _stackato_yml-hooks-post-staging:
+
+*  **post-staging**: Commands run in the root of the app's directory
+   after the staging process is complete. The commands are only run a
+   single time on push or update.
+
+.. _stackato_yml-hooks-pre-running:
+
+*  **pre-running**: Commands run in the root of the app's directory
+   after staging is complete and before the app is started. The commands
+   are run sequentially in the order listed each time an app is started
+   or restarted.
 
 Hook processing ends and staging aborts if a command returns a nonzero
 exit status (i.e. if the command fails). You can suppress this behavior by
@@ -837,7 +852,7 @@ example::
 
   hooks:
     post-staging:
-      - "-python manage.py syncdb --noinput"
+    - "-python manage.py syncdb --noinput"
 
 Commands used in the ``hooks:`` keys may not include shell metacharacters, such 
 as "&&" for combining commands, "#" for comments, "<", ">" or "|" for I/O redirection.
