@@ -233,6 +233,16 @@ The cluster must have the following redundant roles:
 Upgrade Problems
 ----------------
 
+Free Memory
+^^^^^^^^^^^
+
+Core/cache nodes require at least 1GB of free memory for upgrades to run
+successfully. Other nodes require at least 512MB.
+
+Use the ``free`` or ``vmstat`` commands to determine how much memory is
+available on each VM, and use ``kato stop ...`` to temporarily shut off
+roles if more memory is required. 
+
 Network
 ^^^^^^^
 
