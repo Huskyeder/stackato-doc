@@ -659,10 +659,10 @@ The router's `TLS cipher suite
 <http://en.wikipedia.org/wiki/Cipher_suite>`_ can be modified using
 ``kato config``. For example::
 
-  kato config set router2g ssl/cipher_suite 'ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:RC4+RSA:+HIGH:+MED'
+  kato config set router2g ssl/cipher_suite 'ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:!SSLv3:RC4+RSA:+HIGH:+MED'
 
-The setting above is the default for the Stackato router. See OpenSSL's
-`Cipher List Format
+The setting above is the default for the Stackato router, minus SSLv3.
+See OpenSSL's `Cipher List Format
 <https://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT>`_
 and `Cipher Strings
 <https://www.openssl.org/docs/apps/ciphers.html#CIPHER_STRINGS>`_
