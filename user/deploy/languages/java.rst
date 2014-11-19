@@ -18,7 +18,7 @@ Java buildpack <https://github.com/cloudfoundry/java-buildpack/>`__,
 which supports many types of JVM-based applications.
 
 Consult the online `Java Buildpack documentation
-<https://github.com/cloudfoundry/java-buildpack/blob/v2.4/README.md>`
+<https://github.com/cloudfoundry/java-buildpack/blob/v2.4/README.md>`__
 for complete and up-to-date instructions on deploying different JVM
 application types.
 
@@ -33,6 +33,12 @@ buildpack::
     buildpack: https://github.com/mycompany/java-buildpack.git#feature-1
     mem: 512M
     path: target/zjava-mysql-1.0
+
+.. note::
+  The bundled Java buildpack no longer supports applications using
+  versions of Spring older v3.1. For older Spring applications, use an
+  older release of the buildpack (e.g. ``buildpack:
+  https://github.com/cloudfoundry/java-buildpack.git#v2.1``).
 
 See also: :ref:`Custom Buildpacks <buildpacks-custom>`
  

@@ -81,8 +81,8 @@ buildpack's Git repository. For example::
     mem: 256MB
     buildpack: https://github.com/ActiveState/stackato-buildpack-ruby.git
 
-You can use a specific branch by specifying it at the end of the URL
-using the following format::
+You can use a specific branch or tag by specifying it at the end of the
+URL using the following format::
 
     buildpack: https://github.com/ActiveState/stackato-buildpack-ruby.git#branchname
 
