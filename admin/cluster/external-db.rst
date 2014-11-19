@@ -55,6 +55,9 @@ modified to suit the type of service you want to connect:
 Documentation on implementing and deploying brokers can be found in each
 of these repositories.
 
+Stackato |version| uses version 2.3 of the `Cloud Foundry Service Broker
+API <http://docs.cloudfoundry.org/services/api.html>`__. 
+
 .. _external-db-kato-config:
 
 Reconfiguring Built-In Services
