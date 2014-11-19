@@ -36,8 +36,8 @@ buildpack::
 
 .. note::
   The bundled Java buildpack no longer supports applications using
-  versions of Spring older v3.1. For older Spring applications, use an
-  older release of the buildpack (e.g. ``buildpack:
+  versions of Spring older than v3.1. For older Spring applications, use
+  an older release of the buildpack (e.g. ``buildpack:
   https://github.com/cloudfoundry/java-buildpack.git#v2.1``).
 
 See also: :ref:`Custom Buildpacks <buildpacks-custom>`
