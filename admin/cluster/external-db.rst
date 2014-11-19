@@ -1,37 +1,70 @@
 .. _external-db:
+.. _external-db-general:
 
 .. index:: External Data Services
+.. index:: External Database
 
 External Data Services
 ======================
 
-Stackato comes with several data services that can be enabled on a micro
-cloud or in a Stackato cluster. However, for implementations where high
-availability or high performance databases are required, it's advisable
-to configure Stackato to connect to an externally maintained database or
-data service.
+The Stackato VM has a number of built-in data services that can be
+enabled or disabled. For implementations where high availability or high
+performance are required, configure Stackato to connect to an externally
+maintained data service.
 
-External data services can be configured at the discretion of
-the administrator or service provider, but in many cases they can be set
-up so that Stackato can allocate databases in the same way it does for
-the built-in databases.
+.. _external-db-manual:
 
-.. _external-db-general:
-
-General Principles
-------------------
+Manual Connection
+-----------------
 
 Any application running on Stackato can connect to an external database
-directly as long as the instance can route to the IP address and port of
-the database server. Database connections can be hard coded in the
-application without needing to make any changes to Stackato
-configuration.
+directly as long as:
 
-To automatically provision databases for applications on these external
-servers, Stackato must have access to an administrator account on the
-database server with permissions to create users and databases. You can
-use the default superuser accounts (e.g. 'root' or 'postgres') for this,
-or create new ones specifically for Stackato.
+* the DEA host can route to the IP address and port of the service and
+* one or more of the following is true:
+
+  * :ref:`docker/allowed_subnet_ips <ports-hosts-allowed>` is set for the service host
+  * :ref:`docker/allowed_host_ports <ports-hosts-allowed>` is set for the service port
+  * a :ref:`User Provided Service Instance <user-provided>` is bound to the app
+
+Credentials for the external service can be:
+
+* hard coded in the application configuration 
+* set in an :ref:`environment variable <stackato_yml-env>`
+* set in a :ref:`User Provided Service Instance <user-provided>`
+
+.. _external-db-service-broker:
+
+Service Brokers
+---------------
+
+To expose an external data service for a production Stackato PaaS,
+deploy a :ref:`Service Broker <add-service-brokers>`. This will make
+Service Plans available to the end users (visible via :ref:`stackato
+marketplace <command-marketplace>` and in the Management Console),
+allowing them to request service instances and bind them to their
+applications.
+
+There are several implementations available that can be forked and
+modified to suit the type of service you want to connect:
+
+* `ActiveState/cf-services-connector-nodejs <https://github.com/ActiveState/cf-services-connector-nodejs>`__ (Node.js)
+* `cloudfoundry-community/spring-boot-cf-service-broker <https://github.com/cloudfoundry-community/spring-boot-cf-service-broker>`__ (Java)
+* `cloudfoundry-samples/github-service-broker-ruby <https://github.com/cloudfoundry-samples/github-service-broker-ruby>`__ (Ruby)
+
+Documentation on implementing and deploying brokers can be found in each
+of these repositories.
+
+.. _external-db-kato-config:
+
+Reconfiguring Built-In Services
+-------------------------------
+
+To automatically provision databases for applications on external MySQL
+or PostgreSQL systems, Stackato must be configured with administrative
+account credentials account on the database servers. You can use the
+default superuser accounts (e.g. 'root' or 'postgres') for this, or
+create new ones specifically for Stackato.
 
 The credentials for this account, along with the hostname and port of
 the database server, are set in the Stackato configuration via
@@ -40,7 +73,7 @@ the database server, are set in the Stackato configuration via
 .. _external-db-mysql:
 
 MySQL
------
+^^^^^
 
 The MySQL server must be set up to allow connections over the network
 (rather than just on 'localhost'). Make sure the 'bind-address' is set to
@@ -73,7 +106,7 @@ Once these have been set, restart mysql::
 .. _external-db-rds-mysql:
 
 Amazon RDS for MySQL
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 If you are using Stackato on Amazon EC2, you can set up the Stackato
 MySQL service to use `Amazon RDS for MySQL
@@ -99,7 +132,7 @@ For example::
 .. _external-db-postgresql:
 
 PostgreSQL
-----------
+^^^^^^^^^^
 
 Make sure the PostgreSQL database server (version 9.1 or later) will
 accept connections over the network. Edit *postgresql.conf* make sure

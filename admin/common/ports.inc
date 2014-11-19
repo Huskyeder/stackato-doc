@@ -108,6 +108,10 @@ their respective service nodes. The default ranges are:
   You can check the currently configured port range for each service
   with ``kato config`` (e.g. ``kato config get redis_node port_range``).
 
+.. _ports-hosts-allowed:
+
+.. index:: allowed_host_ports
+.. index:: allowed_subnet_ips
   
 Container Allowed Hosts & Ports
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
