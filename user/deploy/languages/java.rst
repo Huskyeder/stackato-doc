@@ -338,15 +338,15 @@ Slow-Starting Apps
 ------------------
 
 Stackato's DEA health check limits the amount of time an application has
-to complete staging and start receiving web requests. This is is set to
-60 seconds by default, but many Java applications require more time
-before they can start accepting HTTP requests.
+to complete staging and start receiving web requests. This is set to
+five minutes by default, but some Java applications may require more
+time before they can start accepting HTTP requests.
 
-If your application will not successfully stage and start within 60
-seconds, increase the timeout threshold (to a maximum of 189 seconds) by
-setting a new :ref:`timeout <stackato_yml-timeout>` value in the
-*manifest.yml* or by using the ``--health-timeout`` option for
-:ref:`stackato push <command-push>`. For example::
+If your application will not successfully stage and start within 300
+seconds, increase the timeout threshold by setting a new :ref:`timeout
+<stackato_yml-timeout>` value in the *manifest.yml* or by using the
+``--health-timeout`` option for :ref:`stackato push <command-push>`. For
+example::
 
   $ stackato push --health-timeout 180s
 

@@ -23,7 +23,10 @@ v3.4.2 (Nov 2014)
 * Bug Fixes
 
   * [104272] Staging and pre-running hooks abort if they return a non-zero exit code (as in v2.10).
+  * [105590] Longer default health check timeouts. Modified settings will need to be reset after an upgrade from v3.4.1.
 
+    * cloud_controller_ng/maximum_health_check_timeout is now 1800 seconds (30min)
+    * dea_ng/default_health_check_timeout is now 300 seconds (5min)
 
 v3.4.1 (July 29, 2014)
 ----------------------
