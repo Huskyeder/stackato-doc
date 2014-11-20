@@ -618,23 +618,28 @@ examples in the :ref:`Adding System Services <add-service>` section.
 HTTPS & SSL
 -----------
 
-HTTPS mode provides access to the provisioned apps using wild card SSL
-certificates through the router or :term:`Nginx` web server.
-
-There are self-signed certificates on the VM to match the default
-hostname ``stackato-xxxx.local``. These certificates can be found in:
+The Stackato VM generates self-signed wildcard SSL certificates to match
+the unique ``.local`` hostname it assigns itself at first boot. These
+certificates can be found in:
 
 * ``/etc/ssl/certs/stackato.crt`` (Public Certificate)
 * ``/etc/ssl/private/stackato.key`` (Used to generate the signed certificates)
 
-If you change the hostname, you will need to regenerate the certificates
-or use your own (signed or self-signed) certificate.
+Since these certificates are self-signed, rather than issued by a
+certificate authority (CA), web browsers will warn that the certificate
+cannot be verified and prompt the user to add a manual exception.
+
+To avoid this, the generated certificate for the base URL of the PaaS
+can be replaced with a signed certificate issued by a CA.
+
+For additional Org-owned and Shared domains, SSL certificates can be
+added using the SNI method described further below. 
 
 .. _server-config-ssl-cert-own-use:
 
 .. index:: SSL Certificates
 
-Using your own SSL certificate
+Replacing the Default SSL Cert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 On all router nodes, upload your *.key* file to the */etc/ssl/private/*
@@ -646,33 +651,11 @@ settings with ``kato config`` to point to the new files::
 
   $ kato config set router2g ssl/key_file_path '/etc/ssl/private/example.key'
   $ kato config set router2g ssl/cert_file_path '/etc/ssl/certs/example.crt'
-  
-
-.. _server-config-ssl-cipher-suites:
-
-.. index:: Router Cipher Suites
-
-Customizing the Cipher Suites
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The router's `TLS cipher suite
-<http://en.wikipedia.org/wiki/Cipher_suite>`_ can be modified using
-``kato config``. For example::
-
-  kato config set router2g ssl/cipher_suite 'ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:!SSLv3:RC4+RSA:+HIGH:+MED'
-
-The setting above is the default for the Stackato router, minus SSLv3.
-See OpenSSL's `Cipher List Format
-<https://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT>`_
-and `Cipher Strings
-<https://www.openssl.org/docs/apps/ciphers.html#CIPHER_STRINGS>`_
-documentation for valid values.
-
 
 .. _server-config-sni-support:
 
-Adding Custom SSL Certs (SNI)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adding More SSL Certs (SNI)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Stackato router supports `SNI
 <http://en.wikipedia.org/wiki/Server_Name_Indication>`__, and custom SSL
@@ -725,6 +708,28 @@ should see more than one number in the list. For example::
        i:/C=US/O=DigiCert Inc/OU=www.digicert.com/CN=DigiCert High Assurance EV Root CA
      2 s:/C=US/O=DigiCert Inc/OU=www.digicert.com/CN=DigiCert High Assurance EV Root CA
        i:/C=US/O=Entrust.net/OU=www.entrust.net/CPS incorp. by ref. (limits liab.)/OU=(c) 1999 Entrust.net Limited/CN=Entrust.net Secure Server Certification Authority
+
+
+.. _server-config-ssl-cipher-suites:
+
+.. index:: Router Cipher Suites
+
+Customizing the Cipher Suites
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The router's `TLS cipher suite
+<http://en.wikipedia.org/wiki/Cipher_suite>`_ can be modified using
+``kato config``. For example::
+
+  kato config set router2g ssl/cipher_suite 'ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:!SSLv3:RC4+RSA:+HIGH:+MED'
+
+The setting above is the default for the Stackato router, minus SSLv3.
+See OpenSSL's `Cipher List Format
+<https://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT>`_
+and `Cipher Strings
+<https://www.openssl.org/docs/apps/ciphers.html#CIPHER_STRINGS>`_
+documentation for valid values.
+
 
 
 .. _server-config-ssl-cert-own-create:
