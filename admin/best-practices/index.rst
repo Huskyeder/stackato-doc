@@ -83,7 +83,7 @@ Applying patches will automatically restart all patched roles. To
 prevent this, use the ``--no-restart`` option.
 
 To apply a patch only to the local Stackato VM (not the whole cluster),
-use the ``--only-this-node`` option. 
+use the ``--local`` option. 
 
 .. _bestpractices-ubuntu-security:
 
