@@ -77,12 +77,7 @@ Command Usage Details
 %   [:commands, :arguments, :options].each do |arg_type|
 %     if cmd[arg_type]
 %       cmd[arg_type].each do |arg|
-  <%=   "%-40s%s" % [ arg[:arg].map { |a| a.syntax_highlight }.join(" "), arg[:description][0] ] %>
-
-%         arg[:description][1..-1].each do |line|
-  <%=     "%-40s%s" % [ "", line ] %>
-
-%         end
+  <%=   "%-40s%s" % [ arg[:arg].map { |a| a.syntax_highlight }.join(" "), arg[:description].join(" ") ] %>
 %       end
 
 %     end
