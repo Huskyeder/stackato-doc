@@ -40,7 +40,8 @@ documentation from these sources:
    $ pip install --user -r requirements.txt 
    $ cd doc
    $ make publicdocs
-   $ open _build/public-docs/index.html
+   $ make html
+   $ open _build/html/index.html
 ```
 
 
