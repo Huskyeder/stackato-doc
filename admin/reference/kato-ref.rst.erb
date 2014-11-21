@@ -78,6 +78,7 @@ Command Usage Details
 %     if cmd[arg_type]
 %       cmd[arg_type].each do |arg|
   <%=   "%-40s%s" % [ arg[:arg].map { |a| a.syntax_highlight }.join(" "), arg[:description].join(" ") ] %>
+
 %       end
 
 %     end
