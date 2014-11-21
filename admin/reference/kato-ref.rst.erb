@@ -68,7 +68,7 @@ Command Usage Details
 %   end
 %
 %   if cmd[:description]
-%     cmd[:description].each do |line| # TODO: format wrap80 with indent %>
+%     cmd[:description].each do |line|
   <%=   line %>
 %     end
 
@@ -90,7 +90,7 @@ Command Usage Details
 %
 %   if cmd[:keywords]
 %     cmd[:keywords].each_pair do |keyword, description|
-    <%= keyword %> - <%= description %><% # TODO: format wrap80 with indent %>
+    <%= keyword %> - <%= description %>
 %     end
 %   end
 
