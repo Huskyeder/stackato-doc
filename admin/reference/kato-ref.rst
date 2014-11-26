@@ -18,11 +18,13 @@ Commands
 --------
 
 * :ref:`config <kato-command-ref-config>` Manipulate configuration values of Stackato components.
-* :ref:`data <kato-command-ref-data-export>` Import or export Stackato system data to or from clusters/nodes.
+* :ref:`data <kato-command-ref-data-export>` Import, export, or repair Stackato system data.
 
   * :ref:`data export <kato-command-ref-data-export>`
 
   * :ref:`data import <kato-command-ref-data-import>`
+
+  * :ref:`data repair <kato-command-ref-data-repair-routes>`
 * :ref:`debug <kato-command-ref-debug-configwatch>` Commands for debugging for Stackato internals.
 
   * :ref:`debug configwatch <kato-command-ref-debug-configwatch>`
@@ -152,13 +154,9 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-j** **--json**                       For "set", use JSON format when setting config key values.
+  **-j** **--json**                       For "set", use JSON format when setting config key values. For "get", use JSON format for displaying output.
 
-                                          For "get", use JSON format for displaying output.
-
-  **-y** **--yaml**                       Use YAML format when retrieving or setting config key values.
-
-                                          YAML is the default output format.
+  **-y** **--yaml**                       Use YAML format when retrieving or setting config key values. YAML is the default output format.
 
   **-f** **--flat**                       Use a flat output format "<full-config-path> <value>"
 
@@ -191,15 +189,13 @@ Command Usage Details
 
   **--manual**                            Only import/export roles specified on the command line
 
-  **--force**                             Force import/export of specified roles even if they are not enabled
-
-                                          Requires --manual
-
-                                          Implies --only-this-node
+  **--force**                             Force import/export of specified roles even if they are not enabled Requires --manual Implies --only-this-node
 
   **--remote**                            Remote import/export (internal use only)
 
   **--base-dir** *<base-dir>*             Base directory for extracting temporary files
+
+  **--only-users-orgs**                   Include only the portions related to users and orgs (parts of main-db, aok-db, aok-config, db-encryption-key, license)
 
   **--droplets**                          Include droplets (uploaded apps)
 
@@ -338,11 +334,7 @@ Command Usage Details
 
   **--manual**                            Only import/export roles specified on the command line
 
-  **--force**                             Force import/export of specified roles even if they are not enabled
-
-                                          Requires --manual
-
-                                          Implies --only-this-node
+  **--force**                             Force import/export of specified roles even if they are not enabled Requires --manual Implies --only-this-node
 
   **--remote**                            Remote import/export (internal use only)
 
@@ -465,6 +457,32 @@ Command Usage Details
 ----
 
 
+.. _kato-command-ref-data-repair-routes:
+
+**data** **repair** **routes** [**options**]
+
+  Detect and fix issues in the cloud controller database routes:
+  - Fix leading dots
+  - Fix duplicate prefix
+  
+  After a legacy import, some apps ended up having routes with a leading '.' 
+  which is invalid. These routes were not present in the source cluster.
+
+  **-h** **--help**                       Show help information
+
+  **-n** **--dry-run**                    Show problematic routes, but don't change
+
+  **-y** **--no-prompt**                  Convert all with no prompting
+
+  **-v** **--verbose**                    Be verbose
+
+  **-q** **--quiet**                      Be quiet
+
+
+
+----
+
+
 .. _kato-command-ref-debug-configwatch:
 
 **debug** **configwatch** [**options**] [*<process-name>...*]
@@ -537,6 +555,8 @@ Command Usage Details
 
 **inspect** [**options**] **tests** *<test-name>...*
 
+**inspect** [**options**] **list**
+
   Detect common problems with your Stackato install using 'kato inspect'
   
   To run all tests, run:
@@ -545,6 +565,8 @@ Command Usage Details
     kato inspect group <name of group>
   To run specific tests, run:
     kato inspect tests <test1> <test2> <test3>
+  To list available tests, run:
+    kato inspect list
 
   **-h** **--help**                       Show help information
 
@@ -565,7 +587,7 @@ Command Usage Details
 
   Set the Stackato license in use for this microcloud or cluster.
 
-  *<value>*                               The license to use; if not given then it is read from STDIN.
+  *<value>*                               The license to use; if not given then it is read from STDIN
 
 
   **-h** **--help**                       Show help information
@@ -589,12 +611,15 @@ Command Usage Details
     
     # Add a drain to forward all application and system logs as json
   
-    kato log drain add -f json -p apptail,systail app_sys_splunk udp://logs.splunk.com:1235/
+    kato log drain add -f json -p apptail,systail app_sys_splunk \
+      udp://logs.splunk.com:1235/
     
     # Add a drain with a custom or named format,
     
-    kato log drain add -f "{{.Name}}: {{.Text}}"  system_splunk_2 udp://logs.splunk.com:1236/
-    kato log drain add -f systail-syslog  system_splunk_2 udp://logs.splunk.com:1236/
+    kato log drain add -f "{{.Name}}: {{.Text}}" system_splunk_2 \
+      udp://logs.splunk.com:1236/
+    kato log drain add -f systail-syslog system_splunk_2 \
+      udp://logs.splunk.com:1236/
   
     # Passing custom parameters to a drain
   
@@ -753,9 +778,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-n** **--node** *<node-id>*           Sets the availability zone on the specified DEA node, local node is
-
-                                          used if not specified
+  **-n** **--node** *<node-id>*           Sets the availability zone on the specified DEA node, local node is used if not specified
 
 
 
@@ -819,9 +842,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-n** **--node** *<node-id>*           Add a zone on the specified DEA node, local node is
-
-                                          used if not specified
+  **-n** **--node** *<node-id>*           Add a zone on the specified DEA node, local node is used if not specified
 
 
 
@@ -836,9 +857,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-n** **--node** *<node-id>*           Add a zone on the specified DEA node, local node is
-
-                                          used if not specified
+  **-n** **--node** *<node-id>*           Add a zone on the specified DEA node, local node is used if not specified
 
 
 
@@ -853,9 +872,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-n** **--node** *<node-id>*           Remove a zone on the specified DEA node, local node is
-
-                                          used if not specified
+  **-n** **--node** *<node-id>*           Remove a zone on the specified DEA node, local node is used if not specified
 
 
 
@@ -870,9 +887,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-s** **--skip-detach**                Skips updating the removed nodes config via detaching the node, only use this if the node has
-
-                                          already been destroyed.
+  **-s** **--skip-detach**                Skips updating the removed nodes config via detaching the node, only use this if the node has already been destroyed
 
 
 
@@ -885,9 +900,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information.
 
-  **-s** **--skip-remap-hosts**           Skip the remapping of existing app URLS to the
-
-                                          new domain.
+  **-s** **--skip-remap-hosts**           Skip the remapping of existing app URLS to the new domain.
 
   **-l** **--skip-ssl-regeneration**      Skip regenerating the SSL keys
 
@@ -934,9 +947,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-n** **--node** *<node-id>*           Retire the specified DEA node, local node is
-
-                                          used if not specified
+  **-n** **--node** *<node-id>*           Retire the specified DEA node, local node is used if not specified
 
 
 
@@ -973,23 +984,11 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-p** **--password** *<password>*      First user's password.
+  **-p** **--password** *<password>*      First user's password. If your unix password has not been updated, then your unix password will be updated to this. Will be prompted for if not given.
 
-                                          If your unix password has not been updated, then
+  **-u** **--username** *<username>*      First user's username. Will be the provided email if not given.
 
-                                          your unix password will be updated to this.
-
-                                          Will be prompted for if not given.
-
-  **-u** **--username** *<username>*      First user's username.
-
-                                          Will be the provided email if not given.
-
-  **-s** **--space** *<space>*            First user's initial space.
-
-                                          If not specified, user will not initially be in a
-
-                                          space.
+  **-s** **--space** *<space>*            First user's initial space. If not specified, user will not initially be in a space.
 
 
 
@@ -1072,9 +1071,7 @@ Command Usage Details
 
   **--prepare**                           Prepare the core node for an upgrade.
 
-  **--resume**                            Resumes an upgrade process, used internally by Kato and should only be called manually when
-
-                                          requested.
+  **--resume**                            Resumes an upgrade process, used internally by Kato and should only be called manually when requested.
 
   **--role-order** *<role-order>*         Comma separated list of roles defining the order that roles should be upgraded in a cluster.
 
@@ -1086,11 +1083,11 @@ Command Usage Details
 
   **--cache-ip** *<cache-ip>*             The ip of the node to act as a cache for all nodes in the cluster during upgrade.
 
-  **--download-only**                     Downloads the files required to perform an upgrade without starting an upgrade, must
-
-                                          specify --cache-ip when using this option.
+  **--download-only**                     Downloads the files required to perform an upgrade without starting an upgrade, must specify --cache-ip when using this option.
 
   **--cluster**                           Unused parameter for backwards compatibility.
+
+  **--offline**                           Upgrade offline; requires the upgrade content to be previously downloaded.
 
 
 
@@ -1110,7 +1107,7 @@ Command Usage Details
 
 .. _kato-command-ref-op-custom_ssl_cert:
 
-**op** **custom_ssl_cert** **install** *<key-path>* *<cert-path>* *<domain>* [**--wildcard-subdomains**] [**--update**]
+**op** **custom_ssl_cert** **install** [**options**] *<key-path>* *<cert-path>* *<domain>*
 
 **op** **custom_ssl_cert** **remove** *<domain>*
 
@@ -1144,9 +1141,7 @@ Command Usage Details
 
   **--reset**                             Clear list of deferred commands
 
-  **--post-start**                        Run the deferred command after all processes managed
-
-                                          by kato have started
+  **--post-start**                        Run the deferred command after all processes managed by kato have started
 
 
 
@@ -1190,7 +1185,7 @@ Command Usage Details
 
   **--new-key-file=<file>**               Override config with a specific YAML file
 
-  **--upgrade**                           Merge the new configuration rather than deleting and replacing.
+  **--upgrade**                           Merge the new configuration rather than deleting and replacing
 
 
 
@@ -1290,9 +1285,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **--post-start**                        Run the deferred command after all processes managed
-
-                                          by kato have started
+  **--post-start**                        Run the deferred command after all processes managed by kato have started
 
 
 
@@ -1358,7 +1351,7 @@ Command Usage Details
 
 .. _kato-command-ref-op-upstream_proxy:
 
-**op** **upstream_proxy** **set** *<proxy-address>* [**-u** *<user>*] [**-p** *<pass>*] [**--no-proxy** *<no_proxy>*]
+**op** **upstream_proxy** **set** *<proxy-address>* [**options**]
 
 **op** **upstream_proxy** **delete**
 
@@ -1388,7 +1381,7 @@ Command Usage Details
 
 **patch** **reset** [**--node** *<nodeip>*] [**options**]
 
-**patch** **update**
+**patch** **update** [--node <nodeip> | --local]
 
 **patch** **mark** [**--node** *<nodeip>*] [**options**] *<patchname>*
 
@@ -1402,7 +1395,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-a** **--all**                        Show status for all patches 
+  **-a** **--all**                        Show status for all patches
 
   **-l** **--local**                      Only affect this node (otherwise operates on entire cluster)
 
@@ -1423,6 +1416,8 @@ Command Usage Details
   **-u** **--force-update**               Force a new manifest to be downloaded
 
   **-s** **--single**                     Remotely install single patch (internal use only)
+
+  **--to-patch-id** *<patch-id>*          Specify the id of the patch to patch the cluster up to. Patches above this ID will not be applied
 
 
 
@@ -1456,9 +1451,7 @@ Command Usage Details
 
   **-h** **--help**                       Show help information
 
-  **-b** **--block** *<seconds>*          Block until ready, for max <seconds> seconds.
-
-                                          If <seconds> is 0, then block forever
+  **-b** **--block** *<seconds>*          Block until ready, for max <seconds> seconds. If <seconds> is 0, then block forever
 
   **-n** **--node** *<node-IP>*           Check process on a specific cluster node
 
