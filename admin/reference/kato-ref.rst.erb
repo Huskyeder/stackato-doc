@@ -68,7 +68,7 @@ Command Usage Details
 %   end
 %
 %   if cmd[:description]
-%     cmd[:description].each do |line| # TODO: format wrap80 with indent %>
+%     cmd[:description].each do |line|
   <%=   line %>
 %     end
 
@@ -77,12 +77,8 @@ Command Usage Details
 %   [:commands, :arguments, :options].each do |arg_type|
 %     if cmd[arg_type]
 %       cmd[arg_type].each do |arg|
-  <%=   "%-40s%s" % [ arg[:arg].map { |a| a.syntax_highlight }.join(" "), arg[:description][0] ] %>
+  <%=   "%-40s%s" % [ arg[:arg].map { |a| a.syntax_highlight }.join(" "), arg[:description].join(" ") ] %>
 
-%         arg[:description][1..-1].each do |line|
-  <%=     "%-40s%s" % [ "", line ] %>
-
-%         end
 %       end
 
 %     end
@@ -90,7 +86,7 @@ Command Usage Details
 %
 %   if cmd[:keywords]
 %     cmd[:keywords].each_pair do |keyword, description|
-    <%= keyword %> - <%= description %><% # TODO: format wrap80 with indent %>
+    <%= keyword %> - <%= description %>
 %     end
 %   end
 
