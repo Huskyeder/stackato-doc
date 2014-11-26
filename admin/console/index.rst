@@ -239,7 +239,9 @@ Stackato Settings
 
 * **Allowed Repos**: Debian package repositories allowed in application
   containers. End users can install additional packages (e.g. with
-  ``apt-get`` or ``aptitude``) only from these repositories.
+  ``apt-get`` or ``aptitude``) only from these repositories. When adding
+  new repositories, GPG keys for each new repo must also be added to the
+  Docker base container (see :ref:`Allowed Repositories <server-config-allowed-repositories>`).
 
 .. index:: maintenance mode
 

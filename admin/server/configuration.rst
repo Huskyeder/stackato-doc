@@ -721,15 +721,14 @@ The router's `TLS cipher suite
 <http://en.wikipedia.org/wiki/Cipher_suite>`_ can be modified using
 ``kato config``. For example::
 
-  kato config set router2g ssl/cipher_suite 'ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:!SSLv3:RC4+RSA:+HIGH:+MED'
+  kato config set router2g ssl/cipher_suite 'ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:RC4+RSA:+HIGH:+MED'
 
-The setting above is the default for the Stackato router, minus SSLv3.
-See OpenSSL's `Cipher List Format
+The setting above is the default for the Stackato router. See OpenSSL's
+`Cipher List Format
 <https://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT>`_
 and `Cipher Strings
 <https://www.openssl.org/docs/apps/ciphers.html#CIPHER_STRINGS>`_
 documentation for valid values.
-
 
 
 .. _server-config-ssl-cert-own-create:
@@ -817,22 +816,45 @@ Quota Plans can give all users in an Organization the use of the
 by default as a security precaution, and should only be enabled for
 Organizations where all users are trusted.
 
+.. _server-config-allowed-repositories:
 
 Allowed Repositories
 ^^^^^^^^^^^^^^^^^^^^
 
-Even if ``sudo`` is restricted, special access can be given to specific repositories for modules and resources needed during the staging process.
+Users (with our without ``sudo`` permissions) can install Ubuntu
+packages in application containers by requesting them in the
+:ref:`requirements <stackato_yml-requirements>` section of an
+application's *manifest.yml* or *stackato.yml* file. The system allows
+package installation only from those repositories specified in the
+:ref:`Allowed Repos <console-settings-stackato>` list in the Management
+Console.
 
-To configure these, modify the ``allowed_repos:`` parameter of the
-``cloud_controller.yml`` file::
+This list can also be viewed and modified at the command line using
+:ref:`kato config <kato-command-ref-config>`. For example, to view the
+current list::
 
-	allowed_repos:
-    - "deb mirror://mirrors.ubuntu.com/mirrors.txt natty main restricted universe multiverse"
-    - "deb mirror://mirrors.ubuntu.com/mirrors.txt natty-updates main restricted universe multiverse"
-    - "deb http://security.ubuntu.com/ubuntu natty-security main universe"
+  $ kato config get cloud_controller_ng allowed_repos
+  - deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe multiverse
+  - deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse
+  - deb http://security.ubuntu.com/ubuntu precise-security main universe
 
-The file is located on the Stackato server at
-``~/stackato/vcap/cloud_controller/config/cloud_controller.yml``.
+To add a repository::
+
+  $ kato config push cloud_controller_ng allowed_repos 'deb http://apt.newrelic.com/debian/ newrelic non-free'
+  - deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe multiverse
+  - deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main restricted universe multiverse
+  - deb http://security.ubuntu.com/ubuntu precise-security main universe
+  - deb http://apt.newrelic.com/debian/ newrelic non-free
+
+Once a repository has been added to the list, **the GPG key must also be
+added** to the :ref:`Docker base image <docker-modify-container>` on
+each DEA (or the :ref:`Docker registry <docker-registry>` server if
+configured).
+
+For example, to trust the GPG for the New Relic repository, add the
+following line to the *Dockerfile* for the base image::
+
+  RUN wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
 
 
 .. _server-config-container-NFS-mounts:
