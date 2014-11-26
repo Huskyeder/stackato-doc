@@ -16,6 +16,7 @@ The Stackato :term:`micro cloud` runs with the following ports exposed:
   3306      tcp   mysql
   5432      tcp   postgresql
   5678      tcp   DEA directory server
+  8181      tcp   upload server
   9001      tcp   supervisord
   ========  ====  =======================
 
@@ -49,6 +50,7 @@ communication, **Destination** nodes need to listen on the specified port.
   6464           tcp   all nodes       all nodes         applog (redis)
   7000 - 7999    tcp   all nodes       all nodes         ``kato log tail``
   7474           tcp   all nodes       all nodes         config (redis)
+  8181           tcp   router          controller        upload server
   9001           tcp   controller      all nodes         :term:`supervisord`
   9022           tcp   dea             controller        droplets
   9022           tcp   controller      dea               droplets
