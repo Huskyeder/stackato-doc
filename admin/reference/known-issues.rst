@@ -33,6 +33,23 @@ the following commands would need to be run::
   $ kato config set logyard drains/builtin.timeline tcp://10.0.0.72:9026?filter=event&format=json
   $ kato config set stackato_rest message_bus_uri nats://10.0.0.72:4222/
   
+.. _known-issues-new-relic-repos:
+
+.. index:: newrelic-sysmond
+.. index:: newrelic-php5
+
+Adding New Relic Repositories
+-----------------------------
+
+The New Relic system monitoring (``newrelic-sysmond``) and PHP
+application monitoring (``newrelic-php5``) packages are no longer
+pre-installed in Stackato's default Docker base container.
+
+To allow end users to install these packages in the
+:ref:`requirements: <stackato_yml-requirements>` section of their
+application config, admins should :ref:`add New Relic repository URLS
+and keys <server-config-allowed-repositories>` to the system
+configuration.
 
 .. _known-issues-ec2-autoscaling-dea:
 
