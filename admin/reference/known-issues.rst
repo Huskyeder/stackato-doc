@@ -13,25 +13,9 @@ If the IP address of the Core node changes, you must reconfigure the
 cluster to use the new MBUS IP address. Run :ref:`kato node migrate
 <kato-command-ref-node-migrate>` (or :ref:`kato op static_ip
 <server-config-static-ip>`) on the Core node, then :ref:`kato node
-attach <server-cluster-attach>` on all other cluster nodes.
+attach <server-cluster-attach>` on all other cluster nodes to set the
+new MBUS IP.
 
-This updates most of the relevant Stackato configuration settings, but
-the following additional :ref:`kato config <kato-command-ref-config>`
-paths need to be updated with the new IP address for the cluster to
-work::
-
-  /cloud_controller_ng/message_bus_servers
-  /dea_ng/nats_servers
-  /logyard/drains/builtin.timeline
-  /stackato_rest/message_bus_uri
-
-For example, for a Core node that has moved to the IP address 10.0.0.72,
-the following commands would need to be run::
-
-  $ kato config set cloud_controller_ng message_bus_servers '["nats://10.0.0.72:4222/"]' --json
-  $ kato config set dea_ng nats_servers '["nats://10.0.0.72:4222/"]' --json
-  $ kato config set logyard drains/builtin.timeline tcp://10.0.0.72:9026?filter=event&format=json
-  $ kato config set stackato_rest message_bus_uri nats://10.0.0.72:4222/
   
 .. _known-issues-new-relic-repos:
 
