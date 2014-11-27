@@ -524,7 +524,12 @@ The command above does the following:
 * configures ``kato`` to use the upstream proxy for patches and upgrades
 * sets the http_proxy environment variable in application containers
   (see below) so that applications bypass Polipo and use the upstream
-  proxy directly at runtime (after staging). 
+  proxy directly at runtime (after staging).
+
+The command has a ``--no-proxy`` option to bypass the proxy when
+accessing certain (normally internal) domains. For example::
+
+  $ kato op upstream_proxy set 192.168.0.99:3128 --no-proxy internal.example.net
 
 To remove the proxy setting::
 
