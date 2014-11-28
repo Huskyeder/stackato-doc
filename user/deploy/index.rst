@@ -332,6 +332,35 @@ The other relevant ``stackato`` client commands are:
   the association between application and its current placement zone.
 
 
+.. _deploy-app-containers:
+
+Application Containers
+----------------------
+
+Stackato stages and runs applications within Linux containers on one or
+more "DEA" (Droplet Execution Agent) hosts. These containers (managed by
+Docker) are all copies of a single base image which are modified during
+staging to add application dependencies.
+
+To inspect this base image to determine what software is pre-installed,
+or otherwise experiment with the application container, deploy the
+"null" application: 
+
+https://github.com/Stackato-Apps/null
+
+Once the app has been deployed, use the stackato client to open an SSH
+session to the container::
+
+  $ stackato ssh -a null
+  null:~$
+
+From within the SSH session, you can run standard Linux commands. For
+example, to list the installed packages::
+
+  null:~$ dpkg -l
+  ...
+
+
 .. index:: Crontab Support
 
 .. _deploy-crontab:
