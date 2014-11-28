@@ -651,9 +651,6 @@ On all router nodes, upload your *.key* file to the */etc/ssl/private/*
 directory and your *.crt* file to */etc/ssl/certs/*. Change the following
 settings with ``kato config`` to point to the new files::
 
-  "sslKeyFile": "/etc/ssl/private/example.key",
-  "sslCertFile": "/etc/ssl/certs/example.crt",
-
   $ kato config set router2g ssl/key_file_path '/etc/ssl/private/example.key'
   $ kato config set router2g ssl/cert_file_path '/etc/ssl/certs/example.crt'
 
