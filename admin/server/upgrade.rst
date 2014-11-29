@@ -184,6 +184,37 @@ without public network connectivity) by running::
   $ kato node upgrade --cache-ip <Core node IP>
 
 
+.. _upgrade-node-upgrade-offline:
+
+Offline Upgrades (from .tgz Archive)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For clusters without direct access to the internet for upgrades,
+ActiveState can provide a single .tgz archive will all of the packages
+necessary to upgrade.
+
+Download the archive and transfer it to a Stackato node with at least
+7GB of free disk space to allow for the extraction of all the bundled
+packages (14GB if you are upgrading from the previous version).
+
+To upgrade:
+
+#. Unpack the .tgz file in a convenient directory (e.g. */tmp*)::
+
+    stackato@demo:/tmp$ tar xzvf stackato-upgrade-3.4.1-3.5.0.tgz
+
+#. Change to the newly created directory::
+
+    stackato@demo:/tmp$ cd stackato-upgrade-3.4.1-3.5.0/
+    stackato@demo:/tmp/stackato-upgrade-3.4.1-3.5.0$
+
+#. Run the upgrade script::
+
+    stackato@demo:/tmp/stackato-upgrade-3.4.1-3.5.0$ ruby stackato-upgrade-3.4.1-3.5.0.rb
+  
+#. Enter the ``sudo`` password when prompted, then follow the prompts.
+
+
 .. _upgrade-node-upgrade-process:
 
 Upgrade Process
