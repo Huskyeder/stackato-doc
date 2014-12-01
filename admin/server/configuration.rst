@@ -533,7 +533,7 @@ accessing certain (normally internal) domains. For example::
 
 To remove the proxy setting::
 
-	$ kato op upstream_proxy delete <proxy_addr>
+	$ kato op upstream_proxy delete
 	
 You will also need to set the ``http_proxy`` and ``https_proxy``
 environment variables in the *.bashrc* file of the ``stackato`` user
