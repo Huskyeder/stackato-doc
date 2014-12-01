@@ -53,13 +53,13 @@ the need for extensive reconfiguration. This buildpack has updated
 versions of all the frameworks available in previous versions of
 Stackato.
 
-To use the Legacy buildpack: specify the ``framework:`` ``type:`` for your
+To use the Legacy buildpack: specify the ``framework:`` ``name:`` for your
 application (e.g. php, play, rails3, sinatra, java_web, java_ee, etc.). You can
 optionally set a specific ``runtime:`` as well. For example::
 
     name: bottle-py3
     framework:
-      type: python
+      name: python
       runtime: python32  
 
 .. note::
