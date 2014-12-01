@@ -50,14 +50,6 @@ Getting Started
       
 		Disable errors generated for missing organization and/or space.
 	    
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 		The organization to use.
@@ -96,8 +88,6 @@ Getting Started
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-logout:
   
@@ -115,21 +105,11 @@ Getting Started
 		When present, log out of all targets we know.
 		Cannot be used together with a target.
 	    
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --token-file
       
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-target:
   
@@ -150,14 +130,6 @@ Getting Started
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The organization to set as current for this target.
@@ -170,8 +142,6 @@ Getting Started
 	
     --verbose
        More verbose operation. 
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     -s
@@ -208,14 +178,6 @@ Applications
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -247,8 +209,6 @@ Applications
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -277,14 +237,6 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -321,8 +273,6 @@ Applications
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -351,14 +301,6 @@ Applications
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -390,8 +332,6 @@ Applications
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -420,14 +360,6 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -464,8 +396,6 @@ Applications
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -494,14 +424,6 @@ Applications
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -538,22 +460,20 @@ Applications
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
 
 
     
-.. _command-Applications-Information:
+.. _command-Applications-Control:
     
-Information
+Control
 ^^^^^^^^^^^^^^^^^^^^^^^^
       
-.. _command-crashes:
+.. _command-migrate:
 
-      stackato crashes  *<application>*       
-        List recent application crashes.
+      stackato migrate  *<application>*  *<destination>*       
+        Move the application to a different space. This is a Stackato 3.4.2 command.
 
         .. raw:: html
 
@@ -561,28 +481,22 @@ Information
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
+        --dest-org
+          Alias of --destination-organization.
+        --destination-organization
+          
+		The organization of the destination space, if not the current org.
+	    
         --group
           
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
-	
-        --json
-          
-	    Print raw json as output, not human-formatted data.
 	
         --manifest
           
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -619,8 +533,160 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
+        -D
+          Alias of --destination-organization.
+        -o
+          Alias of --organization.
+
+
+.. _command-restage:
+
+      stackato restage  *<application>*       
+        Restage an application, regenerate its droplet. This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --group
+          
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+        --manifest
+          
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+        --no-tail
+          Complementary alias of --tail.
+        --organization
+          
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+        --path
+          
+	    Path of the directory or file holding the application files to push.
+	    Defaults to the current working directory.
+	
+        --space
+          
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+        --space-guid
+          
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+        --tail
+          
+	    Request target to stream the log.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --timeout
+          
+	    The time the client waits for an application to
+	    start before giving up and returning, in seconds.
+	    Note that this is measured from the last entry
+	    seen in the log stream. While there is activity
+	    in the log the timeout is reset.
+
+	    The default is 2 minutes.
+
+	    Use the suffixes 'm', 'h', and 'd' for the convenient
+	    specification of minutes, hours, and days. The optional
+	    suffix 's' stands for seconds.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        -o
+          Alias of --organization.
+
+
+    
+.. _command-Applications-Information:
+    
+Information
+^^^^^^^^^^^^^^^^^^^^^^^^
+      
+.. _command-crashes:
+
+      stackato crashes  *<application>*       
+        List recent application crashes.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --group
+          
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+        --json
+          
+	    Print raw json as output, not human-formatted data.
+	
+        --manifest
+          
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+        --organization
+          
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+        --path
+          
+	    Path of the directory or file holding the application files to push.
+	    Defaults to the current working directory.
+	
+        --space
+          
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+        --space-guid
+          
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
         -o
           Alias of --organization.
 
@@ -668,14 +734,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --num
           
 		Show the last num entries of the log stream.
@@ -740,8 +798,6 @@ Information
 	
         -f
           Alias of --follow.
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -767,14 +823,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -811,8 +859,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -842,14 +888,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -886,8 +924,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -917,14 +953,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -961,8 +989,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -992,14 +1018,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1036,8 +1054,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -1067,14 +1083,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1111,8 +1119,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -1149,14 +1155,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1203,8 +1201,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -1241,14 +1237,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1295,8 +1283,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -1317,61 +1303,16 @@ Information
 		Report on all applications in the current space.
 		Cannot be used together with application names.
 	    
-        --manifest
-          
-	    Path of the manifest file to use.
-	    If not specified a search is done.
-	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
-        --path
-          
-	    Path of the directory or file holding the application files to push.
-	    Defaults to the current working directory.
-	
-        -n
-          Alias of --no-prompt.
-
-
-.. _command-instances:
-
-      stackato instances  *<application>*       
-        List application instances for a deployed application.
-
-        .. raw:: html
-
-          <div class="spoiler">
-          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-          <div class="inner" style="display:none;">
-
         --group
           
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --json
-          
-	    Print raw json as output, not human-formatted data.
-	
         --manifest
           
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1408,8 +1349,71 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
+        -o
+          Alias of --organization.
+
+
+.. _command-instances:
+
+      stackato instances  *<application>*       
+        List application instances for a deployed application.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --group
+          
+	    The once-off group to use for the current operation.
+	    This is a Stackato 2 option.
+	
+        --json
+          
+	    Print raw json as output, not human-formatted data.
+	
+        --manifest
+          
+	    Path of the manifest file to use.
+	    If not specified a search is done.
+	
+        --organization
+          
+	    The once-off organization to use for the current operation.
+	    This is a Stackato 3 option.
+	
+        --path
+          
+	    Path of the directory or file holding the application files to push.
+	    Defaults to the current working directory.
+	
+        --space
+          
+	    The once-off space to use for the current operation, specified
+	    by name. This is a Stackato 3 option.
+	    Cannot be used together with --space-guid.
+	
+        --space-guid
+          
+	    The once-off space to use for the current operation, specified
+	    by guid. This is a Stackato 3 option.
+	    Cannot be used together with --space.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
         -o
           Alias of --organization.
 
@@ -1457,14 +1461,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --num
           
 		Show the last num entries of the log stream.
@@ -1529,8 +1525,6 @@ Information
 	
         -f
           Alias of --follow.
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -1556,14 +1550,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1600,8 +1586,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -1631,14 +1615,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1675,8 +1651,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -1708,14 +1682,6 @@ Information
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1752,8 +1718,6 @@ Information
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -1803,6 +1767,11 @@ Management
 		The application's per-instance disk allocation.
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
+
+		Use the suffices 'M' and 'G' for the convenient specification
+		of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		assumed. As the base-unit megabytes must specified as integers.
+		Gigabytes can be specified as fractions.
 	    
         --domain
           
@@ -1880,6 +1849,11 @@ Management
 		The application's per-instance memory allocation.
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
+
+		Use the suffices 'M' and 'G' for the convenient specification
+		of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		assumed. As the base-unit megabytes must specified as integers.
+		Gigabytes can be specified as fractions.
 	    
         --min-cpu
           
@@ -1903,16 +1877,8 @@ Management
 		Cannot be used together with --framework.
 		This is a Stackato 2 specific option.
 	    
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-sso-enabled
           Complementary alias of --sso-enabled.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -1993,8 +1959,6 @@ Management
 		Set up debugging through an application-specific
 		harbor (port) service. Target version 2.8+ only.
 	    
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2027,14 +1991,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2071,8 +2027,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2090,7 +2044,7 @@ Management
 
         --all
           
-		Delete all applications.
+		Delete all applications (in the current/specified space).
 		Cannot be used together with application names.
 	    
         --force
@@ -2107,16 +2061,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-routes
           Complementary alias of --routes.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2158,8 +2104,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2189,14 +2133,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2233,8 +2169,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2260,14 +2194,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2304,8 +2230,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2331,16 +2255,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2395,8 +2311,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2422,16 +2336,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2486,8 +2392,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2513,14 +2417,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2557,8 +2453,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2584,14 +2478,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2628,8 +2514,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2683,6 +2567,11 @@ Management
 		The application's per-instance disk allocation.
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
+
+		Use the suffices 'M' and 'G' for the convenient specification
+		of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		assumed. As the base-unit megabytes must specified as integers.
+		Gigabytes can be specified as fractions.
 	    
         --domain
           
@@ -2711,10 +2600,9 @@ Management
 	    
         --force-war-unpacking
           
-		When true perform the special .war file handling of Stackato 2.x
-		even against a Stackato 3.x target. Alternative when reset disable
-		the special .war handling for a Stackato 2.x target. The default is
-		target dependent.
+		When true, unpack .war and .jar files and upload contents as
+		application root. Defaults to true for Stackato 2.x targets.
+		Defaults to false for Stackato 3.x targets. 
 	    
         --framework
           
@@ -2767,6 +2655,11 @@ Management
 		The application's per-instance memory allocation.
 		Defaults to a framework-specific value if not
 		specified by stackato.yml.
+
+		Use the suffices 'M' and 'G' for the convenient specification
+		of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		assumed. As the base-unit megabytes must specified as integers.
+		Gigabytes can be specified as fractions.
 	    
         --min-cpu
           
@@ -2792,10 +2685,6 @@ Management
 		Cannot be used together with --framework.
 		This is a Stackato 2 specific option.
 	    
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-resources
           
 		Do not optimize upload by checking for existing file resources.
@@ -2808,10 +2697,6 @@ Management
 	    
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --noresources
           Alias of --no-resources.
         --nostart
@@ -2914,8 +2799,6 @@ Management
 		Set up debugging through an application-specific
 		harbor (port) service. Target version 2.8+ only.
 	    
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -2941,14 +2824,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -2985,8 +2860,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3012,16 +2885,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3076,15 +2941,13 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
 
 .. _command-rollback:
 
-      stackato rollback  *<application>*  *<version>*       
+      stackato rollback  *<application>*  *<appversion>*       
         Switch to a different version of the application. This is a Stackato 3.4 specific command.
 
         .. raw:: html
@@ -3109,14 +2972,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3153,8 +3008,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3210,14 +3063,6 @@ Management
 	
         --no-banner
           Complementary alias of --banner.
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3256,8 +3101,6 @@ Management
 	
         -a
           Alias of --application.
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3283,6 +3126,11 @@ Management
         --disk
           
 		The new disk reservation to use.
+
+		Use the suffices 'M' and 'G' for the convenient specification
+		of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		assumed. As the base-unit megabytes must specified as integers.
+		Gigabytes can be specified as fractions.
 	    
         --group
           
@@ -3316,6 +3164,11 @@ Management
         --mem
           
 		The new memory reservation to use.
+
+		Use the suffices 'M' and 'G' for the convenient specification
+		of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		assumed. As the base-unit megabytes must specified as integers.
+		Gigabytes can be specified as fractions.
 	    
         --min-cpu
           
@@ -3333,16 +3186,8 @@ Management
 	    
         --no-autoscale
           Complementary alias of --autoscale.
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3403,8 +3248,6 @@ Management
           Alias of --instances.
         -m
           Alias of --mem.
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3439,14 +3282,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3485,8 +3320,6 @@ Management
 	
         -a
           Alias of --application.
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3512,16 +3345,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3576,8 +3401,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3634,14 +3457,6 @@ Management
 	
         --no-banner
           Complementary alias of --banner.
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3680,8 +3495,6 @@ Management
 	
         -a
           Alias of --application.
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3707,16 +3520,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3771,8 +3576,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3798,14 +3601,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3842,15 +3637,13 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
 
 .. _command-switch-version:
 
-      stackato switch-version  *<application>*  *<version>*       
+      stackato switch-version  *<application>*  *<appversion>*       
         Switch to a different version of the application. This is a Stackato 3.4 specific command.
 
         .. raw:: html
@@ -3875,14 +3668,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3919,8 +3704,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -3946,14 +3729,6 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -3990,8 +3765,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -4017,16 +3790,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -4081,8 +3846,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -4108,14 +3871,6 @@ Placement
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -4130,8 +3885,6 @@ Placement
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-placement-zone:
@@ -4149,14 +3902,6 @@ Placement
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -4171,8 +3916,6 @@ Placement
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-set-placement-zone:
@@ -4196,16 +3939,8 @@ Placement
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -4260,8 +3995,6 @@ Placement
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -4287,16 +4020,8 @@ Placement
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -4351,91 +4076,126 @@ Placement
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
 
   
-Introspection
+Feature Flags
 ------------------------
 
-
-
     
-.. _command-Introspection-Command history:
+.. _command-disable-feature-flag:
+  
+  stackato disable-feature-flag  *<name>* 
+    Deactivate the specified feature. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
     
-Command history
-^^^^^^^^^^^^^^^^^^^^^^^^
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --target
       
-.. _command-history clear:
-
-      stackato history clear       
-        Clear the saved history.
-
-        .. raw:: html
-
-          <div class="spoiler">
-          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-          <div class="inner" style="display:none;">
-
-        --no-prompt
-          
-	    Disable interactive queries.
+	    The once-off target to use for the current operation.
 	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
-        -n
-          Alias of --no-prompt.
-
-
-.. _command-history limit:
-
-      stackato history limit  *<n>*       
-        Limit the size of the history. If no limit is specified the current limit is shown.
-
-        .. raw:: html
-
-          <div class="spoiler">
-          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-          <div class="inner" style="display:none;">
-
-        --no-prompt
-          
-	    Disable interactive queries.
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
 	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
-        -n
-          Alias of --no-prompt.
-
-
-.. _command-history list:
-
-      stackato history list  *<n>*       
-        Show the saved history of commands.
-
-        .. raw:: html
-
-          <div class="spoiler">
-          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-          <div class="inner" style="display:none;">
-
-        --no-prompt
-          
-	    Disable interactive queries.
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
 	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
-        -n
-          Alias of --no-prompt.
+    
+.. _command-enable-feature-flag:
+  
+  stackato enable-feature-flag  *<name>* 
+    Activate the specified feature. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    
+.. _command-feature-flags:
+  
+  stackato feature-flags 
+    Show all known feature flags and their stati. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --json
+      
+	    Print raw json as output, not human-formatted data.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    
+.. _command-feature-flag:
+  
+  stackato feature-flag  *<name>* 
+    Show the details of the specified feature flag. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --json
+      
+	    Print raw json as output, not human-formatted data.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
 
 
   
@@ -4463,14 +4223,6 @@ Services
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -4502,8 +4254,6 @@ Services
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -4518,14 +4268,6 @@ Services
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --provider
       
 		The service provider. Use this to disambiguate
@@ -4550,8 +4292,6 @@ Services
 		The service version. Use this to disambiguate
 		between multiple versions of the same vendor/type.
 	    
-    -n
-      Alias of --no-prompt.
     
 .. _command-services:
   
@@ -4573,14 +4313,6 @@ Services
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -4612,8 +4344,6 @@ Services
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -4637,14 +4367,6 @@ Services
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -4676,8 +4398,6 @@ Services
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
 
@@ -4708,14 +4428,6 @@ Authentication Tokens
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -4747,8 +4459,6 @@ Authentication Tokens
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -4769,14 +4479,6 @@ Authentication Tokens
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -4808,8 +4510,6 @@ Authentication Tokens
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -4834,14 +4534,6 @@ Authentication Tokens
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -4873,8 +4565,6 @@ Authentication Tokens
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -4899,14 +4589,6 @@ Authentication Tokens
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -4938,8 +4620,6 @@ Authentication Tokens
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -4971,14 +4651,6 @@ Brokers
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5022,8 +4694,6 @@ Brokers
           
 		    Name of the user to use for access to the broker.
 		
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5049,14 +4719,6 @@ Brokers
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5100,8 +4762,6 @@ Brokers
           
 		    Name of the user to use for access to the broker.
 		
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5122,14 +4782,6 @@ Brokers
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5161,8 +4813,6 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5183,14 +4833,6 @@ Brokers
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5222,8 +4864,6 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5248,14 +4888,6 @@ Brokers
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5287,8 +4919,6 @@ Brokers
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5314,14 +4944,6 @@ Brokers
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5365,8 +4987,6 @@ Brokers
           
 		    Name of the user to use for access to the broker.
 		
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5398,16 +5018,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5462,8 +5074,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5484,16 +5094,8 @@ Management
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5543,8 +5145,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5573,16 +5173,8 @@ Management
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5649,8 +5241,6 @@ Management
 		between multiple versions of the same vendor/type.
 		This is a Stackato 3 specific option.
 	    
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5676,14 +5266,6 @@ Management
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5721,8 +5303,6 @@ Management
 		By default bound services are skipped and not deleted.
 		This is a Stackato 3 specific option.
 	    
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5743,14 +5323,6 @@ Management
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5782,8 +5354,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5808,16 +5378,8 @@ Management
 	    The once-off group to use for the current operation.
 	    This is a Stackato 2 option.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5863,8 +5425,6 @@ Management
 		listens on. Relevant if and only if the helper has
 		to be pushed,i.e. on first use of the tunnel command.
 	    
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5890,16 +5450,8 @@ Management
 	    Path of the manifest file to use.
 	    If not specified a search is done.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 	    The once-off organization to use for the current operation.
@@ -5954,8 +5506,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -5978,16 +5528,8 @@ Management
 		Each use of the option declares a single element,
 		using the form "key: value" for the argument.
 	    
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-tail
           Complementary alias of --tail.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --tail
           
 	    Request target to stream the log.
@@ -6020,8 +5562,6 @@ Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
     
@@ -6041,14 +5581,6 @@ Plans
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --provider
           
 		The service provider. Use this to disambiguate
@@ -6077,8 +5609,6 @@ Plans
 		The service version. Use this to disambiguate
 		between multiple versions of the same vendor/type.
 	    
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-service-plans:
@@ -6096,14 +5626,6 @@ Plans
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -6118,8 +5640,6 @@ Plans
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-service-plan:
@@ -6137,14 +5657,6 @@ Plans
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --provider
           
 		The service provider. Use this to disambiguate
@@ -6173,8 +5685,6 @@ Plans
 		The service version. Use this to disambiguate
 		between multiple versions of the same vendor/type.
 	    
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-show-service-plan:
@@ -6188,14 +5698,6 @@ Plans
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --provider
           
 		The service provider. Use this to disambiguate
@@ -6224,8 +5726,6 @@ Plans
 		The service version. Use this to disambiguate
 		between multiple versions of the same vendor/type.
 	    
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-update-service-plan:
@@ -6249,16 +5749,8 @@ Plans
 		
         --no-free
           Complementary alias of --free.
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-public
           Complementary alias of --public.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --provider
           
 		The service provider. Use this to disambiguate
@@ -6291,8 +5783,57 @@ Plans
 		The service version. Use this to disambiguate
 		between multiple versions of the same vendor/type.
 	    
-        -n
-          Alias of --no-prompt.
+
+
+  
+Introspection
+------------------------
+
+
+
+    
+.. _command-Introspection-Command history:
+    
+Command history
+^^^^^^^^^^^^^^^^^^^^^^^^
+      
+.. _command-history clear:
+
+      stackato history clear       
+        Clear the saved history.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+
+
+.. _command-history limit:
+
+      stackato history limit  *<n>*       
+        Limit the size of the history. If no limit is specified the current limit is shown.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+
+
+.. _command-history list:
+
+      stackato history list  *<n>*       
+        Show the saved history of commands.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
 
 
   
@@ -6330,14 +5871,6 @@ Organizations
       Complementary alias of --activate.
     --no-add-self
       Complementary alias of --add-self.
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --quota
       
 		The named quota of the new organization.
@@ -6357,8 +5890,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-delete-org:
   
@@ -6371,14 +5902,6 @@ Organizations
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --recursive
       
 	    Remove all sub-ordinate parts, and relations.
@@ -6397,8 +5920,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -r
       Alias of --recursive.
     
@@ -6419,14 +5940,6 @@ Organizations
        Affect the billing manager role 
     --manager
        Affect the manager role 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -6441,8 +5954,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-org-users:
   
@@ -6455,14 +5966,10 @@ Organizations
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
+    --json
       
-	    Disable interactive queries.
+	    Print raw json as output, not human-formatted data.
 	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -6477,8 +5984,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-orgs:
   
@@ -6499,14 +6004,6 @@ Organizations
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -6521,8 +6018,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-org:
   
@@ -6543,14 +6038,6 @@ Organizations
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -6565,8 +6052,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-quota-org:
   
@@ -6579,14 +6064,6 @@ Organizations
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -6601,8 +6078,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-rename-org:
   
@@ -6615,14 +6090,6 @@ Organizations
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -6637,8 +6104,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-switch-org:
   
@@ -6651,14 +6116,6 @@ Organizations
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -6673,8 +6130,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-unlink-user-org:
   
@@ -6693,14 +6148,6 @@ Organizations
        Affect the billing manager role 
     --manager
        Affect the manager role 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -6715,8 +6162,6 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-update-org:
   
@@ -6740,14 +6185,6 @@ Organizations
 	    
     --no-default
       Complementary alias of --default.
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --quota
       
 		Name of the quota plan to use in the organization.
@@ -6766,8 +6203,270 @@ Organizations
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
+
+
+  
+Security Groups
+------------------------
+
+    
+.. _command-bind-security-group:
+  
+  stackato bind-security-group  *<security_group>* 
+    Bind the named security group to either the current or specified space, or the running and staging phases. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --organization
+      
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+    --running
+      
+		Switch operation to work on the security groups for running applications.
+	    
+    --space
+      
+	    The name of the space to use as context.
+
+	    Defaults to the current space.
+
+	    A current space is automatically set if there is none,
+	    either by taking the one space the user has, or
+	    asking the user to choose among the possibilities.
+	
+    --staging
+      
+		Switch operation to work on the security groups for staging applications.
+	    
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    -o
+      Alias of --organization.
+    
+.. _command-create-security-group:
+  
+  stackato create-security-group  *<security_group>*  *<rules>* 
+    Create a new security group. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    
+.. _command-delete-security-group:
+  
+  stackato delete-security-group  *<security_group>* 
+    Delete the named security group. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    
+.. _command-security-groups:
+  
+  stackato security-groups 
+    Show the known security groups, either all, or just those assigned to the running and staging phases. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --json
+      
+	    Print raw json as output, not human-formatted data.
+	
+    --running
+      
+		Switch operation to work on the security groups for running applications.
+	    
+    --staging
+      
+		Switch operation to work on the security groups for staging applications.
+	    
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    
+.. _command-security-group:
+  
+  stackato security-group  *<security_group>* 
+    Show the details of the named security group. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --json
+      
+	    Print raw json as output, not human-formatted data.
+	
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    
+.. _command-unbind-security-group:
+  
+  stackato unbind-security-group  *<security_group>* 
+    Drop the named security group from either the current or specified space, or the running and staging phases. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --organization
+      
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+    --running
+      
+		Switch operation to work on the security groups for running applications.
+	    
+    --space
+      
+	    The name of the space to use as context.
+
+	    Defaults to the current space.
+
+	    A current space is automatically set if there is none,
+	    either by taking the one space the user has, or
+	    asking the user to choose among the possibilities.
+	
+    --staging
+      
+		Switch operation to work on the security groups for staging applications.
+	    
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+    -o
+      Alias of --organization.
+    
+.. _command-update-security-group:
+  
+  stackato update-security-group  *<security_group>*  *<rules>* 
+    Modify the named security group. I.e. replace the set of rules with a new set. This is a Stackato 3.4.2 command.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    --target
+      
+	    The once-off target to use for the current operation.
+	
+    --token
+      
+	    The once-off authentication token to use for the
+	    current operation.
+	
+    --token-file
+      
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
 
 
   
@@ -6820,14 +6519,6 @@ Spaces
       Complementary alias of --developer.
     --no-manager
       Complementary alias of --manager.
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -6852,8 +6543,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -6868,14 +6557,6 @@ Spaces
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -6904,8 +6585,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     -r
@@ -6928,14 +6607,6 @@ Spaces
        Affect the developer role 
     --manager
        Affect the manager role 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -6960,8 +6631,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -6976,14 +6645,6 @@ Spaces
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7008,8 +6669,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7024,14 +6683,10 @@ Spaces
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
+    --json
       
-	    Disable interactive queries.
+	    Print raw json as output, not human-formatted data.
 	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7056,8 +6711,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7072,6 +6725,10 @@ Spaces
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
+    --all
+      
+		Show all spaces across all organizations.
+	    
     --full
       
 		Show more details.
@@ -7080,24 +6737,18 @@ Spaces
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
-	    The name of the parent organization to use as context.
+		The name of the organization to use as context.
 
-	    Defaults to the current organization.
+		Defaults to the current organization.
 
-	    A current organization is automatically set if there is none,
-	    either by taking the one organization the user belongs to, or
-	    asking the user to choose among the possibilities.
-	
+		A current organization is automatically set if there is none,
+		either by taking the one organization the user has, or
+		asking the user to choose among the possibilities.
+
+		Cannot be used together with --all.
+	    
     --target
       
 	    The once-off target to use for the current operation.
@@ -7112,8 +6763,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7136,14 +6785,6 @@ Spaces
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7168,8 +6809,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7184,14 +6823,6 @@ Spaces
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7216,8 +6847,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7238,14 +6867,6 @@ Spaces
        Affect the developer role 
     --manager
        Affect the manager role 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7270,8 +6891,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7298,14 +6917,6 @@ Spaces
 	    
     --no-default
       Complementary alias of --default.
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7330,8 +6941,6 @@ Spaces
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
 
@@ -7352,14 +6961,11 @@ Routes
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
+    --all
       
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
+		Operate --unused across all domains.
+		Cannot be used together with named routes.
+	    
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7394,15 +7000,18 @@ Routes
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
+    --unused
+      
+		Delete all routes which are not used by any application.
+		Cannot be used together with named routes.
+	    
     -o
       Alias of --organization.
     
 .. _command-routes:
   
   stackato routes 
-    List all available routes. This is a Stackato 3 specific command.
+    List all available routes in the specified space, or all. This is a Stackato 3 specific command.
 
     .. raw:: html
     
@@ -7410,18 +7019,37 @@ Routes
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
+    --all
+      
+		Query information about all domains.
+		Cannot be used together with a space.
+	    
     --json
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
+    --organization
       
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
+		The name of the organization to use as context.
+		Defaults to the current organization.
+
+		A current organization is automatically set if there is none,
+		either by taking the one organization the user has, or
+		asking the user to choose among the possibilities.
+
+		Cannot be used together with --all.
+	    
+    --space
+      
+		The name of the space to use as context.
+		Defaults to the current space.
+
+		A current space is automatically set if there is none,
+		either by taking the one space the user has, or
+		asking the user to choose among the possibilities.
+
+		Cannot be used together with --all.
+	    
     --target
       
 	    The once-off target to use for the current operation.
@@ -7436,8 +7064,12 @@ Routes
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
+    --unused
+      
+		Filter output to show only the routes which are not used by any application.
+	    
+    -o
+      Alias of --organization.
 
 
   
@@ -7456,14 +7088,16 @@ Domains
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
+    --organization
       
-	    Disable interactive queries.
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
 	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --shared
       
 		Mark the new domain as shared by all organizations.
@@ -7484,8 +7118,8 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
+    -o
+      Alias of --organization.
     
 .. _command-delete-domain:
   
@@ -7498,14 +7132,6 @@ Domains
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -7520,8 +7146,6 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-domains:
   
@@ -7543,14 +7167,6 @@ Domains
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 		The name of the organization to use as context.
@@ -7589,8 +7205,6 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7605,14 +7219,6 @@ Domains
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7647,8 +7253,6 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7663,14 +7267,6 @@ Domains
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The name of the parent organization to use as context.
@@ -7705,8 +7301,6 @@ Domains
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
 
@@ -7727,16 +7321,6 @@ Administration
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
     
 .. _command-admin list:
   
@@ -7753,14 +7337,6 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -7775,51 +7351,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
-    
-.. _command-admin patch:
-  
-  stackato admin patch  *<patch>* 
-    Apply a patch to the current or specified target.
-
-    .. raw:: html
-    
-      <div class="spoiler">
-      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
-      <div class="inner" style="display:none;">
-
-    --dry
-      
-	    Print the low-level ssh command to stdout
-	    instead of executing it.
-	
-    --dry-run
-      Alias of --dry.
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    --target
-      
-	    The once-off target to use for the current operation.
-	
-    --token
-      
-	    The once-off authentication token to use for the
-	    current operation.
-	
-    --token-file
-      
-	    Path to an existing and readable file containing
-	    the targets and authorization tokens.
-	
-    -n
-      Alias of --no-prompt.
     
 .. _command-admin report:
   
@@ -7832,14 +7363,6 @@ Administration
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -7854,8 +7377,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-admin revoke:
   
@@ -7868,16 +7389,6 @@ Administration
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
     
 .. _command-frameworks:
   
@@ -7894,14 +7405,6 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -7916,8 +7419,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-info:
   
@@ -7939,14 +7440,6 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -7978,8 +7471,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -7998,14 +7489,6 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -8020,8 +7503,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-show-token:
   
@@ -8034,21 +7515,11 @@ Administration
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --token-file
       
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-stacks:
   
@@ -8065,14 +7536,6 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -8087,8 +7550,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-targets:
   
@@ -8105,21 +7566,11 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --token-file
       
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-tokens:
   
@@ -8136,21 +7587,11 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --token-file
       
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-usage:
   
@@ -8177,14 +7618,6 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --organization
       
 	    The once-off organization to use for the current operation.
@@ -8216,8 +7649,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     -o
       Alias of --organization.
     
@@ -8236,14 +7667,6 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -8258,8 +7681,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-user:
   
@@ -8276,14 +7697,6 @@ Administration
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
@@ -8298,8 +7711,6 @@ Administration
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-    -n
-      Alias of --no-prompt.
     
 .. _command-version:
   
@@ -8312,16 +7723,6 @@ Administration
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
 
 
     
@@ -8345,14 +7746,6 @@ Buildpacks
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8367,8 +7760,6 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-create-buildpack:
@@ -8394,14 +7785,6 @@ Buildpacks
           
 		Lock the buildpack against modification.
 	    
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --position
           
 		Location of the buildpack in the sequence used
@@ -8425,8 +7808,6 @@ Buildpacks
           
 		Unlock the buildpack, allow changes again.
 	    
-        -n
-          Alias of --no-prompt.
         -P
           Alias of --position.
 
@@ -8442,14 +7823,6 @@ Buildpacks
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8464,8 +7837,6 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-rename-buildpack:
@@ -8479,14 +7850,6 @@ Buildpacks
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8501,8 +7864,6 @@ Buildpacks
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-update-buildpack:
@@ -8528,14 +7889,6 @@ Buildpacks
           
 		Lock the buildpack against modification.
 	    
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --position
           
 		Location of the buildpack in the sequence used
@@ -8561,13 +7914,82 @@ Buildpacks
 	    
         --zip
           
- 		Path to the new zip file containing the updated implementation
-		of the buildpack.
+		Path or url of the new zip file containing the implementation of the buildpack.
+		Accepts the path to a local directory as well, which will become the zip file to upload.
 	    
-        -n
-          Alias of --no-prompt.
         -P
           Alias of --position.
+
+
+    
+.. _command-Administration-Colors:
+    
+Colors
+^^^^^^^^^^^^^^^^^^^^^^^^
+      
+.. _command-color list:
+
+      stackato color list       
+        Show the current color settings.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+
+
+.. _command-color set:
+
+      stackato color set  *<color>*  *<specification>*       
+        (Re)define a color.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+
+
+.. _command-color test:
+
+      stackato color test  *<specification>*  *<string>*       
+        Test a color specification.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+
+
+.. _command-color unset:
+
+      stackato color unset  *<color>*       
+        Remove a color redefinition.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+
+
+.. _command-colors:
+
+      stackato colors       
+        Show the current color settings.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
 
 
     
@@ -8587,14 +8009,6 @@ Groups (Stackato 2)
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8609,8 +8023,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-groups create:
@@ -8624,14 +8036,6 @@ Groups (Stackato 2)
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8646,8 +8050,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-groups delete-user:
@@ -8661,14 +8063,6 @@ Groups (Stackato 2)
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8683,8 +8077,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-groups delete:
@@ -8698,14 +8090,6 @@ Groups (Stackato 2)
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8720,8 +8104,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-groups limits:
@@ -8754,17 +8136,14 @@ Groups (Stackato 2)
         --mem
           
 	    Amount of memory applications can use.
-	
-        --no-prompt
-          
-	    Disable interactive queries.
+
+	    Use the suffices 'M' and 'G' for the convenient specification
+	    of mega- and gigabytes. Without a unit-suffix mega-bytes are
+	    assumed. As the base-unit megabytes must specified as integers.
+	    Gigabytes can be specified as fractions.
 	
         --no-sudo
           Complementary alias of --sudo.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --services
           
 	    Limit for the number of services in the group.
@@ -8787,8 +8166,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-groups show:
@@ -8806,14 +8183,6 @@ Groups (Stackato 2)
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8828,8 +8197,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-groups users:
@@ -8847,14 +8214,6 @@ Groups (Stackato 2)
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -8869,8 +8228,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-group:
@@ -8888,14 +8245,6 @@ Groups (Stackato 2)
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --reset
           
 	    Reset the current group to nothing.
@@ -8915,8 +8264,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-limits:
@@ -8949,17 +8296,14 @@ Groups (Stackato 2)
         --mem
           
 	    Amount of memory applications can use.
-	
-        --no-prompt
-          
-	    Disable interactive queries.
+
+	    Use the suffices 'M' and 'G' for the convenient specification
+	    of mega- and gigabytes. Without a unit-suffix mega-bytes are
+	    assumed. As the base-unit megabytes must specified as integers.
+	    Gigabytes can be specified as fractions.
 	
         --no-sudo
           Complementary alias of --sudo.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --services
           
 	    Limit for the number of services in the group.
@@ -8982,8 +8326,6 @@ Groups (Stackato 2)
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
     
@@ -9018,21 +8360,18 @@ Quotas
         --mem
           
 		Amount of memory applications can use.
+
+		Use the suffices 'M' and 'G' for the convenient specification
+		of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		assumed. As the base-unit megabytes must specified as integers.
+		Gigabytes can be specified as fractions.
 	    
         --no-allow-sudo
           Complementary alias of --allow-sudo.
         --no-paid-services-allowed
           Complementary alias of --paid-services-allowed.
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-trial-db-allowed
           Complementary alias of --trial-db-allowed.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --paid-services-allowed
           
 		Applications can use non-free services.
@@ -9065,8 +8404,6 @@ Quotas
 		Applications can use trial databases.
 		Before Stackato 3.4 only.
 	    
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-quota create:
@@ -9095,21 +8432,18 @@ Quotas
         --mem
           
 		Amount of memory applications can use.
+
+		Use the suffices 'M' and 'G' for the convenient specification
+		of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		assumed. As the base-unit megabytes must specified as integers.
+		Gigabytes can be specified as fractions.
 	    
         --no-allow-sudo
           Complementary alias of --allow-sudo.
         --no-paid-services-allowed
           Complementary alias of --paid-services-allowed.
-        --no-prompt
-          
-	    Disable interactive queries.
-	
         --no-trial-db-allowed
           Complementary alias of --trial-db-allowed.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --paid-services-allowed
           
 		Applications can use non-free services.
@@ -9142,8 +8476,6 @@ Quotas
 		Applications can use trial databases.
 		Before Stackato 3.4 only.
 	    
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-quota delete:
@@ -9157,14 +8489,6 @@ Quotas
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9179,8 +8503,6 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-quota list:
@@ -9198,14 +8520,6 @@ Quotas
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9220,8 +8534,6 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-quota rename:
@@ -9235,14 +8547,6 @@ Quotas
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9257,8 +8561,6 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-quota show:
@@ -9276,14 +8578,6 @@ Quotas
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9298,8 +8592,6 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-quotas:
@@ -9317,14 +8609,6 @@ Quotas
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9339,8 +8623,400 @@ Quotas
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
+
+
+    
+.. _command-Administration-Space Quotas:
+    
+Space Quotas
+^^^^^^^^^^^^^^^^^^^^^^^^
+      
+.. _command-create-space-quota:
+
+      stackato create-space-quota  *<name>*       
+        Create a new space quota. It will be owned by the current or specified organization. This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --instance-mem
+          
+		    Amount of memory application instances can use.
+
+		    Use the suffices 'M' and 'G' for the convenient specification
+		    of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		    assumed. As the base-unit megabytes must specified as integers.
+		    Gigabytes can be specified as fractions.
+
+		    Also accepts -1 and "unlimited" for unlimited memory.
+		
+        --mem
+          
+		    Amount of memory applications can use.
+
+		    Use the suffices 'M' and 'G' for the convenient specification
+		    of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		    assumed. As the base-unit megabytes must specified as integers.
+		    Gigabytes can be specified as fractions.
+
+		    Also accepts -1 and "unlimited" for unlimited memory.
+		
+        --no-paid-services-allowed
+          Complementary alias of --paid-services-allowed.
+        --organization
+          
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+        --paid-services-allowed
+          
+		    Applications can use non-free services.
+		
+        --routes
+          
+		    Limit for the number of routes in the quota.
+		
+        --services
+          
+		    Limit for the number of services in the quota.
+		
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        -i
+          Alias of --instance-mem.
+        -m
+          Alias of --mem.
+        -o
+          Alias of --organization.
+        -r
+          Alias of --routes.
+        -s
+          Alias of --services.
+
+
+.. _command-delete-space-quota:
+
+      stackato delete-space-quota  *<name>*       
+        Delete the named space quota. This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+
+
+.. _command-rename-space-quota:
+
+      stackato rename-space-quota  *<name>*  *<newname>*       
+        Rename the named space quota. This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+
+
+.. _command-set-space-quota:
+
+      stackato set-space-quota  *<name>*       
+        Assign the specified space quota to the current or specified space. This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --organization
+          
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+        --space
+          
+	    The name of the space to use as context.
+
+	    Defaults to the current space.
+
+	    A current space is automatically set if there is none,
+	    either by taking the one space the user has, or
+	    asking the user to choose among the possibilities.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        -o
+          Alias of --organization.
+
+
+.. _command-space-quotas:
+
+      stackato space-quotas       
+        List the space quotas owned by the current or specified organization, or all. This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --all
+          
+		    Show all space quotas instead
+		
+        --full
+          
+		    Show all information about the space-quota.
+		
+        --json
+          
+	    Print raw json as output, not human-formatted data.
+	
+        --organization
+          
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        -o
+          Alias of --organization.
+
+
+.. _command-space-quota:
+
+      stackato space-quota  *<name>*       
+        Show the details of the named space quota. If not specified it will be asked for interactively (menu). This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --json
+          
+	    Print raw json as output, not human-formatted data.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+
+
+.. _command-unset-space-quota:
+
+      stackato unset-space-quota       
+        Drop the space quota from the current or specified space. This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --organization
+          
+	    The name of the parent organization to use as context.
+
+	    Defaults to the current organization.
+
+	    A current organization is automatically set if there is none,
+	    either by taking the one organization the user belongs to, or
+	    asking the user to choose among the possibilities.
+	
+        --space
+          
+	    The name of the space to use as context.
+
+	    Defaults to the current space.
+
+	    A current space is automatically set if there is none,
+	    either by taking the one space the user has, or
+	    asking the user to choose among the possibilities.
+	
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        -o
+          Alias of --organization.
+
+
+.. _command-update-space-quota:
+
+      stackato update-space-quota  *<name>*       
+        Modify the named space quota. This is a Stackato 3.4.2 command.
+
+        .. raw:: html
+
+          <div class="spoiler">
+          <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+          <div class="inner" style="display:none;">
+
+        --instance-mem
+          
+		    Amount of memory application instances can use.
+
+		    Use the suffices 'M' and 'G' for the convenient specification
+		    of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		    assumed. As the base-unit megabytes must specified as integers.
+		    Gigabytes can be specified as fractions.
+
+		    Also accepts -1 and "unlimited" for unlimited memory.
+		
+        --mem
+          
+		    Amount of memory applications can use.
+
+		    Use the suffices 'M' and 'G' for the convenient specification
+		    of mega- and gigabytes. Without a unit-suffix mega-bytes are
+		    assumed. As the base-unit megabytes must specified as integers.
+		    Gigabytes can be specified as fractions.
+
+		    Also accepts -1 and "unlimited" for unlimited memory.
+		
+        --no-paid-services-allowed
+          Complementary alias of --paid-services-allowed.
+        --paid-services-allowed
+          
+		    Applications can use non-free services.
+		
+        --routes
+          
+		    Limit for the number of routes in the quota.
+		
+        --services
+          
+		    Limit for the number of services in the quota.
+		
+        --target
+          
+	    The once-off target to use for the current operation.
+	
+        --token
+          
+	    The once-off authentication token to use for the
+	    current operation.
+	
+        --token-file
+          
+	    Path to an existing and readable file containing
+	    the targets and authorization tokens.
+	
+        -i
+          Alias of --instance-mem.
+        -m
+          Alias of --mem.
+        -r
+          Alias of --routes.
+        -s
+          Alias of --services.
 
 
     
@@ -9409,26 +9085,31 @@ User Management
         --mem
           
 	    Amount of memory applications can use.
+
+	    Use the suffices 'M' and 'G' for the convenient specification
+	    of mega- and gigabytes. Without a unit-suffix mega-bytes are
+	    assumed. As the base-unit megabytes must specified as integers.
+	    Gigabytes can be specified as fractions.
 	
         --no-auditor
           Complementary alias of --auditor.
         --no-manager
           Complementary alias of --manager.
-        --no-prompt
+        --no-organization
           
-	    Disable interactive queries.
-	
+		Flag to indicate that the new user should not be placed into any organization.
+		This is a Stackato 3 specific option.
+		Cannot be used together with --organization.
+		When used any --manager and --auditor flags are ignored.
+	    
         --no-sudo
           Complementary alias of --sudo.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 		The organization to place the new user into.
 		Defaults to the current organization.
 		This is a Stackato 3 specific option.
+		Cannot be used together with --no-organization.
 	    
         --passwd
           Alias of --password.
@@ -9458,8 +9139,6 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -9475,14 +9154,6 @@ User Management
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9497,8 +9168,6 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-login-fields:
@@ -9516,14 +9185,6 @@ User Management
           
 	    Print raw json as output, not human-formatted data.
 	
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9538,8 +9199,6 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-passwd:
@@ -9553,14 +9212,6 @@ User Management
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --passwd
           Alias of --password.
         --password
@@ -9582,8 +9233,6 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-register:
@@ -9646,26 +9295,31 @@ User Management
         --mem
           
 	    Amount of memory applications can use.
+
+	    Use the suffices 'M' and 'G' for the convenient specification
+	    of mega- and gigabytes. Without a unit-suffix mega-bytes are
+	    assumed. As the base-unit megabytes must specified as integers.
+	    Gigabytes can be specified as fractions.
 	
         --no-auditor
           Complementary alias of --auditor.
         --no-manager
           Complementary alias of --manager.
-        --no-prompt
+        --no-organization
           
-	    Disable interactive queries.
-	
+		Flag to indicate that the new user should not be placed into any organization.
+		This is a Stackato 3 specific option.
+		Cannot be used together with --organization.
+		When used any --manager and --auditor flags are ignored.
+	    
         --no-sudo
           Complementary alias of --sudo.
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --organization
           
 		The organization to place the new user into.
 		Defaults to the current organization.
 		This is a Stackato 3 specific option.
+		Cannot be used together with --no-organization.
 	    
         --passwd
           Alias of --password.
@@ -9695,8 +9349,6 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
         -o
           Alias of --organization.
 
@@ -9712,14 +9364,6 @@ User Management
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9729,8 +9373,6 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-unregister:
@@ -9744,14 +9386,6 @@ User Management
           <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
           <div class="inner" style="display:none;">
 
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9766,8 +9400,6 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
 .. _command-users:
@@ -9790,14 +9422,6 @@ User Management
 		Select the details to show
 		("name" information (default), "related" entities, and "all").
 	    
-        --no-prompt
-          
-	    Disable interactive queries.
-	
-        --non-interactive
-          Alias of --no-prompt.
-        --noprompt
-          Alias of --no-prompt.
         --target
           
 	    The once-off target to use for the current operation.
@@ -9812,8 +9436,6 @@ User Management
 	    Path to an existing and readable file containing
 	    the targets and authorization tokens.
 	
-        -n
-          Alias of --no-prompt.
 
 
   
@@ -9836,16 +9458,6 @@ Convenience
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
     
 .. _command-alias:
   
@@ -9858,16 +9470,6 @@ Convenience
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
     
 .. _command-unalias:
   
@@ -9880,21 +9482,35 @@ Convenience
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
 
 
   
 Miscellaneous
 ------------------------
+
+    
+.. _command-admin:
+  
+  stackato admin 
+    A set of adminstrative tasks.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    
+.. _command-color:
+  
+  stackato color 
+    Management of terminal colors
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
 
     
 .. _command-curl:
@@ -9919,14 +9535,12 @@ Miscellaneous
 		Zero or more form fields to be added to the base url.
 		Data is in the form of "key: value".
 	    
-    --no-prompt
+    --output
       
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
+		Path to the file to write the returned payload to.
+		A value of "-" or "stdin" causes the client to write
+		the data to stdout.
+	    
     --port
       
 		The port to use for the request.
@@ -9966,10 +9580,36 @@ Miscellaneous
       Alias of --web-socket.
     -d
       Alias of --data.
-    -n
-      Alias of --no-prompt.
+    -O
+      Alias of --output.
+    -o
+      Alias of --output.
     -W
       Alias of --web-socket.
+    
+.. _command-drain:
+  
+  stackato drain 
+    Commands for the management of drains attached to applications.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
+    
+.. _command-groups:
+  
+  stackato groups 
+    A collection of commands to manage groups and the users in them.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
     
 .. _command-guid:
   
@@ -9986,20 +9626,22 @@ Miscellaneous
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
     --target
       
 	    The once-off target to use for the current operation.
 	
-    -n
-      Alias of --no-prompt.
+    
+.. _command-history:
+  
+  stackato history 
+    
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
     
 .. _command-named-entities:
   
@@ -10016,16 +9658,18 @@ Miscellaneous
       
 	    Print raw json as output, not human-formatted data.
 	
-    --no-prompt
-      
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
+    
+.. _command-quota:
+  
+  stackato quota 
+    Management of quota plans.
+
+    .. raw:: html
+    
+      <div class="spoiler">
+      <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
+      <div class="inner" style="display:none;">
+
     
 .. _command-trace:
   
@@ -10038,16 +9682,11 @@ Miscellaneous
       <a style="font-size: x-small" onclick="showSpoiler(this);"/>+ options</a>
       <div class="inner" style="display:none;">
 
-    --no-prompt
+    --short
       
-	    Disable interactive queries.
-	
-    --non-interactive
-      Alias of --no-prompt.
-    --noprompt
-      Alias of --no-prompt.
-    -n
-      Alias of --no-prompt.
+		When present, show only the short list of requests,
+		without details like headers and responses.
+	    
 
 
 
