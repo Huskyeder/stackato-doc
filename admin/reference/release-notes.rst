@@ -17,16 +17,105 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-v3.4.2 (Nov 2014)
------------------
+v3.4.2 (Dec 4, 2014)
+--------------------
+
+* New Features
+
+  * [103548] Apps can now be moved between Spaces (by Org Managers) and Orgs (by Admins).
+  * [105318] Options for ``kato data export`` for exporting just the Cloud Controller main database (users, orgs, spaces).
+  * [105548] Offline in-place upgrades: Stackato clusters can now be upgraded in place without direct access to the internet.
+  * Admin/Non-admin view toggle for administrators in the web console.
+    
+* Enhancements & Updates
+
+  * [104831] Merge from upstream Cloud Foundry (August 2014)
+  * [105462] Updated built-in Buildpacks
+  * [104659] Logyard stream is now brandable
+  * [102890] Quota management in Management Console
+  * [105465] Updated Node.js to v0.10.33 
+  * [105411] Update Docker to 1.3
+  * [105307] `ActiveState/logyard <https://github.com/ActiveState/stackato-go>`__ open-sourced along with `ActiveState/stackato-go <https://github.com/ActiveState/stackato-go>`__.
+
 
 * Bug Fixes
+  
+  * Management Console
+    
+    * [102951] Consistent styling of common UI patterns
+    * [102489] Show problem components in red
+    * [102316] App logs in chronological order (previously reverse chronological)
+    * [105420] Fixed usage reporting in Space quota view
+    * [105413] Hide non-functional UI elements for users without permission to use them
+    * [105352] START button disappears from web console in certain condition
 
-  * [104272] Staging and pre-running hooks abort if they return a non-zero exit code (as in v2.10).
-  * [105590] Longer default health check timeouts. Modified settings will need to be reset after an upgrade from v3.4.1.
+  * Kato
+    
+    * [98559] ``kato status`` now faster. Contacts all nodes concurrently.
+    * [105286] ``kato patch`` checks that it is up-to-date before applying patches.
+    * [105467] ``kato start controller`` needs to check for multiple controllers
+    * [105347] ``kato patch install`` attempts to repeatedly update other nodes
+    * [105298] Kato emits "error getting sizes" message every 10 seconds
+    * [105260] Installed patch status lost 
 
-    * cloud_controller_ng/maximum_health_check_timeout is now 1800 seconds (30min)
-    * dea_ng/default_health_check_timeout is now 300 seconds (5min)
+
+
+  * Docker & Fence
+
+    * [105194] Fence crashing with fork error 
+    * [105123] Fence process keeps restarting
+    * [105116] Fence connection issues
+    * [105322, 105202, 105362] Clean up orphaned containers
+    * [105295] app logs going to Fence
+    * [105259] Fence crash on services node during patching 
+
+  * Upgrades
+
+    * [104975, 105424] Upgrade issue with filesystem service
+    * [104935] Random hang during upgrade
+    * [104925] Fatal error in Bundler during upgrade
+    * [104912] Pin bundler to a known good version in sentinel
+    * [105698] Upgrade fails on stackato-tools-3.4.1 with 'no such directory'
+    * [105690] Upgrade fails on client due to incorrect versions
+    * [105689] ``sentinel download --for-upgrade`` should download intermediate versions 
+    * [104982] Failing with exception during mysql upgrade
+    * [104842] Unable to delete app after upgrade from 3.2.1 -> 3.4.1 
+
+
+  * Security
+
+    * Various fixes for POODLE
+    * [105437] ``stackato-ssh`` breaks when SSLv3 disabled
+    * [105161] 	CVE-2014-5119 glibc vulnerability that leads to escalation
+
+  
+  * Misc:
+  
+    * [105068] Fixed DEA lockup
+    * [105514] Missing */usr/share/doc* directory restored
+    * [105513] run_fibered_command: Don't create /dev/fd if it already exists.
+    * [104272] Staging and pre-running hooks abort if they return a non-zero exit code (as in v2.10).
+    * [105590] Longer default health check timeouts. Modified settings will need to be reset after an upgrade from v3.4.1.
+  
+      * cloud_controller_ng/maximum_health_check_timeout is now 1800 seconds (30min)
+      * dea_ng/default_health_check_timeout is now 300 seconds (5min)
+
+    * [104166] app_store and app_mdns can't connect to redis after restart
+    * [105702] AOK: LDAP fix (omniauth-ldap)
+    * [105430] Update to latest available kernel 
+    * [105432] AOK: AD LDAP auth failing - Encoding::UndefinedConversionError, "\x82" from ASCII-8BIT to UTF-8
+    * [105410] Better Docker base image update/upgrade instructions
+    * [105365] Make all periodic-timer intervals configurable and responsive
+    * [105372] Stackato-tty crashes if VM window confines text rendering
+    * [105339] Prevent use of routes already deployed in different Org or Space 
+    * [105335] Fixed problem with file view when using a load balancer (407 error)
+    * [105333] Fixed Cloud Controller memory leak
+    * [105246] Can't delete migrated (3.2 to 3.4) applications
+
+
+  * Stackato CLI client updated to 3.2.0
+
+
 
 v3.4.1 (July 29, 2014)
 ----------------------
