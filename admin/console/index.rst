@@ -123,7 +123,7 @@ equivalents, and the :ref:`Cluster Setup <cluster-setup>` section for
 information on adding nodes to the cluster.
 
 Available Patches
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 Displays a list of available patches for the current cluster.
 
