@@ -42,17 +42,9 @@ Green buttons expose Admin-only functionality:
 
 * **View Dashboard**: Opens the `Dashboard <console-dashboard>`.
 
-System Information
-^^^^^^^^^^^^^^^^^^
+Available patches for the system, new Stackato releases, and the latest
+Stackato news are also displayed on this page.
 
-* **Version**: Version (release) number of the system.
-
-* **MBUS IP**: The IP address that hosts the primary node. Cluster nodes
-  (if any) will connect via this IP address. In a micro cloud setting,
-  it will be 127.0.0.1.
-
-* **API Endpoint**: The URL for stackato clients to target. Normally
-  also the URL for the Management Console.
 
 .. _console-applications:
 
@@ -80,9 +72,7 @@ edit quotas, and add/remove domains, spaces, and users.
 Support
 -------
 
-The Support menu includes the same options as the regular user with the
-addition of a **Generate Stackato Report** link, which exposes the same
-functionality as :ref:`kato report <kato-command-ref-report>`.
+The Support menu includes the same options as the regular user.
 
 
 .. _console-admin:
@@ -98,6 +88,26 @@ in the Admin menu.
 Cluster Management
 ^^^^^^^^^^^^^^^^^^
 
+Summary
+~~~~~~~
+
+Displays a list of roles and their status in the system. Additionally, the
+following system information is displayed:
+
+* **Number of nodes**: The number of nodes in the cluster.
+
+* **Version**: Version (release) number of the system.
+
+* **MBUS IP**: The IP address that hosts the primary node. Cluster nodes
+  (if any) will connect via this IP address. In a micro cloud setting,
+  it will be 127.0.0.1.
+
+* **API Endpoint**: The URL for stackato clients to target. Normally
+  also the URL for the Management Console.
+
+Cluster Nodes
+~~~~~~~~~~~~~
+
 Displays a list of nodes in the current cluster, and what services are
 running on each node. In a micro cloud configuration, only the current
 local node ('127.0.0.1') is shown.
@@ -112,6 +122,11 @@ info <kato-command-ref-info>` command documentation for the CLI
 equivalents, and the :ref:`Cluster Setup <cluster-setup>` section for
 information on adding nodes to the cluster.
 
+Available Patches
+^^^^^^^^^^^^^^^^
+
+Displays a list of available patches for the current cluster.
+
 Applications & Organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -124,11 +139,28 @@ Domains
 A filterable list of all domains configured on the system, showing
 whether they are :ref:`Shared or Owned domains <domains-routes-domains>`.
 
+Routes
+^^^^^^
+
+A filterable list of routes in the system.
+
 Services
 ^^^^^^^^
 
-A filterable list of service instances on the system, and a list of
-available service types (with their version).
+Managed Services Instances
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A filterable list of managed service instances on the system.
+
+User Provided Service Instances
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A filterable list of user provided service instances on the system.
+
+Available Services
+~~~~~~~~~~~~~~~~~~~
+
+A list of available service types (with their version).
 
 .. _console-users:
 
@@ -208,8 +240,8 @@ Cloud Events
 ^^^^^^^^^^^^
 
 The Cloud Events section displays a list of events (including errors and
-warnings) on the Stackato server. The events can be filtered by Severity
-or Type, or by using a substring match in the Search field.
+warnings) on the Stackato server. The events can be filtered by Severity,
+Node ID, or Type, or by using a substring match in the Search field.
 
 .. _console-settings:
 
@@ -312,6 +344,9 @@ in the :ref:`Theming and Customization <customize>` section.
 DEA
 ^^^
 
+DEA Settings
+~~~~~~~~~~~~
+
 * **Max Memory Percentage**: The percentage of physical memory each DEA
   node can use for hosted applications. The 80% default setting leaves
   enough memory for the OS and DEA processes on a node with 4GB of RAM.
@@ -322,6 +357,30 @@ DEA
   
 * **Max Staging Duration**: The maximum time allowed for application
   staging. 
+
+DEA Placement Zones
+~~~~~~~~~~~~~~~~~~~
+
+A filterable list of DEA Placement Zones on the system.
+
+Availability Zones
+~~~~~~~~~~~~~~~~~~~
+
+A filterable list of Availability Zones on the system.
+
+
+.. _console-settings-feature-flags:
+
+Feature Flags
+^^^^^^^^^^^^^
+
+* **Enable User Organization Creation**: When enabled, any user can create an
+  organization via the API. When disabled, only admin users can create
+  organizations via the API. Default: Disabled
+
+* **Enable Private Domain Creation**: When enabled, an organization manager can
+  create private domains for that organization. When disabled, only admin users
+  can create private domains. Default: Enabled
 
 
 .. _console-settings-logyard:
@@ -354,7 +413,8 @@ following fields can be modified:
   that can be allocated to user applications.
 * **Total Services**: The total number of service instances that can be
   allocated.
-* **Total Droplets**: The number of droplets stored (per application)
+* **Total Routes**: The total number of routes that can be created.
+* **Droplets per App**: The number of droplets stored (per application)
   for versioning and rollback .
 * **Allow Sudo**: Allow users in the Organization ``sudo`` privileges
   within their application containers.

@@ -58,6 +58,7 @@ The list shows:
 The list can be sorted by name or state, and filtered by:
 
 * State
+* Staging State
 * Application Access
 * Restart Required
 
@@ -205,6 +206,8 @@ including the following tabs:
   
   * Manager: can add domains and spaces to the organization, but not
     users.
+
+* **Space Quota Plans**:  A filterable list of space quota plans.
   
 * **Quota Usage**:
 
@@ -237,8 +240,26 @@ Space View
   assigned to an application (which makes the item visible in the
   Application view).
 
-* **Services**: A list of services bound to applications in the Space.
-  Clicking a service name opens a ref:`administrative view of that
+* **Quota Usage**:  If the Space has a space quota plan assigned to it, the
+  usage is compared against it.  Otherwise, the Space usage is compared
+  against the Organization quota plan.
+
+  * Memory: The amount of RAM (in GB) available to the Organization, and
+    how much of it is currently used by applications.
+
+  * Services: The number of deployed / allotted services.
+
+  * Routes: The number of created / allotted routes.
+
+* **Services**:
+
+  * Managed: A list of managed services bound to applications in the Space.
+
+  * User Provided: A list of user provided services bound to applications
+    in the Space. New user provided services can be created by clicking the
+    'Create User Provided Service' button.
+
+  In both sections, clicking a service name opens a ref:`administrative view of that
   service <user-console-service>`.
 
 * **Managers**: Managers can invite/manage users, enable features for a
@@ -257,18 +278,34 @@ Service Instance View
 ^^^^^^^^^^^^^^^^^^^^^
 
 Clicking a service instance name anywhere in the interface brings up a
-view of that service instance showing:
+view of that service instance:
 
-* a description of the service type
+Summary
+~~~~~~~
+
+The summary of a service displays:
+* a description of the service instance type
 * when it was created
 * when it was last modified
-* which host it is running on
-* which port it is exposed on
-* the service instance name (not the canonical database name)
-* current state
 
-For more information on a service instance (i.e. its credentials), use
-the :ref:`stackato service <command-service>` command.
+For more information on a service instance, use the 
+:ref:`stackato service <command-service>` command.
+
+Credentials
+~~~~~~~~~~~
+
+Lists the credentials for the service instance.
+
+If a the service is a User Provided Service, new credentials can be added,
+and existing credentials may be edited.
+
+App Bindings
+~~~~~~~~~~~~
+
+A list of applications that have bindings to this service instance.
+Clicking an app name opens an :ref:`administrative view of that
+application <user-console-app>`.
+
 
 
 .. _user-console-app-store:
