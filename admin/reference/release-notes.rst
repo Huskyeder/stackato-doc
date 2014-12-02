@@ -25,14 +25,22 @@ v3.4.2 (Dec 4, 2014)
   * [103548] Apps can now be moved between Spaces (by Org Managers) and Orgs (by Admins).
   * [105318] Options for ``kato data export`` for exporting just the Cloud Controller main database (users, orgs, spaces).
   * [105548] Offline in-place upgrades: Stackato clusters can now be upgraded in place without direct access to the internet.
-  * Admin/Non-admin view toggle for administrators in the web console.
+  * Management Console UI for:
+
+    * [102890] Quota management
+    * User Provided Service Instances
+    * Routes within a Space
+    * all Routes in the system (Admin view)
+    * Space Quota Plans
+    * Feature Flags
+    * Toggling Admin/Non-admin view
+
     
 * Enhancements & Updates
 
   * [104831] Merge from upstream Cloud Foundry (August 2014)
   * [105462] Updated built-in Buildpacks
   * [104659] Logyard stream is now brandable
-  * [102890] Quota management in Management Console
   * [105465] Updated Node.js to v0.10.33 
   * [105411] Update Docker to 1.3
   * [105307] `ActiveState/logyard <https://github.com/ActiveState/stackato-go>`__ open-sourced along with `ActiveState/stackato-go <https://github.com/ActiveState/stackato-go>`__.
@@ -48,6 +56,7 @@ v3.4.2 (Dec 4, 2014)
     * [105420] Fixed usage reporting in Space quota view
     * [105413] Hide non-functional UI elements for users without permission to use them
     * [105352] START button disappears from web console in certain condition
+    * Deleting an app now asks if you also want to delete the routes associated with that app
 
   * Kato
     
