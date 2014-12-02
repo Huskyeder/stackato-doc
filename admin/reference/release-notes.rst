@@ -113,8 +113,29 @@ v3.4.2 (Dec 4, 2014)
     * [105246] Can't delete migrated (3.2 to 3.4) applications
 
 
-  * Stackato CLI client updated to 3.2.0
+  * Stackato CLI client updated to 3.2.0:
 
+    * [105710] Ensured that filename in buildpack upload ends in ".zip" to avoid the moronic target-side type check by file extension.
+    * [104659] Implemented handling of branded log prefix for system/app distinction.
+    * [105708] Removed the ``admin patch`` command.
+    * [105652] Fixed code ordering issue which caused use of an outdated client object.
+    * [105644] Added SSL/TLS cert validation, and opt-out. Option ``--skip-ssl-validation bool``. Env. Variable STACKATO_SKIP_SSL_VALIDATION. Sticky setting when used with ``target`` command.
+    * [105637] Do not ask the user for a missing current org when the command ``spaces`` is invoked with option ``--all``, as this mode does not require an org.
+    * [105648] Generate a proper error message when the command ``delete --all`` is invoked without a current space, instead of crashing.
+    * [105631] Extended the commands ``org-users`` and ``space-users`` with support for option ``--json``.
+    * [105192] Extended help for parameters based on the "memspec" validation type (units used, syntax).
+    * Added new option ``--all`` to the command ``spaces``. When used the command will show all spaces across all orgs, instead of just the spaces in the current/chosen org.
+    * Implemented the ``restage`` command for applications.
+    * [105490] Capture json and other errors in a bad ``--token-file``, and report them properly instead of as internal error.
+    * [105019] Tweak the help text of push option ``--force-war-unpacking``, for clarity.
+    * [103548] Implemented migration of applications across spaces and orgs.
+    * [105497] Keep the original filename of a buildpack on upload, even when going through temp files (like used for uploading by url, and to remove a superfluous top-level directory).
+    * [105518] Modified low-level REST code to reset an output channel on redirection, as a redirection may come with its own, unwanted, response body. Seen with buildpack downloads from github, adding a redirection message in front of the retrieved zip archive. While not breaking the archive this is a bug waiting to happen for other places.
+    * Fixed ordering issue in the cli specification which caused it to drop group information when talking to a 2.x target during app name validation, and wrongly failing that validation.
+    * Global options and proper option argument types in help texts. Option ``--colormode``.
+    * Support for feature flags, security groups, and space quotas.
+    * Command ``push`` (as update). Added generation of sensible output for when 0-downtime switch-over was available and got triggered.
+    * Added undocumented debug option ``--keep-form`` to commands ``create-buildpack`` and ``update-buildpack``. Taking a path argument its use allows introspection of the form-data generated and uploaded by the client.
 
 
 v3.4.1 (July 29, 2014)
