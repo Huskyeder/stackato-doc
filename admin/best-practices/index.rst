@@ -447,6 +447,11 @@ in the :ref:`EC2 AMI <vm-ec2>` guide provides an example of how to
 relocate services data to an EBS volume. The general case is covered
 below.
 
+.. note::
+
+  Do not relocate the filesystem service to an NFS mount. Use the block
+  storage mechanism native to your hypervisor or SSHFS.
+
 .. _bestpractices-relocate:
 
 Relocating Services, Droplets, and Containers
@@ -502,4 +507,5 @@ partition. The example above would require a block such as this::
     mount -o remount,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0 /mnt/containers
     quotaon -v /mnt/containers
   fi
+
 
