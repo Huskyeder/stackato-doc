@@ -131,7 +131,7 @@ Error Pages
 -----------
 
 To expose customized error pages, create the following HTML files in
-*/home/stackato/stackato/static/vendor/errors/*:
+*/home/stackato/stackato/static/vendor/errors/* on each Router node:
 
 * 404.html
 * 422.html
