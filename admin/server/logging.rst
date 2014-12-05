@@ -217,7 +217,7 @@ Application Drains
 ^^^^^^^^^^^^^^^^^^
 
 Drains for application log streams can be added by end users with the
-:ref:`stackato log drain add <command-drain add>` command. See the
+:ref:`stackato drain add <command-drain add>` command. See the
 :ref:`Application Logs <application_logs>` section of the User Guide for
 an example.
 
