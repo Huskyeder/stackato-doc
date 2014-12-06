@@ -17,7 +17,7 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-v3.4.2 (Dec 4, 2014)
+v3.4.2 (Dec 9, 2014)
 --------------------
 
 * New Features
@@ -43,7 +43,8 @@ v3.4.2 (Dec 4, 2014)
   * [104659] Logyard stream is now brandable
   * [105465] Updated Node.js to v0.10.33 
   * [105411] Update Docker to 1.3
-  * [105307] `ActiveState/logyard <https://github.com/ActiveState/stackato-go>`__ open-sourced along with `ActiveState/stackato-go <https://github.com/ActiveState/stackato-go>`__.
+  * [105307] `ActiveState/logyard <https://github.com/ActiveState/stackato-go>`__ open-sourced along with `ActiveState/stackato-go <https://github.com/ActiveState/stackato-go>`__
+  * [104172] `ActiveState/aok <https://github.com/activestate/aok>`__ authentication module open-sourced
 
 
 * Bug Fixes
@@ -57,6 +58,13 @@ v3.4.2 (Dec 4, 2014)
     * [105413] Hide non-functional UI elements for users without permission to use them
     * [105352] START button disappears from web console in certain condition
     * Deleting an app now asks if you also want to delete the routes associated with that app
+    * [104841] Router Stats Dashboard 'Connections' display expands outside the box when it's over 6 digits
+    * [104866] JS error: Cannot read property 'trim' of undefined welcome.js.src.js:106
+    * [104820, 104819, 104818] App file browser view bugs
+    * [104809] Server date/time warning
+    * [104028] Add "install app from app store" to the space page
+    * [104703] Unexpected results from clicking on domain rows
+ 
 
   * Kato
     
@@ -66,7 +74,14 @@ v3.4.2 (Dec 4, 2014)
     * [105347] ``kato patch install`` attempts to repeatedly update other nodes
     * [105298] Kato emits "error getting sizes" message every 10 seconds
     * [105260] Installed patch status lost 
-
+    * [105014] Fixed recursion in  ``kato patch update``
+    * [104860] ``kato patch install`` on non-existant patch should return proper error message
+    * [104458] ``kato data import/export`` unauthorized service offering error
+    * [104893] Inconsistent kato command ``kato data repair_routes``
+    * [104785] ``kato relocate containers`` doesn't maintain all DOCKER_OPTS
+    * [104621] ``kato relocate`` failure: error trying to unmount an aufs docker node
+    * [104133] ``kato relocate`` does not work if data is on different device
+    * [103770] 'kato node reset factory' fails with error
 
 
   * Docker & Fence
@@ -88,8 +103,10 @@ v3.4.2 (Dec 4, 2014)
     * [105690] Upgrade fails on client due to incorrect versions
     * [105689] ``sentinel download --for-upgrade`` should download intermediate versions 
     * [104982] Failing with exception during mysql upgrade
-    * [104842] Unable to delete app after upgrade from 3.2.1 -> 3.4.1 
-
+    * [104842] Unable to delete app after upgrade from 3.2.1 -> 3.4.1
+    * [104996, 104993] Log drains stop working after upgrade
+    * [104554] Duplicate key value on first ``kato op remap_hosts`` after data import
+    * [104499] 3.2.1->3.4.1 upgrade fails with NoMethodError
 
   * Security
 
@@ -100,7 +117,7 @@ v3.4.2 (Dec 4, 2014)
   
   * Misc:
   
-    * [105068] Fixed DEA lockup
+    * [105068] DEA lockup
     * [105514] Missing */usr/share/doc* directory restored
     * [105513] run_fibered_command: Don't create /dev/fd if it already exists.
     * [104272] Staging and pre-running hooks abort if they return a non-zero exit code (as in v2.10).
@@ -117,9 +134,48 @@ v3.4.2 (Dec 4, 2014)
     * [105365] Make all periodic-timer intervals configurable and responsive
     * [105372] Stackato-tty crashes if VM window confines text rendering
     * [105339] Prevent use of routes already deployed in different Org or Space 
-    * [105335] Fixed problem with file view when using a load balancer (407 error)
-    * [105333] Fixed Cloud Controller memory leak
+    * [105335] Problem with file view when using a load balancer (407 error)
+    * [105333] Cloud Controller memory leak
     * [105246] Can't delete migrated (3.2 to 3.4) applications
+    * [105148] Updated cf-services-connector-nodejs to match current service API
+    * [105110] Fixed rack support in Legacy Buildpack
+    * [105066] Run app/.profile.d scripts being run with bash instead of dash
+    * [105049] Updated recommendation for minimum disk size (30GB)
+    * [104972] CSS delayed visibility in customized web console
+    * [104963] Org/Space Customization does not work when a non-default quota is specified
+    * [104898] Setting up Postgres external service changes internal Postgres password
+
+    * [104882] Exceptions are getting wrapped up in unhelpful "An unknown error occurred" exceptions
+    * [104817] hastebin app: use filesystem service for storage instead of redis
+    * [104807] apptail configuration problems showing in Cloud Events of upgraded systems
+    * [104796] Application view button on spaces Apps view doesn't work
+    * [104794] PostgreSQL external service - error after kato restart postgresql
+    * [104787] Can't deploy to api.paas.as.com - "Cannot allocate memory - unzip -l"
+    * [104782] stackato report support help in console has incorrect syntax
+    * [104757] Upgrades - exit out of an upgrade as early as possible if all nodes are already on the latest version of Stackato
+    * [104728] Two apps can communicate only under limited circumstances
+    * [104702] uninitialized constant VCAP::CloudController::App::InvalidRouteRelation
+    * [104694] Staging cannot find admin_buildpacks directories on sandbox
+    * [104692] Legacy import sometimes creates routes with a leading '.'
+    * [104689] Disk usage after upgrade increases by ~5GB
+    * [104680] Changes in app_bits_controller.rb lost in 2014-05 merge
+    * [104664] AWS upgrade from 3.2.1 fails at Buildpack phase
+    * [104635] Hardcoded strings in license settings view
+    * [104627] Endless redirect loop in console when enforcing https on the api endpoint
+    * [104605] cannot delete apps whose services got disabled
+    * [104592] Deleting one user from a space deletes every user from that space
+    * [104570] Applications > Versions: If app has never been started, there is nothing on the versions page
+    * [104561] Imported Java applications don't auto-configure for rabbitmq
+    * [104421] Retry different route if default route is unavailable during legacy import
+    * [104358] %age calculations in bar usage graphs (e.g. DEA, AZ, PZ memory graphs) incorrect
+    * [104077] App store app 'calipso' doesn't deploy
+    * [103994] Push version info into the timeline
+    * [103390] Inconsistent prefixes in app logs
+    * [104672] Appstore urls don't get rewritten during upgrade from 3.2 that was previously upgraded from 3.0
+    * [104560] nats-pub and nats-sub missing
+    * [104470] Quota Definitions -> Quota Plans (CF terminology change)
+    * [104487] Default space for ldap users should be generated based on user's email/login creds
+    * [104396] "git clone" hangs in proxy environment
 
 
   * Stackato CLI client updated to 3.2.0:
