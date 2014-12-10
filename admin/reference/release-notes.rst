@@ -23,13 +23,12 @@ v3.4.2 (Dec 17, 2014)
 * New Features
 
   * [103548] Apps can now be moved between Spaces (by Org Managers) and Orgs (by Admins).
-  * [105318] Options for ``kato data export`` for exporting just the Cloud Controller main database (users, orgs, spaces).
   * Management Console UI for:
 
     * [102890] Quota management
     * User Provided Service Instances
     * Routes within a Space
-    * all Routes in the system (Admin view)
+    * All Routes (Admin view)
     * Space Quota Plans
     * Feature Flags
     * Toggling Admin/Non-admin view
@@ -64,6 +63,7 @@ v3.4.2 (Dec 17, 2014)
 
   * Kato
     
+    * [105318] Options for ``kato data export`` for exporting just the Cloud Controller main database (users, orgs, spaces).
     * [98559] ``kato status`` now faster. Contacts all nodes concurrently.
     * [105286] ``kato patch`` checks that it is up-to-date before applying patches.
     * [105467] ``kato start controller`` needs to check for multiple controllers
