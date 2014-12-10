@@ -17,14 +17,13 @@ Release Notes
   See `release-notes.rst` in git for the up-to-date version of this file.
         `<https://github.com/ActiveState/stackato-doc>`_
 
-v3.4.2 (Dec 9, 2014)
---------------------
+v3.4.2 (Dec 17, 2014)
+---------------------
 
 * New Features
 
   * [103548] Apps can now be moved between Spaces (by Org Managers) and Orgs (by Admins).
   * [105318] Options for ``kato data export`` for exporting just the Cloud Controller main database (users, orgs, spaces).
-  * [105548] Offline in-place upgrades: Stackato clusters can now be upgraded in place without direct access to the internet.
   * Management Console UI for:
 
     * [102890] Quota management
@@ -35,7 +34,7 @@ v3.4.2 (Dec 9, 2014)
     * Feature Flags
     * Toggling Admin/Non-admin view
 
-    
+
 * Enhancements & Updates
 
   * [104831] Merge from upstream Cloud Foundry (August 2014)
@@ -43,8 +42,6 @@ v3.4.2 (Dec 9, 2014)
   * [104659] Logyard stream is now brandable
   * [105465] Updated Node.js to v0.10.33 
   * [105411] Update Docker to 1.3
-  * [105307] `ActiveState/logyard <https://github.com/ActiveState/stackato-go>`__ open-sourced along with `ActiveState/stackato-go <https://github.com/ActiveState/stackato-go>`__
-  * [104172] `ActiveState/aok <https://github.com/activestate/aok>`__ authentication module open-sourced
 
 
 * Bug Fixes
@@ -64,7 +61,6 @@ v3.4.2 (Dec 9, 2014)
     * [104809] Server date/time warning
     * [104028] Add "install app from app store" to the space page
     * [104703] Unexpected results from clicking on domain rows
- 
 
   * Kato
     
@@ -82,7 +78,6 @@ v3.4.2 (Dec 9, 2014)
     * [104621] ``kato relocate`` failure: error trying to unmount an aufs docker node
     * [104133] ``kato relocate`` does not work if data is on different device
     * [103770] 'kato node reset factory' fails with error
-
 
   * Docker & Fence
 
@@ -114,7 +109,6 @@ v3.4.2 (Dec 9, 2014)
     * [105437] ``stackato-ssh`` breaks when SSLv3 disabled
     * [105161] 	CVE-2014-5119 glibc vulnerability that leads to escalation
 
-  
   * Misc:
   
     * [105068] DEA lockup
@@ -144,7 +138,6 @@ v3.4.2 (Dec 9, 2014)
     * [104972] CSS delayed visibility in customized web console
     * [104963] Org/Space Customization does not work when a non-default quota is specified
     * [104898] Setting up Postgres external service changes internal Postgres password
-
     * [104882] Exceptions are getting wrapped up in unhelpful "An unknown error occurred" exceptions
     * [104817] hastebin app: use filesystem service for storage instead of redis
     * [104807] apptail configuration problems showing in Cloud Events of upgraded systems
