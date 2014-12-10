@@ -1053,15 +1053,9 @@ Command Usage Details
   Upgrade the Stackato install to the latest available version, preserving
   deployed applications, config, services, and other state.
   
-  Will operate on current node by default; upgrade can be done for the
-  entire cluster at once (with --cluster) or for a specific node (with
-  --node).
-
   **-h** **--help**                       Show help information
 
   **-j** **--json**                       Shows the status in json format.
-
-  **-n** **--node** *<node>*              Targets the provided node.
 
   **-u** **--update-kato**                Updates kato node upgrade to the latest codebase.
 
