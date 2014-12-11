@@ -5,8 +5,22 @@
 PHP
 ===
 
-PHP applications are supported through Apache and mod_php, and require very little configuration
-to deploy.  
+PHP applications are supported in the :ref:`Legacy Buildpack
+<buildpacks-legacy>` using Apache and mod_php, and require very little
+configuration to deploy. 
+
+Alternative buildpacks specifically for PHP are also available:
+
+* `cloudfoundry/php-buildpack <https://github.com/cloudfoundry/php-buildpack>`__
+* `heroku/heroku-buildpack-php <https://github.com/heroku/heroku-buildpack-php>`__
+
+To use one of these, specify the buildpack URL in the ``buildpack:``
+value in your *manifest.yml* file, or using the ``--buildpack`` CLI
+option. 
+
+The steps below describe deployment using the Legacy Buildpack, though
+the instructions on parsing environment variables for :ref:`data service
+credentials <php-data-services>` are applicable to any PHP application.
 
 Deployment
 ----------

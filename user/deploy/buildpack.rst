@@ -35,7 +35,6 @@ For convenience a number of buildpacks are bundled with Stackato:
 * `Clojure <https://github.com/ActiveState/heroku-buildpack-clojure/tree/v2014.10.14>`__
 * `Scala <https://github.com/heroku/heroku-buildpack-scala/tree/v42>`__
 * `Perl <https://github.com/ActiveState/stackato-buildpack-perl/tree/v1.0.0>`__
-* `PHP <https://github.com/ActiveState/php-buildpack/tree/v1.0.2>`__
 
 Stackato will cycle through the ``detect`` scripts of the built-in
 buildpacks prior to staging to match the code you are pushing. For most
