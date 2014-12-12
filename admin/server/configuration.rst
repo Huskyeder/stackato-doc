@@ -647,12 +647,19 @@ added using the SNI method described further below.
 Replacing the Default SSL Cert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-On all router nodes, upload your *.key* file to the */etc/ssl/private/*
-directory and your *.crt* file to */etc/ssl/certs/*. Change the following
-settings with ``kato config`` to point to the new files::
+On all router and controller nodes, upload your *.key* file to the
+*/etc/ssl/private/* directory and your *.crt* file to */etc/ssl/certs/*.
+Change the following settings with ``kato config`` to point to the new
+files::
 
   $ kato config set router2g ssl/key_file_path '/etc/ssl/private/example.key'
   $ kato config set router2g ssl/cert_file_path '/etc/ssl/certs/example.crt'
+
+If you are using a signed certificate and wish to enable strict SSL
+checking on the internal REST interface (used for communication between
+the web console and controller), run the following additional command::
+
+  $ kato config set stackato_rest ssl/strict_ssl true
 
 .. _server-config-sni-support:
 
