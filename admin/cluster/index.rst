@@ -139,8 +139,10 @@ On the Core node, execute the following command:
 
 	$ kato node setup core api.\ *hostname.example.com*
 
-This sets up the Core node with just the implicit **controller**, **primary**, and
-**router** roles.
+This sets up the Core node with just the implicit **controller**,
+**primary**, and **router** roles. The **router** role is required on
+this node even if there are other routers in the cluster and the node is
+not exposed to the internet. 
 
 If you intend to set up the rest of the cluster immediately, you would
 carry on to enable those roles you ultimately intend to run on the Core
@@ -183,16 +185,17 @@ types.
 Router Nodes
 ^^^^^^^^^^^^
 
-In smaller clusters, the Router role can be run on the Core Node. To run
-its own on a separate node:
+In smaller clusters, the Router enabled with the Core node should be
+sufficient, and the Core node can function as the gateway. To attach a
+node enabling just the router role:
 
 .. parsed-literal::
 
  	$ kato node attach -e router *CORE_IP*
 
-Note that the public DNS entry for the Stackato cluster's API endpoint
-must resolve to the Router if it is separate from the Core Node. For
-clusters requiring multiple Routers, see the :ref:`Load Balancer and
+If a Router-only node is the gateway to Stackato, the public DNS entry
+for the API endpoint must point to that node. For larger clusters
+requiring multiple gateway Routers, see the :ref:`Load Balancer and
 Multiple Routers <cluster-load-balancer>` section below.
 
 .. _server-cluster-data-services:
@@ -458,10 +461,15 @@ For example:
 
 	$ kato start controller
 
+
 * Run the following command on the additional Controller nodes to enable
   *only* the controller process::
 
  	$ kato node attach -e controller *CORE_IP*
+
+  .. note::
+    Though the **router** role must be enabled on the Core node, it is
+    not require for the additional Controller nodes.
 
 .. [1]	The type of filesystem, storage server, and network mount method are
   left to the discretion of the administrator. When using ``sshfs``

@@ -40,8 +40,9 @@ This role cannot be disabled on any node.
 Primary
 ^^^^^^^
 
-The Primary role is a mandatory part of a Core node (or micro cloud) and runs a
-number of critical system processes, including the Health Manager.
+The Primary role is a mandatory part of a Core node (or micro cloud) and
+runs a number of critical system processes, including the Cloud
+Controller, Health Manager, and a Router.
 
 .. _architecture-health-manager:
 
@@ -51,6 +52,11 @@ the Cloud Controller and must be run on the same VM.
 
 In a cluster setup, all nodes performing other roles are attached to the MBUS IP
 of the Core node. Every cluster must include exactly one Primary role.
+
+.. note::
+  The Router role must be run along with the Primary even if there are
+  other Routers in the cluster and the node is not exposed to the
+  internet. 
 
 .. index:: Controller
 
