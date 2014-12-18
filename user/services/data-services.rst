@@ -292,19 +292,33 @@ for compatibility with Cloud Foundry.
 Using External Databases
 ------------------------
 
-Applications running in Stackato can use external databases by
-hard-coding the host and credentials, or by specifying the them in a
-custom environment variable.
+Applications running in Stackato can use external databases by:
+
+* hard-coding the host and credentials in the code (not recommended),
+* setting a URL or credential array in an :ref:`environment variable
+  <stackato_yml-env>`, and/or
+* setting the connection details in a :ref:`User-Provided Service
+  Instance <user-provided>`
+
+Container security in Stackato prevents apps from connecting to
+arbitrary servers and ports on the local subnet for security reasons. To
+allow your application to connect to a database server you must either:
+
+* create up a :ref:`User Provided Service Instance <user-provided>` with
+  a ``host`` and ``port`` value for the database server
+* ask a Stackato admin to :ref:`add the IP address of the database
+  server <ports-hosts-allowed>` to the list of allowed hosts.
+
 
 .. _migrating-db-connections:
 
 Hard-coded Database Connections
 -------------------------------
 
-Applications which write database connection details during staging
-rather than taking them from environment variables at run time, must be
-re-staged (e.g. redeployed or updated) to pick up the new service
-location and credentials. Restarting the application will not
+Applications which write database connection details **during staging**
+(not recommended) rather than taking them from environment variables at
+run time, must be :ref:`restaged <command-restage>` to pick up the new
+service location and credentials. Restarting the application will not
 automatically force restaging.
 
 .. _database-accessing-services:
