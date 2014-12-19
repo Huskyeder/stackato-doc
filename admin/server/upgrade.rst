@@ -61,6 +61,15 @@ Management Console becomes "read only" with the exception of this toggle
 (to bring it back online). Remember to disable maintenance mode once the
 upgrade completes.
 
+Backups or Snapshots
+^^^^^^^^^^^^^^^^^^^^
+
+Backup all system and user data in Stackato by performing a :ref:`data
+export <bestpractices-migration-export>` (recommended) or create
+snapshots of all nodes in your hypervisor (see :ref:`snapshot caveats
+<bestpractices-snapshots>`)
+
+
 .. _upgrade-proxy-settings:
 
 Proxy Settings for Upgrades
