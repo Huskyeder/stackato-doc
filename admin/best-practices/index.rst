@@ -382,6 +382,37 @@ hostname of the old Core node::
 
     $ kato data import --cluster stackato-host.example.com
 
+.. index:: Snapshots
+
+.. _bestpractices-snapshots:
+
+Snapshots
+---------
+
+Snapshots can be an effective way to save the state of a running virtual
+machine for backup, but caution is required when taking snapshots of a
+multi-node Stackato cluster. 
+
+Stackato's system state is highly interdependent on all nodes in the
+cluster. A snapshot rollback of multiple nodes which is not perfectly in
+sync may not return the cluster to a fully functional state. For example,
+a service node restored from a snapshot may be missing database
+instances which the Cloud Controller has created. Applications bound to
+existing services may be missing records.
+
+If snapshots are a part of your backup or disaster recovery strategy,
+the following techniques can minimize potential problems:
+
+* snapshot VMs in a stopped state during scheduled maintenance (if possible)
+* run ``kato stop`` on all roles prior to snapshotting (if possible)
+* put Stackato in :ref:`Maintenance Mode <console-settings-maintenance-mode>`
+* snapshot all nodes simultaneously
+
+Snapshots of a single-node Stackato micro cloud will restore without
+synchronization problems, as all system state is contained in a single
+VM.
+
+
 .. _bestpractices-upgrade:
 
 Upgrading (v3.0 and later)
