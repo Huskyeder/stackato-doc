@@ -39,9 +39,9 @@ The command line tool used to configure Stackato servers is called
 roles at the command line by running the :ref:`kato info
 <kato-command-ref-info>` command.
 
-Setup of cluster nodes is done using the :ref:`kato node
-<kato-command-ref-node-attach>` setup, add, attach, and remove
-sub-commands.
+Setup of cluster nodes is done using the :ref:`kato node setup core
+<kato-command-ref-node-setup-core>` and :ref:`kato node attach
+<kato-command-ref-node-attach>` sub-commands.
 
 The :ref:`kato info <kato-command-ref-info>` command will show:
 
