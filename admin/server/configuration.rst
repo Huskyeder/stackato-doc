@@ -508,7 +508,7 @@ upstream_proxy ...`` command on all DEA nodes to configure it::
 
 	$ kato op upstream_proxy set 192.168.0.99:3128
 	
-Then restart Polipo::
+Then restart Polipo on each DEA::
 
 	$ sudo /etc/init.d/polipo restart
   
