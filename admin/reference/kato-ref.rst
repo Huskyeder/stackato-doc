@@ -55,6 +55,8 @@ Commands
 
   * :ref:`node placementzones <kato-command-ref-node-placementzones-add>`
 
+  * :ref:`node reattach <kato-command-ref-node-reattach>`
+
   * :ref:`node remove <kato-command-ref-node-remove>`
 
   * :ref:`node rename <kato-command-ref-node-rename>`
@@ -879,6 +881,19 @@ Command Usage Details
 ----
 
 
+.. _kato-command-ref-node-reattach:
+
+**node** **reattach** [**options**] *<core-ip>*
+
+  Run this when the core node's IP changes.
+
+  **-h** **--help**                       Show help information
+
+
+
+----
+
+
 .. _kato-command-ref-node-remove:
 
 **node** **remove** [**--skip-detach**] *<node-IP>...*
@@ -1053,9 +1068,15 @@ Command Usage Details
   Upgrade the Stackato install to the latest available version, preserving
   deployed applications, config, services, and other state.
   
+  Will operate on current node by default; upgrade can be done for the
+  entire cluster at once (with --cluster) or for a specific node (with
+  --node).
+
   **-h** **--help**                       Show help information
 
   **-j** **--json**                       Shows the status in json format.
+
+  **-n** **--node** *<node>*              Targets the provided node.
 
   **-u** **--update-kato**                Updates kato node upgrade to the latest codebase.
 
@@ -1545,6 +1566,8 @@ Command Usage Details
 **restart** **--help**
 
   Restart Stackato or individual roles.
+
+  **-h** **--help**                       Show help information
 
   **-n** **--node** *<node-IP>*           Restart a specific cluster node
 
