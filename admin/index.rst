@@ -63,6 +63,7 @@ Server Configuration
    server/logging
    server/aok
    server/upgrade
+   server/oem-branding
 
 
 Cluster Configuration

@@ -298,6 +298,8 @@ Applications
   record is not being resolved to the Stackato system.
 
 
+.. _console-settings-console:
+
 Console
 ^^^^^^^
 
