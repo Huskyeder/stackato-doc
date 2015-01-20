@@ -36,8 +36,9 @@ The Stackato CLI client version number and the paths or URLs to the
 downloadable archives for each platform.
 
 Local paths are relative to the */home/stackato/stackato/* directory
-(Router node, see :ref:`Renaming the Client <customize-rename-client>`
-below), but HTTP URLs can also be used for externally hosted files. 
+(Router node, see :ref:`Renaming the Client
+<oem-customize-rename-client>`), but HTTP URLs can also be used for
+externally hosted files. 
 
 The client executables served from the VM are the latest version
 available at the time of the Stackato VM release, but updated clients
