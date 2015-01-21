@@ -156,6 +156,14 @@ You may also wish to adjust other keys. Use ``kato config get ...`` to
 check the default values, and contact ActiveState support if you have
 any questions about changing particular settings. 
 
+.. _oem-customize-vm-motd:
+
+Message of the Day
+------------------
+
+The motd is updated at restart from /etc/update-motd.d/00-header, you may edit
+that file if you wish to have a custom motd presented on SSH login.
+
 .. _oem-customize-vm-renaming:
 
 VM Renaming
