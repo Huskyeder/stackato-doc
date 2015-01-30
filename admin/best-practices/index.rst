@@ -101,21 +101,37 @@ becomes available in the Ubuntu repositories.
 Upgrade the Stackato VM
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Run the following command on all cluster nodes, one node at a time::
+For production systems, Ubuntu's `unattended-upgrades
+<http://manpages.ubuntu.com/manpages/lucid/man8/unattended-upgrade.8.html>`__
+package should be configured to apply security updates automatically.
+To enable this::
 
+  $ sudo dpkg-reconfigure -plow unattended-upgrades
+
+By default, this will upgrade packages only from the ``security``
+origin, which are safe to apply to Stackato VMs. See Ubuntu's `Using the
+"unattended-upgrades" package
+<https://help.ubuntu.com/community/AutomaticSecurityUpdates#Using_the_.22unattended-upgrades.22_package>`__
+documentation for detailed instructions.
+
+Some security upgrades (e.g. kernel patches) will require a reboot
+before they take effect. Reboot cluster nodes *manually* during
+scheduled Stackato cluster maintenance. Enabling the
+``Unattended-Upgrade::Automatic-Reboot`` option is not recommended. 
+
+To apply security upgrades manually, run the following commands on all
+cluster nodes, one node at a time::
+
+  $ sudo apt-get update 
   $ sudo unattended-upgrades -d
 
 If you are using a proxy you may need to export http_proxy and https_proxy
 environment variables. For example::
 
   $ sudo sh -c "http_proxy=http://myproxy.example.com:3128 \
-  https_proxy=http://myproxy.example.com:3128 unattended-upgrades -d"
+  https_proxy=http://myproxy.example.com:3128 apt-get update && unattended-upgrades -d"
 
-This will run the `unattended-upgrades
-<http://manpages.ubuntu.com/manpages/lucid/man8/unattended-upgrade.8.html>`__
-script to install all upgrades from the "-security" stream.
-
-Each node should be rebooted after ``unattended-upgrades`` completes to
+Each node should be rebooted after ``unattended-upgrades -d`` completes to
 ensure new kernels, modules, and libraries are loaded.
 
 .. _bestpractices-ubuntu-upgrade-docker:
