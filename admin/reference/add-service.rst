@@ -116,7 +116,7 @@ By default, service plans are created as private (the "P" in the
 leftmost column above). To make the plan available to your Organization,
 run the following command::
 
-  $ stackato update-service-plan --public echoservice
+  $ stackato update-service-plan --vendor echoservice --public default
 
 
 .. _oracle-db:
