@@ -65,6 +65,10 @@ blockquote {
     margin-left: 20px;
 }
 
+.alert a {
+    text-decoration: underline
+} 
+
 .alert-info {
     background-image: linear-gradient(to bottom, #EDFFFD 0px, #E0FAF8 100%);
     background-repeat: repeat-x;
