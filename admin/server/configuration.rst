@@ -388,8 +388,8 @@ Firewalls and load balancers may require corresponding adjustments.
   provider, assign a fixed IP address using the platform's tools (e.g.
   Elastic IP on Amazon EC2 or Floating IP on OpenStack).
 
-With DNS records in place, the multicast DNS broadcast is no longer necessary.
-To turn it off on the Stackato server, use the command::
+With DNS records in place, the multicast DNS broadcast is no longer
+necessary. To turn it off on the Stackato server, use the command::
 	
 	$ kato role remove mdns
 
@@ -449,6 +449,12 @@ Stackato settings. The xip.io DNS servers will resolve the domain
 '10.9.8.7.xip.io' and all sub-domains to '10.9.8.7'. This works for
 private subnets as well as public IP addresses.
 
+.. note::
+  If your nameservers filter `private IP addresses
+  <https://en.wikipedia.org/wiki/IP_address#Private_addresses>`_ from
+  DNS responses to protect against `DNS rebinding
+  <https://en.wikipedia.org/wiki/DNS_rebinding>`_, ``*.xip.io``
+  addresses, and other domains that use this method, will not work.
 
 .. index:: dnsmasq
 
