@@ -60,16 +60,19 @@ command on any Stackato VM::
   
 The command will list the updates available. For example::
 
-  2 updates available to be installed.
+  2 updates are available for 3.4.2.
   
-  Known updates for Stackato 2.10.4:
-    dea-memory-usage-reporting: Fix the reporting of stackato stats usage on the DEA end.
-      severity: required
-      roles affected: dea
+      aok-endpoint-fix: Correct aok endpoint redirecting to custom uri
+          patch id:           1
+          roles affected:     router, controller
+          installed on:       none
+          to be installed on: 127.0.0.1
   
-    vsphere-autoscaling-fix: Fix VSphere autoscaling behavior.
-      severity: required
-      roles affected: controller, primary
+      logs-endpoint-fix: Allow custom logs endpoint
+          patch id:           2
+          roles affected:     controller
+          installed on:       none
+          to be installed on: 127.0.0.1
 
 To apply all patches to all relevant cluster nodes::
 
