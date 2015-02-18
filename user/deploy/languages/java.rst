@@ -285,16 +285,13 @@ And in your JavaEE code::
     @PersistenceContext(unitName = "persistence-service-1")
     private EntityManager em;
 
-Examples
-~~~~~~~~
+Example
+~~~~~~~
 
-The `hello-jee-mysql <https://github.com/Stackato-Apps/hello-jee-mysql>`_
+The `pet-catalog <https://github.com/Stackato-Apps/pet-catalog>`_
 sample demonstrates a JavaEE 6 application with a MySQL service running
 with Apache TomEE.
 
-The `kitchensink-ear
-<https://github.com/Stackato-Apps/kitchensink-ear>`_ sample also uses a
-MySQL service, but uses the JBoss server instead of TomEE.
 
 .. _java-home:
 
