@@ -510,7 +510,7 @@ execute the dbexport tool:
 
 .. parsed-literal::
 
-  $ stackato run [*application-name*] dbexport *service-name* > dumpfile.sql
+  $ stackato run -a [*application-name*] dbexport *service-name* > dumpfile.sql
 
 This will run a ``dbexport`` of the named data service remotely and
 direct the output to a local file. If run from a directory containing
