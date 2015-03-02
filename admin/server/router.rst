@@ -88,11 +88,11 @@ The Router is configured using :ref:`kato config
   example to set up the endpoint "api.mydomain.com" on a system that is
   configured by default as "api.example.com"::
   
-    $ kato config push router2g cluster_endpoint_aliases mydomain.com
+    $ kato config push router2g cluster_endpoint_aliases api.mydomain.com
     
   To remove the alias::
   
-    $ kato config pop router2g cluster_endpoint_aliases mydomain.com
+    $ kato config pop router2g cluster_endpoint_aliases api.mydomain.com
     
   When used in conjunction with the ``appOnlyRouter`` setting on
   other router nodes, this can be used to create an API Endpoint
