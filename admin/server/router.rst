@@ -84,19 +84,9 @@ The Router is configured using :ref:`kato config
   
 .. _router-cluster-endpoint-aliases:  
 
-* **cluster_endpoint_aliases**: Add aliases for the API Endpoint. For
-  example to set up the endpoint "api.mydomain.com" on a system that is
-  configured by default as "api.example.com"::
-  
-    $ kato config push router2g cluster_endpoint_aliases api.mydomain.com
-    
-  To remove the alias::
-  
-    $ kato config pop router2g cluster_endpoint_aliases api.mydomain.com
-    
-  When used in conjunction with the ``appOnlyRouter`` setting on
-  other router nodes, this can be used to create an API Endpoint
-  which is only resolvable/accessible on an internal network.
+* **cluster_endpoint_aliases**: Add aliases for the API Endpoint. See
+  the :ref:`API Endpoint Alias <server-config-api-endpoint-alias>`
+  section for an example.
 
 .. index:: appOnlyRouter
 

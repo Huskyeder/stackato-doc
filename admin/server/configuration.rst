@@ -788,6 +788,45 @@ messages. The certificate will need to be added to the browser
 exception rules, which you will be prompted to do so when visiting
 one of your apps via HTTPS for the first time.
 
+.. _server-config-alternative-endpoints:
+
+Alternative Log and API Endpoints
+---------------------------------
+
+You can deploy Stackato with API and log endpoints on a different domain
+from the deployed applications. For example, you might want to have the
+API endpoint on a domain which is only resolvable within the corporate
+network, limiting API access to the system and hiding the use of
+Stackato from application end users.
+
+.. _server-config-api-endpoint-alias:
+
+API Endpoint Alias
+^^^^^^^^^^^^^^^^^^
+
+To set up the endpoint "api.mydomain.com" on a system that is configured
+by default as "api.example.com"::
+  
+  $ kato config push router2g cluster_endpoint_aliases api.mydomain.com
+    
+To remove the alias::
+  
+  $ kato config pop router2g cluster_endpoint_aliases api.mydomain.com
+    
+Use this in conjunction with the :ref:`appOnlyRouter
+<router-app-only-router>` setting on external router nodes to block
+access to the default API endpoint. 
+
+.. _server-config-log-endpoint-alias:
+
+Logs Endpoint Alias
+^^^^^^^^^^^^^^^^^^^
+
+To move the default ``logs.`` endpoint set the ``applog_endpoint:
+hostname`` key in ``kato config``::
+
+  $ kato config set applog_endpoint hostname logs.mydomain.com
+
 
 .. _server-config-quota-definitions:
 
