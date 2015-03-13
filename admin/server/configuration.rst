@@ -510,7 +510,7 @@ Proxy Settings
 
 If your network has an upstream HTTP proxy that needs to be traversed in
 order for Stackato to access the internet, use the ``kato op
-upstream_proxy ...`` command on all DEA nodes to configure it::
+upstream_proxy ...`` command **on all DEA nodes** to configure it::
 
 	$ kato op upstream_proxy set 192.168.0.99:3128
 	
