@@ -495,77 +495,59 @@ With those changes, the data from your script will be executed after the staging
 complete but before the app starts to run.
 
 
-.. _bestpractices-backing-up-mysql:
+.. _bestpractices-backing-up-sql:
 
-.. index:: MySQL Backup
+.. index:: MySQL Instance Backup
+.. index:: PostgreSQL Instance Backup
 
-Backing up a MySQL database
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Backing up PostgreSQL and MySQL Databases
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Using stackato run
-~~~~~~~~~~~~~~~~~~
+MySQL and PostgreSQL databases running in Stackato can be exported into
+their respective dump file formats. The simplest way to do this is with
+the ``dbexport`` utility available in Stackato application containers.
 
-To export a MySQL database, use the ``stackato run`` command to remotely
-execute the dbexport tool:
+To export one of these databases, use the ``stackato run`` command to
+remotely execute ``dbexport`` tool:
 
 .. parsed-literal::
 
   $ stackato run -a [*application-name*] dbexport *service-name* > dumpfile.sql
 
-This will run a ``dbexport`` of the named data service remotely and
-direct the output to a local file. If run from a directory containing
-the stackato.yml file, the application name may be omitted.
+This will run a ``dbexport`` on the named data service and direct the
+output to a local file. If run from a directory containing the
+stackato.yml file, the application name may be omitted.
 
-Using stackato tunnel
-~~~~~~~~~~~~~~~~~~~~~
+.. _bestpractices-backing-up-mongodb:
 
-.. note::
-  This method of database backup is available for compatibility with Cloud
-  Foundry. It tends to be slower than using ``stackato run ...``.
+Backing up MongoDB Databases
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To back up a MySQL database, use the :ref:`tunnel <database-tunnel>`
-command to make a connection to the server and export the data using
-``mysqldump``.
+MongoDB databases running in Stackato can be exported using the
+``mongodump`` utility in a bound application container, but the database
+credentials must be provided manually. To get the credentials::
 
-Use the ``tunnel`` command to access the service (in this example a MySQL database named ``customerdb``)::
+  $ stackato service *service-name*
 
-	$ stackato tunnel customerdb
-	
-	Password: ********
-	Getting tunnel url: OK, at https://tunnel-xxxxx.stackato-xxxx.local
-	Getting tunnel connection info: OK
-	
-	Service connection info: 
-	+----------+-----------------------------------+
-	| Key      | Value                             |
-	+----------+-----------------------------------+
-	| username | uT9efVVFCk                        |
-	| password | pHFitpIU1z                        |
-	| name     | d5eb2468f70ef4997b1514da1972      |
-	+----------+-----------------------------------+
-	
-	1. none     
-	2. mysql    
-	3. mysqldump
-	Which client would you like to start?
+Use the username, password, name, host, and port values to run ``mongodump``::
 
-Select option **3. mysqldump**.  You will be prompted to enter a path to where the dump will be saved.
+  $ stackato run -a *app* mongodump -h *host* --port *port* -u *username* -p *password* --db *name*
 
-See the :ref:`tunnel <database-tunnel>` command documentation for other ways of accessing a MySQL
-database.  See :ref:`Importing a MySQL database <bestpractices-importing-mysql>` for details on
-importing a file created by mysqldump into an existing MySQL database service.
+This command creates a *dump* directory in the application container
+which can then be compressed and downloaded::
 
-.. _bestpractices-importing-mysql:
+  $ stackato run -a *app* tar cvf dump.tgz dump/db
+  $ stackato scp -a <appname> :dump.tgz . 
 
-.. index:: MySQL Import
+.. _bestpractices-importing-sql:
 
-Importing a MySQL database
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. index:: SQL Database Import
 
-Using stackato run
-~~~~~~~~~~~~~~~~~~
+Importing an SQL database
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To import a MySQL database, use the ``stackato dbshell`` command:
+Database dump files for MySQL, PostgreSQL, and MongoDB can be imported
+with the ``stackato dbshell`` command.
 
 .. parsed-literal::
 
@@ -577,6 +559,13 @@ equivalent to ``stackato run dbshell ...``). If run from a directory
 containing the *stackato.yml* file, the application and service names
 may be omitted.
 
+.. note::
+  The PostgreSQL database dump will contain some records that cannot be
+  imported into the new database instance, causing errors such as
+  ``ERROR: role "uf44609668ffa4101b2945b7211a0de21" does not exist``
+  when the import is run. These can be safely ignored.
+
+
 Using stackato tunnel
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -584,7 +573,8 @@ Using stackato tunnel
   This method of database import is available for compatibility with Cloud
   Foundry. It tends to be slower than using ``stackato run ...``.
   
-To import data from a ``mysqldump`` into an existing MySQL database service, use the ``tunnel`` command::
+To import data from a MySQL or PostgreSQL dump file into an existing
+database service using the ``tunnel`` command::
 
 	$ stackato tunnel <servicename>
 	
@@ -606,16 +596,35 @@ To import data from a ``mysqldump`` into an existing MySQL database service, use
 	3. mysqldump
 	Which client would you like to start?
 
-Choose option **1. none** which will allow for command line access to the database.  A MySQL service
-is configured on Port 10000, so open a new Terminal window to enter commands with.
-
-Then, import an SQL file with the following command::
+Choose option **1. none** which will create a tunnel to port 10000 on
+localhost. The SQL dump file can then be imported using a local client.
+For example using ``mysql``::
 
 	$ mysql --protocol=TCP --host=localhost --port=10000 --user=<user> --password=<pass> <name> < mydatabase.sql
 
-See the :ref:`tunnel <database-tunnel>` command documentation for other ways of accessing a MySQL
-database.  See :ref:`Backing up a MySQL database <bestpractices-backing-up-mysql>` for details on
+See :ref:`Backing up a MySQL database <bestpractices-backing-up-sql>` for details on
 how to create a ``mysqldump`` backup that can then be imported into another database service.
+
+.. _bestpractices-importing-mongodb:
+
+.. index:: MongoDB Database Import
+
+Importing an MongoDB database
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To import the MongoDB archive created with the instructions above into a
+new MongoDB service instance, use ``mongorestore``. First upload the
+archive to an application container::
+
+  $ stackato scp -a *app* dump.tgz :
+
+Then use ``stackato run`` to extract the tarball and populate the
+database using the data service credentials from ``stackato service``::
+  
+  $ stackato run -a *app* tar xvf dump.tgz
+  ...
+  $ stackato run -a *app* mongorestore -h *host* --port *port* -u *username* -p *password* --db *name* dump/db/
+  ...
 
 .. index:: Database Version Changes
 
