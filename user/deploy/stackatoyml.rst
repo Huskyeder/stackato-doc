@@ -434,7 +434,7 @@ on the command line (eg. ``stackato push --disk 768M``).
 
 Example::
 	
-  mem: 3.5GB
+  disk: 3.5GB
   
 .. _stackato_yml-instances:
 
